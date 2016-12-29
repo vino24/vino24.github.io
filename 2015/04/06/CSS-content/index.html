@@ -1,0 +1,68 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content="web前端开发, 前端开发工程师, 前端开发攻城师, 前端资源, CSS, JavaScript, HTML, Web标准"><meta name="theme-color" content="#db5945"><title>CSS中的生成内容 | 逢十借一</title><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/normalize/4.2.0/normalize.min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/0.6.0/pure-min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/0.6.0/grids-responsive-min.css"><link rel="stylesheet" type="text/css" href="/css/style.css?v=0.0.0"><link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css"><script type="text/javascript" src="//cdn.bootcss.com/jquery/3.0.0/jquery.min.js"></script><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">CSS中的生成内容</h1><a id="logo" href="/.">逢十借一</a><p class="description">和自己赛跑的人</p></div><div id="nav-menu"><a href="/." class="current"><i class="fa fa-home"> 首页</i></a><a href="/archives/"><i class="fa fa-archive"> 归档</i></a><a href="/about/"><i class="fa fa-user"> 关于</i></a></div></div><div id="layout" class="pure-g"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">CSS中的生成内容</h1><div class="post-meta">Apr 6, 2015<span> | </span><span class="category"><a href="/categories/CSS/">CSS</a></span><script src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js" async></script><span id="busuanzi_container_page_pv"> | <span id="busuanzi_value_page_pv"></span><span> Hits</span></span></div><a data-thread-key="2015/04/06/CSS-content/" href="/2015/04/06/CSS-content/#comments" class="ds-thread-count"></a><div class="clear"><div id="toc" class="toc-article"><div class="toc-title">文章目录</div><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-定义"><span class="toc-number">1.</span> <span class="toc-text">1.定义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-插入生成内容"><span class="toc-number">2.</span> <span class="toc-text">2.插入生成内容</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-指定内容-content"><span class="toc-number">3.</span> <span class="toc-text">3.指定内容(content)</span></a></li></ol></div></div><div class="post-content"><script src="/assets/js/APlayer.min.js"> </script><h3 id="1-定义"><a href="#1-定义" class="headerlink" title="1.定义"></a>1.定义</h3><blockquote>
+<p>由浏览器创建的内容而不是由标志或内容来表示。典型例子：列表标志</p>
+</blockquote>
+<h3 id="2-插入生成内容"><a href="#2-插入生成内容" class="headerlink" title="2.插入生成内容"></a>2.插入生成内容</h3><ul>
+<li><p><strong>实例1：</strong>向超链接前面增加前缀文本<code>(link)</code>,以方便打印</p>
+<p>  <code>a[href]:before {content:&quot;(link) &quot;;}</code></p>
+</li>
+<li><strong>实例2：</strong>向指定的PDF文档的链接最后插入一个小图标,并为链接添加边框</li>
+</ul>
+<pre><code>&gt; 链接的边框会包围生成内容，因为生成内容放在元素框的内部。
+
+
+`a.pdf-doc:after{content:url(pdf-doc-icon.gif);}`
+
+`a.pdf-doc{border:1px solid gray;}`
+</code></pre><ul>
+<li><p><strong>实例3：</strong>生成内容的继承</p>
+<blockquote>
+<p>生成文本将呈现绿色</p>
+</blockquote>
+<pre><code>p{color:green;}
+p:before{content:&quot;:&quot;;}
+</code></pre></li>
+</ul>
+<h3 id="3-指定内容-content"><a href="#3-指定内容-content" class="headerlink" title="3.指定内容(content)"></a>3.指定内容(<code>content</code>)</h3><pre><code>取值： string | uri | counter(计数器) | attr | open-quote | close-quote | ···
+</code></pre><ul>
+<li><p><strong> <uri> </uri></strong></p>
+<figure class="highlight stylus"><table><tr><td class="code"><pre><div class="line"><span class="comment">// 插入图片</span></div><div class="line"><span class="selector-tag">p</span>:before &#123;</div><div class="line">  <span class="attribute">content</span>: url(<span class="string">"image.jpg"</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p><strong><code>string</code></strong></p>
+<blockquote>
+<p>字符串值会原样显示，即使包含特殊标记也不例外。例如需要换行无法直接使用<strong><code>&lt;br&gt;</code></strong>而要使用<strong><code>\A</code></strong>。(十六进制<code>Unicode</code>值)</p>
+</blockquote>
+</li>
+<li><p><strong><code>attr</code>(插入属性值)</strong></p>
+<ul>
+<li><strong>实例：</strong>将每个链接的<code>href</code>属性值直接放在链接的后面<br><code>a[href]:after {content:&quot; [&quot; attr(href) &quot;]&quot;; }</code></li>
+</ul>
+</li>
+<li><p><strong>生成引号:</strong> <a href="http://codepen.io/vino24/pen/doRBbN" target="_blank" rel="external">code</a></p>
+<blockquote>
+<p>直引号</p>
+</blockquote>
+<pre><code>quote {quotes:&apos;&quot;&apos; &apos;&quot;&apos;;}
+quote:before {content:open-quote; }
+quote:after { content:close-quote;}
+</code></pre><blockquote>
+<p>弯引号(打印中使用)</p>
+</blockquote>
+<pre><code>quote{quotes:&apos;\201C&apos; &apos;\201D&apos;; }
+</code></pre></li>
+</ul>
+</div><script type="text/javascript" src="/js/share.js?v=0.0.0" async></script><a data-url="http://vino24.cn/2015/04/06/CSS-content/" data-id="cixa9pokl000dearnu3nxt26t" class="article-share-link">分享到</a><div class="tags"><a href="/tags/CSS-Core/">CSS Core</a></div><div class="post-nav"><a href="/2015/04/15/web-worker/" class="pre">Web Worker</a><a href="/2015/04/05/inline-element/" class="next">CSS中的vertical-align属性</a></div><div data-thread-key="2015/04/06/CSS-content/" data-title="CSS中的生成内容" data-url="http://vino24.cn/2015/04/06/CSS-content/" class="ds-share flat"><div class="ds-share-inline"><ul class="ds-share-icons-16"><li data-toggle="ds-share-icons-more"><a href="javascript:void(0);" class="ds-more">分享到：</a></li><li><a href="javascript:void(0);" data-service="weibo" class="ds-weibo">微博</a></li><li><a href="javascript:void(0);" data-service="qzone" class="ds-qzone">QQ空间</a></li><li><a href="javascript:void(0);" data-service="qqt" class="ds-qqt">腾讯微博</a></li><li><a href="javascript:void(0);" data-service="wechat" class="ds-wechat">微信</a></li></ul><div class="ds-share-icons-more"></div></div></div><div data-thread-key="2015/04/06/CSS-content/" data-title="CSS中的生成内容" data-url="http://vino24.cn/2015/04/06/CSS-content/" data-author-key="1" class="ds-thread"></div></div></div></div><div class="pure-u-1-4 hidden_mid_and_down"><div id="sidebar"><div class="widget"><div class="search-form"><input id="local-search-input" placeholder="Search" type="text" name="q" results="0"/><div id="local-search-result"></div></div></div><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> 分类</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/CSS/">CSS</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/HTTP/">HTTP</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/IE/">IE</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript/">JavaScript</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript-API/">JavaScript API</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript-Framework/">JavaScript Framework</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Mobile-Develop/">Mobile Develop</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Performance-Optimize/">Performance Optimize</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Requirements-Daily/">Requirements&&Daily</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/devTools-Configuration/">devTools&&Configuration</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/切图/">切图</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/总结/">总结</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/随笔/">随笔</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> 标签</i></div><div class="tagcloud"><a href="/tags/Ajax/" style="font-size: 15px;">Ajax</a> <a href="/tags/CSS-Layout/" style="font-size: 15px;">CSS Layout</a> <a href="/tags/CSS-Core/" style="font-size: 15px;">CSS Core</a> <a href="/tags/CSS-Collection/" style="font-size: 15px;">CSS Collection</a> <a href="/tags/DOM/" style="font-size: 15px;">DOM</a> <a href="/tags/CSS-core/" style="font-size: 15px;">CSS core</a> <a href="/tags/ES6/" style="font-size: 15px;">ES6</a> <a href="/tags/JavaScript-Core/" style="font-size: 15px;">JavaScript Core</a> <a href="/tags/bind/" style="font-size: 15px;">bind</a> <a href="/tags/PS/" style="font-size: 15px;">PS</a> <a href="/tags/性能优化/" style="font-size: 15px;">性能优化</a> <a href="/tags/avalon-js/" style="font-size: 15px;">avalon.js</a> <a href="/tags/JavaScript-API/" style="font-size: 15px;">JavaScript API</a> <a href="/tags/Flex/" style="font-size: 15px;">Flex</a> <a href="/tags/内存泄漏/" style="font-size: 15px;">内存泄漏</a> <a href="/tags/Git/" style="font-size: 15px;">Git</a> <a href="/tags/git/" style="font-size: 15px;">git</a> <a href="/tags/Mac/" style="font-size: 15px;">Mac</a> <a href="/tags/Netease-Weekly/" style="font-size: 15px;">Netease Weekly</a> <a href="/tags/react-js/" style="font-size: 15px;">react.js</a> <a href="/tags/React/" style="font-size: 15px;">React</a> <a href="/tags/this/" style="font-size: 15px;">this</a> <a href="/tags/three-js/" style="font-size: 15px;">three.js</a> <a href="/tags/Vue/" style="font-size: 15px;">Vue</a> <a href="/tags/Tips/" style="font-size: 15px;">Tips</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> 最新文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/12/08/es6-spread-rest/">ES6 spread和rest operator</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/08/react-form/">react中的表单</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/06/github-tip/">github实用技巧</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/02/react-first/">react.js入门</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/28/avalon-first-md/">avalon.js入门</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/22/chrome-dev-tools-console/">Chrome Dev Tools使用技巧总结(一) Console</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/02/fetch-api/">Fetch API</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/01/hexo-basic/">hexo常用配置一览</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/31/wechat-music-serach-module-update/">微信点歌模块代码更新及hexo音乐插件</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/27/three.js-first/">three.js入门</a></li></ul></div><div class="widget"><div class="comments-title"><i class="fa fa-comment-o"> 最近评论</i></div><div data-num-items="5" data-show-avatars="0" data-show-time="1" data-show-admin="0" data-excerpt-length="32" data-show-title="1" class="ds-recent-comments"></div></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link"> 友情链接</i></div><ul></ul><a href="http://bgm.iminyao.com/" title="背景音乐" target="_blank">背景音乐</a><ul></ul><a href="http://weibo.com/jzwmxz" title="民谣之家" target="_blank">民谣之家</a><ul></ul><a href="http://www.zhihu.com/people/iminyao" title="逢十借一" target="_blank">逢十借一</a></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">© <a href="/." rel="nofollow">逢十借一.</a> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"></a></div></div></div><a id="rocket" href="#top" class="show"></a><script type="text/javascript" src="/js/totop.js?v=0.0.0" async></script><script type="text/javascript" src="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.pack.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.0" async></script><link rel="stylesheet" type="text/css" href="/css/jquery.fancybox.css?v=0.0.0"><script>var duoshuoQuery = {short_name:'vino24'};
+(function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0]
+        || document.getElementsByTagName('body')[0]).appendChild(ds);
+})();
+</script><script type="text/javascript" src="/js/search.js?v=0.0.0"></script><script>var search_path = 'search.xml';
+if (search_path.length == 0) {
+   search_path = 'search.xml';
+}
+var path = '/' + search_path;
+searchFunc(path, 'local-search-input', 'local-search-result');
+</script><script type="text/javascript" src="/js/codeblock-resizer.js?v=0.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=0.0.0"></script></div></body></html>

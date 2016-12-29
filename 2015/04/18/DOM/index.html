@@ -1,0 +1,219 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content="web前端开发, 前端开发工程师, 前端开发攻城师, 前端资源, CSS, JavaScript, HTML, Web标准"><meta name="theme-color" content="#db5945"><title>DOM操作一览 | 逢十借一</title><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/normalize/4.2.0/normalize.min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/0.6.0/pure-min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/0.6.0/grids-responsive-min.css"><link rel="stylesheet" type="text/css" href="/css/style.css?v=0.0.0"><link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css"><script type="text/javascript" src="//cdn.bootcss.com/jquery/3.0.0/jquery.min.js"></script><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">DOM操作一览</h1><a id="logo" href="/.">逢十借一</a><p class="description">和自己赛跑的人</p></div><div id="nav-menu"><a href="/." class="current"><i class="fa fa-home"> 首页</i></a><a href="/archives/"><i class="fa fa-archive"> 归档</i></a><a href="/about/"><i class="fa fa-user"> 关于</i></a></div></div><div id="layout" class="pure-g"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">DOM操作一览</h1><div class="post-meta">Apr 18, 2015<span> | </span><span class="category"><a href="/categories/总结/">总结</a></span><script src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js" async></script><span id="busuanzi_container_page_pv"> | <span id="busuanzi_value_page_pv"></span><span> Hits</span></span></div><a data-thread-key="2015/04/18/DOM/" href="/2015/04/18/DOM/#comments" class="ds-thread-count"></a><div class="clear"><div id="toc" class="toc-article"><div class="toc-title">文章目录</div><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Node"><span class="toc-number">1.</span> <span class="toc-text">Node</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#选取文档元素"><span class="toc-number">2.</span> <span class="toc-text">选取文档元素</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#文档结构和遍历"><span class="toc-number">3.</span> <span class="toc-text">文档结构和遍历</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#作为节点树-Node-文档的属性："><span class="toc-number">3.1.</span> <span class="toc-text">作为节点树(Node)文档的属性：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#作为元素树-Element-的文档的属性"><span class="toc-number">3.2.</span> <span class="toc-text">作为元素树(Element)的文档的属性:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#可移植的文档遍历函数"><span class="toc-number">3.3.</span> <span class="toc-text">可移植的文档遍历函数</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#属性"><span class="toc-number">4.</span> <span class="toc-text">属性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#元素的内容"><span class="toc-number">5.</span> <span class="toc-text">元素的内容</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#创建、插入、删除节点"><span class="toc-number">6.</span> <span class="toc-text">创建、插入、删除节点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DocumentFragment-文档片段"><span class="toc-number">7.</span> <span class="toc-text">DocumentFragment(文档片段)</span></a></li></ol></div></div><div class="post-content"><script src="/assets/js/APlayer.min.js"> </script><h2 id="Node"><a href="#Node" class="headerlink" title="Node"></a>Node</h2><ol>
+<li>Document</li>
+<li>CharacterData<ul>
+<li>Text</li>
+<li>Comment(注释)</li>
+</ul>
+</li>
+<li>Element</li>
+<li>Attr</li>
+</ol>
+<h2 id="选取文档元素"><a href="#选取文档元素" class="headerlink" title="选取文档元素"></a>选取文档元素</h2><ol>
+<li><p><strong>ID</strong></p>
+<pre><code>var section1=document.getElemntById(&quot;section1&quot;);
+
+//    通过ID查找多个元素
+function getElements (/*ids...*/) {
+    var elements={};
+    for(var i=0;i&lt;arguments.length;i++) {
+    var id=arguments[i];
+    var elt=document.getElementById(id);
+    if(elt == null)
+        throw new Error(&quot;No element with id&quot; + id);
+    elements[id]=elt;
+    }
+return elements;
+}
+</code></pre></li>
+<li><p><strong>名字</strong></p>
+<blockquote>
+<p>name属性只在少数HTML元素有效，eg:表单、表单元素、<code>iframe&gt;</code> <code>&lt;img&gt;</code>，且XML不可用</p>
+</blockquote>
+<pre><code>var radioButtons=document.getElementsByName(&quot;favorite_color&quot;);    
+</code></pre></li>
+<li><p><strong>标签名</strong></p>
+<pre><code>var spans=document.getElementsByTagName(&quot;span&quot;);
+var html=document.getElementsByTagName(&quot;*&quot;);    //获取整个文档所有元素的NodeList对象
+</code></pre></li>
+<li><p><strong>快捷属性（历史遗留问题）</strong></p>
+<blockquote>
+<p>返回<code>HTMLCollection</code>对象</p>
+</blockquote>
+<ul>
+<li>images     <code>&lt;img&gt;</code></li>
+<li>forms    <code>&lt;form&gt;</code></li>
+<li>links    <code>&lt;a&gt;</code></li>
+<li>embeds,plugins    <code>&lt;embeds&gt;</code></li>
+<li><p>scripts    <code>&lt;script&gt;</code></p>
+<p>HTMLDocument对象特殊属性：</p>
+<ul>
+<li><code>document.body</code></li>
+<li><code>document.head</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>CSS类</strong></p>
+<pre><code>var log=document.getElementById(&quot;hello world&quot;); //匹配同时具备hello和world的class
+</code></pre></li>
+<li><p><strong>CSS选择器</strong></p>
+<pre><code>var s = document.querySelectorAll(&quot;div #zipcode p[lang=&quot;fr&quot;]&quot;);
+</code></pre></li>
+</ol>
+<h2 id="文档结构和遍历"><a href="#文档结构和遍历" class="headerlink" title="文档结构和遍历"></a>文档结构和遍历</h2><ol>
+<li><h3 id="作为节点树-Node-文档的属性："><a href="#作为节点树-Node-文档的属性：" class="headerlink" title="作为节点树(Node)文档的属性："></a>作为节点树(Node)文档的属性：</h3><ul>
+<li><code>parentNode</code> 父节点，Document对象返回<code>null</code></li>
+<li><code>childNodes</code> 子节点(NodeList对象)</li>
+<li><code>firstChild lastChild</code></li>
+<li><code>nextSibling previousSibling</code> 兄弟节点的前一个和后一个</li>
+<li><code>nodeType</code><ul>
+<li>9 Document</li>
+<li>1 Element</li>
+<li>3 Text</li>
+<li>8 Comment</li>
+<li>11 DocumentFragment</li>
+</ul>
+</li>
+<li><code>nodeValue</code> Text节点或Comment节点文本内容</li>
+<li><code>nodeName</code>  元素标签名</li>
+</ul>
+</li>
+</ol>
+<ol>
+<li><h3 id="作为元素树-Element-的文档的属性"><a href="#作为元素树-Element-的文档的属性" class="headerlink" title="作为元素树(Element)的文档的属性:"></a>作为元素树(Element)的文档的属性:</h3><ul>
+<li><code>children</code> —— childNodes 返回NodeList对象</li>
+<li><code>firstElementChild、lastElementChild</code> ——  firstChild lastChild</li>
+<li><code>nextElementSibling、previousSibling</code> ——  nextSibling previousSibling</li>
+<li><code>childElementCount</code></li>
+</ul>
+</li>
+<li><h3 id="可移植的文档遍历函数"><a href="#可移植的文档遍历函数" class="headerlink" title="可移植的文档遍历函数"></a>可移植的文档遍历函数</h3><figure class="highlight actionscript"><table><tr><td class="code"><pre><div class="line"><span class="comment">/*</span></div><div class="line">*	返回元素e的n层祖先元素，如果不存在或不是Element，返回null</div><div class="line">*	nodeType属性返回值：</div><div class="line">*	9代表Document节点;1代码Element;3代表Text</div><div class="line"> */</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">parent</span> <span class="params">(e,n)</span> </span>&#123;</div><div class="line">	<span class="keyword">if</span>(n===<span class="literal">undefined</span>) n=<span class="number">1</span>;</div><div class="line">	<span class="keyword">while</span>(n-- &amp;&amp; e) e=e.parentNode;</div><div class="line">	<span class="keyword">if</span>(!e || e.nodeType!=<span class="number">1</span>)</div><div class="line">		<span class="keyword">return</span> <span class="literal">null</span>;</div><div class="line">	<span class="keyword">return</span> e;</div><div class="line">&#125;</div><div class="line"><span class="comment">/*</span></div><div class="line">*	返回元素e的第n个兄弟元素</div><div class="line">*	n为正，返回后续的第n个兄弟元素</div><div class="line">*	n为负，返回前面的第n个兄弟元素</div><div class="line">*	n为零，返回e本身</div><div class="line"> */</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">sibling</span> <span class="params">(e,n)</span> </span>&#123;		</div><div class="line">	<span class="keyword">while</span>(e &amp;&amp; n!==<span class="number">0</span>) &#123;</div><div class="line">		<span class="keyword">if</span>(n&gt;<span class="number">0</span>) &#123;</div><div class="line">			<span class="keyword">if</span>(e.nextElementSibling) e=e.nextElementSibling;</div><div class="line">			<span class="keyword">else</span>&#123;</div><div class="line">			<span class="keyword">for</span>(e=e.nextElementSibling;e&amp;&amp;e.nodeType!==<span class="number">1</span>;e=e.nextElementSibling)</div><div class="line">				<span class="comment">/* 空循环 */</span></div><div class="line">		&#125; </div><div class="line">		n--;</div><div class="line">		&#125; </div><div class="line">		<span class="keyword">else</span> &#123;</div><div class="line">			<span class="keyword">if</span>(e.previousElementSibling) e=previousElementSibling;</div><div class="line">			<span class="keyword">else</span> &#123;</div><div class="line">				<span class="keyword">for</span>(e=e.previousElementSibling;e&amp;&amp;e.nodeType!==<span class="number">1</span>;e=e.previousElementSibling)</div><div class="line">			&#125;</div><div class="line">			n++;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">return</span> e;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">/*</span></div><div class="line">*	返回元素e的第n代子元素</div><div class="line">*	负值代表从后往前计数，0表示第一个子元素，-1代表最后一个，-2代码倒数第二个</div><div class="line"> */</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">child</span> <span class="params">(e,n)</span> </span>&#123;</div><div class="line">	<span class="keyword">if</span>(e.children) &#123;</div><div class="line">		<span class="keyword">if</span>(n&lt;<span class="number">0</span>) n += e.children.length;		<span class="comment">//转换负的n为数组索引</span></div><div class="line">		<span class="keyword">if</span>(n&lt;<span class="number">0</span>) <span class="keyword">return</span> <span class="literal">null</span>;				<span class="comment">//如果仍然为负，说明没有子元素</span></div><div class="line">		<span class="keyword">return</span> e.children[n];				<span class="comment">//返回指定子元素</span></div><div class="line">	&#125; </div><div class="line"></div><div class="line">	<span class="comment">// 如果e没有children数组</span></div><div class="line">	<span class="keyword">if</span>(n&gt;=<span class="number">0</span>) &#123;</div><div class="line">		<span class="keyword">if</span>(e.firstElementChild) e=e.firstElementChild;</div><div class="line">		<span class="keyword">else</span>&#123;</div><div class="line">			<span class="keyword">for</span>(e=e.firstChild;e &amp;&amp; e.nodeType !==<span class="number">1</span>;e=e.nextSibling)</div><div class="line">				<span class="comment">/*  空循环  */</span></div><div class="line">		&#125;</div><div class="line">		<span class="keyword">return</span> sibling(e,n);</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">else</span> &#123;</div><div class="line">		<span class="keyword">if</span>(e.lastElementChild) e=e.lastElementChild;</div><div class="line">		<span class="keyword">else</span> &#123;</div><div class="line">			<span class="keyword">for</span>(e=e.lastChild;e &amp;&amp; e.nodeType !== <span class="number">1</span>;e=e.previousSibling)</div><div class="line">				<span class="comment">/* 空循环 */</span></div><div class="line">		&#125;</div><div class="line">		<span class="keyword">return</span> sibling(e,n+<span class="number">1</span>);</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h2><ol>
+<li>HTML属性作为Element的属性</li>
+</ol>
+<pre><code>var image=document.getElementById(&quot;myimage&quot;);
+var imgurl=image.src;
+</code></pre><ol>
+<li>获取设置非标准HTML属性<ul>
+<li>getAttribute</li>
+<li>setAttribute</li>
+<li>hasAttribute    检测为布尔值的属性尤其有效(disabled等)</li>
+<li>removeAttribute</li>
+</ul>
+</li>
+</ol>
+<pre><code>var image=document.images[0];
+var width=parseInt(image.getAttribute(&quot;WIDTH&quot;));
+image.setAttribute(&quot;class&quot;,&quot;thumbnail&quot;);
+</code></pre><ol>
+<li><p>数据集属性</p>
+<blockquote>
+<p>HTML5中任意以<code>data-</code>为前缀的小写的属性定义为“数据集属性”，用于附加额外的数据信息</p>
+<p>相应的HTML5在Element对象定义了<code>dataset</code>属性，指代各个<code>data-</code>属性去掉前缀的对象</p>
+</blockquote>
+</li>
+</ol>
+<ol>
+<li><p>Attributes属性(仅Element对象)</p>
+<pre><code>document.body.attributes[0];
+document.body.attributes[&quot;ONLOAD&quot;];
+</code></pre></li>
+</ol>
+<h2 id="元素的内容"><a href="#元素的内容" class="headerlink" title="元素的内容"></a>元素的内容</h2><blockquote>
+<p>eg   <code>&lt;p&gt;This is a &lt;i&gt;simple&lt;/i&gt; document&lt;/p&gt;</code> </p>
+</blockquote>
+<ol>
+<li><p><strong>作为HTML的元素内容</strong></p>
+<ul>
+<li>innerHTML</li>
+<li>outerHTML</li>
+<li><p>insertAdjacentHTML(仅IE)</p>
+<pre><code>document.getElementsByTagName(&quot;p&quot;)[0].innerHTML
+输出：
+This is a &lt;i&gt;simple&lt;/i&gt; document
+</code></pre></li>
+</ul>
+</li>
+<li><p><strong>作为纯文本的元素内容</strong></p>
+<ul>
+<li>textContent</li>
+<li><p>innerText : 不返回<code>&lt;script&gt;</code>元素的内容，忽略多余空白</p>
+<pre><code>var para=document.getElementsByTagName(&quot;p&quot;)[0].textContent;
+输出：
+This is a simple document   
+
+para.textContent=&quot;Hello World&quot;;
+</code></pre></li>
+</ul>
+</li>
+<li><strong>作为Text节点的元素内容（子节点列表）</strong><figure class="highlight typescript"><table><tr><td class="code"><pre><div class="line"></div><div class="line"><span class="comment">/*</span></div><div class="line">* 查找元素后代中节点中的所有Text节点	</div><div class="line">* 返回元素e的纯文本内容，递归进入其子元素</div><div class="line"> */</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">textContent</span> (<span class="params">e</span>) </span>&#123;</div><div class="line">	<span class="keyword">var</span> child,<span class="keyword">type</span>,s=<span class="string">""</span>;	<span class="comment">//	s保存所有子节点的文本</span></div><div class="line">	<span class="keyword">for</span>(child=e.firstChild;child!=<span class="literal">null</span>;child=child.nextSibling) &#123;</div><div class="line">		<span class="keyword">type</span>=child.nodeType;</div><div class="line">		<span class="keyword">if</span>(<span class="keyword">type</span> ===<span class="number">3</span> || <span class="keyword">type</span> === <span class="number">4</span>)		<span class="comment">//Text和CDATASection节点</span></div><div class="line">			s+=child.nodeValue;</div><div class="line">		<span class="keyword">else</span> <span class="keyword">if</span>(<span class="keyword">type</span> === <span class="number">1</span>)</div><div class="line">			s+=textContent(child);		<span class="comment">// 递归Element节点</span></div><div class="line">	&#125;</div><div class="line">	<span class="keyword">return</span> s;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="创建、插入、删除节点"><a href="#创建、插入、删除节点" class="headerlink" title="创建、插入、删除节点"></a>创建、插入、删除节点</h2><ol>
+<li><p><strong>创建节点</strong></p>
+<ul>
+<li><p>直接创建</p>
+<ul>
+<li><p>Element节点</p>
+<pre><code>var s=document.createElement(&quot;script&quot;);
+</code></pre></li>
+<li><p>Text节点</p>
+<pre><code>var newnode=document.createTextNode(&quot;text node content&quot;);
+</code></pre></li>
+</ul>
+</li>
+<li><p>复制创建</p>
+<pre><code>var cop=s.cloneNode(true);    //true递归复制所以后代节点，false浅复制(仅复制HTML标签)
+var head=document,getElementsByTagName(&quot;head&quot;)[0];
+head.appendChild(cop);
+</code></pre></li>
+</ul>
+</li>
+<li><p><strong>插入节点</strong></p>
+<ul>
+<li><p>appendChild()</p>
+<pre><code>head.appendChild(cop);
+</code></pre></li>
+<li><p>insertBefore()</p>
+<blockquote>
+<p>接受2个参数，第一个为待插入节点，第二个为要插入其前方的节点，函数在父节点调用</p>
+</blockquote>
+<pre><code>body.insertBefore(para2,para3);
+</code></pre></li>
+</ul>
+</li>
+</ol>
+<ol>
+<li><p><strong>删除替换节点</strong></p>
+<ul>
+<li><p>removeChild()</p>
+<pre><code>n.parentNode.removeChild(n);    //在文档中删除n节点
+</code></pre></li>
+<li><p>replaceChild() </p>
+<pre><code>n.parentNode.replaceChild(document.createTextNode(&quot;REDATED&quot;),n);
+</code></pre></li>
+</ul>
+</li>
+</ol>
+<h2 id="DocumentFragment-文档片段"><a href="#DocumentFragment-文档片段" class="headerlink" title="DocumentFragment(文档片段)"></a>DocumentFragment(文档片段)</h2><blockquote>
+<p><code>DocumentFragment</code>是一种特殊的Node，作为其他节点的临时容器，像<code>Document</code>节点一样，<code>DocumentFragment</code>是独立的，parentNode总是null。</p>
+<p><code>DocumentFragment</code>的特殊之处：使得一组节点被当做一个节点看待，如果给<code>appendChild() insertBefore() replaceChild()</code>传递一个<code>DocumentFragment</code>，插入的是文档片段的所有子节点，而非片段本身。(文档片段本身清空)。 </p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="comment">// 本模块为不支持insertAdjacentHTML()的浏览器定义Element.insertAdjacentHTML</span></div><div class="line"><span class="comment">// 同时定义可移植的HTML插入函数：Insert.before() Insert.after() Insert.atStart() Insert.atEnd()</span></div><div class="line"></div><div class="line"><span class="keyword">var</span> Insert = (<span class="function"><span class="keyword">function</span>  (<span class="params"></span>) </span>&#123;</div><div class="line">	<span class="comment">// 如果支持原生的insertAdjacentHTML,在4个函数名更明了的HTML插入函数中使用它</span></div><div class="line">		<span class="keyword">if</span>(<span class="built_in">document</span>.createElement(<span class="string">"div"</span>).insertAdjacentHTML) &#123;</div><div class="line">			<span class="keyword">return</span> &#123;</div><div class="line">				<span class="attr">before</span>:<span class="function"><span class="keyword">function</span>  (<span class="params">e,h</span>) </span>&#123;e.insertAdjacentHTML(<span class="string">"beforebegin"</span>,h);&#125;,</div><div class="line">				<span class="attr">after</span>:<span class="function"><span class="keyword">function</span>  (<span class="params">e,h</span>) </span>&#123;e.insertAdjacentHTML(<span class="string">"afterend"</span>,h);&#125;,</div><div class="line">				<span class="attr">atStart</span>:<span class="function"><span class="keyword">function</span> (<span class="params">e,h</span>) </span>&#123;e.insertAdjacentHTML(<span class="string">"afterbegin"</span>,h);&#125;,</div><div class="line">				<span class="attr">atEnd</span>:<span class="function"><span class="keyword">function</span>  (<span class="params">e,h</span>) </span>&#123;e.insertAdjacentHTML(<span class="string">"beforeend"</span>,h);&#125;</div><div class="line">			&#125;;</div><div class="line"></div><div class="line">			<span class="comment">// 无原生的insertAdjacentHTML</span></div><div class="line">			<span class="comment">// 实现同样的4个插入函数，并使用它们来定义insertAdjacentHTML</span></div><div class="line">			</div><div class="line">			<span class="comment">// 首先定义一个工具函数，传入HTML字符串，返回一个DocumentFragment</span></div><div class="line">			<span class="function"><span class="keyword">function</span> <span class="title">fragment</span> (<span class="params">html</span>) </span>&#123;</div><div class="line">				<span class="keyword">var</span> elt=<span class="built_in">document</span>.createElement(<span class="string">"div"</span>);</div><div class="line">				<span class="keyword">var</span> frag=<span class="built_in">document</span>.createDocumentFragment();</div><div class="line">				elt.innerHTML=html;</div><div class="line">				<span class="keyword">while</span>(elt.firstChild)</div><div class="line">					frag.appendChild(elt.firstChild);</div><div class="line">				<span class="keyword">return</span> frag;</div><div class="line">			&#125;</div><div class="line"></div><div class="line">			<span class="keyword">var</span> Insert = &#123;</div><div class="line">				<span class="attr">before</span>:<span class="function"><span class="keyword">function</span>(<span class="params">elt,html</span>)</span>&#123;elt.parentNode.insertBefore(fragment(html),elt);&#125;,</div><div class="line">				<span class="attr">after</span>:<span class="function"><span class="keyword">function</span>(<span class="params">elt,html</span>)</span>&#123;elt.parentNode.insertBefore(fragment(html),elt.nextSibling);&#125;,</div><div class="line">				<span class="attr">atStart</span>:<span class="function"><span class="keyword">function</span>(<span class="params">elt,html</span>)</span>&#123;elt.insertBefore(fragment(html),elt.firstChild);&#125;,</div><div class="line">				<span class="attr">atEnd</span>:<span class="function"><span class="keyword">function</span>(<span class="params">elt,html</span>)</span>&#123;elt.insertBefore(fragment(html),elt.appendChild(fragment(html));&#125;</div><div class="line">			&#125;;</div><div class="line"></div><div class="line">			<span class="comment">// 基于以上函数实现insertAdjacentHTML</span></div><div class="line">			Element.prototype.insertAdjacentHTML=<span class="function"><span class="keyword">function</span>  (<span class="params">pos,html</span>) </span>&#123;</div><div class="line">				<span class="keyword">switch</span>(pos.toLowerCase())&#123;</div><div class="line">					<span class="keyword">case</span> <span class="string">"beforebegin"</span>:<span class="keyword">return</span> Insert.before(<span class="keyword">this</span>,html);</div><div class="line">					<span class="keyword">case</span> <span class="string">"afterend"</span>:<span class="keyword">return</span> Insert.after(<span class="keyword">this</span>,html);</div><div class="line">					<span class="keyword">case</span> <span class="string">"afterbegin"</span>:<span class="keyword">return</span> Insert.atStart(<span class="keyword">this</span>,html);</div><div class="line">					<span class="keyword">case</span> <span class="string">"beforeend"</span>:<span class="keyword">return</span> Insert.atEnd(<span class="keyword">this</span>,html);</div><div class="line">				&#125;</div><div class="line">			&#125;;</div><div class="line">			<span class="keyword">return</span> Insert;</div><div class="line">		&#125;</div><div class="line">&#125;());</div></pre></td></tr></table></figure></div><script type="text/javascript" src="/js/share.js?v=0.0.0" async></script><a data-url="http://vino24.cn/2015/04/18/DOM/" data-id="cixa9pol8001dearny9ialc3o" class="article-share-link">分享到</a><div class="tags"><a href="/tags/DOM/">DOM</a></div><div class="post-nav"><a href="/2015/04/25/CSS-center/" class="pre">CSS实现水平垂直居中的常见方式</a><a href="/2015/04/15/web-worker/" class="next">Web Worker</a></div><div data-thread-key="2015/04/18/DOM/" data-title="DOM操作一览" data-url="http://vino24.cn/2015/04/18/DOM/" class="ds-share flat"><div class="ds-share-inline"><ul class="ds-share-icons-16"><li data-toggle="ds-share-icons-more"><a href="javascript:void(0);" class="ds-more">分享到：</a></li><li><a href="javascript:void(0);" data-service="weibo" class="ds-weibo">微博</a></li><li><a href="javascript:void(0);" data-service="qzone" class="ds-qzone">QQ空间</a></li><li><a href="javascript:void(0);" data-service="qqt" class="ds-qqt">腾讯微博</a></li><li><a href="javascript:void(0);" data-service="wechat" class="ds-wechat">微信</a></li></ul><div class="ds-share-icons-more"></div></div></div><div data-thread-key="2015/04/18/DOM/" data-title="DOM操作一览" data-url="http://vino24.cn/2015/04/18/DOM/" data-author-key="1" class="ds-thread"></div></div></div></div><div class="pure-u-1-4 hidden_mid_and_down"><div id="sidebar"><div class="widget"><div class="search-form"><input id="local-search-input" placeholder="Search" type="text" name="q" results="0"/><div id="local-search-result"></div></div></div><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> 分类</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/CSS/">CSS</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/HTTP/">HTTP</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/IE/">IE</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript/">JavaScript</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript-API/">JavaScript API</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript-Framework/">JavaScript Framework</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Mobile-Develop/">Mobile Develop</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Performance-Optimize/">Performance Optimize</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Requirements-Daily/">Requirements&&Daily</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/devTools-Configuration/">devTools&&Configuration</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/切图/">切图</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/总结/">总结</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/随笔/">随笔</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> 标签</i></div><div class="tagcloud"><a href="/tags/Ajax/" style="font-size: 15px;">Ajax</a> <a href="/tags/CSS-Layout/" style="font-size: 15px;">CSS Layout</a> <a href="/tags/CSS-Core/" style="font-size: 15px;">CSS Core</a> <a href="/tags/CSS-Collection/" style="font-size: 15px;">CSS Collection</a> <a href="/tags/DOM/" style="font-size: 15px;">DOM</a> <a href="/tags/CSS-core/" style="font-size: 15px;">CSS core</a> <a href="/tags/ES6/" style="font-size: 15px;">ES6</a> <a href="/tags/JavaScript-Core/" style="font-size: 15px;">JavaScript Core</a> <a href="/tags/bind/" style="font-size: 15px;">bind</a> <a href="/tags/PS/" style="font-size: 15px;">PS</a> <a href="/tags/性能优化/" style="font-size: 15px;">性能优化</a> <a href="/tags/avalon-js/" style="font-size: 15px;">avalon.js</a> <a href="/tags/JavaScript-API/" style="font-size: 15px;">JavaScript API</a> <a href="/tags/Flex/" style="font-size: 15px;">Flex</a> <a href="/tags/内存泄漏/" style="font-size: 15px;">内存泄漏</a> <a href="/tags/Git/" style="font-size: 15px;">Git</a> <a href="/tags/git/" style="font-size: 15px;">git</a> <a href="/tags/Mac/" style="font-size: 15px;">Mac</a> <a href="/tags/Netease-Weekly/" style="font-size: 15px;">Netease Weekly</a> <a href="/tags/react-js/" style="font-size: 15px;">react.js</a> <a href="/tags/React/" style="font-size: 15px;">React</a> <a href="/tags/this/" style="font-size: 15px;">this</a> <a href="/tags/three-js/" style="font-size: 15px;">three.js</a> <a href="/tags/Vue/" style="font-size: 15px;">Vue</a> <a href="/tags/Tips/" style="font-size: 15px;">Tips</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> 最新文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/12/08/es6-spread-rest/">ES6 spread和rest operator</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/08/react-form/">react中的表单</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/06/github-tip/">github实用技巧</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/02/react-first/">react.js入门</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/28/avalon-first-md/">avalon.js入门</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/22/chrome-dev-tools-console/">Chrome Dev Tools使用技巧总结(一) Console</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/02/fetch-api/">Fetch API</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/01/hexo-basic/">hexo常用配置一览</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/31/wechat-music-serach-module-update/">微信点歌模块代码更新及hexo音乐插件</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/27/three.js-first/">three.js入门</a></li></ul></div><div class="widget"><div class="comments-title"><i class="fa fa-comment-o"> 最近评论</i></div><div data-num-items="5" data-show-avatars="0" data-show-time="1" data-show-admin="0" data-excerpt-length="32" data-show-title="1" class="ds-recent-comments"></div></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link"> 友情链接</i></div><ul></ul><a href="http://bgm.iminyao.com/" title="背景音乐" target="_blank">背景音乐</a><ul></ul><a href="http://weibo.com/jzwmxz" title="民谣之家" target="_blank">民谣之家</a><ul></ul><a href="http://www.zhihu.com/people/iminyao" title="逢十借一" target="_blank">逢十借一</a></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">© <a href="/." rel="nofollow">逢十借一.</a> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"></a></div></div></div><a id="rocket" href="#top" class="show"></a><script type="text/javascript" src="/js/totop.js?v=0.0.0" async></script><script type="text/javascript" src="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.pack.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.0" async></script><link rel="stylesheet" type="text/css" href="/css/jquery.fancybox.css?v=0.0.0"><script>var duoshuoQuery = {short_name:'vino24'};
+(function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0]
+        || document.getElementsByTagName('body')[0]).appendChild(ds);
+})();
+</script><script type="text/javascript" src="/js/search.js?v=0.0.0"></script><script>var search_path = 'search.xml';
+if (search_path.length == 0) {
+   search_path = 'search.xml';
+}
+var path = '/' + search_path;
+searchFunc(path, 'local-search-input', 'local-search-result');
+</script><script type="text/javascript" src="/js/codeblock-resizer.js?v=0.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=0.0.0"></script></div></body></html>

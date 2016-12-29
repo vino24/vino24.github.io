@@ -1,0 +1,97 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content="web前端开发, 前端开发工程师, 前端开发攻城师, 前端资源, CSS, JavaScript, HTML, Web标准"><meta name="theme-color" content="#db5945"><title>图片格式与优化 | 逢十借一</title><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/normalize/4.2.0/normalize.min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/0.6.0/pure-min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/0.6.0/grids-responsive-min.css"><link rel="stylesheet" type="text/css" href="/css/style.css?v=0.0.0"><link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css"><script type="text/javascript" src="//cdn.bootcss.com/jquery/3.0.0/jquery.min.js"></script><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">图片格式与优化</h1><a id="logo" href="/.">逢十借一</a><p class="description">和自己赛跑的人</p></div><div id="nav-menu"><a href="/." class="current"><i class="fa fa-home"> 首页</i></a><a href="/archives/"><i class="fa fa-archive"> 归档</i></a><a href="/about/"><i class="fa fa-user"> 关于</i></a></div></div><div id="layout" class="pure-g"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">图片格式与优化</h1><div class="post-meta">Jan 11, 2016<span> | </span><span class="category"><a href="/categories/Performance-Optimize/">Performance Optimize</a></span><script src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js" async></script><span id="busuanzi_container_page_pv"> | <span id="busuanzi_value_page_pv"></span><span> Hits</span></span></div><a data-thread-key="2016/01/11/pic-format/" href="/2016/01/11/pic-format/#comments" class="ds-thread-count"></a><div class="clear"><div id="toc" class="toc-article"><div class="toc-title">文章目录</div><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#一-矢量图与位图"><span class="toc-number">1.</span> <span class="toc-text">一. 矢量图与位图</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二-有损压缩与无损压缩"><span class="toc-number">2.</span> <span class="toc-text">二. 有损压缩与无损压缩</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#三-JPG与PNG"><span class="toc-number">3.</span> <span class="toc-text">三. JPG与PNG</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#JPG"><span class="toc-number">3.1.</span> <span class="toc-text">JPG</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#应用："><span class="toc-number">3.2.</span> <span class="toc-text">应用：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#PNG"><span class="toc-number">3.3.</span> <span class="toc-text">PNG</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#应用：-1"><span class="toc-number">3.4.</span> <span class="toc-text">应用：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#四-PNG8与PNG24"><span class="toc-number">4.</span> <span class="toc-text">四. PNG8与PNG24</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考："><span class="toc-number">5.</span> <span class="toc-text">参考：</span></a></li></ol></div></div><div class="post-content"><script src="/assets/js/APlayer.min.js"> </script><h3 id="一-矢量图与位图"><a href="#一-矢量图与位图" class="headerlink" title="一. 矢量图与位图"></a>一. 矢量图与位图</h3><table>
+<thead>
+<tr>
+<th>矢量图</th>
+<th>位图</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>点线面等基本元素组成</td>
+<td>像素</td>
+</tr>
+<tr>
+<td>通过边框粗细颜色等来填充</td>
+<td>记录每个点的颜色深度透明度来存储</td>
+</tr>
+<tr>
+<td>文件小，不失真，但难表现自然度高的图像</td>
+<td>文件大，失真，能显示色彩丰富的图片</td>
+</tr>
+</tbody>
+</table>
+<p><img src="https://cloud.githubusercontent.com/assets/4004044/12261342/6a55fc7e-b95b-11e5-8e2b-fec21844b2fc.PNG" alt="pic"><br><img src="https://cloud.githubusercontent.com/assets/4004044/12261343/6a5ba304-b95b-11e5-9ce8-0c4c8d5cff2d.PNG" alt="pic1"></p>
+<h3 id="二-有损压缩与无损压缩"><a href="#二-有损压缩与无损压缩" class="headerlink" title="二. 有损压缩与无损压缩"></a>二. 有损压缩与无损压缩</h3><table>
+<thead>
+<tr>
+<th>有损压缩</th>
+<th>无损压缩</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>存储图像时不完全真实记录像素点数据，会对图像数据进行处理，去掉那些图像上会被人眼忽略的细节，然后使用附近的颜色通过渐变或其他形式进行填充。这样既能大大降低图像信息的数据量，又不会影响图像的还原效果。</td>
+<td>真实记录图像像素点数据，但会利用特殊算法将颜色等相同的数据进行压缩记录,将图像颜色进行索引(即索引色，类似调色板)</td>
+</tr>
+<tr>
+<td>JPG(不支持透明)</td>
+<td>PNG(支持透明)、GIF</td>
+</tr>
+</tbody>
+</table>
+<h3 id="三-JPG与PNG"><a href="#三-JPG与PNG" class="headerlink" title="三. JPG与PNG"></a>三. JPG与PNG</h3><h4 id="JPG"><a href="#JPG" class="headerlink" title="JPG"></a>JPG</h4><ol>
+<li>支持摄影图像或写实图像的高级压缩，并且可利用压缩比例控制图像文件大小。</li>
+<li>有损压缩会使图像数据质量下降，并且在编辑和重新保存JPG格式图像时，这种下降损失会累积。</li>
+<li>JPG不适用于所含颜色很少、具有大块颜色相近的区域或亮度差异十分明显的较简单的图片。</li>
+</ol>
+<h4 id="应用："><a href="#应用：" class="headerlink" title="应用："></a>应用：</h4><ol>
+<li>图像上颜色较少，并且主要以纯色或者平滑的渐变色进行填充。</li>
+<li>具备较大亮度差异以及强烈对比的简单图像</li>
+</ol>
+<h4 id="PNG"><a href="#PNG" class="headerlink" title="PNG"></a>PNG</h4><ol>
+<li>能在保证最不失真的情况下尽可能压缩图像文件的大小</li>
+<li>PNG用来存储灰度图像时，灰度图像的深度可多到16位，存储彩色图像时，彩色图像的深度可多到48位，并且还可存储多到16位的α通道数据。</li>
+<li>对于需要高保真的较复杂的图像，PNG虽然能无损压缩，但图片文件较大，不适合应用在Web页面上。</li>
+</ol>
+<h4 id="应用：-1"><a href="#应用：-1" class="headerlink" title="应用："></a>应用：</h4><blockquote>
+<p>写实的摄影图像或是颜色层次非常丰富的图像</p>
+</blockquote>
+<h3 id="四-PNG8与PNG24"><a href="#四-PNG8与PNG24" class="headerlink" title="四. PNG8与PNG24"></a>四. PNG8与PNG24</h3><blockquote>
+<p>NG采用无损压缩是通过索引色去存储和还原图像的，PNG8和PNG24后面的数字则是代表这种PNG格式最多可以索引和存储的颜色值。”8″代表2的8次方也就是256色，而24则代表2的24次方大概有1600多万色。</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>PNG8</th>
+<th>PNG24</th>
+<th>PNG32</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>支持布尔透明，要么透明要么不透明</td>
+<td>不支持</td>
+<td>支持256阶的alpha通道透明</td>
+</tr>
+</tbody>
+</table>
+<h3 id="参考："><a href="#参考：" class="headerlink" title="参考："></a>参考：</h3><ol>
+<li><a href="http://ued.taobao.org/blog/2010/12/jpg_png/" target="_blank" rel="external">图片格式与设计那点事儿</a></li>
+<li><a href="http://www.html-js.com/article/Web-performance-optimization" target="_blank" rel="external">Web性能优化：图片优化</a></li>
+</ol>
+</div><script type="text/javascript" src="/js/share.js?v=0.0.0" async></script><a data-url="http://vino24.cn/2016/01/11/pic-format/" data-id="cixa9poor006nearn35blkqm4" class="article-share-link">分享到</a><div class="tags"></div><div class="post-nav"><a href="/2016/01/16/netease-weekly-04/" class="pre">Netease实习第四周周报</a><a href="/2016/01/09/netease-weekly-03/" class="next">Netease实习第三周周报</a></div><div data-thread-key="2016/01/11/pic-format/" data-title="图片格式与优化" data-url="http://vino24.cn/2016/01/11/pic-format/" class="ds-share flat"><div class="ds-share-inline"><ul class="ds-share-icons-16"><li data-toggle="ds-share-icons-more"><a href="javascript:void(0);" class="ds-more">分享到：</a></li><li><a href="javascript:void(0);" data-service="weibo" class="ds-weibo">微博</a></li><li><a href="javascript:void(0);" data-service="qzone" class="ds-qzone">QQ空间</a></li><li><a href="javascript:void(0);" data-service="qqt" class="ds-qqt">腾讯微博</a></li><li><a href="javascript:void(0);" data-service="wechat" class="ds-wechat">微信</a></li></ul><div class="ds-share-icons-more"></div></div></div><div data-thread-key="2016/01/11/pic-format/" data-title="图片格式与优化" data-url="http://vino24.cn/2016/01/11/pic-format/" data-author-key="1" class="ds-thread"></div></div></div></div><div class="pure-u-1-4 hidden_mid_and_down"><div id="sidebar"><div class="widget"><div class="search-form"><input id="local-search-input" placeholder="Search" type="text" name="q" results="0"/><div id="local-search-result"></div></div></div><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> 分类</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/CSS/">CSS</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/HTTP/">HTTP</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/IE/">IE</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript/">JavaScript</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript-API/">JavaScript API</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript-Framework/">JavaScript Framework</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Mobile-Develop/">Mobile Develop</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Performance-Optimize/">Performance Optimize</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Requirements-Daily/">Requirements&&Daily</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/devTools-Configuration/">devTools&&Configuration</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/切图/">切图</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/总结/">总结</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/随笔/">随笔</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> 标签</i></div><div class="tagcloud"><a href="/tags/Ajax/" style="font-size: 15px;">Ajax</a> <a href="/tags/CSS-Layout/" style="font-size: 15px;">CSS Layout</a> <a href="/tags/CSS-Core/" style="font-size: 15px;">CSS Core</a> <a href="/tags/CSS-Collection/" style="font-size: 15px;">CSS Collection</a> <a href="/tags/DOM/" style="font-size: 15px;">DOM</a> <a href="/tags/CSS-core/" style="font-size: 15px;">CSS core</a> <a href="/tags/ES6/" style="font-size: 15px;">ES6</a> <a href="/tags/JavaScript-Core/" style="font-size: 15px;">JavaScript Core</a> <a href="/tags/bind/" style="font-size: 15px;">bind</a> <a href="/tags/PS/" style="font-size: 15px;">PS</a> <a href="/tags/性能优化/" style="font-size: 15px;">性能优化</a> <a href="/tags/avalon-js/" style="font-size: 15px;">avalon.js</a> <a href="/tags/JavaScript-API/" style="font-size: 15px;">JavaScript API</a> <a href="/tags/Flex/" style="font-size: 15px;">Flex</a> <a href="/tags/内存泄漏/" style="font-size: 15px;">内存泄漏</a> <a href="/tags/Git/" style="font-size: 15px;">Git</a> <a href="/tags/git/" style="font-size: 15px;">git</a> <a href="/tags/Mac/" style="font-size: 15px;">Mac</a> <a href="/tags/Netease-Weekly/" style="font-size: 15px;">Netease Weekly</a> <a href="/tags/react-js/" style="font-size: 15px;">react.js</a> <a href="/tags/React/" style="font-size: 15px;">React</a> <a href="/tags/this/" style="font-size: 15px;">this</a> <a href="/tags/three-js/" style="font-size: 15px;">three.js</a> <a href="/tags/Vue/" style="font-size: 15px;">Vue</a> <a href="/tags/Tips/" style="font-size: 15px;">Tips</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> 最新文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/12/08/es6-spread-rest/">ES6 spread和rest operator</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/08/react-form/">react中的表单</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/06/github-tip/">github实用技巧</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/02/react-first/">react.js入门</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/28/avalon-first-md/">avalon.js入门</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/22/chrome-dev-tools-console/">Chrome Dev Tools使用技巧总结(一) Console</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/02/fetch-api/">Fetch API</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/01/hexo-basic/">hexo常用配置一览</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/31/wechat-music-serach-module-update/">微信点歌模块代码更新及hexo音乐插件</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/27/three.js-first/">three.js入门</a></li></ul></div><div class="widget"><div class="comments-title"><i class="fa fa-comment-o"> 最近评论</i></div><div data-num-items="5" data-show-avatars="0" data-show-time="1" data-show-admin="0" data-excerpt-length="32" data-show-title="1" class="ds-recent-comments"></div></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link"> 友情链接</i></div><ul></ul><a href="http://bgm.iminyao.com/" title="背景音乐" target="_blank">背景音乐</a><ul></ul><a href="http://weibo.com/jzwmxz" title="民谣之家" target="_blank">民谣之家</a><ul></ul><a href="http://www.zhihu.com/people/iminyao" title="逢十借一" target="_blank">逢十借一</a></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">© <a href="/." rel="nofollow">逢十借一.</a> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"></a></div></div></div><a id="rocket" href="#top" class="show"></a><script type="text/javascript" src="/js/totop.js?v=0.0.0" async></script><script type="text/javascript" src="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.pack.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.0" async></script><link rel="stylesheet" type="text/css" href="/css/jquery.fancybox.css?v=0.0.0"><script>var duoshuoQuery = {short_name:'vino24'};
+(function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0]
+        || document.getElementsByTagName('body')[0]).appendChild(ds);
+})();
+</script><script type="text/javascript" src="/js/search.js?v=0.0.0"></script><script>var search_path = 'search.xml';
+if (search_path.length == 0) {
+   search_path = 'search.xml';
+}
+var path = '/' + search_path;
+searchFunc(path, 'local-search-input', 'local-search-result');
+</script><script type="text/javascript" src="/js/codeblock-resizer.js?v=0.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=0.0.0"></script></div></body></html>

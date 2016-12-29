@@ -1,0 +1,145 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content="web前端开发, 前端开发工程师, 前端开发攻城师, 前端资源, CSS, JavaScript, HTML, Web标准"><meta name="theme-color" content="#db5945"><title>网站优化之JavaScript异步加载 | 逢十借一</title><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/normalize/4.2.0/normalize.min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/0.6.0/pure-min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/0.6.0/grids-responsive-min.css"><link rel="stylesheet" type="text/css" href="/css/style.css?v=0.0.0"><link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css"><script type="text/javascript" src="//cdn.bootcss.com/jquery/3.0.0/jquery.min.js"></script><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">网站优化之JavaScript异步加载</h1><a id="logo" href="/.">逢十借一</a><p class="description">和自己赛跑的人</p></div><div id="nav-menu"><a href="/." class="current"><i class="fa fa-home"> 首页</i></a><a href="/archives/"><i class="fa fa-archive"> 归档</i></a><a href="/about/"><i class="fa fa-user"> 关于</i></a></div></div><div id="layout" class="pure-g"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">网站优化之JavaScript异步加载</h1><div class="post-meta">Mar 22, 2015<span> | </span><span class="category"><a href="/categories/Performance-Optimize/">Performance Optimize</a></span><script src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js" async></script><span id="busuanzi_container_page_pv"> | <span id="busuanzi_value_page_pv"></span><span> Hits</span></span></div><a data-thread-key="2015/03/22/async-javascript/" href="/2015/03/22/async-javascript/#comments" class="ds-thread-count"></a><div class="clear"><div id="toc" class="toc-article"><div class="toc-title">文章目录</div><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#写在前面："><span class="toc-number">1.</span> <span class="toc-text">写在前面：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JavaScript加载方式："><span class="toc-number">2.</span> <span class="toc-text">JavaScript加载方式：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#补充："><span class="toc-number">3.</span> <span class="toc-text">补充：</span></a></li></ol></div></div><div class="post-content"><script src="/assets/js/APlayer.min.js"> </script><h3 id="写在前面："><a href="#写在前面：" class="headerlink" title="写在前面："></a>写在前面：</h3><ul>
+<li><strong>DOMContentLoaded</strong></li>
+</ul>
+<blockquote>
+<p><code>DOMcontentLoaded</code>是现代浏览器才支持的一个事件(<strong>IE9</strong>开始才支持)。</p>
+<p><strong>那么在什么情况下才会触发DOMContentLoaded事件呢？</strong></p>
+<p><code>DOMContentLoaded</code>会在浏览器接收到服务器传过来的HTML文档，<strong>整个页面DOM结构加载完成并且所有 行内脚本 和 外部脚本 执行完成后触发</strong></p>
+</blockquote>
+<ul>
+<li><p><strong>onload</strong></p>
+<blockquote>
+<p><code>DOMContentLoaded</code>事件不需要等待<strong>图片，iframe和样式表</strong>等资源加载完成就会触发，而<code>onload</code>事件需要等待整个页面都加载完成包括各种资源才会触发。</p>
+<p>所以对于我们来说<code>DOMContentLoaded</code>是一个更有用的事件，因为只要DOM结构加载完成，我们就可以通过Javasscript来操作页面上的DOM节点。</p>
+</blockquote>
+</li>
+<li><p>补充：</p>
+<blockquote>
+<p>有时样式表的加载会阻塞脚本的执行从而阻塞DOMContentLoaded事件，这种情况一般出现在样式表后面跟着脚本。也就是说如果把脚本放在样式表后面，那么脚本就必须等到样式表加载完成才能开始执行，这样就会阻塞页面的DOMContentLoaded事件。</p>
+<p>但是这样做也是有道理的，因为有时候我们的脚本会处理DOM样式方面的东西。</p>
+<p>这种阻塞情况在不同浏览器上表现也会不一样。在IE和Firefox中，不管样式表后面跟着是行内脚本还是外部脚本，都会发生阻塞。在Chrome中，只有外部脚本才会发生阻塞。</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="JavaScript加载方式："><a href="#JavaScript加载方式：" class="headerlink" title="JavaScript加载方式："></a>JavaScript加载方式：</h3><ul>
+<li><strong>同步加载</strong></li>
+</ul>
+<blockquote>
+<p>我们平时最常使用的就是这种同步加载形式：</p>
+</blockquote>
+<p><code>&lt;script src=&quot;http://yourdomain.com/script.js&quot;&gt;&lt;/script&gt;</code></p>
+<blockquote>
+<p>同步模式，又称<strong>阻塞模式</strong>，会阻止浏览器的后续处理，停止了后续的解析，因此停止了后续的文件加载（如图像）、渲染、代码执行。</p>
+<p> js 之所以要同步执行，是因为 js 中可能有输出 document 内容、修改dom、重定向等行为，所以默认同步执行才是安全的。</p>
+<p>简单说：加载的网络 timeline 是瀑布模型，而异步加载的 timeline 是并发模型。</p>
+</blockquote>
+<ul>
+<li><p><strong>异步加载</strong></p>
+<blockquote>
+<p>异步加载又叫非阻塞，浏览器在下载执行 js 同时，还会继续进行后续页面的处理。</p>
+</blockquote>
+<ul>
+<li>defer属性</li>
+</ul>
+<blockquote>
+<p>对于IE来说，这个标签会让IE并行下载js文件，并且把其执行拖到了整个<strong>DOM装载完毕</strong>（DOMContentLoaded），多个defer的<code>&lt;script&gt;</code>在执行时也会按照其出现的<code>顺序来运行</code>。最重要的是<code>&lt;script&gt;</code>被加上defer后，其不会阻塞后续DOM的的渲染。但是因为这个defer只是IE专用，所以一般用得比较少。</p>
+</blockquote>
+<ul>
+<li>async属性</li>
+</ul>
+<p><code>&lt;script src=&quot;file.js&quot; async&gt;&lt;/script&gt;</code></p>
+<blockquote>
+<p>async属性是HTML5新增的。(它们将在<code>onload</code> 事件之前完成。)作用和defer类似，async，无论你对它赋什么样的值，只要它出现，它就开始异步加载js文件。</p>
+<p>但是， async的异步加载会有一个比较严重的问题，那就是它忠实地践行着“载入后马上执行”这条军规，所以，虽然它并不阻塞页面的渲染，但是你也无法控制他执行的次序和时机。</p>
+</blockquote>
+<ul>
+<li><p>异步加载的其他方法</p>
+<ul>
+<li><p><strong>动态创建DOM(Script DOM Element)</strong></p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">loadjs</span>(<span class="params">script_filename</span>) </span>&#123;</div><div class="line">  <span class="keyword">var</span> script = <span class="built_in">document</span>.createElement(<span class="string">'script'</span>);</div><div class="line">  script.setAttribute(<span class="string">'type'</span>, <span class="string">'text/javascript'</span>);</div><div class="line">  script.setAttribute(<span class="string">'src'</span>, script_filename);</div><div class="line">  script.setAttribute(<span class="string">'id'</span>, <span class="string">'coolshell_script_id'</span>);</div><div class="line"></div><div class="line">  script_id = <span class="built_in">document</span>.getElementById(<span class="string">'coolshell_script_id'</span>);</div><div class="line">  <span class="keyword">if</span>(script_id)&#123;</div><div class="line">    <span class="built_in">document</span>.getElementsByTagName(<span class="string">'head'</span>)[<span class="number">0</span>].removeChild(script_id);</div><div class="line">  &#125;</div><div class="line">  <span class="built_in">document</span>.getElementsByTagName(<span class="string">'head'</span>)[<span class="number">0</span>].appendChild(script);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> script = <span class="string">'http://coolshell.cn/asyncjs/alert.js'</span>;</div><div class="line">loadjs(script);</div></pre></td></tr></table></figure>
+</li>
+<li><p><strong>按需异步载入js(绑定onload 或其他特定事件的异步加载)</strong></p>
+<blockquote>
+<p>动态创建DOM的加载方式在加载执行完之前会阻止 <code>onload</code> 事件的触发，没有解决我们想让他按我们指定的时机运行的问题。而现在很多页面的代码都在 <code>onload</code> 时还要执行额外的渲染工作等，所以还是会阻塞部分页面的初始化处理。</p>
+</blockquote>
+</li>
+</ul>
+<ul>
+<li><p>绑定Onload事件</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">loadjs</span>(<span class="params">script_filename</span>) </span>&#123;</div><div class="line">  <span class="keyword">var</span> script = <span class="built_in">document</span>.createElement(<span class="string">'script'</span>);</div><div class="line">  script.setAttribute(<span class="string">'type'</span>, <span class="string">'text/javascript'</span>);</div><div class="line">  script.setAttribute(<span class="string">'src'</span>, script_filename);</div><div class="line">  script.setAttribute(<span class="string">'id'</span>, <span class="string">'coolshell_script_id'</span>);</div><div class="line"></div><div class="line">  script_id = <span class="built_in">document</span>.getElementById(<span class="string">'coolshell_script_id'</span>);</div><div class="line">  <span class="keyword">if</span>(script_id)&#123;</div><div class="line">    <span class="built_in">document</span>.getElementsByTagName(<span class="string">'head'</span>)[<span class="number">0</span>].removeChild(script_id);</div><div class="line">  &#125;</div><div class="line">  <span class="built_in">document</span>.getElementsByTagName(<span class="string">'head'</span>)[<span class="number">0</span>].appendChild(script);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">onPageLoad</span>(<span class="params"></span>)</span>&#123;</div><div class="line">  <span class="keyword">var</span> script = <span class="string">'./alert.js'</span>;</div><div class="line">  loadjs(script);</div><div class="line">&#125;</div><div class="line"><span class="built_in">window</span>.onload = onPageLoad;</div></pre></td></tr></table></figure>
+</li>
+<li><p>绑定特定事件<br><code>&lt;p style=&quot;cursor: pointer&quot; onclick=&quot;LoadJS()&quot;&gt;Click to load alert.js &lt;/p&gt;</code></p>
+</li>
+<li><p><a href="http://www.cnblogs.com/tiwlin/archive/2011/12/26/2302554.html" target="_blank" rel="external">补充：异步加载的其它方法</a></p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><strong>延迟加载（lazy loading）</strong></li>
+</ul>
+<blockquote>
+<p>有些 js 代码并不是页面初始化的时候就立刻需要的，而稍后的某些情况才需要的。延迟加载就是一开始<strong>下载但不执行</strong>这些暂时不用的js，而是在需要的时候再执行。</p>
+</blockquote>
+<ul>
+<li><p>动用object标签（也可以动用iframe标签）</p>
+<pre><code>function cachejs(script_filename){
+var cache = document.createElement(&apos;object&apos;);
+cache.data = script_filename;
+cache.id = &quot;coolshell_script_cache_id&quot;;
+cache.width = 0;
+cache.height = 0;
+document.body.appendChild(cache);
+}
+</code></pre></li>
+</ul>
+<h3 id="补充："><a href="#补充：" class="headerlink" title="补充："></a>补充：</h3><ul>
+<li><strong>document.write(还是会发生阻塞)</strong><blockquote>
+<p>在异步加载的时候，无法使用 document.write 输出文档内容。<br>在同步模式下，document.write 是在当前 script 所在的位置输 出文档的。而在异步模式下，浏览器继续处理后续页面内容，根本无法确定 document.write 应该输出到什么位置，所以异步模式下 document.write 不可行。</p>
+</blockquote>
+</li>
+</ul>
+<blockquote>
+<p>而到了页面已经 onload 之后，再执行 document.write 将导致当前页面的内容被清空，因为它会自动触发 document.open 方法。</p>
+</blockquote>
+<ul>
+<li><strong>script 的两阶段加载 与 执行（execution）</strong><blockquote>
+<p><strong>JS的加载其实是由两阶段组成：下载内容（download bytes）和执行（parse and execute）。</strong></p>
+</blockquote>
+</li>
+</ul>
+<blockquote>
+<p>浏览器在下载完 js 的内容后就会立即对其解析和执行，不管是同步加载还是异步加载。<br>前面说的异步加载，解决的只是下载阶段的问题，但代码在下载后会立即执行。<br>而浏览器在解析执行 JS 阶段是阻塞任何操作的，这时的浏览器处于无响应状态。<br>我 们都知道通过网络下载 script 需要明显的时间，但容易忽略了第二阶段，解析和执行也是需要时间的。script的解析和执行所花的时间比我们想象的要多，尤其是script 很多很大的时候。有些是需要立刻执行，而有些则不需要（比如只是在展示某个界面或执行某个操作时才需要）。</p>
+<p>这些script 可以延迟执行，先异步下载缓存起来，但不立即执行，而是在第一次需要的时候执行一次。</p>
+<p>利用特殊的技巧可以做到 下载 与 执行的分离 (javascript 的动态特性)。比如将 JS 的内容作为 <code>Image</code>或 <code>object</code> 对象加载缓存起来，所以就不会立即执行了，然后在第一次需要的时候再执行。</p>
+</blockquote>
+<ul>
+<li><strong>更多:</strong><ul>
+<li><a href="http://www.ibm.com/developerworks/cn/web/1308_caiys_jsload/index.html" target="_blank" rel="external">JavaScript 的性能优化：加载和执行</a></li>
+<li><a href="http://stevesouders.com/controljs/" target="_blank" rel="external">ControlJS</a></li>
+<li><a href="http://headjs.com/" target="_blank" rel="external">HeadJS</a></li>
+<li><a href="http://requirejs.org/" target="_blank" rel="external">RequireJS</a></li>
+<li><a href="http://www.commonjs.org/" target="_blank" rel="external">CommonJS </a></li>
+<li><a href="https://lifesinger.wordpress.com/" target="_blank" rel="external">SeaJS(taobao王保平)</a></li>
+<li><a href="http://coolshell.cn/articles/9749.html" target="_blank" rel="external">参考</a></li>
+</ul>
+</li>
+</ul>
+</div><script type="text/javascript" src="/js/share.js?v=0.0.0" async></script><a data-url="http://vino24.cn/2015/03/22/async-javascript/" data-id="cixa9pomd002nearn5483u6h8" class="article-share-link">分享到</a><div class="tags"><a href="/tags/性能优化/">性能优化</a></div><div class="post-nav"><a href="/2015/03/24/mobile-dev-basic-concept/" class="pre">移动端开发的一些基础概念</a><a href="/2015/03/22/htaccess/" class="next">.htaccess文件配置详解</a></div><div data-thread-key="2015/03/22/async-javascript/" data-title="网站优化之JavaScript异步加载" data-url="http://vino24.cn/2015/03/22/async-javascript/" class="ds-share flat"><div class="ds-share-inline"><ul class="ds-share-icons-16"><li data-toggle="ds-share-icons-more"><a href="javascript:void(0);" class="ds-more">分享到：</a></li><li><a href="javascript:void(0);" data-service="weibo" class="ds-weibo">微博</a></li><li><a href="javascript:void(0);" data-service="qzone" class="ds-qzone">QQ空间</a></li><li><a href="javascript:void(0);" data-service="qqt" class="ds-qqt">腾讯微博</a></li><li><a href="javascript:void(0);" data-service="wechat" class="ds-wechat">微信</a></li></ul><div class="ds-share-icons-more"></div></div></div><div data-thread-key="2015/03/22/async-javascript/" data-title="网站优化之JavaScript异步加载" data-url="http://vino24.cn/2015/03/22/async-javascript/" data-author-key="1" class="ds-thread"></div></div></div></div><div class="pure-u-1-4 hidden_mid_and_down"><div id="sidebar"><div class="widget"><div class="search-form"><input id="local-search-input" placeholder="Search" type="text" name="q" results="0"/><div id="local-search-result"></div></div></div><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> 分类</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/CSS/">CSS</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/HTTP/">HTTP</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/IE/">IE</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript/">JavaScript</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript-API/">JavaScript API</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript-Framework/">JavaScript Framework</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Mobile-Develop/">Mobile Develop</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Performance-Optimize/">Performance Optimize</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Requirements-Daily/">Requirements&&Daily</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/devTools-Configuration/">devTools&&Configuration</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/切图/">切图</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/总结/">总结</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/随笔/">随笔</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> 标签</i></div><div class="tagcloud"><a href="/tags/Ajax/" style="font-size: 15px;">Ajax</a> <a href="/tags/CSS-Layout/" style="font-size: 15px;">CSS Layout</a> <a href="/tags/CSS-Core/" style="font-size: 15px;">CSS Core</a> <a href="/tags/CSS-Collection/" style="font-size: 15px;">CSS Collection</a> <a href="/tags/DOM/" style="font-size: 15px;">DOM</a> <a href="/tags/CSS-core/" style="font-size: 15px;">CSS core</a> <a href="/tags/ES6/" style="font-size: 15px;">ES6</a> <a href="/tags/JavaScript-Core/" style="font-size: 15px;">JavaScript Core</a> <a href="/tags/bind/" style="font-size: 15px;">bind</a> <a href="/tags/PS/" style="font-size: 15px;">PS</a> <a href="/tags/性能优化/" style="font-size: 15px;">性能优化</a> <a href="/tags/avalon-js/" style="font-size: 15px;">avalon.js</a> <a href="/tags/JavaScript-API/" style="font-size: 15px;">JavaScript API</a> <a href="/tags/Flex/" style="font-size: 15px;">Flex</a> <a href="/tags/内存泄漏/" style="font-size: 15px;">内存泄漏</a> <a href="/tags/Git/" style="font-size: 15px;">Git</a> <a href="/tags/git/" style="font-size: 15px;">git</a> <a href="/tags/Mac/" style="font-size: 15px;">Mac</a> <a href="/tags/Netease-Weekly/" style="font-size: 15px;">Netease Weekly</a> <a href="/tags/react-js/" style="font-size: 15px;">react.js</a> <a href="/tags/React/" style="font-size: 15px;">React</a> <a href="/tags/this/" style="font-size: 15px;">this</a> <a href="/tags/three-js/" style="font-size: 15px;">three.js</a> <a href="/tags/Vue/" style="font-size: 15px;">Vue</a> <a href="/tags/Tips/" style="font-size: 15px;">Tips</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> 最新文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/12/08/es6-spread-rest/">ES6 spread和rest operator</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/08/react-form/">react中的表单</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/06/github-tip/">github实用技巧</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/02/react-first/">react.js入门</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/28/avalon-first-md/">avalon.js入门</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/22/chrome-dev-tools-console/">Chrome Dev Tools使用技巧总结(一) Console</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/02/fetch-api/">Fetch API</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/01/hexo-basic/">hexo常用配置一览</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/31/wechat-music-serach-module-update/">微信点歌模块代码更新及hexo音乐插件</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/27/three.js-first/">three.js入门</a></li></ul></div><div class="widget"><div class="comments-title"><i class="fa fa-comment-o"> 最近评论</i></div><div data-num-items="5" data-show-avatars="0" data-show-time="1" data-show-admin="0" data-excerpt-length="32" data-show-title="1" class="ds-recent-comments"></div></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link"> 友情链接</i></div><ul></ul><a href="http://bgm.iminyao.com/" title="背景音乐" target="_blank">背景音乐</a><ul></ul><a href="http://weibo.com/jzwmxz" title="民谣之家" target="_blank">民谣之家</a><ul></ul><a href="http://www.zhihu.com/people/iminyao" title="逢十借一" target="_blank">逢十借一</a></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">© <a href="/." rel="nofollow">逢十借一.</a> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"></a></div></div></div><a id="rocket" href="#top" class="show"></a><script type="text/javascript" src="/js/totop.js?v=0.0.0" async></script><script type="text/javascript" src="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.pack.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.0" async></script><link rel="stylesheet" type="text/css" href="/css/jquery.fancybox.css?v=0.0.0"><script>var duoshuoQuery = {short_name:'vino24'};
+(function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0]
+        || document.getElementsByTagName('body')[0]).appendChild(ds);
+})();
+</script><script type="text/javascript" src="/js/search.js?v=0.0.0"></script><script>var search_path = 'search.xml';
+if (search_path.length == 0) {
+   search_path = 'search.xml';
+}
+var path = '/' + search_path;
+searchFunc(path, 'local-search-input', 'local-search-result');
+</script><script type="text/javascript" src="/js/codeblock-resizer.js?v=0.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=0.0.0"></script></div></body></html>

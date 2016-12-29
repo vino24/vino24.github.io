@@ -1,0 +1,154 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content="web前端开发, 前端开发工程师, 前端开发攻城师, 前端资源, CSS, JavaScript, HTML, Web标准"><meta name="theme-color" content="#db5945"><title>Web Audio API基础知识 | 逢十借一</title><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/normalize/4.2.0/normalize.min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/0.6.0/pure-min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/0.6.0/grids-responsive-min.css"><link rel="stylesheet" type="text/css" href="/css/style.css?v=0.0.0"><link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css"><script type="text/javascript" src="//cdn.bootcss.com/jquery/3.0.0/jquery.min.js"></script><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">Web Audio API基础知识</h1><a id="logo" href="/.">逢十借一</a><p class="description">和自己赛跑的人</p></div><div id="nav-menu"><a href="/." class="current"><i class="fa fa-home"> 首页</i></a><a href="/archives/"><i class="fa fa-archive"> 归档</i></a><a href="/about/"><i class="fa fa-user"> 关于</i></a></div></div><div id="layout" class="pure-g"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">Web Audio API基础知识</h1><div class="post-meta">Sep 9, 2015<span> | </span><span class="category"><a href="/categories/JavaScript-API/">JavaScript API</a></span><script src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js" async></script><span id="busuanzi_container_page_pv"> | <span id="busuanzi_value_page_pv"></span><span> Hits</span></span></div><a data-thread-key="2015/09/09/web-audio-first/" href="/2015/09/09/web-audio-first/#comments" class="ds-thread-count"></a><div class="clear"><div id="toc" class="toc-article"><div class="toc-title">文章目录</div><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-音频上下文（AudioContext）"><span class="toc-number">1.</span> <span class="toc-text">1. 音频上下文（AudioContext）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-音频节点（AudioNode）"><span class="toc-number">2.</span> <span class="toc-text">2. 音频节点（AudioNode）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#音源节点分类："><span class="toc-number">2.1.</span> <span class="toc-text">音源节点分类：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#demo"><span class="toc-number">3.</span> <span class="toc-text">demo</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#附录：Web-Audio发展史"><span class="toc-number"></span> <span class="toc-text">附录：Web Audio发展史</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-lt-embed-gt"><span class="toc-number">1.</span> <span class="toc-text">1. <embed></span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-lt-object-gt"><span class="toc-number">2.</span> <span class="toc-text">2. <object></span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-lt-audio-gt"><span class="toc-number">3.</span> <span class="toc-text">3. <audio></span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#不足："><span class="toc-number">3.0.1.</span> <span class="toc-text">不足：</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-Web-Audio-API"><span class="toc-number">4.</span> <span class="toc-text">4. Web Audio API</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#Web-Audio-API新特点："><span class="toc-number">4.0.1.</span> <span class="toc-text">Web Audio API新特点：</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考："><span class="toc-number">5.</span> <span class="toc-text">参考：</span></a></li></ol></div></div><div class="post-content"><script src="/assets/js/APlayer.min.js"> </script><h3 id="1-音频上下文（AudioContext）"><a href="#1-音频上下文（AudioContext）" class="headerlink" title="1. 音频上下文（AudioContext）"></a>1. 音频上下文（AudioContext）</h3><blockquote>
+<p>Web Audio API 是一套以音频上下文（AudioContext）为基础的接口系统；基本上每一次的开发都需要第一个用到。</p>
+<p>一个<code>AudioContext</code>代表一系列音频节点以及节点之间的连接方式，它允许一个或以上的音频信号在经过任意的连接之后最终连接在音频播放设备节点上；节点都是可以通过音频上下文对象然后连接到了一起；通常一个文档中只需要一个一个音频上下文对象即可。</p>
+<p>它不仅能够创建各种类型的音频节点，还规范了音频节点跟节点之间的连接式，规范了音频流在节点之间的传达方式。</p>
+</blockquote>
+<ul>
+<li><p>实例:</p>
+<figure class="highlight haxe"><table><tr><td class="code"><pre><div class="line"><span class="comment">//	实例化一个音频上下文对象</span></div><div class="line"><span class="keyword">var</span> audioCtx = <span class="keyword">new</span> <span class="type">AudioContext</span>();</div><div class="line"><span class="comment">// 创建音源节点</span></div><div class="line"><span class="keyword">var</span> sourceNode = audioCtx.createBufferSource();</div><div class="line"><span class="comment">// 创建分析节点</span></div><div class="line"><span class="keyword">var</span> analyserNode = audioCtx.createAnalyser();</div><div class="line"><span class="comment">// 创建增益节点</span></div><div class="line"><span class="keyword">var</span> gainNode = audioCtx.createGain();</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="2-音频节点（AudioNode）"><a href="#2-音频节点（AudioNode）" class="headerlink" title="2. 音频节点（AudioNode）"></a>2. 音频节点（AudioNode）</h3><blockquote>
+<p>AudioNode是AudioContext的基石，它可以是<strong>音频音源模块</strong>，<strong>音频播放设备模块</strong>，也可以是中间<strong>音频处理模块</strong>。</p>
+</blockquote>
+<ul>
+<li><p>实例： </p>
+<p><img src="http://cdn.alloyteam.com/wp-content/uploads/2015/01/modular-routing1.png" alt="1"><br><img src="http://cdn.alloyteam.com/wp-content/uploads/2015/01/modular-routing2.png" alt="2"></p>
+</li>
+</ul>
+<h4 id="音源节点分类："><a href="#音源节点分类：" class="headerlink" title="音源节点分类："></a>音源节点分类：</h4><ul>
+<li><p><strong>音源节点</strong>：主要用于产生或引入一段音频信号</p>
+<figure class="highlight 1c"><table><tr><td class="code"><pre><div class="line">  <span class="comment">// 音频原始数据节点，可通过ajax、input方式引入音频格式文件</span></div><div class="line">AudioBufferSourceNode</div><div class="line"><span class="comment">// 音频媒体标签节点，可通过关联&lt;audio&gt;标签</span></div><div class="line">MediaElementAudioSourceNode</div><div class="line"><span class="comment">// 实时音频流节点，可通过getUserMedia获取实时输入的音频流数据</span></div><div class="line">MediaStreamAudioSourceNode</div><div class="line"><span class="comment">// 波形产生器节点，可产生自定义的波形/频率的音频信号</span></div><div class="line">OscillatorNode</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li><p><strong>分析节点</strong>：主要用于对频谱数据的读取，以便可以实现一些可视化的交互</p>
+<figure class="highlight autohotkey"><table><tr><td class="code"><pre><div class="line">   // 音频信号分析节点</div><div class="line">AnalyserNode</div><div class="line">// js处理节点，该节点因性能问题，目前处于废弃状态，后续逐步由`AudioWorkerNode`代替</div><div class="line">ScriptProcessorNode</div><div class="line">// 能实现与`ScriptProcessorNode`一样的功能，不过音频处理代码会放到单独的一个外部文件由浏览器端引入，而该文件的执行也由浏览器端新开独立进行去执行，不会影响主线程</div><div class="line">AudioWorkerNode</div></pre></td></tr></table></figure>
+</li>
+<li><p><strong>音频处理节点</strong>:该类节点大都是具有某种效果的处理能力，可以对输入的音频信号进行一些处理</p>
+<figure class="highlight 1c"><table><tr><td class="code"><pre><div class="line">  <span class="comment">// 增益节点</span></div><div class="line">GainNode</div><div class="line"><span class="comment">// 滤波器节点</span></div><div class="line">BiquadFilterNode</div><div class="line"><span class="comment">// 延时节点</span></div><div class="line">DelayNode</div></pre></td></tr></table></figure>
+</li>
+<li><p><strong>播放设备节点</strong>:主要用于播放最终处理完的音频信号</p>
+<figure class="highlight 1c"><table><tr><td class="code"><pre><div class="line">   <span class="comment">// 实时音频流播放设备节点</span></div><div class="line">MediaStreamAudioDestinationNode</div><div class="line">AudioDestinationNode</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="demo"><a href="#demo" class="headerlink" title="demo"></a>demo</h3><pre><code>// 前缀兼容
+[&apos;&apos;,&apos;webkit&apos;,&apos;moz&apos;,&apos;ms&apos;].forEach(function (pre) {
+    var prefix = pre + &apos;AudioContext&apos;;
+    if ( !window.AudioContext &amp;&amp; window[prefix] ) {
+        window.AudioContext = window[prefix];
+    }
+});
+
+// 通过Ajax请求音频文件
+function fetchAudioSource (url, successCallback) {
+    if ( url &amp;&amp; typeof url === &apos;string&apos; ) {
+        var request = new XMLHttpRequest();
+        request.open(&apos;GET&apos;, url, true);
+        // 以二进制缓冲的方式存储音频文件数据
+        request.responseType = &apos;arraybuffer&apos;;
+        request.onload = function() {
+            successCallback(request.response);
+        }
+        request.send();
+    }
+}
+
+//    将缓冲区的文件(arraybuffer)数据解码成音频RAW数据
+function decodeAudio (audioCtx, audioData, callback) {
+    if ( audioData ) {
+        audioCtx.decodeAudioData(
+            audioData,
+            // on success
+            function (buffer) {
+                callback &amp;&amp; callback(buffer);
+            },
+            // on fail
+            function(e) {
+                console.log(&apos;Fail to decode the file!&apos;);
+            }
+        )
+    }
+}
+
+    //    创建播放器
+    if ( AudioContext ) {
+    fetchAudioSource(&apos;./somemusic.mp3&apos;, function (re) {
+        // 创建音频上下文对象
+        var audioCtx = new AudioContext();
+        // 创建音源节点
+        var sourceNode = audioCtx.createBufferSource();
+        // 加一个增益节点，用于控制音量
+        var gainNode = audioCtx.createGain();
+        // 设置音量大小，默认值为1 - 无增益或衰减
+        gainNode.gain.value = 0.8;
+        // 解码
+        decodeAudio(audioCtx, re, function (sourceBuffer) {
+            sourceNode.buffer = sourceBuffer;
+        });
+        // 连接各节点
+        // source node -&gt; gain node -&gt; destination node
+        sourceNode.connect(gainNode);
+        gainNode.connect(audioCtx.destination);
+        // 播放
+        (sourceNode.start || sourceNode.noteOn)(0);
+    });
+}
+</code></pre><h2 id="附录：Web-Audio发展史"><a href="#附录：Web-Audio发展史" class="headerlink" title="附录：Web Audio发展史"></a>附录：Web Audio发展史</h2><h3 id="1-lt-embed-gt"><a href="#1-lt-embed-gt" class="headerlink" title="1. &lt;embed&gt;"></a>1. <code>&lt;embed&gt;</code></h3><ol>
+<li>有界面交互，可以让用户控制播放/暂停（该属性可选）；</li>
+<li>不止能播放音频格式文件，还能播放VRML Live3D图形动画。</li>
+</ol>
+<h3 id="2-lt-object-gt"><a href="#2-lt-object-gt" class="headerlink" title="2. &lt;object&gt;"></a>2. <code>&lt;object&gt;</code></h3><blockquote>
+<p>随着web的快速发展，标准变得越来越重要，这时就有了W3C存在的理由，1997年伴随着HTML4的到来，W3C引入了<code>&lt;object&gt;</code>标签，囊括了图片、音频、视频等格式文件，可以说非常彪悍；作为第一款可以跨浏览器间播放音频的标签，基本能满足我们当时对嵌入媒体的欲望，但<object>同样存在自己的弊端，例如<strong>标签臃肿，依赖插件，SEO困难</strong>等；</object></p>
+</blockquote>
+<h3 id="3-lt-audio-gt"><a href="#3-lt-audio-gt" class="headerlink" title="3. &lt;audio&gt;"></a>3. <code>&lt;audio&gt;</code></h3><blockquote>
+<p>最大目的还是为了减少web富媒体应用对插件的依赖。仅从标签名来说就能很好区分各自的功能，这点无疑是非常有利于搜索引擎去索引资源的</p>
+</blockquote>
+<p><strong>相比<code>&lt;object&gt;</code>来说，最明显的特色即是:</strong></p>
+<ol>
+<li>标签语义化，结构更简单；</li>
+<li>脱离插件；</li>
+<li>简单的javascript内置方法以及事件交互。</li>
+</ol>
+<h5 id="不足："><a href="#不足：" class="headerlink" title="不足："></a>不足：</h5><blockquote>
+<p>开发者缺少了对音频数据的访问权限，在很多更动感的交互，更复杂的音效需求面前就显得力不从心了。</p>
+</blockquote>
+<h3 id="4-Web-Audio-API"><a href="#4-Web-Audio-API" class="headerlink" title="4. Web Audio API"></a>4. Web Audio API</h3><blockquote>
+<p>Web Audio API 是一套全新的相对独立的接口系统，对音频文件拥有<strong>更高的处理权限</strong>以及<strong>内置相关的音频专业效果处理</strong>，可以完全独立于 <code>&lt;audio&gt;</code> 标签而存在。</p>
+</blockquote>
+<h5 id="Web-Audio-API新特点："><a href="#Web-Audio-API新特点：" class="headerlink" title="Web Audio API新特点："></a>Web Audio API新特点：</h5><ol>
+<li>更精准的时间控制；</li>
+<li>可完全独立<code>&lt;audio&gt;</code>，允许更多音频文件同时播放，用于游戏或者复杂音频应用场景；</li>
+<li>模块化路由连接方式，让音频操作更加灵活形象；</li>
+<li>实时的频域、时域数据访问/操作；</li>
+<li>更多专业的音频处理方法<ul>
+<li>音道分离/合并；</li>
+<li>音频延时效果；</li>
+<li>内置频率滤波器；</li>
+<li>音频空间感效果以及多普勒效应模拟；</li>
+<li>音频卷积运算（用于声场环境模拟）；</li>
+<li>自定义波形生成器；</li>
+<li>波形非线性失真处理。</li>
+</ul>
+</li>
+</ol>
+<h3 id="参考："><a href="#参考：" class="headerlink" title="参考："></a>参考：</h3><ol>
+<li><a href="http://www.alloyteam.com/2014/12/web-audio-api-na-xie-nian-di-web-audio/" target="_blank" rel="external">Alloy Team - Web Audio API系列</a></li>
+<li><a href="http://www.alloyteam.com/2015/01/web-audio-api-yin-pin-shang-xia-wen-yu-yin-pin-jie-dian-di-shi-yong-fang-shi/" target="_blank" rel="external">Web Audio初探</a></li>
+</ol>
+</div><script type="text/javascript" src="/js/share.js?v=0.0.0" async></script><a data-url="http://vino24.cn/2015/09/09/web-audio-first/" data-id="cixa9popl008gearn6zr4flqp" class="article-share-link">分享到</a><div class="tags"></div><div class="post-nav"><a href="/2015/12/22/HTTP-referer/" class="pre">HTTP请求信息之Referer</a><a href="/2015/09/03/cross-source/" class="next">JavaScript实现跨域的几种方案</a></div><div data-thread-key="2015/09/09/web-audio-first/" data-title="Web Audio API基础知识" data-url="http://vino24.cn/2015/09/09/web-audio-first/" class="ds-share flat"><div class="ds-share-inline"><ul class="ds-share-icons-16"><li data-toggle="ds-share-icons-more"><a href="javascript:void(0);" class="ds-more">分享到：</a></li><li><a href="javascript:void(0);" data-service="weibo" class="ds-weibo">微博</a></li><li><a href="javascript:void(0);" data-service="qzone" class="ds-qzone">QQ空间</a></li><li><a href="javascript:void(0);" data-service="qqt" class="ds-qqt">腾讯微博</a></li><li><a href="javascript:void(0);" data-service="wechat" class="ds-wechat">微信</a></li></ul><div class="ds-share-icons-more"></div></div></div><div data-thread-key="2015/09/09/web-audio-first/" data-title="Web Audio API基础知识" data-url="http://vino24.cn/2015/09/09/web-audio-first/" data-author-key="1" class="ds-thread"></div></div></div></div><div class="pure-u-1-4 hidden_mid_and_down"><div id="sidebar"><div class="widget"><div class="search-form"><input id="local-search-input" placeholder="Search" type="text" name="q" results="0"/><div id="local-search-result"></div></div></div><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> 分类</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/CSS/">CSS</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/HTTP/">HTTP</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/IE/">IE</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript/">JavaScript</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript-API/">JavaScript API</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript-Framework/">JavaScript Framework</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Mobile-Develop/">Mobile Develop</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Performance-Optimize/">Performance Optimize</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Requirements-Daily/">Requirements&&Daily</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/devTools-Configuration/">devTools&&Configuration</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/切图/">切图</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/总结/">总结</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/随笔/">随笔</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> 标签</i></div><div class="tagcloud"><a href="/tags/Ajax/" style="font-size: 15px;">Ajax</a> <a href="/tags/CSS-Layout/" style="font-size: 15px;">CSS Layout</a> <a href="/tags/CSS-Core/" style="font-size: 15px;">CSS Core</a> <a href="/tags/CSS-Collection/" style="font-size: 15px;">CSS Collection</a> <a href="/tags/DOM/" style="font-size: 15px;">DOM</a> <a href="/tags/CSS-core/" style="font-size: 15px;">CSS core</a> <a href="/tags/ES6/" style="font-size: 15px;">ES6</a> <a href="/tags/JavaScript-Core/" style="font-size: 15px;">JavaScript Core</a> <a href="/tags/bind/" style="font-size: 15px;">bind</a> <a href="/tags/PS/" style="font-size: 15px;">PS</a> <a href="/tags/性能优化/" style="font-size: 15px;">性能优化</a> <a href="/tags/avalon-js/" style="font-size: 15px;">avalon.js</a> <a href="/tags/JavaScript-API/" style="font-size: 15px;">JavaScript API</a> <a href="/tags/Flex/" style="font-size: 15px;">Flex</a> <a href="/tags/内存泄漏/" style="font-size: 15px;">内存泄漏</a> <a href="/tags/Git/" style="font-size: 15px;">Git</a> <a href="/tags/git/" style="font-size: 15px;">git</a> <a href="/tags/Mac/" style="font-size: 15px;">Mac</a> <a href="/tags/Netease-Weekly/" style="font-size: 15px;">Netease Weekly</a> <a href="/tags/react-js/" style="font-size: 15px;">react.js</a> <a href="/tags/React/" style="font-size: 15px;">React</a> <a href="/tags/this/" style="font-size: 15px;">this</a> <a href="/tags/three-js/" style="font-size: 15px;">three.js</a> <a href="/tags/Vue/" style="font-size: 15px;">Vue</a> <a href="/tags/Tips/" style="font-size: 15px;">Tips</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> 最新文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/12/08/es6-spread-rest/">ES6 spread和rest operator</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/08/react-form/">react中的表单</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/06/github-tip/">github实用技巧</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/02/react-first/">react.js入门</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/28/avalon-first-md/">avalon.js入门</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/22/chrome-dev-tools-console/">Chrome Dev Tools使用技巧总结(一) Console</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/02/fetch-api/">Fetch API</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/01/hexo-basic/">hexo常用配置一览</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/31/wechat-music-serach-module-update/">微信点歌模块代码更新及hexo音乐插件</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/27/three.js-first/">three.js入门</a></li></ul></div><div class="widget"><div class="comments-title"><i class="fa fa-comment-o"> 最近评论</i></div><div data-num-items="5" data-show-avatars="0" data-show-time="1" data-show-admin="0" data-excerpt-length="32" data-show-title="1" class="ds-recent-comments"></div></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link"> 友情链接</i></div><ul></ul><a href="http://bgm.iminyao.com/" title="背景音乐" target="_blank">背景音乐</a><ul></ul><a href="http://weibo.com/jzwmxz" title="民谣之家" target="_blank">民谣之家</a><ul></ul><a href="http://www.zhihu.com/people/iminyao" title="逢十借一" target="_blank">逢十借一</a></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">© <a href="/." rel="nofollow">逢十借一.</a> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"></a></div></div></div><a id="rocket" href="#top" class="show"></a><script type="text/javascript" src="/js/totop.js?v=0.0.0" async></script><script type="text/javascript" src="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.pack.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.0" async></script><link rel="stylesheet" type="text/css" href="/css/jquery.fancybox.css?v=0.0.0"><script>var duoshuoQuery = {short_name:'vino24'};
+(function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0]
+        || document.getElementsByTagName('body')[0]).appendChild(ds);
+})();
+</script><script type="text/javascript" src="/js/search.js?v=0.0.0"></script><script>var search_path = 'search.xml';
+if (search_path.length == 0) {
+   search_path = 'search.xml';
+}
+var path = '/' + search_path;
+searchFunc(path, 'local-search-input', 'local-search-result');
+</script><script type="text/javascript" src="/js/codeblock-resizer.js?v=0.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=0.0.0"></script></div></body></html>

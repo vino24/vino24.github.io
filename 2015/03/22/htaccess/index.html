@@ -1,0 +1,125 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content="web前端开发, 前端开发工程师, 前端开发攻城师, 前端资源, CSS, JavaScript, HTML, Web标准"><meta name="theme-color" content="#db5945"><title>.htaccess文件配置详解 | 逢十借一</title><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/normalize/4.2.0/normalize.min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/0.6.0/pure-min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/0.6.0/grids-responsive-min.css"><link rel="stylesheet" type="text/css" href="/css/style.css?v=0.0.0"><link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css"><script type="text/javascript" src="//cdn.bootcss.com/jquery/3.0.0/jquery.min.js"></script><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">.htaccess文件配置详解</h1><a id="logo" href="/.">逢十借一</a><p class="description">和自己赛跑的人</p></div><div id="nav-menu"><a href="/." class="current"><i class="fa fa-home"> 首页</i></a><a href="/archives/"><i class="fa fa-archive"> 归档</i></a><a href="/about/"><i class="fa fa-user"> 关于</i></a></div></div><div id="layout" class="pure-g"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">.htaccess文件配置详解</h1><div class="post-meta">Mar 22, 2015<span> | </span><span class="category"><a href="/categories/devTools-Configuration/">devTools&amp;&amp;Configuration</a></span><script src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js" async></script><span id="busuanzi_container_page_pv"> | <span id="busuanzi_value_page_pv"></span><span> Hits</span></span></div><a data-thread-key="2015/03/22/htaccess/" href="/2015/03/22/htaccess/#comments" class="ds-thread-count"></a><div class="clear"><div id="toc" class="toc-article"><div class="toc-title">文章目录</div><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#什么是-htaccess文件（分布式配置文件）"><span class="toc-number">1.</span> <span class="toc-text">什么是.htaccess文件（分布式配置文件）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#常用配置"><span class="toc-number">2.</span> <span class="toc-text">常用配置</span></a></li></ol></div></div><div class="post-content"><script src="/assets/js/APlayer.min.js"> </script><h3 id="什么是-htaccess文件（分布式配置文件）"><a href="#什么是-htaccess文件（分布式配置文件）" class="headerlink" title="什么是.htaccess文件（分布式配置文件）"></a>什么是<code>.htaccess</code>文件（分布式配置文件）</h3><blockquote>
+<p>Apache Web 服务器可以通过 <code>.htaccess</code> 文件来操作各种信息，这是一个<strong>目录级配置文件</strong>的默认名称，允许去中央化的 Web 服务器配置管理。可用来重写服务器的全局配置。该文件的目的就是为了允许单独目录的访问控制配置，例如密码和内容访问。</p>
+<p>在一个目录下设置了<code>.htaccess</code>文件之后，当用户使用浏览器访问此目录时，Apache会读取该文件的配置来覆盖主配置文件<code>http.conf</code>的配置。</p>
+</blockquote>
+<h3 id="常用配置"><a href="#常用配置" class="headerlink" title="常用配置"></a>常用配置</h3><ol>
+<li>使用 GZIP 对输出进行压缩(deflate是更新的技术)<blockquote>
+<p>Apache server supports server level GZip compression with the help of module <strong>mod_gzip</strong> and <strong>mod_deflate</strong>. You can use this module and enable GZip compression for your website using htaccess file. First you have to check whether your hosting provider has enabled mod_gzip or mod_deflate module or not? To check this, you can use php_info() function of PHP which prints all the information about server and modules.</p>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li><p><strong>You can enable compression for text and html by adding following lines in your htaccess file.</strong></p>
+<pre><code>// compress all text and html:
+&lt;Ifmodule mod_deflate.c&gt;
+AddOutputFilterByType DEFLATE text/html text/plain text/xml
+&lt;/Ifmodule&gt;
+或者
+&lt;Ifmodule mod_deflate.c&gt;
+AddOutputFilter DEFLATE html xml php js css
+&lt;/Ifmodule&gt;
+
+// compress certain file types by extension:
+&lt;files *.html&gt;
+   SetOutputFilter DEFLATE
+&lt;/files&gt;
+</code></pre></li>
+<li><p><strong>You can compress all type of content (image, css, js etc) using mod_deflate. Copy following code in htaccess to do this.</strong></p>
+<pre><code>&lt;location&gt;
+SetOutputFilter DEFLATE
+  SetEnvIfNoCase Request_URI  \
+\.(?:gif|jpe?g|png)$ no-gzip dont-vary
+SetEnvIfNoCase Request_URI  \
+\.(?:exe|t?gz|zip|gz2|sit|rar)$ no-gzip dont-vary
+&lt;/location&gt; 
+</code></pre></li>
+<li><p><strong>Also, you can add following code in your htaccess file and enable compression using mod_gzip.</strong></p>
+<pre><code>&lt;ifmodule mod_gzip.c&gt;
+mod_gzip_on       Yes
+mod_gzip_dechunk  Yes
+mod_gzip_item_include file      \.(html?|txt|css|js|php|pl)$
+mod_gzip_item_include handler   ^cgi-script$
+mod_gzip_item_include mime      ^text/.*
+mod_gzip_item_include mime      ^application/x-javascript.*
+mod_gzip_item_exclude mime      ^image/.*
+mod_gzip_item_exclude rspheader ^Content-Encoding:.*gzip.*
+&lt;/ifmodule&gt;
+</code></pre></li>
+</ul>
+<pre><code>2.定制目录的 Index 文件 
+
+`DirectoryIndex index.html index.php index.htm`
+</code></pre><blockquote>
+<p>你可以使用上面的配置来更改目录的默认页面，例如你将这个脚本放在 foo 目录，则用户请求 /foo/ 时候就会访问 /foo/index.html。</p>
+<hr>
+
+
+</blockquote>
+<p>   3.自定义错误页</p>
+<pre><code>`ErrorDocument 404 errors/404.html`
+</code></pre><blockquote>
+<p>当用户访问页面报错时，例如页面找不到你希望显示自定义的错误页面</p>
+<hr>
+
+</blockquote>
+<p>   4.通过<code>.htaccess</code> 实现缓存策略</p>
+<blockquote>
+<p>对于 Apache 服务器，可以通过 <code>mod_expires</code> 模块来设定ExpiresHTTP 头或Cache-ControlHTTP 头的max-age指令。编辑相应目录下的 .htaccess 文件，或直接对 Apache 的配置文件（根据服务器系统版本不同，可能为httpd.conf或apache2.conf等）作出修改。</p>
+<p>引用静态资源时，不要使用 Query String(就是例如<code>?key=val</code>的字符串)，如<br> <code>&lt;script src=&quot;/static/js/func.js?v=a87ff8&quot;&gt;&lt;/script&gt;</code>这会阻止一部分较老的浏览器（包括 IE6 ）对该资源进行缓存。</p>
+</blockquote>
+<ul>
+<li>使用<code>ExpiresByType</code>可以按照文件的 MIME Type 设定某一类文件的过期日期</li>
+</ul>
+<blockquote>
+<p>其中access plus 1 week表示将缓存过期设置为访问时间（即当前时间）之后的一周。如果将access替换为modification，则缓存过期会被设定为文件修改时间之后的一周。</p>
+</blockquote>
+<pre><code>&lt;IfModule mod_expires.c&gt;
+        ExpiresActive on
+ExpiresDefault A86400
+ExpiresByType image/x-icon A2592000
+ExpiresByType application/javascript &quot;access plus 1 month&quot;
+ExpiresByType text/css A604800
+ExpiresByType image/gif A2592000
+ExpiresByType image/png A2592000
+ExpiresByType image/jpeg A2592000
+ExpiresByType text/plain A86400
+ExpiresByType application/x-shockwave-flash A2592000
+ExpiresByType video/x-flv A2592000
+ExpiresByType application/pdf A2592000
+ExpiresByType text/html A600
+&lt;/IfModule&gt;
+</code></pre><blockquote>
+<p>可以使用的时间单位包括：</p>
+</blockquote>
+<ul>
+<li>years</li>
+<li>months</li>
+<li>weeks</li>
+<li>days</li>
+<li>hours</li>
+<li>minutes</li>
+<li>seconds</li>
+</ul>
+<ul>
+<li>根据文件扩展名进行设置</li>
+</ul>
+<blockquote>
+<p>如果希望根据扩展名来指定缓存规则，可以使用<code>FilesMatch</code>配合正则表达式。为了简洁，我这里只规定了ExpiresDefault。它的优先级很低，只会在对应文件没有任何其他规则能够匹配（包括上层目录下的缓存规则）时生效。</p>
+</blockquote>
+<figure class="highlight clean"><table><tr><td class="code"><pre><div class="line">&lt;IfModule mod_expires.c&gt;</div><div class="line">    &lt;FilesMatch <span class="string">"\.(css|js)$"</span>&gt;</div><div class="line">        ExpiresActive on </div><div class="line">        ExpiresDefault <span class="string">"access plus 1 week"</span></div><div class="line">    &lt;/FilesMatch&gt;</div><div class="line">&lt;/IfModule&gt;</div><div class="line">```	</div><div class="line"></div><div class="line">* 对某些文件设定</div><div class="line"></div><div class="line">&gt; 同理，也可以对某些文件启用特定的缓存策略。注意，文件名中的点`.`是需要转义的。</div></pre></td></tr></table></figure>
+<ifmodule mod_expires.c=""><br>    <filesmatch "^(example\.css|example\.js)$"=""><br>        ExpiresActive on<br>        ExpiresDefault “access plus 1 week”<br>    </filesmatch><br></ifmodule><br><figure class="highlight autohotkey"><table><tr><td class="code"><pre><div class="line"></div><div class="line">* 对某一文件夹下的所有文件设定</div><div class="line">&gt; 对于静态文件，一个比较方便的做法是将它们全部放到一个目录下，并对该目录下的所有文件设定。但是，此处需要注意防止其他规则将`ExpiresDefault`覆盖掉。</div></pre></td></tr></table></figure><br><br><ifmodule mod_expires.c=""><br>    ExpiresActive On<br>    ExpiresDefault “access plus 10 years”<br></ifmodule><br>```<br>   5.URL 重写<br><br>        <ifmodule mod_rewrite.c=""><br>        Options +FollowSymlinks<br>          RewriteEngine On<br><br>          RewriteCond %{http_host} ^iminyao.com [NC]<br>          RewriteRule ^(.<em>)$ <a href="http://www.iminyao.com/$1" target="_blank" rel="external">http://www.iminyao.com/$1</a> [L,R=301]<br>          RewriteCond %{REQUEST_FILENAME} !-d<br>          RewriteCond %{REQUEST_FILENAME} !-f<br>          RewriteRule ^(.</em>)$ index.php/$1 [QSA,PT,L]<br>          </ifmodule></div><script type="text/javascript" src="/js/share.js?v=0.0.0" async></script><a data-url="http://vino24.cn/2015/03/22/htaccess/" data-id="cixa9pona0045earn2rdzqd81" class="article-share-link">分享到</a><div class="tags"></div><div class="post-nav"><a href="/2015/03/22/async-javascript/" class="pre">网站优化之JavaScript异步加载</a><a href="/2015/03/22/http-cache/" class="next">浏览器缓存(HTTP Cache)控制简介及配置策略</a></div><div data-thread-key="2015/03/22/htaccess/" data-title=".htaccess文件配置详解" data-url="http://vino24.cn/2015/03/22/htaccess/" class="ds-share flat"><div class="ds-share-inline"><ul class="ds-share-icons-16"><li data-toggle="ds-share-icons-more"><a href="javascript:void(0);" class="ds-more">分享到：</a></li><li><a href="javascript:void(0);" data-service="weibo" class="ds-weibo">微博</a></li><li><a href="javascript:void(0);" data-service="qzone" class="ds-qzone">QQ空间</a></li><li><a href="javascript:void(0);" data-service="qqt" class="ds-qqt">腾讯微博</a></li><li><a href="javascript:void(0);" data-service="wechat" class="ds-wechat">微信</a></li></ul><div class="ds-share-icons-more"></div></div></div><div data-thread-key="2015/03/22/htaccess/" data-title=".htaccess文件配置详解" data-url="http://vino24.cn/2015/03/22/htaccess/" data-author-key="1" class="ds-thread"></div></div></div></div><div class="pure-u-1-4 hidden_mid_and_down"><div id="sidebar"><div class="widget"><div class="search-form"><input id="local-search-input" placeholder="Search" type="text" name="q" results="0"/><div id="local-search-result"></div></div></div><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> 分类</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/CSS/">CSS</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/HTTP/">HTTP</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/IE/">IE</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript/">JavaScript</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript-API/">JavaScript API</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript-Framework/">JavaScript Framework</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Mobile-Develop/">Mobile Develop</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Performance-Optimize/">Performance Optimize</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Requirements-Daily/">Requirements&&Daily</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/devTools-Configuration/">devTools&&Configuration</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/切图/">切图</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/总结/">总结</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/随笔/">随笔</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> 标签</i></div><div class="tagcloud"><a href="/tags/Ajax/" style="font-size: 15px;">Ajax</a> <a href="/tags/CSS-Layout/" style="font-size: 15px;">CSS Layout</a> <a href="/tags/CSS-Core/" style="font-size: 15px;">CSS Core</a> <a href="/tags/CSS-Collection/" style="font-size: 15px;">CSS Collection</a> <a href="/tags/DOM/" style="font-size: 15px;">DOM</a> <a href="/tags/CSS-core/" style="font-size: 15px;">CSS core</a> <a href="/tags/ES6/" style="font-size: 15px;">ES6</a> <a href="/tags/JavaScript-Core/" style="font-size: 15px;">JavaScript Core</a> <a href="/tags/bind/" style="font-size: 15px;">bind</a> <a href="/tags/PS/" style="font-size: 15px;">PS</a> <a href="/tags/性能优化/" style="font-size: 15px;">性能优化</a> <a href="/tags/avalon-js/" style="font-size: 15px;">avalon.js</a> <a href="/tags/JavaScript-API/" style="font-size: 15px;">JavaScript API</a> <a href="/tags/Flex/" style="font-size: 15px;">Flex</a> <a href="/tags/内存泄漏/" style="font-size: 15px;">内存泄漏</a> <a href="/tags/Git/" style="font-size: 15px;">Git</a> <a href="/tags/git/" style="font-size: 15px;">git</a> <a href="/tags/Mac/" style="font-size: 15px;">Mac</a> <a href="/tags/Netease-Weekly/" style="font-size: 15px;">Netease Weekly</a> <a href="/tags/react-js/" style="font-size: 15px;">react.js</a> <a href="/tags/React/" style="font-size: 15px;">React</a> <a href="/tags/this/" style="font-size: 15px;">this</a> <a href="/tags/three-js/" style="font-size: 15px;">three.js</a> <a href="/tags/Vue/" style="font-size: 15px;">Vue</a> <a href="/tags/Tips/" style="font-size: 15px;">Tips</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> 最新文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/12/08/es6-spread-rest/">ES6 spread和rest operator</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/08/react-form/">react中的表单</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/06/github-tip/">github实用技巧</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/02/react-first/">react.js入门</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/28/avalon-first-md/">avalon.js入门</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/22/chrome-dev-tools-console/">Chrome Dev Tools使用技巧总结(一) Console</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/02/fetch-api/">Fetch API</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/01/hexo-basic/">hexo常用配置一览</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/31/wechat-music-serach-module-update/">微信点歌模块代码更新及hexo音乐插件</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/27/three.js-first/">three.js入门</a></li></ul></div><div class="widget"><div class="comments-title"><i class="fa fa-comment-o"> 最近评论</i></div><div data-num-items="5" data-show-avatars="0" data-show-time="1" data-show-admin="0" data-excerpt-length="32" data-show-title="1" class="ds-recent-comments"></div></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link"> 友情链接</i></div><ul></ul><a href="http://bgm.iminyao.com/" title="背景音乐" target="_blank">背景音乐</a><ul></ul><a href="http://weibo.com/jzwmxz" title="民谣之家" target="_blank">民谣之家</a><ul></ul><a href="http://www.zhihu.com/people/iminyao" title="逢十借一" target="_blank">逢十借一</a></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">© <a href="/." rel="nofollow">逢十借一.</a> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"></a></div></div></div><a id="rocket" href="#top" class="show"></a><script type="text/javascript" src="/js/totop.js?v=0.0.0" async></script><script type="text/javascript" src="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.pack.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.0" async></script><link rel="stylesheet" type="text/css" href="/css/jquery.fancybox.css?v=0.0.0"><script>var duoshuoQuery = {short_name:'vino24'};
+(function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0]
+        || document.getElementsByTagName('body')[0]).appendChild(ds);
+})();
+</script><script type="text/javascript" src="/js/search.js?v=0.0.0"></script><script>var search_path = 'search.xml';
+if (search_path.length == 0) {
+   search_path = 'search.xml';
+}
+var path = '/' + search_path;
+searchFunc(path, 'local-search-input', 'local-search-result');
+</script><script type="text/javascript" src="/js/codeblock-resizer.js?v=0.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=0.0.0"></script></div></body></html>

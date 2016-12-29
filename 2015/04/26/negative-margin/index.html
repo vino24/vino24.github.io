@@ -1,0 +1,115 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content="web前端开发, 前端开发工程师, 前端开发攻城师, 前端资源, CSS, JavaScript, HTML, Web标准"><meta name="theme-color" content="#db5945"><title>CSS中神奇的负边距 | 逢十借一</title><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/normalize/4.2.0/normalize.min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/0.6.0/pure-min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/0.6.0/grids-responsive-min.css"><link rel="stylesheet" type="text/css" href="/css/style.css?v=0.0.0"><link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css"><script type="text/javascript" src="//cdn.bootcss.com/jquery/3.0.0/jquery.min.js"></script><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">CSS中神奇的负边距</h1><a id="logo" href="/.">逢十借一</a><p class="description">和自己赛跑的人</p></div><div id="nav-menu"><a href="/." class="current"><i class="fa fa-home"> 首页</i></a><a href="/archives/"><i class="fa fa-archive"> 归档</i></a><a href="/about/"><i class="fa fa-user"> 关于</i></a></div></div><div id="layout" class="pure-g"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">CSS中神奇的负边距</h1><div class="post-meta">Apr 26, 2015<span> | </span><span class="category"><a href="/categories/CSS/">CSS</a></span><script src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js" async></script><span id="busuanzi_container_page_pv"> | <span id="busuanzi_value_page_pv"></span><span> Hits</span></span></div><a data-thread-key="2015/04/26/negative-margin/" href="/2015/04/26/negative-margin/#comments" class="ds-thread-count"></a><div class="clear"><div id="toc" class="toc-article"><div class="toc-title">文章目录</div><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#理解负边距核心"><span class="toc-number">1.</span> <span class="toc-text">理解负边距核心</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#margin的解析逻辑："><span class="toc-number">2.</span> <span class="toc-text">margin的解析逻辑：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#eg"><span class="toc-number">3.</span> <span class="toc-text">eg:</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#分析："><span class="toc-number">3.1.</span> <span class="toc-text">分析：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考"><span class="toc-number">4.</span> <span class="toc-text">参考</span></a></li></ol></div></div><div class="post-content"><script src="/assets/js/APlayer.min.js"> </script><h3 id="理解负边距核心"><a href="#理解负边距核心" class="headerlink" title="理解负边距核心"></a>理解负边距核心</h3><ol>
+<li><p>在margin属性中一共有两类参考线，top和left的参考线属于一类，right和bottom的参考线属于另一类。</p>
+</li>
+<li><p>top和left是以外元素为参考(所谓外元素就是本元素的边界元素,再白话点的解释就是元素的紧邻元素)，right和bottom是以元素本身为参考,确切含义是指以自身为参考来影响周围元素的位置（实质即为影响下边和右边相邻元素的参考线）。</p>
+</li>
+<li><p>margin的位移方向是指margin数值为正值时候的情形，如果是负值则位移方向相反。(如下图)</p>
+</li>
+</ol>
+<h3 id="margin的解析逻辑："><a href="#margin的解析逻辑：" class="headerlink" title="margin的解析逻辑："></a>margin的解析逻辑：</h3><blockquote>
+<p>top 以 containing block 的 <strong>content 上边</strong> 或者 <strong>垂直上方相连元素 margin 的下边</strong>为参考线垂直向下位移；left 以 containing block 的 content 左边或者水平左方相连元素 margin 的右边为参考线水平向右位移。right 以元素本身的 border 右边为参考线水平向右位移；bottom 以元素本身的border 下边为参考线垂直向下位移。</p>
+</blockquote>
+<p> <a href="http://www.hicss.net/wp-content/uploads/2011/marginMoveDefault.gif" target="_blank" rel="external">http://www.hicss.net/wp-content/uploads/2011/marginMoveDefault.gif</a></p>
+<h3 id="eg"><a href="#eg" class="headerlink" title="eg:"></a>eg:</h3> <figure class="highlight xml"><table><tr><td class="code"><pre><div class="line">   <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"wrap"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"example"</span>&gt;</span>example元素：margin参考线举例说明文字，请查看此元素由于margin的变化所移动的位移量。<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"normal"</span>&gt;</span>一个普通的Box<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">   <span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">"text/css"</span>&gt;</span><span class="css"></span></div><div class="line">        * &#123;</div><div class="line">            <span class="attribute">margin</span>: <span class="number">0</span>;</div><div class="line">            <span class="attribute">padding</span>: <span class="number">0</span>;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="selector-class">.wrap</span> &#123;</div><div class="line">            <span class="attribute">width</span>: <span class="number">400px</span>;</div><div class="line">            <span class="attribute">border</span>: <span class="number">5px</span> solid <span class="number">#aaa</span>;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="selector-class">.example</span> &#123;</div><div class="line">            <span class="attribute">width</span>: <span class="number">200px</span>;</div><div class="line">            <span class="attribute">height</span>: <span class="number">200px</span>;</div><div class="line">            <span class="attribute">background</span>: <span class="number">#CCCCFF</span>;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="selector-class">.normal</span> &#123;</div><div class="line">            <span class="attribute">width</span>: <span class="number">200px</span>;</div><div class="line">            <span class="attribute">height</span>: <span class="number">200px</span>;</div><div class="line">            <span class="attribute">background</span>: <span class="number">#CCE8CF</span>;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="selector-class">.example</span> &#123;</div><div class="line">            <span class="attribute">margin</span>: -<span class="number">10px</span> <span class="number">0px</span> -<span class="number">30px</span> <span class="number">40px</span>;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">    <span class="tag">&lt;/<span class="name">style</span>&gt;</span></div><div class="line"> ``` </div><div class="line">  </div><div class="line">### 分析：</div><div class="line"></div><div class="line">  &gt; example元素上边和左边的边界元素即为wrap父元素，wrap父元素为基准点，example的margin-top为-10px，想象下如果这里margin-top为+10px会什么情况，没错如果为+10px，example元素相对于wrap父元素边缘为基准，那么example元素会同wrap父元素10px产生间隙边距，那么反过来，margin-tip:-10px;还是与wrap父元素边缘为基准，反过来向上推10px的距离位置。</div><div class="line"></div><div class="line"></div><div class="line"> &gt; example元素的margin-right和margin-bottom，由上文得知这俩个值是以元素本身为参考。什么叫以元素本身为参考呢，确切含义是指以自身为参考来影响周围元素的位置（实质即为影响下边和右边相邻元素的参考线）。**这里的margin-bottom为-30px，对于其自身位置没有任何变化，**但是对于其下方元素normal元素产生了极大的影响，因为normal元素的上边界元素即为example元素，根据example元素边界来判定自身位置，想象下如果example元素margin-bottom为+30px，那么example元素将隔开下方的normal元素，反之为-30px，下方normal元素由于example参考线内凹，导致了normal元素自个儿身不由己的被“提”了上去了。这就是以自身为参考影响周围元素位置的含义。</div><div class="line"></div><div class="line">### 结论：</div><div class="line"></div><div class="line">&gt; 当margin四个值都为正数值的话，那么margin按照正常逻辑同周围元素产生边距。**当元素margin的top和left是负值时会引起元素的向上或向左位置移动。而当元素margin的bottom和right是负值时会影响右边和下边相邻元素的参考线。**</div><div class="line"></div><div class="line">### 负边距在普通文档流中的作用和效果 ###</div><div class="line">1.  负的边距好像能减小元素在文档流中的尺寸一样，但事实上，它的尺寸大小并没变，只是文档流在计算元素位置的时候，会认为负边距把元素的尺寸减小了，因为位置也就发生变化了。</div><div class="line"></div><div class="line">2. 在文档流中，元素的最终边界是由margin决定的，margin为负的时候就相当于元素的边界向里收，文档流认的只是这个边界，不会管你实际的尺寸是多少。</div><div class="line"></div><div class="line">### 负边距对没有设置宽度（包括auto）元素的影响 [demo](http://code.w3ctech.com/detail/2167)</div><div class="line"></div><div class="line">&gt; 如果没有设定width属性，设定负margin-left/right会将元素拖向对应的方向，并增加宽度，此时的margin的作用就像padding一样。</div><div class="line"></div><div class="line">### 负边距定位与相对定位的区别 ###</div><div class="line"></div><div class="line">&gt; 通过相对定位偏移后，其仍然会坚守着它原来占据的空间，不会让文档流的其它元素乘虚而入。而通过负边距进行偏移的元素，它会放弃偏移前占据的空间，这样它后面文档流中的其它元素就会“流”过来填充这部分空间。</div><div class="line"></div><div class="line">### 理解负边距要点： ###</div><div class="line"></div><div class="line">&gt; 先确定设置负边距的那条边的位置</div><div class="line"></div><div class="line">## 负边距应用</div><div class="line"></div><div class="line">### Tab选项卡([demo](http://code.w3ctech.com/detail/2158))</div></pre></td></tr></table></figure>
+<pre><code>&lt;style type=&quot;text/css&quot;&gt;
+    ul {
+        list-style: none;
+        margin: 0px;
+        padding: 0px;
+    }
+    .demoTab {
+        width: 400px;
+        font: 14px/1.5 Microsoft YaHei, verdana, Helvetica, Arial, sans-serif;
+    }
+
+    .demoTab .demoTabHd {
+        margin-bottom: -1px;
+        border: 1px solid #6C92AD;
+        border-bottom: none;
+        background: #EAF0FD;
+    }
+
+    .demoTab .demoTabNav {
+        height: 28px;
+        overflow: hidden;
+        *zoom: 1;
+    }
+
+    .demoTab .demoTabList {
+        float: left;
+        margin-left: -1px;
+        padding: 0 22px;
+        line-height: 28px;
+        border-left: 1px solid #6C92AD;
+        border-right: 1px solid #6C92AD;
+        font-weight: bold;
+        color: #005590;
+        text-align: center;
+        cursor: pointer;
+    }
+
+    .demoTab .demoTabList.current {
+        position: relative;
+        background: #fff;
+    }
+
+    .demoTab .demoTabBd {
+        border: 1px solid #6C92AD;
+    }
+
+    .demoTab .demoTabBd .roundBox {
+        padding: 15px;
+    }
+
+    .demoTab .demoTabContent {
+        display: none;
+    }
+
+    .demoTab .demoTabContent.current {
+        display: block;
+    }
+&lt;/style&gt;
+</code></pre><p></p>
+<p><body><br>    <div id="demoTab" class="demoTab"><br>        <div class="demoTabHd"><br>            <ul class="demoTabNav clearfix"><br>                <li class="demoTabList current">前端</li><br>                <li class="demoTabList">实战</li><br>                <li class="demoTabList">交互</li><br>                <li class="demoTabList">优化</li><br>            </ul><br>        </div><br>        <div class="demoTabBd"><br>            <div class="roundBox"><br>                <div class="demoTabContent current"><br>                    这是第一个选项卡的内容，现如今，负margin技术的应用可谓越来越广，任一个大型站点惊鸿一瞥之下都会有其身影所在。个人认为负margin技术是学习css路上必不可缺少的课题之一，许多高级应用及疑难杂症修复都可以使用负margin技术进行实现。<br>                </div><br>                <div class="demoTabContent"><br>                    这是第二个选项卡的内容，HICSS，这里是一个纯粹的前端技术分享网站，也是我记录工作体会和生活琐事的地方。理论为辅，实战为主，专注于前端开发。相信你在这里能够发现自己需要的东西，同时也希望你能前来一起分享你的知识。谢谢！<br>                </div><br>                <div class="demoTabContent"><br>                    这是第三个选项卡的内容，HICSS，互联网的最大意义就是分享信息，我很乐意将自己在工作与学习中遇到的问题与解决经验与大家分享，同时还总结、归纳了一部分网上不错的学习资源来让大家更集中地获取信息，这个平台就是现在您所看到的HiCSS。<br>                </div><br>                <div class="demoTabContent"><br>                    这是第四个选项卡的内容，据我所知至今没有一套完整的关于负margin专题研究的文章。有也仅仅是偏理论或者偏实例，理论终究是理论，学以致用才是根本，而有了实例你还得知道其原理，授人鱼不如授人以渔。这些都是文字文字文字文字文字。<br>                </div><br>            </div><br>        </div><br>    </div><br><figure class="highlight clean"><table><tr><td class="code"><pre><div class="line">#### 分析：</div><div class="line">&gt; 第二行的margin-bottom:<span class="number">-1</span>px;使下方的正文部分向上“提”了<span class="number">1</span>px的距离，从而达到了鼠标上移后选项卡白色遮住下方黑色边框的效果（注：由于IE不是符合W3C标准，所以当鼠标移到选项卡上时需要添加一个额外属性position:relative;来修复IE不覆盖下方边框的这个Bug）。第四行的margin-left:<span class="number">-1</span>px;的目的是让四个选项卡向左移动<span class="number">1</span>px的距离，达到左右都只有一条分割线的效果。</div><div class="line"></div><div class="line">### 负位移([demo](http:<span class="comment">//code.w3ctech.com/detail/2159))</span></div></pre></td></tr></table></figure></body></p>
+<p><div class="demoSpecItem"><br>    <a href="javascript:void(0)" class="demoItemPic" target="_blank" rel="external"><br>        <img width="200" height="166" src="item.jpg" alt="toygers kittens"><br>    </a><br>    <span class="demoIcon"><img width="54" height="54" src="buyInSoon.png" alt="icon"></span><br></div><br>        .demoSpecItem {<br>            width: 212px;<br>            min-height: 178px;<br>            _height: 178px;<br>        }</p>
+<pre><code>.demoSpecItem .demoItemPic {
+    display: block;
+    text-align: center;
+}
+
+.demoItemPic img {
+    padding: 5px;
+    border: 1px solid #ccc;
+}
+
+.demoSpecItem .demoIcon {
+    display: block;
+    margin: -170px 0 0 150px;
+}
+</code></pre><p>```</p>
+<h4 id="分析："><a href="#分析：" class="headerlink" title="分析："></a>分析：</h4><blockquote>
+<p>上面那个类似于商城热销商品邮戳效果其实也是由负margin实现的，把以往使用的relative/absolute这样的“危险”属性代替为相对“温和”的margin属性。核心在于小的邮戳图片利用负margin-top向上移动，达到类似absolute的叠加效果。</p>
+</blockquote>
+<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><ol>
+<li><a href="http://www.cnblogs.com/2050/archive/2012/08/13/2636467.html" target="_blank" rel="external">CSS布局奇淫巧计之-强大的负边距</a></li>
+<li><a href="http://www.hicss.net/i-know-you-do-not-know-the-negative-margin/" target="_blank" rel="external">我知道你不知道的负Margin</a></li>
+<li><a href="http://www.planabc.net/2007/03/18/css_attribute_margin/" target="_blank" rel="external">由浅入深漫谈margin属性</a></li>
+<li><a href="http://www.smashingmagazine.com/2009/07/the-definitive-guide-to-using-negative-margins/" target="_blank" rel="external">The Definitive Guide to Using Negative Margins</a></li>
+<li><a href="http://www.hicss.net/i-know-you-do-not-know-the-negative-margin/" target="_blank" rel="external">http://www.hicss.net/i-know-you-do-not-know-the-negative-margin/</a></li>
+</ol>
+</div><script type="text/javascript" src="/js/share.js?v=0.0.0" async></script><a data-url="http://vino24.cn/2015/04/26/negative-margin/" data-id="cixa9pooe005xearn0sxaf997" class="article-share-link">分享到</a><div class="tags"></div><div class="post-nav"><a href="/2015/05/04/Scope-Chain/" class="pre">JavaScript作用域链</a><a href="/2015/04/25/CSS-center/" class="next">CSS实现水平垂直居中的常见方式</a></div><div data-thread-key="2015/04/26/negative-margin/" data-title="CSS中神奇的负边距" data-url="http://vino24.cn/2015/04/26/negative-margin/" class="ds-share flat"><div class="ds-share-inline"><ul class="ds-share-icons-16"><li data-toggle="ds-share-icons-more"><a href="javascript:void(0);" class="ds-more">分享到：</a></li><li><a href="javascript:void(0);" data-service="weibo" class="ds-weibo">微博</a></li><li><a href="javascript:void(0);" data-service="qzone" class="ds-qzone">QQ空间</a></li><li><a href="javascript:void(0);" data-service="qqt" class="ds-qqt">腾讯微博</a></li><li><a href="javascript:void(0);" data-service="wechat" class="ds-wechat">微信</a></li></ul><div class="ds-share-icons-more"></div></div></div><div data-thread-key="2015/04/26/negative-margin/" data-title="CSS中神奇的负边距" data-url="http://vino24.cn/2015/04/26/negative-margin/" data-author-key="1" class="ds-thread"></div></div></div></div><div class="pure-u-1-4 hidden_mid_and_down"><div id="sidebar"><div class="widget"><div class="search-form"><input id="local-search-input" placeholder="Search" type="text" name="q" results="0"/><div id="local-search-result"></div></div></div><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> 分类</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/CSS/">CSS</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/HTTP/">HTTP</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/IE/">IE</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript/">JavaScript</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript-API/">JavaScript API</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript-Framework/">JavaScript Framework</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Mobile-Develop/">Mobile Develop</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Performance-Optimize/">Performance Optimize</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Requirements-Daily/">Requirements&&Daily</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/devTools-Configuration/">devTools&&Configuration</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/切图/">切图</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/总结/">总结</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/随笔/">随笔</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> 标签</i></div><div class="tagcloud"><a href="/tags/Ajax/" style="font-size: 15px;">Ajax</a> <a href="/tags/CSS-Layout/" style="font-size: 15px;">CSS Layout</a> <a href="/tags/CSS-Core/" style="font-size: 15px;">CSS Core</a> <a href="/tags/CSS-Collection/" style="font-size: 15px;">CSS Collection</a> <a href="/tags/DOM/" style="font-size: 15px;">DOM</a> <a href="/tags/CSS-core/" style="font-size: 15px;">CSS core</a> <a href="/tags/ES6/" style="font-size: 15px;">ES6</a> <a href="/tags/JavaScript-Core/" style="font-size: 15px;">JavaScript Core</a> <a href="/tags/bind/" style="font-size: 15px;">bind</a> <a href="/tags/PS/" style="font-size: 15px;">PS</a> <a href="/tags/性能优化/" style="font-size: 15px;">性能优化</a> <a href="/tags/avalon-js/" style="font-size: 15px;">avalon.js</a> <a href="/tags/JavaScript-API/" style="font-size: 15px;">JavaScript API</a> <a href="/tags/Flex/" style="font-size: 15px;">Flex</a> <a href="/tags/内存泄漏/" style="font-size: 15px;">内存泄漏</a> <a href="/tags/Git/" style="font-size: 15px;">Git</a> <a href="/tags/git/" style="font-size: 15px;">git</a> <a href="/tags/Mac/" style="font-size: 15px;">Mac</a> <a href="/tags/Netease-Weekly/" style="font-size: 15px;">Netease Weekly</a> <a href="/tags/react-js/" style="font-size: 15px;">react.js</a> <a href="/tags/React/" style="font-size: 15px;">React</a> <a href="/tags/this/" style="font-size: 15px;">this</a> <a href="/tags/three-js/" style="font-size: 15px;">three.js</a> <a href="/tags/Vue/" style="font-size: 15px;">Vue</a> <a href="/tags/Tips/" style="font-size: 15px;">Tips</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> 最新文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/12/08/es6-spread-rest/">ES6 spread和rest operator</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/08/react-form/">react中的表单</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/06/github-tip/">github实用技巧</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/02/react-first/">react.js入门</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/28/avalon-first-md/">avalon.js入门</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/22/chrome-dev-tools-console/">Chrome Dev Tools使用技巧总结(一) Console</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/02/fetch-api/">Fetch API</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/01/hexo-basic/">hexo常用配置一览</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/31/wechat-music-serach-module-update/">微信点歌模块代码更新及hexo音乐插件</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/27/three.js-first/">three.js入门</a></li></ul></div><div class="widget"><div class="comments-title"><i class="fa fa-comment-o"> 最近评论</i></div><div data-num-items="5" data-show-avatars="0" data-show-time="1" data-show-admin="0" data-excerpt-length="32" data-show-title="1" class="ds-recent-comments"></div></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link"> 友情链接</i></div><ul></ul><a href="http://bgm.iminyao.com/" title="背景音乐" target="_blank">背景音乐</a><ul></ul><a href="http://weibo.com/jzwmxz" title="民谣之家" target="_blank">民谣之家</a><ul></ul><a href="http://www.zhihu.com/people/iminyao" title="逢十借一" target="_blank">逢十借一</a></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">© <a href="/." rel="nofollow">逢十借一.</a> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"></a></div></div></div><a id="rocket" href="#top" class="show"></a><script type="text/javascript" src="/js/totop.js?v=0.0.0" async></script><script type="text/javascript" src="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.pack.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.0" async></script><link rel="stylesheet" type="text/css" href="/css/jquery.fancybox.css?v=0.0.0"><script>var duoshuoQuery = {short_name:'vino24'};
+(function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0]
+        || document.getElementsByTagName('body')[0]).appendChild(ds);
+})();
+</script><script type="text/javascript" src="/js/search.js?v=0.0.0"></script><script>var search_path = 'search.xml';
+if (search_path.length == 0) {
+   search_path = 'search.xml';
+}
+var path = '/' + search_path;
+searchFunc(path, 'local-search-input', 'local-search-result');
+</script><script type="text/javascript" src="/js/codeblock-resizer.js?v=0.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=0.0.0"></script></div></body></html>
