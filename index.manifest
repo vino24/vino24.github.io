@@ -1,5 +1,5 @@
 CACHE MANIFEST
-# Version 1
+# Version 2
 
 CACHE:
 ./js/js.min.js
@@ -8,6 +8,15 @@ CACHE:
 ./js/js.js
 ./js/smoothscroll.js
 ./js/nprogress.js
+./js/gallery/jquery.poptrox.min.js
+./js/gallery/main.min.js
+./js/gallery/skel.min.js
+./js/gallery/util.min.js
+./css/duoshuo.min.css
+./css/gallery.min.css
+./css/material.min.css
+./css/style.min.css
+./css/highlight/solarized-white.css
 ./img/apple-touch-icon.png
 ./img/daily_pic.png
 ./img/sidebar_header.png
