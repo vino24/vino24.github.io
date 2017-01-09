@@ -8,10 +8,6 @@ CACHE:
 ./js/js.js
 ./js/smoothscroll.js
 ./js/nprogress.js
-./js/gallery/jquery.poptrox.min.js
-./js/gallery/main.min.js
-./js/gallery/skel.min.js
-./js/gallery/util.min.js
 ./css/duoshuo.min.css
 ./css/gallery.min.css
 ./css/material.min.css
