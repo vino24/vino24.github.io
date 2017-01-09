@@ -8,11 +8,6 @@ CACHE:
 ./js/js.js
 ./js/smoothscroll.js
 ./js/nprogress.js
-./css/duoshuo.min.css
-./css/gallery.min.css
-./css/material.min.css
-./css/style.min.css
-./css/highlight/solarized-white.css
 ./img/apple-touch-icon.png
 ./img/daily_pic.png
 ./img/sidebar_header.png
