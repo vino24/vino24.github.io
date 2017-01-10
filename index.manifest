@@ -4,7 +4,6 @@ CACHE MANIFEST
 CACHE:
 ./js/js.min.js
 ./js/highlight.min.js
-./js/jquery.min.js
 ./js/js.js
 ./js/smoothscroll.js
 ./js/nprogress.js
