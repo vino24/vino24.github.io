@@ -1263,7 +1263,7 @@ Warning: Invalid argument supplied for foreach() in /data/home/qxu1098560294/htd
     </entry>
     
     <entry>
-      <title><![CDATA[Function.prototype.bind]]></title>
+      <title><![CDATA[JavaScript中的bind方法]]></title>
       <url>http://vino24.cn/2016/07/02/Function-prototype-bind/</url>
       <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><h2 id="简介："><a href="#简介：" class="headerlink" title="简介："></a>简介：</h2><blockquote>
 <p>bind()方法会创建一个新函数,称为绑定函数.当调用这个绑定函数时,绑定函数会以创建它时传入 bind()方法的第一个参数作为 this,传入 bind() 方法的第二个以及以后的参数加上绑定函数运行时本身的参数按照顺序作为原函数的参数来调用原函数.</p>
