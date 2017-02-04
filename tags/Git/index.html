@@ -669,7 +669,9 @@ It will not impact the appearance and can give developers a lot of support :)
             searchFunc(path, 'search', 'local-search-result');
         }
 
-        inputArea.onfocus = function(){ getSearchFile() }
+        if (inputArea) {
+            inputArea.onfocus = function(){ getSearchFile() }
+        }
 	</script>
 
 
@@ -690,8 +692,7 @@ It will not impact the appearance and can give developers a lot of support :)
 
 	
 </html>
-);
-            var $resultContent = document.getElementById(content_id);
+ument.getElementById(content_id);
             $input.addEventListener('input', function(){
                 var str='<ul class=\"search-result-list\">';                
                 var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
@@ -767,7 +768,9 @@ It will not impact the appearance and can give developers a lot of support :)
             searchFunc(path, 'search', 'local-search-result');
         }
 
-        inputArea.onfocus = function(){ getSearchFile() }
+        if (inputArea) {
+            inputArea.onfocus = function(){ getSearchFile() }
+        }
 	</script>
 
 
