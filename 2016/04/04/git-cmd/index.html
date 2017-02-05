@@ -213,7 +213,7 @@
 	<ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect"
 		for="post-toc-trigger-btn">
 			
-			<ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#一-创建版本库"><span class="post-toc-number">1.</span> <span class="post-toc-text">一.创建版本库</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#二-版本管理"><span class="post-toc-number">2.</span> <span class="post-toc-text">二.版本管理</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#三-工作区和暂缓区"><span class="post-toc-number">3.</span> <span class="post-toc-text">三.工作区和暂缓区</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#四-远程仓库"><span class="post-toc-number">4.</span> <span class="post-toc-text">四.远程仓库</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#五-分支管理"><span class="post-toc-number">5.</span> <span class="post-toc-text">五.分支管理</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#六-解决冲突"><span class="post-toc-number">6.</span> <span class="post-toc-text">六.解决冲突</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#七-临时存放工作现场"><span class="post-toc-number">7.</span> <span class="post-toc-text">七.临时存放工作现场</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#参考"><span class="post-toc-number">8.</span> <span class="post-toc-text">参考:</span></a></li></ol>
+			<ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#一-创建版本库"><span class="post-toc-number">1.</span> <span class="post-toc-text">一.创建版本库</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#二-版本管理"><span class="post-toc-number">2.</span> <span class="post-toc-text">二.版本管理</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#三-工作区和暂缓区"><span class="post-toc-number">3.</span> <span class="post-toc-text">三.工作区和暂缓区</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#四-远程仓库"><span class="post-toc-number">4.</span> <span class="post-toc-text">四.远程仓库</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#五-分支管理"><span class="post-toc-number">5.</span> <span class="post-toc-text">五.分支管理</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#六-解决冲突"><span class="post-toc-number">6.</span> <span class="post-toc-text">六.解决冲突</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#七-临时存放工作现场"><span class="post-toc-number">7.</span> <span class="post-toc-text">七.临时存放工作现场</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#八-更新本地仓库分支"><span class="post-toc-number">8.</span> <span class="post-toc-text">八.更新本地仓库分支</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#参考"><span class="post-toc-number">9.</span> <span class="post-toc-text">参考:</span></a></li></ol>
 		
 <!--			<li class="mdl-menu__item">Some Action</li>-->
 	</ul>
@@ -381,6 +381,11 @@
 <li>查看保存的工作现场:<code>git stash list</code></li>
 <li>恢复现场:<code>git stash apply</code>,恢复后<code>stash</code>并没有删除，需要使用<code>git stash drop</code>删除;第二种方法<code>git stash pop</code>,恢复时<code>stash</code>也被删除，多个<code>stash</code>时，<code>git stash apply@{stash-id}</code></li>
 </ol>
+<h3 id="八-更新本地仓库分支"><a href="#八-更新本地仓库分支" class="headerlink" title="八.更新本地仓库分支"></a>八.更新本地仓库分支</h3><p>最近发现在本地分支列表里还会显示我很久之前在远端仓库早已删除的分支，这样分支切换起来比较麻烦，候选项老是出现之前已经删掉的分支。其实可以通过<code>git fetch -p</code>这个命令来删除本地仓库中远端仓库中不存在的分支。</p>
+<p><strong>官方对命令的释义：</strong></p>
+<blockquote>
+<p>remove any remote tracking branches that no longer exist remotely</p>
+</blockquote>
 <h3 id="参考"><a href="#参考" class="headerlink" title="参考:"></a>参考:</h3><ol>
 <li><a href="http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000" target="_blank" rel="external">Git教程</a></li>
 </ol>
