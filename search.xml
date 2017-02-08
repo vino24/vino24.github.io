@@ -5,7 +5,7 @@
     
     <entry>
       <title><![CDATA[es6 let vs const]]></title>
-      <url>http://vino24.cn/2017/02/04/es6-let-vs-const/</url>
+      <url>http://iminyao.com/2017/02/04/es6-let-vs-const/</url>
       <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><p>看一段代码<br><figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="comment">// 定义常量</span></div><div class="line"><span class="keyword">const</span> REG_GET_INPUT = <span class="regexp">/^\d&#123;1,3&#125;$/</span>;</div><div class="line"></div><div class="line"><span class="comment">// 定义配置项</span></div><div class="line"><span class="keyword">let</span> config = &#123;</div><div class="line">  <span class="attr">isDev</span> : <span class="literal">false</span>,</div><div class="line">  <span class="attr">pubDir</span>: <span class="string">'./admin/'</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 引入 gulp</span></div><div class="line"><span class="keyword">let</span> gulp    = <span class="built_in">require</span>(<span class="string">'gulp'</span>);</div><div class="line"></div><div class="line"><span class="comment">// 引入gulp相关插件</span></div><div class="line"><span class="keyword">let</span> concat  = <span class="built_in">require</span>(<span class="string">'gulp-concat'</span>);</div><div class="line"><span class="keyword">let</span> uglify  = <span class="built_in">require</span>(<span class="string">'gulp-uglify'</span>);</div><div class="line"><span class="keyword">let</span> cssnano = <span class="built_in">require</span>(<span class="string">'gulp-cssnano'</span>);</div></pre></td></tr></table></figure></p>
 <p>大多数将const理解为不可变的值，但是const的定义是不可重新赋值的值，这与不可变值（immutable value）是有区别的，const定义的Object，在定义之后仍可以修改其属性。</p>
 <blockquote>
@@ -20,7 +20,7 @@
     
     <entry>
       <title><![CDATA[javascript编码规范指南]]></title>
-      <url>http://vino24.cn/2017/02/04/javascript-code-style/</url>
+      <url>http://iminyao.com/2017/02/04/javascript-code-style/</url>
       <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><h3 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h3><h4 id="避免重复的描述"><a href="#避免重复的描述" class="headerlink" title="避免重复的描述"></a>避免重复的描述</h4><blockquote>
 <p>当类/对象名已经有意义时，对其变量进行命名不需要再次重复。</p>
 </blockquote>
@@ -61,13 +61,13 @@
     
     <entry>
       <title><![CDATA[Hello, 2017]]></title>
-      <url>http://vino24.cn/2017/02/03/2017/</url>
+      <url>http://iminyao.com/2017/02/03/2017/</url>
       <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script>]]></content>
     </entry>
     
     <entry>
       <title><![CDATA[ES6 spread和rest operator]]></title>
-      <url>http://vino24.cn/2016/12/08/es6-spread-rest/</url>
+      <url>http://iminyao.com/2016/12/08/es6-spread-rest/</url>
       <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><h2 id="spread-operator-array-gt-single-element"><a href="#spread-operator-array-gt-single-element" class="headerlink" title="spread operator array -&gt; single element"></a>spread operator array -&gt; single element</h2><h3 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h3><h4 id="1-将数组展开成函数的多个参数"><a href="#1-将数组展开成函数的多个参数" class="headerlink" title="1. 将数组展开成函数的多个参数"></a>1. 将数组展开成函数的多个参数</h4><figure class="highlight javascript"><figcaption><span>传统apply方法</span></figcaption><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params">x, y, z</span>) </span>&#123;&#125;</div><div class="line"><span class="keyword">var</span> args = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</div><div class="line">fn.apply(<span class="literal">null</span>,arg)</div></pre></td></tr></table></figure>
 <figure class="highlight javascript"><figcaption><span>ES6-spread</span></figcaption><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params">x, y, z</span>)</span>&#123;&#125;</div><div class="line"><span class="keyword">var</span> args = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</div><div class="line">fn(...args);</div></pre></td></tr></table></figure>
 <p>而且支持多个数组的展开<br><figure class="highlight javascript"><figcaption><span>ES6-spread-plus</span></figcaption><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">myFunction</span>(<span class="params">v, w, x, y, z</span>) </span>&#123; &#125;</div><div class="line"><span class="keyword">var</span> args = [<span class="number">0</span>, <span class="number">1</span>];</div><div class="line">myFunction(<span class="number">-1</span>, ...args, <span class="number">2</span>, ...[<span class="number">3</span>]);</div></pre></td></tr></table></figure></p>
@@ -95,7 +95,7 @@
     
     <entry>
       <title><![CDATA[react中的表单]]></title>
-      <url>http://vino24.cn/2016/12/08/react-form/</url>
+      <url>http://iminyao.com/2016/12/08/react-form/</url>
       <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><h3 id="表单的特殊性"><a href="#表单的特殊性" class="headerlink" title="表单的特殊性"></a>表单的特殊性</h3><blockquote>
 <p>诸如 <code>&lt;input&gt;</code>、<code>&lt;textarea&gt;</code>、<code>&lt;option&gt;</code> 这样的表单组件不同于其他原生组件，因为他们可以通过用户交互发生变化。</p>
 </blockquote>
@@ -123,7 +123,7 @@
     
     <entry>
       <title><![CDATA[github实用技巧]]></title>
-      <url>http://vino24.cn/2016/12/06/github-tip/</url>
+      <url>http://iminyao.com/2016/12/06/github-tip/</url>
       <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><h3 id="github小技巧"><a href="#github小技巧" class="headerlink" title="github小技巧"></a>github小技巧</h3><ol>
 <li><p>issue中输入”:”添加表情</p>
 </li>
@@ -146,7 +146,7 @@
     
     <entry>
       <title><![CDATA[react.js入门]]></title>
-      <url>http://vino24.cn/2016/12/02/react-first/</url>
+      <url>http://iminyao.com/2016/12/02/react-first/</url>
       <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><h3 id="1-HTML标签-与-React组件"><a href="#1-HTML标签-与-React组件" class="headerlink" title="1.HTML标签 与 React组件"></a>1.HTML标签 与 React组件</h3><p>ReactDOM.render只能渲染HTML标签，无法直接渲染React组件，需要将组件以类似HTML标签的形式传入</p>
 <blockquote>
 <p>JSX 里约定分别使用首字母大、小写来区分本地组件的类和 HTML 标签</p>
@@ -204,7 +204,7 @@
     
     <entry>
       <title><![CDATA[avalon.js入门]]></title>
-      <url>http://vino24.cn/2016/11/28/avalon-first-md/</url>
+      <url>http://iminyao.com/2016/11/28/avalon-first-md/</url>
       <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><p> 1.data-xxx-yyy=”xxx”，辅助指令,例如data-duplex-event=”change” 双工绑定时change事件时才触发更新</p>
 <p> 2.avalon在DOMReady时扫描树，所以不用包在avalon.ready中也可以正常运行，正确的写法为<br>    <figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line">avalon.ready(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> vm = avalon.define(&#123;</div><div class="line">        &#125;)</div><div class="line">    avalon.scan() </div><div class="line">    &#125;)</div></pre></td></tr></table></figure></p>
 <p>3.某些属性不想监听可以放在$skipArray数组,$skipArray是一个字符串数组，只能放当前对象的直接属性名，想禁止子对象的某个属性的监听，在那个子对象上再添加一个$skipAray数组就行</p>
@@ -263,7 +263,7 @@
     
     <entry>
       <title><![CDATA[Chrome Dev Tools使用技巧总结(一) Console]]></title>
-      <url>http://vino24.cn/2016/11/22/chrome-dev-tools-console/</url>
+      <url>http://iminyao.com/2016/11/22/chrome-dev-tools-console/</url>
       <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><h2 id="Console-API"><a href="#Console-API" class="headerlink" title="Console API"></a>Console API</h2><h3 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h3><ul>
 <li>console.log：普通信息</li>
 <li>console.info：提示类信息</li>
@@ -289,7 +289,7 @@
     
     <entry>
       <title><![CDATA[Fetch API]]></title>
-      <url>http://vino24.cn/2016/11/02/fetch-api/</url>
+      <url>http://iminyao.com/2016/11/02/fetch-api/</url>
       <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><p>用fetch已经有一段时间了，一直没有好好整理一下，虽然用起来很简单很爽，但是还是有很多需要注意的地方。</p>
 <p>fetch之前是XMLHttpRequest，但是由于XHR写起来太繁琐，基本上都被弃用，JQuery中ajax可能是用的最多的。直到fetch的出现彻底的改变了这一切。</p>
 <p><a href="http://caniuse.com/#search=fetch" target="_blank" rel="external">can I use fetch</a> 看了下IE和Safari是不支持，不过幸好有polyfill, <a href="https://github.com/github/fetch" target="_blank" rel="external">fetch</a>  另外fetch API是基于Promise设计的所以还需要promise的polyfill <a href="https://github.com/stefanpenner/es6-promise" target="_blank" rel="external">es6-promise</a></p>
@@ -345,7 +345,7 @@
     
     <entry>
       <title><![CDATA[hexo常用配置一览]]></title>
-      <url>http://vino24.cn/2016/11/01/hexo-basic/</url>
+      <url>http://iminyao.com/2016/11/01/hexo-basic/</url>
       <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><blockquote>
 <p>前几天写Hexo音乐插件的时候到Hexo官网上找过资料，突然发现自己用Hexo已经一端时间了，这段时间一直安安静静的写文章，好像没有好好看看Hexo的文档。于是浏览了下它的官方文档，摘录了一些可能用到的点。</p>
 </blockquote>
@@ -382,7 +382,7 @@
     
     <entry>
       <title><![CDATA[微信点歌模块代码更新及hexo音乐插件]]></title>
-      <url>http://vino24.cn/2016/10/31/wechat-music-serach-module-update/</url>
+      <url>http://iminyao.com/2016/10/31/wechat-music-serach-module-update/</url>
       <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><h3 id="1-搜索模块重写"><a href="#1-搜索模块重写" class="headerlink" title="[1] 搜索模块重写"></a>[1] 搜索模块重写</h3><p>由于云音乐那边接口的变动原本的音乐搜索功能没法使用了，于是就重写了一下。主要是关键词搜索的函数，其间发现其搜索的逻辑也发生了变化，所以相应的关键词分析匹配的地方也得重写。</p>
 <p>核心的关键词搜索函数music_search<br><figure class="highlight php"><table><tr><td class="code"><pre><div class="line"><span class="comment">// @param</span></div><div class="line"><span class="comment">// s:搜索关键词</span></div><div class="line"><span class="comment">// type: 类型(1:歌曲,100歌手)</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">music_search</span><span class="params">($s,$type=<span class="number">1</span>)</span></span></div><div class="line">&#123;</div><div class="line">    $type||$type=<span class="number">1</span>;</div><div class="line">    $url= <span class="string">"http://music.163.com/api/search/get/web?csrf_token="</span>;</div><div class="line">    $curl = curl_init();</div><div class="line">    $post_data = <span class="string">'hlpretag=&amp;hlposttag=&amp;s='</span>. $s . <span class="string">'&amp;type='</span>.$type.<span class="string">'&amp;offset=0&amp;total=true&amp;limit=1'</span>;</div><div class="line">    curl_setopt($curl, CURLOPT_URL,$url);</div><div class="line">    curl_setopt($curl, CURLOPT_RETURNTRANSFER,<span class="number">1</span>);</div><div class="line">    $header =<span class="keyword">array</span>(</div><div class="line">        <span class="string">'Host: music.163.com'</span>,</div><div class="line">        <span class="string">'Origin: http://music.163.com'</span>,</div><div class="line">        <span class="string">'User-Agent: Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.90 Safari/537.36'</span>,</div><div class="line">        <span class="string">'Content-Type: application/x-www-form-urlencoded'</span>,</div><div class="line">        <span class="string">'Referer: http://music.163.com/search/'</span>,</div><div class="line">    );</div><div class="line">    curl_setopt($curl, CURLOPT_HTTPHEADER, $header);</div><div class="line">    curl_setopt($curl, CURLOPT_POST, <span class="number">1</span>);</div><div class="line">    curl_setopt($curl, CURLOPT_POSTFIELDS, $post_data);</div><div class="line">    $src = curl_exec($curl);</div><div class="line">    curl_close($curl);</div><div class="line">    <span class="keyword">return</span> $src;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>获取微信中需要数据函数getWechatFormatData(核心代码)<br><figure class="highlight php"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">getWechatFormatData</span><span class="params">($word)</span></span></div><div class="line">&#123;</div><div class="line">    $result = json_decode(music_search($word), <span class="keyword">true</span>); <span class="comment">// 默认按歌曲先搜索一次（true转换为数组）</span></div><div class="line"></div><div class="line">    $is_Song = <span class="keyword">false</span>;   <span class="comment">// 搜索关键词是否为歌曲</span></div><div class="line">    $isEnglish = preg_match(<span class="string">"/^[a-zA-Z\s]+$/"</span>,$word);   <span class="comment">// 是否为英文歌/歌手</span></div><div class="line">    $arr = preg_split(<span class="string">"/[\s,]+/"</span>, $word);</div><div class="line"></div><div class="line">    <span class="keyword">if</span>(!$isEnglish) &#123;</div><div class="line">        <span class="keyword">if</span>(count($arr) == <span class="number">1</span>) &#123; <span class="comment">// 非英文且只有一个搜索关键词</span></div><div class="line">        $is_Song = $result[<span class="string">'result'</span>][<span class="string">'songs'</span>][<span class="number">0</span>][<span class="string">'name'</span>] == $word; <span class="comment">// 如果返回的歌曲名与搜索关键词相同即表示关键词为歌曲</span></div><div class="line">        &#125; <span class="keyword">else</span> &#123;    <span class="comment">// 非英文且多个关键词</span></div><div class="line">        <span class="keyword">foreach</span> ($arr <span class="keyword">as</span> $key =&gt; $keyword) &#123;</div><div class="line">            $result = json_decode(music_search($keyword) ,<span class="keyword">true</span>);</div><div class="line">            <span class="keyword">if</span>($result[<span class="string">'result'</span>][<span class="string">'songs'</span>][<span class="number">0</span>][<span class="string">'name'</span>] == $keyword) &#123;</div><div class="line">                $is_Song = <span class="keyword">true</span>;    <span class="comment">//  如果搜索结果中的歌曲名与关键词中的某字段匹配则该字段为歌曲名</span></div><div class="line">                $result = json_decode(music_search($arr[$key]) , <span class="keyword">true</span>);</div><div class="line">                <span class="keyword">break</span>;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    &#125; <span class="keyword">else</span> &#123;    <span class="comment">//  全英文</span></div><div class="line">        $is_Song = stristr($word,$result[<span class="string">'result'</span>][<span class="string">'songs'</span>][<span class="number">0</span>][<span class="string">'name'</span>]); <span class="comment">// 如果搜索结果中的歌曲名中有某个字段则按歌曲搜索，否则按歌手搜索</span></div><div class="line">    &#125;</div><div class="line">    <span class="keyword">if</span> ($is_Song) &#123;</div><div class="line">        <span class="comment">// do operation</span></div><div class="line">        <span class="keyword">return</span> $info;</div><div class="line">    &#125;</div><div class="line">     <span class="keyword">else</span> &#123;</div><div class="line">        <span class="comment">// do operation</span></div><div class="line">        <span class="keyword">return</span> $info;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
@@ -414,7 +414,7 @@ Warning: Invalid argument supplied for foreach() in /data/home/qxu1098560294/htd
     
     <entry>
       <title><![CDATA[three.js入门]]></title>
-      <url>http://vino24.cn/2016/10/27/three.js-first/</url>
+      <url>http://iminyao.com/2016/10/27/three.js-first/</url>
       <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><h3 id="1-正交投影与透视投影区别"><a href="#1-正交投影与透视投影区别" class="headerlink" title="[1] 正交投影与透视投影区别"></a>[1] 正交投影与透视投影区别</h3><ul>
 <li>透视投影照相机获得的结果是类似人眼在真实世界中看到的有“近大远小”的效果</li>
 <li>正交投影照相机获得的结果就像我们在数学几何学课上老师教我们画的效果，对于在三维空间内平行的线，投影到二维空间中也一定是平行的<br><img src="/images/three.js-2016-10-27-1.png" alt="three.js坐标系"><h4 id="使用场景"><a href="#使用场景" class="headerlink" title="使用场景"></a>使用场景</h4><blockquote>
@@ -430,7 +430,7 @@ Warning: Invalid argument supplied for foreach() in /data/home/qxu1098560294/htd
     
     <entry>
       <title><![CDATA[小谈vue-cli流程]]></title>
-      <url>http://vino24.cn/2016/10/26/vue-cli/</url>
+      <url>http://iminyao.com/2016/10/26/vue-cli/</url>
       <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><p>vue提供了非常便捷的官方脚手架，其中集成了webpack的很多东西，但和webpack也有一些不一样的地方，比如webpack中使用了webpack-dev-server，而vue-cli中用的是express。</p>
 <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>webpack-dev-server官方的介绍:</p>
 <blockquote>
@@ -477,7 +477,7 @@ Warning: Invalid argument supplied for foreach() in /data/home/qxu1098560294/htd
     
     <entry>
       <title><![CDATA[交易产品模板化的一些记录]]></title>
-      <url>http://vino24.cn/2016/10/24/prod-model/</url>
+      <url>http://iminyao.com/2016/10/24/prod-model/</url>
       <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><h3 id="1-vue前后端联调"><a href="#1-vue前后端联调" class="headerlink" title="[1] vue前后端联调"></a>[1] vue前后端联调</h3><p>前后端联调最经常碰到的就是跨域问题了，vue-cli也考虑到了这一点，vue-cli的config文件里有一个参数叫proxyTable，可以通过配置这个参数来实现跨域的问题。vue-cli实现使用了<code>http-proxy-middleware</code>这个插件， <a href="https://github.com/chimurai/http-proxy-middleware" target="_blank" rel="external">Github地址</a>，里面有详细的配置。<br>最基本的配置大致如下:<br><figure class="highlight js"><table><tr><td class="code"><pre><div class="line">  proxyTable: &#123;</div><div class="line">    <span class="string">'/detail'</span>: &#123;</div><div class="line">      <span class="attr">target</span>: <span class="string">'http://192.168.4.77:8084/mockjsdata/12/insurance/product'</span>,</div><div class="line">      <span class="attr">changeOrigin</span>: <span class="literal">true</span></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>上述代码将<code>/detail</code>的url全部转到了<code>http://192.168.4.77:8084/mockjsdata/12/insurance/product</code>,此时请求<code>/detail/1</code>,实际会被转到<code>http://192.168.4.77:8084/mockjsdata/12/insurance/product/detail/1</code>。</p>
 <p>除此之外还有一个参数<code>changeOrigin</code>,而跨域正是通过这个参数来设置的。<code>changeOrigin</code>参数接收一个布尔值，如果设置为true,那么本地会虚拟一个服务端接收你的请求并代你发送该请求。</p>
@@ -491,7 +491,7 @@ Warning: Invalid argument supplied for foreach() in /data/home/qxu1098560294/htd
     
     <entry>
       <title><![CDATA[APP 社区模块的一些记录]]></title>
-      <url>http://vino24.cn/2016/10/09/app-community/</url>
+      <url>http://iminyao.com/2016/10/09/app-community/</url>
       <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><h3 id="1-单行、多行文本截断"><a href="#1-单行、多行文本截断" class="headerlink" title="[1] 单行、多行文本截断"></a>[1] 单行、多行文本截断</h3><p>单行文本的截断非常简单，代码如下:<br><figure class="highlight css"><table><tr><td class="code"><pre><div class="line"><span class="selector-class">.f-ellipsis</span> &#123;</div><div class="line">    <span class="attribute">white-space</span>: nowrap;</div><div class="line">    <span class="attribute">overflow</span>: hidden;</div><div class="line">    <span class="attribute">text-overflow</span>: ellipsis;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>然后在具体元素中设置元素宽度即可。</p>
 <p>纯CSS实现多行文本截断就比较困难了，搜索了一圈，最终还是发现了<a href="http://note.rpsh.net/posts/2014/10/14/css-multiple-line-overflow-ellipsis/" target="_blank" rel="external">实现的方法</a>，利用<code>-webkit-line-clamp</code>来控制文本截断行数，代码如下:<br><figure class="highlight css"><table><tr><td class="code"><pre><div class="line"><span class="selector-tag">header</span> &#123;</div><div class="line">    <span class="attribute">display</span>: -webkit-box;</div><div class="line">    <span class="attribute">-webkit-line-clamp</span>: <span class="number">2</span>;</div><div class="line">    <span class="attribute">-webkit-box-orient</span>: vertical;</div><div class="line">    <span class="attribute">overflow</span>: hidden;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
@@ -537,7 +537,7 @@ Warning: Invalid argument supplied for foreach() in /data/home/qxu1098560294/htd
     
     <entry>
       <title><![CDATA[用Object literals替代switch-case]]></title>
-      <url>http://vino24.cn/2016/09/15/javascript-nested-conditionals/</url>
+      <url>http://iminyao.com/2016/09/15/javascript-nested-conditionals/</url>
       <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><blockquote>
 <p>条件语句是我们日常编程中最常用到了。对于条件判断，通常是先if-else，如果情况太多就用就用switch-case，但是if-else和swit-case要么代码太繁琐，要么调试起来困难。最近学到一种新的方法：Object literals。</p>
 </blockquote>
@@ -555,7 +555,7 @@ Warning: Invalid argument supplied for foreach() in /data/home/qxu1098560294/htd
     
     <entry>
       <title><![CDATA[vue.js入门系列(三) 条件渲染及Vue页面加载闪烁的解决方案]]></title>
-      <url>http://vino24.cn/2016/09/14/vuejs-first-03/</url>
+      <url>http://iminyao.com/2016/09/14/vuejs-first-03/</url>
       <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><blockquote>
 <p>v-if和v-show可能是日常开发中最常用的两个指令，虽然看上去两者功能是类似的，但是两者还是存在很大区别的。</p>
 </blockquote>
@@ -603,7 +603,7 @@ Warning: Invalid argument supplied for foreach() in /data/home/qxu1098560294/htd
     
     <entry>
       <title><![CDATA[小谈html与body的height]]></title>
-      <url>http://vino24.cn/2016/09/11/html-body-height/</url>
+      <url>http://iminyao.com/2016/09/11/html-body-height/</url>
       <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><blockquote>
 <p>这两天PC新官网上线调整，之前各种bug都出来了，其中有一个是页面底部公司信息那一个模块之前就是简单的放到了其他内容的后面，这样导致当页面信息过少时底部信息就跑上来，下面留下很大的空白。</p>
 <p>看似很简单的问题，但是引申开来就涉及到了html与body的区别了。</p>
@@ -628,7 +628,7 @@ Warning: Invalid argument supplied for foreach() in /data/home/qxu1098560294/htd
     
     <entry>
       <title><![CDATA[Flex Layout]]></title>
-      <url>http://vino24.cn/2016/09/07/flex-layout/</url>
+      <url>http://iminyao.com/2016/09/07/flex-layout/</url>
       <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><blockquote>
 <p>最近在做一个APP社区模块，里面各种布局，对齐等，用float和定位、inline-block写的蛋疼。之前有简单了解过flex布局，但是从来没有系统的总结过，也没有在实际的项目中使用，正好最近有时间，系统的学习一下，省的以后再搞的那么麻烦。</p>
 </blockquote>
@@ -707,7 +707,7 @@ Warning: Invalid argument supplied for foreach() in /data/home/qxu1098560294/htd
     
     <entry>
       <title><![CDATA[Mac上一些常用的小技巧]]></title>
-      <url>http://vino24.cn/2016/08/28/mac-skills/</url>
+      <url>http://iminyao.com/2016/08/28/mac-skills/</url>
       <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><h3 id="图片批量格式转换"><a href="#图片批量格式转换" class="headerlink" title="图片批量格式转换"></a>图片批量格式转换</h3><p>日常开发中经常会有png jppg互转的需求。网上有很多在线转换的网站，但是都不支持批量转换，无意间发现Mac本身就可以进行格式转换，而且是批量的。使用的是Mac自带的预览。</p>
 <p>首先选中要转换的图片，右键 选择预览，在预览窗口中再次选中要转换的图片 然后 文件 导出为其他格式即可。</p>
 <h3 id="音频提取"><a href="#音频提取" class="headerlink" title="音频提取"></a>音频提取</h3><p>Mac可以很方便的从视频直接提取出音频，右键 编码所选视频文件 仅音频 即可导出AAC格式音频。</p>
@@ -716,7 +716,7 @@ Warning: Invalid argument supplied for foreach() in /data/home/qxu1098560294/htd
     
     <entry>
       <title><![CDATA[ES6之对象字面量]]></title>
-      <url>http://vino24.cn/2016/08/17/ES2015-Object/</url>
+      <url>http://iminyao.com/2016/08/17/ES2015-Object/</url>
       <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><h3 id="1-对象原型设置"><a href="#1-对象原型设置" class="headerlink" title="1. 对象原型设置"></a>1. 对象原型设置</h3><p>ES5中设置对象原型通常需要使用<code>Object.create</code>这个静态方法来设置对象原型，在ES6中可以直接在对象中设置<code>__proto__</code>属性来设置。<br><figure class="highlight actionscript"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> myProto = &#123;  </div><div class="line">  propertyExists: <span class="function"><span class="keyword">function</span><span class="params">(name)</span> </span>&#123;</div><div class="line">    <span class="keyword">return</span> name <span class="keyword">in</span> <span class="keyword">this</span>;    </div><div class="line">  &#125;</div><div class="line">&#125;;</div><div class="line"><span class="keyword">var</span> myNumbers = &#123;  </div><div class="line">  __proto__: myProto,</div><div class="line">  array: [<span class="number">1</span>, <span class="number">6</span>, <span class="number">7</span>]</div><div class="line">&#125;;</div><div class="line">myNumbers.propertyExists(<span class="string">'array'</span>);      <span class="comment">// =&gt; true  </span></div><div class="line">myNumbers.propertyExists(<span class="string">'collection'</span>); <span class="comment">// =&gt; false</span></div></pre></td></tr></table></figure></p>
 <blockquote>
 <p><strong>proto</strong>只允许出现一次，多次设置会报错；<strong>proto</strong>的值只允许是object和null，其他所有值都会被忽略。</p>
@@ -731,7 +731,7 @@ Warning: Invalid argument supplied for foreach() in /data/home/qxu1098560294/htd
     
     <entry>
       <title><![CDATA[基于高德地图API开发的通用地点选择组件]]></title>
-      <url>http://vino24.cn/2016/08/16/amap-javaScript-API/</url>
+      <url>http://iminyao.com/2016/08/16/amap-javaScript-API/</url>
       <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><blockquote>
 <p>最近有个邀请函的需求，其中有一个地点选择的需求。大致的流程是：<br>信息填写页 - (点击) - 地图选择页面 -(搜索选择地点后返回) - 数据自动填充到信息页面</p>
 </blockquote>
@@ -800,7 +800,7 @@ Warning: Invalid argument supplied for foreach() in /data/home/qxu1098560294/htd
     
     <entry>
       <title><![CDATA[进城记]]></title>
-      <url>http://vino24.cn/2016/08/15/2016-08-15/</url>
+      <url>http://iminyao.com/2016/08/15/2016-08-15/</url>
       <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><blockquote>
 <p>因为有急事，连夜买票去济南，这是23年来第一次去省城济南。期间遇到一些事，遂有此文。</p>
 </blockquote>
@@ -834,7 +834,7 @@ Warning: Invalid argument supplied for foreach() in /data/home/qxu1098560294/htd
     
     <entry>
       <title><![CDATA[待整理内容]]></title>
-      <url>http://vino24.cn/2016/08/04/to-be-done/</url>
+      <url>http://iminyao.com/2016/08/04/to-be-done/</url>
       <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><ol>
 <li>HTML标准<ul>
 <li><a href="http://www.w3.org/TR/html5/" target="_blank" rel="external">W3C官方HTML5标准</a></li>
@@ -956,7 +956,7 @@ Warning: Invalid argument supplied for foreach() in /data/home/qxu1098560294/htd
     
     <entry>
       <title><![CDATA[vue.js入门系列(二) 组件及组件间通信]]></title>
-      <url>http://vino24.cn/2016/08/03/vuejs-first-02/</url>
+      <url>http://iminyao.com/2016/08/03/vuejs-first-02/</url>
       <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><h3 id="1-组件树"><a href="#1-组件树" class="headerlink" title="[1] 组件树"></a>[1] 组件树</h3><p>注册vue组件<br><figure class="highlight less"><table><tr><td class="code"><pre><div class="line"><span class="selector-tag">Vue</span><span class="selector-class">.component</span>(<span class="string">'my-component'</span>, &#123;</div><div class="line">    <span class="comment">// 模板</span></div><div class="line">    <span class="attribute">template</span>: <span class="string">'&lt;div&gt;&#123;&#123;msg&#125;&#125; &#123;&#123;privateMsg&#125;&#125;&lt;/div&gt;'</span>,</div><div class="line">    <span class="comment">// 接受参数</span></div><div class="line">    <span class="attribute">props</span>: &#123;</div><div class="line">        <span class="attribute">msg</span>: String</div><div class="line"></div><div class="line">    &#125;,</div><div class="line">    <span class="comment">// 私有数据，需要在函数中返回以避免多个实例共享一个对象</span></div><div class="line">    <span class="attribute">data</span>: function () &#123;</div><div class="line">        return &#123;</div><div class="line">            <span class="attribute">privateMsg</span>: <span class="string">'component!'</span></div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
 <p>父组件中以自定义元素形式调用<br><code>&lt;my-component msg=&quot;hello&quot;&gt;&lt;/my-component&gt;</code><br>组件核心：</p>
 <ul>
@@ -987,7 +987,7 @@ Warning: Invalid argument supplied for foreach() in /data/home/qxu1098560294/htd
     
     <entry>
       <title><![CDATA[做一个乐观的悲观主义者]]></title>
-      <url>http://vino24.cn/2016/07/26/2016-07-26/</url>
+      <url>http://iminyao.com/2016/07/26/2016-07-26/</url>
       <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><p>从去年12月底实习开始到现在，踏入社会的时间差不多也有半年时间了。这段时间里经历过黑房东、恶心的HR、坑人的医院、各种黑心的小商小贩…<br>对这个社会失望过、厌倦过，痛恨过，但也感受过一丝温暖。这份温暖不是来自什么社会主义国家，更不是什么为人民服务的某某党派，而是来自这个社会最不被看起的社会底层。</p>
 <p>收快递的时候快递小哥看我两个大包裹直接给我送到屋里<br>拿外卖的时候一位年龄与自己相当女骑手把外卖递到手里突然说了一句“祝您用餐愉快”<br>上厕所的时候差点滑倒保洁阿姨连忙叮嘱我小心别摔倒<br>公交车女司机每到一站开关门都贴心的提醒乘客<br>在某前端大牛博客留言请教问题 秒回 时间是凌晨<br>房东大晚上顶着39度的高温带人来修空调 热得汗流浃背 听人说他光收房租一年百万<br>Uber司机绕一大圈子来接我 心想明明我走两步过去就可以不用绕这么一大圈子 结果司机说天这么不好让我走路 绕一点 不远<br>大老远看着电梯要关了 跨马加鞭跑过去看到维修的工人使劲按着电梯开关<br>还是在电梯里 一身泥垢的建筑工人紧紧靠在墙角 电梯开了两个人连忙跑下去给人让路<br>还有太多太多…</p>
 <p>十年前李志向世界发出质问：“这个世界会好吗？”<br>十年后他坦言 不知道这个世界会不好 只希望靠自己的努力可以让世界变好 哪怕一点点<br>而我，我从没想过自己有能力让这个世界变得更好<br>这个世界可能永远不会像我们期望的那么好，但也绝没想象中的糟</p>
@@ -1001,7 +1001,7 @@ Warning: Invalid argument supplied for foreach() in /data/home/qxu1098560294/htd
     
     <entry>
       <title><![CDATA[vue.js实战系列(一)  一次失败的重构案例]]></title>
-      <url>http://vino24.cn/2016/07/21/vuejs-notes-01/</url>
+      <url>http://iminyao.com/2016/07/21/vuejs-notes-01/</url>
       <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><h3 id="碎碎叨"><a href="#碎碎叨" class="headerlink" title="碎碎叨"></a>碎碎叨</h3><p>因为项目需求最近一直在看vuejs，一开始看了下关于vuejs的介绍，作者的博客，然后把官方文档看了下。怎么说呢，很多东西看起来简单，真正的用起来的时候会各种问题的。特别是对于之前react和angular都不熟悉的人来说一开始还是感觉不是很顺手。后面看了下网上的一些实例教程，感觉光看还是很虚，于是就用vuejs重写下之前网易新人培训时的项目。<br>首先说明，这是一个失败的案例，vuejs单纯的语法什么数据绑定什么的其实很简单，但是如何合适的划分各个组件，保持最合理的结构却是需要一定经验的。组件划分(大小)不合理时很容易就造成各个组件直接数据传递起来很困难。当然vuejs有vux，但是比较简单的单页面的是不太需要vux的。<br>现在的前端真是越来越难做了，学习vuejs不仅仅要学习一个新的框架，还要去学习围绕框架的一整个生态：vue-router vue-resource webpack种种，更重要的是要去理解组件化开发这一全新的理念思想。</p>
 <h3 id="失败案例全过程"><a href="#失败案例全过程" class="headerlink" title="失败案例全过程"></a>失败案例全过程</h3><p>一开始将列表数据放入List.vue组件，写着写着就发现出问题了，因为文章数据不止List.vue需要，newPost.vue同样可以改变数据，全选删除操作也可以改变数据。<br>所以一开始就是错误的思路。vue的核心在于<em>组件及数据在组件的传递</em>，所以一开始只考虑组件而抛开数据是大错特错的，自上而下的弄明白整个数据在组件间的流动才能把握整改应用的架构。</p>
 <p>所以正确的做法是数据在App.vue中取得，List.vue newPost.vue和operation.vue都要从父组件取得数据，然后修改后dispatch到父元素，付元素更新数据，然后其他子元素由于通过props与父元素数据链接，所以父组件更新会自组件也自动完成更新。<br><img src="/images/vuejs-20160721.jpg" alt="" title="数据流向图"><br>从图中可以看出，核心的数据有两个:原本的文章数组，新创建的文章对象</p>
@@ -1044,7 +1044,7 @@ Warning: Invalid argument supplied for foreach() in /data/home/qxu1098560294/htd
     
     <entry>
       <title><![CDATA[vue.js实战系列(二)  - 无限加载与分页]]></title>
-      <url>http://vino24.cn/2016/07/18/vuejs-notes-02/</url>
+      <url>http://iminyao.com/2016/07/18/vuejs-notes-02/</url>
       <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><h3 id="无限加载"><a href="#无限加载" class="headerlink" title="无限加载"></a>无限加载</h3><h4 id="页面结构"><a href="#页面结构" class="headerlink" title="页面结构"></a>页面结构</h4><p>整个页面只需要两部分，一个是信息列表，一个是加载更多的按钮。<br><figure class="highlight xml"><table><tr><td class="code"><pre><div class="line">// 根组件App.vue</div><div class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">list</span> <span class="attr">:page</span>=<span class="string">"page"</span>&gt;</span><span class="tag">&lt;/<span class="name">list</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">a</span> <span class="attr">class</span>=<span class="string">"button"</span> @<span class="attr">click</span>=<span class="string">"next"</span> &gt;</span>GO NEXT<span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></div></pre></td></tr></table></figure></p>
 <p>核心的业务逻辑都在信息列表组件中，根组件与信息列表组件的联系在于，点击NEXT改变page的值，然后通过<code>props</code>将值传入子组件，然后子组件再获取新的数据。</p>
 <h4 id="异步请求"><a href="#异步请求" class="headerlink" title="异步请求"></a>异步请求</h4><p>异步请求用了第三方库<code>reqwest</code>，不过vue自带有用于异步请求的<code>vue-resource</code>。</p>
@@ -1070,7 +1070,7 @@ Warning: Invalid argument supplied for foreach() in /data/home/qxu1098560294/htd
     
     <entry>
       <title><![CDATA[杂七杂八 － 日常阅读的一些纪录]]></title>
-      <url>http://vino24.cn/2016/07/17/z7z8/</url>
+      <url>http://iminyao.com/2016/07/17/z7z8/</url>
       <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><h2 id="教程类："><a href="#教程类：" class="headerlink" title="教程类："></a>教程类：</h2><h3 id="1-设置网站的theme-color"><a href="#1-设置网站的theme-color" class="headerlink" title="1. 设置网站的theme-color"></a>1. 设置网站的theme-color</h3><p><a href="https://developers.google.com/web/updates/2014/11/Support-for-theme-color-in-Chrome-39-for-Android" target="_blank" rel="external">https://developers.google.com/web/updates/2014/11/Support-for-theme-color-in-Chrome-39-for-Android</a><br>现在在Chrome中可以通过简单的一个<code>meta</code>来设置网站toolbar的颜色 <code>&lt;meta name=&quot;theme-color&quot; content=&quot;#db5945&quot;&gt;</code></p>
 <h3 id="2-Android查看网页源代码："><a href="#2-Android查看网页源代码：" class="headerlink" title="2. Android查看网页源代码："></a>2. Android查看网页源代码：</h3><p>chrome 网址前加<code>view-source:</code></p>
 <h3 id="3-Android手机查看APP页面是Web模式-HTML5-还是Native模式"><a href="#3-Android手机查看APP页面是Web模式-HTML5-还是Native模式" class="headerlink" title="3. Android手机查看APP页面是Web模式(HTML5)还是Native模式:"></a>3. Android手机查看APP页面是Web模式(HTML5)还是Native模式:</h3><ul>
@@ -1125,7 +1125,7 @@ Warning: Invalid argument supplied for foreach() in /data/home/qxu1098560294/htd
     
     <entry>
       <title><![CDATA[前端开发工具－Sublime Text配置和常用插件]]></title>
-      <url>http://vino24.cn/2016/07/15/sublime-text/</url>
+      <url>http://iminyao.com/2016/07/15/sublime-text/</url>
       <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><p>用ST有很长一段时间，记得一开始学习编程的时候用的编辑器就是ST，那个时候对于ST的使用和配置什么的基本上都是靠Google，然后照着一步步做，当时也没有好好整理下。现在刚换了电脑，要重新装下，正好把整个安装配置步骤和坑都记下来，省得以后再换电脑又要各种Google。</p>
 <h3 id="2-or-3"><a href="#2-or-3" class="headerlink" title="2 or 3?"></a>2 or 3?</h3><p>之前用的2，因为当时很多插件在3上面都没法用，但是现在这么多年过去了，感觉3支持的插件应该也差不多了。</p>
 <h3 id="Package-Control"><a href="#Package-Control" class="headerlink" title="Package Control"></a>Package Control</h3><p>要装插件首先要干嘛？当然是装插件管理插件。Package Control的安装是直接运行python代码的，`ctrol+``调出命令行粘贴代码即可。代码地址见:[<a href="https://packagecontrol.io/installation][1" target="_blank" rel="external">https://packagecontrol.io/installation][1</a>]</p>
@@ -1196,7 +1196,7 @@ Warning: Invalid argument supplied for foreach() in /data/home/qxu1098560294/htd
     
     <entry>
       <title><![CDATA[vue.js入门系列(一) 学习资源篇]]></title>
-      <url>http://vino24.cn/2016/07/13/vuejs-first/</url>
+      <url>http://iminyao.com/2016/07/13/vuejs-first/</url>
       <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><h3 id="作者主页："><a href="#作者主页：" class="headerlink" title="作者主页："></a>作者主页：</h3><ol>
 <li>尤雨溪专栏 <a href="https://zhuanlan.zhihu.com/p/20302927" target="_blank" rel="external">https://zhuanlan.zhihu.com/p/20302927</a></li>
 <li>勾股博客 <a href="http://jiongks.name/" target="_blank" rel="external">http://jiongks.name/</a></li>
@@ -1246,7 +1246,7 @@ Warning: Invalid argument supplied for foreach() in /data/home/qxu1098560294/htd
     
     <entry>
       <title><![CDATA[Github Page + Hexo搭建博客指南]]></title>
-      <url>http://vino24.cn/2016/07/12/githubpage-hexo/</url>
+      <url>http://iminyao.com/2016/07/12/githubpage-hexo/</url>
       <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><p>12年高考结束的那个夏天开始接触博客，一开始接触的是<a href="http://blog.sina.com.cn/jzwmxz" target="_blank" rel="external">新浪博客</a>。大一的时候正逢个人博客兴起，网上铺天盖地的个人博客，那个时候狠了狠心花钱在GoDaddy上买了域名服务器，然后用worldpress搭建了自己的第一个博客，现在依然记得当时因为域名解析的问题好几个晚上没睡着觉。再后来国内的云服务商起步，于是用上了免费的SAE，后面阿里云又异军突起，于是又换上了阿里云。那个时候疯狂的喜欢上了独立音乐，于是在阿里云买了云服务器，搭起了<a href="http://www.iminyao.com" target="_blank" rel="external">爱民谣</a>。到这个时候自己也算是个老司机了。</p>
 <p>随着不断的更换平台，随之而来的是博客迁移的问题。大一时候写的文章在后来换服务器的时候直接就丢弃了，后面换来换去也厌倦了，wordpress也过时了，个人建站也玩够了，索性就直接用Github issue来记东西，这样就免去了博客迁移的麻烦，这段时间也是自己不断学习快速成长的时候。虽然issue有很多限制，但是也一直没换。</p>
 <p>而现在终于毕业了，这个毕业季经历了太多，从跟网易解约，到后面找工作，现在想想真的不知道这几个月是怎么熬过来的。可能真的要感谢女朋友，没有他的陪伴和鼓励，我想我很难熬过那段时光。<br>Anyway，一切都暂时告一段落了，现在也算稳定下来了，工作之余也有一些自己的时间了。正好前两天刷微博无意看到GitHub+Hexo建站的教程。很符合自己的需求：免费、不存在迁移问题也很cool。</p>
@@ -1288,7 +1288,7 @@ Warning: Invalid argument supplied for foreach() in /data/home/qxu1098560294/htd
     
     <entry>
       <title><![CDATA[实践中页面间信息交换的两种方式]]></title>
-      <url>http://vino24.cn/2016/07/09/message-in-webview/</url>
+      <url>http://iminyao.com/2016/07/09/message-in-webview/</url>
       <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><p>最近在做一个基于高德地图的地点选择功能。大致的需求为：A页面输入关键词，然后跳转到B页面，B页面完成页面搜索，然后将所需数据传回给A。</p>
 <p>考虑的方式有两种：localStorage和postMessage。由于第一种比较简单，所以首先用local Storage来实现需求。</p>
 <h3 id="localStorage"><a href="#localStorage" class="headerlink" title="localStorage"></a>localStorage</h3><p>localStorage的核心在于A页面在B页面更改了localStorage时可以自动更新页面。用localStorage的方法实现只需在一个页面设置监听事件即可，另一个页面只需更改lcoalStorage中的值即可。</p>
@@ -1320,7 +1320,7 @@ Warning: Invalid argument supplied for foreach() in /data/home/qxu1098560294/htd
     
     <entry>
       <title><![CDATA[JavaScript中的bind方法]]></title>
-      <url>http://vino24.cn/2016/07/02/Function-prototype-bind/</url>
+      <url>http://iminyao.com/2016/07/02/Function-prototype-bind/</url>
       <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><h2 id="简介："><a href="#简介：" class="headerlink" title="简介："></a>简介：</h2><blockquote>
 <p>bind()方法会创建一个新函数,称为绑定函数.当调用这个绑定函数时,绑定函数会以创建它时传入 bind()方法的第一个参数作为 this,传入 bind() 方法的第二个以及以后的参数加上绑定函数运行时本身的参数按照顺序作为原函数的参数来调用原函数.</p>
 </blockquote>
@@ -1356,7 +1356,7 @@ Warning: Invalid argument supplied for foreach() in /data/home/qxu1098560294/htd
     
     <entry>
       <title><![CDATA[实践中从PSD到最终页面的一些心得(一)]]></title>
-      <url>http://vino24.cn/2016/05/31/psd-page-01/</url>
+      <url>http://iminyao.com/2016/05/31/psd-page-01/</url>
       <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><p><img src="https://cloud.githubusercontent.com/assets/4004044/15664929/4bb65d8e-273a-11e6-927c-491dc9a6ca24.png" alt="PSD"></p>
 <p>psd如上图，起初拿到视觉稿，考虑到如果一整块切下来可能图片有点大(后来将主体部分一整块切出压缩后发现其实只有100Kb)，所以就考虑将整个页面分成几大块。<br><img width="532" alt="2016-05-27 9 34 34" src="https://cloud.githubusercontent.com/assets/4004044/15665065/4615a0fa-273b-11e6-92d8-972ffbd2f2b9.png"><br><img width="377" alt="2016-05-31 2 22 27" src="https://cloud.githubusercontent.com/assets/4004044/15665067/461aaac8-273b-11e6-9c4f-d4391966dee1.png"><br><img width="374" alt="2016-05-31 2 22 51" src="https://cloud.githubusercontent.com/assets/4004044/15665066/46182d98-273b-11e6-879f-a667e6568fda.png"><br><img width="376" alt="2016-05-31 2 23 03" src="https://cloud.githubusercontent.com/assets/4004044/15665068/4620dc04-273b-11e6-8915-3673ff43054e.png"><br><img width="376" alt="2016-05-31 2 23 11" src="https://cloud.githubusercontent.com/assets/4004044/15665069/462535b0-273b-11e6-864d-6a62e77fce73.png"><br><img width="374" alt="2016-05-31 2 23 21" src="https://cloud.githubusercontent.com/assets/4004044/15665070/464fa368-273b-11e6-99c8-a9627ba32704.png"></p>
 <p>切之前首先检查了下整个的背景和1、2、3、4、5、6那几条部分的背景，结果都是纯色，不含渐变。于是先把这两部分背景去掉。</p>
@@ -1369,7 +1369,7 @@ Warning: Invalid argument supplied for foreach() in /data/home/qxu1098560294/htd
     
     <entry>
       <title><![CDATA[Mac下常用工具]]></title>
-      <url>http://vino24.cn/2016/05/18/mac-devtools/</url>
+      <url>http://iminyao.com/2016/05/18/mac-devtools/</url>
       <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><h3 id="一-Alfred"><a href="#一-Alfred" class="headerlink" title="一. Alfred"></a>一. Alfred</h3><p>1、安装</p>
 <p>2、基础快捷键：option+space</p>
 <p>3、打开应用程序：Alfred 几乎是一切程序的入口，你再也不需要找妈妈要开始菜单了。用快捷键呼出Alfred，输入任何一款应用程序的中文或英文名称，即可快速定位程序，回车打开。</p>
@@ -1398,7 +1398,7 @@ Warning: Invalid argument supplied for foreach() in /data/home/qxu1098560294/htd
     
     <entry>
       <title><![CDATA[Mac常用快捷键]]></title>
-      <url>http://vino24.cn/2016/05/18/mac-shortcut-key/</url>
+      <url>http://iminyao.com/2016/05/18/mac-shortcut-key/</url>
       <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><h3 id="一-快捷键"><a href="#一-快捷键" class="headerlink" title="一. 快捷键"></a>一. 快捷键</h3><h4 id="常用操作"><a href="#常用操作" class="headerlink" title="常用操作"></a>常用操作</h4><p>cmd+delete：删除当前行。选中文件的时候直接删除文件。<br>cmd+tab：切换应用。<br>ctrl+ tab: 切换同一应用的窗口<br>cmd+w：关闭当前窗口</p>
 <p>cmd+q：关闭当前应用。</p>
 <p>cmd+n：新建窗口，比如打开新的Finder窗口，配合cmd+w很实用。</p>
@@ -1427,7 +1427,7 @@ Warning: Invalid argument supplied for foreach() in /data/home/qxu1098560294/htd
     
     <entry>
       <title><![CDATA[移动开发基础之viewport]]></title>
-      <url>http://vino24.cn/2016/05/10/viewport/</url>
+      <url>http://iminyao.com/2016/05/10/viewport/</url>
       <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><h2 id="1-layout-viewport-浏览器默认viewport"><a href="#1-layout-viewport-浏览器默认viewport" class="headerlink" title="[1]layout viewport(浏览器默认viewport)"></a>[1]layout viewport(浏览器默认viewport)</h2><p>通俗的讲，移动设备上的viewport就是设备的屏幕上能用来显示我们的网页的那一块区域，在具体一点，就是浏览器上(也可能是一个app中的webview)用来显示网页的那部分区域，但viewport又不局限于浏览器可视区域的大小，它可能比浏览器的可视区域要大，也可能比浏览器的可视区域要小。在默认情况下，一般来讲，移动设备上的viewport都是要大于浏览器可视区域的，这是因为考虑到移动设备的分辨率相对于桌面电脑来说都比较小，所以为了能在移动设备上正常显示那些传统的为桌面浏览器设计的网站，移动设备上的浏览器都会把自己默认的viewport设为980px或1024px（也可能是其它值，这个是由设备自己决定的），但带来的后果就是浏览器会出现横向滚动条，因为浏览器可视区域的宽度是比这个默认的viewport的宽度要小的。</p>
 <p><code>layout viewport = document.documentElement.clientWidth</code></p>
 <p><img src="http://images.cnitblog.com/blog/130623/201407/300958475557219.png" alt="默认viewport的宽度"></p>
@@ -1456,14 +1456,14 @@ Warning: Invalid argument supplied for foreach() in /data/home/qxu1098560294/htd
 <li><a href="http://www.quirksmode.org/mobile/viewports.html" target="_blank" rel="external">A tale of two viewports — part one</a></li>
 <li><a href="http://www.quirksmode.org/mobile/viewports2.html" target="_blank" rel="external">A tale of two viewports — part two</a></li>
 <li><a href="http://www.quirksmode.org/mobile/metaviewport/" target="_blank" rel="external">Meta viewport</a></li>
-<li><a href="http://vino24.cn/2016/05/10/viewport/">两个viewport的故事</a></li>
+<li><a href="http://iminyao.com/2016/05/10/viewport/">两个viewport的故事</a></li>
 </ol>
 ]]></content>
     </entry>
     
     <entry>
       <title><![CDATA[移动开发基础之device-width]]></title>
-      <url>http://vino24.cn/2016/05/09/deveice-width/</url>
+      <url>http://iminyao.com/2016/05/09/deveice-width/</url>
       <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><p>这两天看了下之前的一些东西，发现自己对APP切图 webview 移动端适配等一些东西搞得比较混，于是仔细看了些文章，把之前混在一起的东西拆分开来，便于理解。</p>
 <h3 id="media-query-中的device-width"><a href="#media-query-中的device-width" class="headerlink" title="media query 中的device-width"></a>media query 中的<code>device-width</code></h3><p>昨天看了一天关于像素尺寸一系列乱七八糟的东西，昨晚我就隐约的意识的问题的根源，media query中的<code>min-device-width</code>这里面的<code>deveice-width</code>和我们所说的<code>divice pixel</code>是完全不同的两个东西。css文件中的<code>px</code>是指的<code>css pixel</code>，所以像<code>@meida (max-device-width:320px)</code>中的<code>320px</code>绝对不是<code>device pixel</code>，而是<code>css pixel</code>，这个值要乘上DPR才是真正的<code>device pixel</code>。</p>
 <p><img src="/images/device-width-2016-08-05.jpeg" alt="ip"></p>
@@ -1519,7 +1519,7 @@ Warning: Invalid argument supplied for foreach() in /data/home/qxu1098560294/htd
     
     <entry>
       <title><![CDATA[React组件生命周期]]></title>
-      <url>http://vino24.cn/2016/05/04/react-component-lifecycle/</url>
+      <url>http://iminyao.com/2016/05/04/react-component-lifecycle/</url>
       <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><h3 id="一、首次render-实例化"><a href="#一、首次render-实例化" class="headerlink" title="一、首次render(实例化)"></a>一、首次render(实例化)</h3><p>组件在客户端第一次实例化时，依次调用：</p>
 <ol>
 <li>getDefaultProps</li>
@@ -1562,7 +1562,7 @@ Warning: Invalid argument supplied for foreach() in /data/home/qxu1098560294/htd
     
     <entry>
       <title><![CDATA[BFC与浮动详解]]></title>
-      <url>http://vino24.cn/2016/04/27/BFC-float/</url>
+      <url>http://iminyao.com/2016/04/27/BFC-float/</url>
       <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><h2 id="去浮动"><a href="#去浮动" class="headerlink" title="去浮动"></a>去浮动</h2><h3 id="一-产生原因："><a href="#一-产生原因：" class="headerlink" title="一. 产生原因："></a>一. 产生原因：</h3><blockquote>
 <p>浮动框不属于文档中的普通流，当一个元素浮动之后，不会影响到块级框的布局而只会影响内联框（通常是文本）的排列，文档中的普通流就会表现得和浮动框不存在一样，当浮动框高度超出包含框的时候，也就会出现包含框不会自动伸高来闭合浮动元素（“高度塌陷”现象）。</p>
 </blockquote>
@@ -1649,7 +1649,7 @@ Warning: Invalid argument supplied for foreach() in /data/home/qxu1098560294/htd
     
     <entry>
       <title><![CDATA[npm WARN optional dep failed, continuing fsevents@1.0.11]]></title>
-      <url>http://vino24.cn/2016/04/18/npm-WARN-optional-dep-failed/</url>
+      <url>http://iminyao.com/2016/04/18/npm-WARN-optional-dep-failed/</url>
       <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><blockquote>
 <p>卸载node的文章中说到，webpack的代码压缩等没法用是安装的webpack问题，通过npm2和npm3在项目目录下安装的webpack文件相差的是十万八千里，npm在安装webpack时会自动安装一系列的东西，如下图：</p>
 </blockquote>
@@ -1665,7 +1665,7 @@ Warning: Invalid argument supplied for foreach() in /data/home/qxu1098560294/htd
     
     <entry>
       <title><![CDATA[webpack使用入门]]></title>
-      <url>http://vino24.cn/2016/04/16/webpack-first/</url>
+      <url>http://iminyao.com/2016/04/16/webpack-first/</url>
       <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><p><img src="/images/webpack-20160718.png" alt="webpack"></p>
 <h3 id="webpack优势"><a href="#webpack优势" class="headerlink" title="webpack优势"></a>webpack优势</h3><ol>
 <li><p>webpack 是以 commonJS 的形式来书写脚本滴，但对 AMD/CMD 的支持也很全面，方便旧项目进行代码迁移。</p>
@@ -1758,7 +1758,7 @@ Warning: Invalid argument supplied for foreach() in /data/home/qxu1098560294/htd
     
     <entry>
       <title><![CDATA[SAE数据库跨应用授权]]></title>
-      <url>http://vino24.cn/2016/04/16/sae-authorization/</url>
+      <url>http://iminyao.com/2016/04/16/sae-authorization/</url>
       <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><p>SAE最近更改的收费标准，共享型数据库开始按小时收费，因为应用比较多，每个都有自己的数据库，一天下来消耗近100云豆，一年下来也不少钱。不过幸亏有跨应用授权功能。</p>
 <p>但是光在应用管理界面授权是无法生效的，还需要在代码中设置下参数。<br>在新建mysql类时设置一下<code>appname</code>,<code>akey</code>,<code>skey</code></p>
 <p>代码如下:<br><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">// <span class="variable">$appname</span>,<span class="variable">$akey</span>,<span class="variable">$skey</span>为主动授权的app信息</div><div class="line"><span class="variable">$mysql</span> = new SaeMysql();</div><div class="line"></div><div class="line"><span class="variable">$mysql</span>-&gt;<span class="built_in">set</span>Appname(<span class="variable">$appname</span>);</div><div class="line"></div><div class="line"><span class="variable">$mysql</span>-&gt;<span class="built_in">set</span>Auth(<span class="variable">$akey</span>, <span class="variable">$skey</span>);</div></pre></td></tr></table></figure></p>
@@ -1767,7 +1767,7 @@ Warning: Invalid argument supplied for foreach() in /data/home/qxu1098560294/htd
     
     <entry>
       <title><![CDATA[JavaScript中的垃圾回收与内存泄漏]]></title>
-      <url>http://vino24.cn/2016/04/10/gc/</url>
+      <url>http://iminyao.com/2016/04/10/gc/</url>
       <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><h3 id="一-垃圾回收"><a href="#一-垃圾回收" class="headerlink" title="一.垃圾回收"></a>一.垃圾回收</h3><h4 id="引用："><a href="#引用：" class="headerlink" title="引用："></a>引用：</h4><blockquote>
 <p>垃圾回收算法主要依赖于引用的概念。在内存管理的环境中，一个对象如果有访问另一个对象的权限（隐式或者显式），叫做一个对象引用另一个对象。例如，一个Javascript对象具有对它 原型 的引用（隐式引用）和对它属性的引用（显式引用）。</p>
 </blockquote>
@@ -1835,7 +1835,7 @@ Warning: Invalid argument supplied for foreach() in /data/home/qxu1098560294/htd
     
     <entry>
       <title><![CDATA[Git常用命令]]></title>
-      <url>http://vino24.cn/2016/04/04/git-cmd/</url>
+      <url>http://iminyao.com/2016/04/04/git-cmd/</url>
       <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><h3 id="一-创建版本库"><a href="#一-创建版本库" class="headerlink" title="一.创建版本库"></a>一.创建版本库</h3><ol>
 <li>创建版本库 <code>git init</code>:将当前目录变为Git版本库，自动创建<code>.git</code>目录(<code>ls -ah</code>)</li>
 <li>添加文件到版本库<code>git add &lt;file&gt;</code>,特别的<code>git add .</code>添加当前目录下所有文件和子目录</li>
@@ -1904,7 +1904,7 @@ Warning: Invalid argument supplied for foreach() in /data/home/qxu1098560294/htd
     
     <entry>
       <title><![CDATA[301与302重定向区别]]></title>
-      <url>http://vino24.cn/2016/04/03/redirect-301-302/</url>
+      <url>http://iminyao.com/2016/04/03/redirect-301-302/</url>
       <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><blockquote>
 <p>301，302 都是HTTP状态的编码，都代表着某个URL发生了转移，不同之处在于：<br>301 redirect: 301 代表永久性转移(Permanently Moved)，<br>302 redirect: 302 代表暂时性转移(Temporarily Moved )</p>
 </blockquote>
@@ -1929,7 +1929,7 @@ Warning: Invalid argument supplied for foreach() in /data/home/qxu1098560294/htd
     
     <entry>
       <title><![CDATA[CSS选择器]]></title>
-      <url>http://vino24.cn/2016/03/28/CSS-selector/</url>
+      <url>http://iminyao.com/2016/03/28/CSS-selector/</url>
       <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><ul>
 <li><p><strong>元素选择器:</strong></p>
 <pre><code>h1,h2,h3{color:red; background:gray;}
@@ -2050,7 +2050,7 @@ p.lsd1.lsd2 {background:sliver;}
     
     <entry>
       <title><![CDATA[CSS三种基本定位机制]]></title>
-      <url>http://vino24.cn/2016/03/28/CSS-position/</url>
+      <url>http://iminyao.com/2016/03/28/CSS-position/</url>
       <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><h2 id="CSS常用的定位方法："><a href="#CSS常用的定位方法：" class="headerlink" title="CSS常用的定位方法："></a>CSS常用的定位方法：</h2><ol>
 <li>相对定位</li>
 <li>浮动</li>
@@ -2157,7 +2157,7 @@ float:left;
     
     <entry>
       <title><![CDATA[CSS3 transition与transform]]></title>
-      <url>http://vino24.cn/2016/03/23/CSS3-transition/</url>
+      <url>http://iminyao.com/2016/03/23/CSS3-transition/</url>
       <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><h3 id="背景"><a href="#背景" class="headerlink" title="背景:"></a>背景:</h3><blockquote>
 <p>CSS引入伪类，CSS3新增<code>transition</code>属性</p>
 </blockquote>
@@ -2189,7 +2189,7 @@ float:left;
     
     <entry>
       <title><![CDATA[CSS3 盒子应用]]></title>
-      <url>http://vino24.cn/2016/03/23/CSS3-box/</url>
+      <url>http://iminyao.com/2016/03/23/CSS3-box/</url>
       <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><h3 id="透明盒子-通过设置不透明度实现"><a href="#透明盒子-通过设置不透明度实现" class="headerlink" title="透明盒子(通过设置不透明度实现)"></a>透明盒子(通过设置不透明度实现)</h3><blockquote>
 <p>rgba 与opacity应用范围:<br>    1.使用多种颜色(元素)的半透明效果，使用opacity不仅背景颜色，连文本颜色，边框颜色也会变透明<br>    2.在不知道颜色的情况下，实现半透明效果(例如通过其他样式表或JavaScript代码来设置半透明效果的)应使用opacity<br>    3.实现图片半透明效果，应该用opacity<br>    4.实现渐变动画效果，应该用opacity</p>
 </blockquote>
@@ -2210,7 +2210,7 @@ float:left;
     
     <entry>
       <title><![CDATA[Netease实习第九周周报]]></title>
-      <url>http://vino24.cn/2016/03/06/netease-weekly-09/</url>
+      <url>http://iminyao.com/2016/03/06/netease-weekly-09/</url>
       <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><h3 id="一-本地开发环境搭建"><a href="#一-本地开发环境搭建" class="headerlink" title="一. 本地开发环境搭建"></a>一. 本地开发环境搭建</h3><ol>
 <li><a href="http://112.74.88.97/webdoc/#其他/搭建本地开发环境.html" target="_blank" rel="external">搭建本地开发环境</a></li>
 <li><a href="http://doc.hz.netease.com/pages/viewpage.action?pageId=54432443" target="_blank" rel="external">详细配置</a></li>
@@ -2266,7 +2266,7 @@ float:left;
     
     <entry>
       <title><![CDATA[图片优化之Data URI Scheme]]></title>
-      <url>http://vino24.cn/2016/02/26/data-URI/</url>
+      <url>http://iminyao.com/2016/02/26/data-URI/</url>
       <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><blockquote>
 <p>data URIs是由RFC 2397定义, 允许将一个小文件进行编码后嵌入到另外一个文档里.</p>
 </blockquote>
@@ -2313,7 +2313,7 @@ background-image: url(&quot;data:image/gif;base64,R0lGODlhAwADAIAAAP///8zMzCH5BA
     
     <entry>
       <title><![CDATA[APP切图常用操作总结]]></title>
-      <url>http://vino24.cn/2016/02/25/app-cut/</url>
+      <url>http://iminyao.com/2016/02/25/app-cut/</url>
       <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><ol>
 <li>ctrl+E 合并为位图,ctrl+G合并组</li>
 <li>样式加在父图层的需要负责父元素图层效果然后挨个添加到子图层</li>
@@ -2343,7 +2343,7 @@ background-image: url(&quot;data:image/gif;base64,R0lGODlhAwADAIAAAP///8zMzCH5BA
     
     <entry>
       <title><![CDATA[Netease实习第六周周报]]></title>
-      <url>http://vino24.cn/2016/01/31/netease-weekly-06/</url>
+      <url>http://iminyao.com/2016/01/31/netease-weekly-06/</url>
       <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><ol>
 <li><p>在用fadeOut实现好友日志栏滚动的时候，一直提示<code>NEJ is not define</code>这样的错误，开始在<code>define</code>的依赖数组中把所有能加的都加上了,却依旧不起作用，当时压根没考虑过是浏览器的问题，也没有换个浏览器试一下，到最后原因竟然处在chrome插件上面，不知道某个插件请求的某个不存在文件还是说插件的存在导致依赖加载顺序出错，到最后在IE和Firefox中一试是好的。当初在一开始试过很多方法仍然没有解决时，就应该考虑可能是环境的原因，应该早点换个浏览器试试。</p>
 </li>
@@ -2377,7 +2377,7 @@ background-image: url(&quot;data:image/gif;base64,R0lGODlhAwADAIAAAP///8zMzCH5BA
     
     <entry>
       <title><![CDATA[z-index属性详解]]></title>
-      <url>http://vino24.cn/2016/01/27/ie-z-index/</url>
+      <url>http://iminyao.com/2016/01/27/ie-z-index/</url>
       <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><h3 id="一-不含z-index的堆叠"><a href="#一-不含z-index的堆叠" class="headerlink" title="一. 不含z-index的堆叠"></a>一. 不含z-index的堆叠</h3><blockquote>
 <p>z-index定义的定位元素在z轴的层叠顺序，所以只能应用于定位元素(position不为static)</p>
 </blockquote>
@@ -2458,7 +2458,7 @@ background-image: url(&quot;data:image/gif;base64,R0lGODlhAwADAIAAAP///8zMzCH5BA
     
     <entry>
       <title><![CDATA[圣杯布局]]></title>
-      <url>http://vino24.cn/2016/01/25/Holy-Grail-Layout/</url>
+      <url>http://iminyao.com/2016/01/25/Holy-Grail-Layout/</url>
       <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><h3 id="特点："><a href="#特点：" class="headerlink" title="特点："></a>特点：</h3><pre><code>1. 三列布局，中间宽度自适应，两边定宽；
 2. 中间栏要在浏览器中优先展示渲染；
 3. 允许任意列的高度最高；
@@ -2476,7 +2476,7 @@ background-image: url(&quot;data:image/gif;base64,R0lGODlhAwADAIAAAP///8zMzCH5BA
     
     <entry>
       <title><![CDATA[Netease实习第五周周报]]></title>
-      <url>http://vino24.cn/2016/01/24/netease-weekly-05/</url>
+      <url>http://iminyao.com/2016/01/24/netease-weekly-05/</url>
       <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><ol>
 <li><p>textarea去除默认样式 resize:none;（<a href="http://www.daqianduan.com/3490.html）" target="_blank" rel="external">http://www.daqianduan.com/3490.html）</a></p>
 </li>
@@ -2500,7 +2500,7 @@ background-image: url(&quot;data:image/gif;base64,R0lGODlhAwADAIAAAP///8zMzCH5BA
     
     <entry>
       <title><![CDATA[Netease实习第四周周报]]></title>
-      <url>http://vino24.cn/2016/01/16/netease-weekly-04/</url>
+      <url>http://iminyao.com/2016/01/16/netease-weekly-04/</url>
       <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><ol>
 <li><p>一般基础Js文件命名为<code>base.js</code>或<code>core.js</code>，而逻辑可以用<code>main.js</code>或<code>index.js</code>,虽然命名是不受约束的但随意命名容易让他人误解。<code>$()</code>方法也一样，不要试图定义其为Id或其他选择器，因为在多数人认知里<code>$()</code>就是JQuery中的通用选择器。</p>
 </li>
@@ -2527,7 +2527,7 @@ background-image: url(&quot;data:image/gif;base64,R0lGODlhAwADAIAAAP///8zMzCH5BA
     
     <entry>
       <title><![CDATA[图片格式与优化]]></title>
-      <url>http://vino24.cn/2016/01/11/pic-format/</url>
+      <url>http://iminyao.com/2016/01/11/pic-format/</url>
       <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><h3 id="一-矢量图与位图"><a href="#一-矢量图与位图" class="headerlink" title="一. 矢量图与位图"></a>一. 矢量图与位图</h3><table>
 <thead>
 <tr>
@@ -2614,7 +2614,7 @@ background-image: url(&quot;data:image/gif;base64,R0lGODlhAwADAIAAAP///8zMzCH5BA
     
     <entry>
       <title><![CDATA[Netease实习第三周周报]]></title>
-      <url>http://vino24.cn/2016/01/09/netease-weekly-03/</url>
+      <url>http://iminyao.com/2016/01/09/netease-weekly-03/</url>
       <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><ol>
 <li><p>String.replace()会产生新的字符串，元字符串不变，replace的第二个参数可以接收一个函数，函数的第一个参数为匹配的字符串，后面的参数为匹配圆括号子表达式的字符串，返回值为替换值，如果正则表达式是全局搜索，则可以批量替换。借此可以实现一个简单的模板引擎。</p>
 </li>
@@ -2638,7 +2638,7 @@ background-image: url(&quot;data:image/gif;base64,R0lGODlhAwADAIAAAP///8zMzCH5BA
     
     <entry>
       <title><![CDATA[IE pollyfills汇总]]></title>
-      <url>http://vino24.cn/2015/12/27/IE-pollyfills/</url>
+      <url>http://iminyao.com/2015/12/27/IE-pollyfills/</url>
       <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><h3 id="1-element-dataset"><a href="#1-element-dataset" class="headerlink" title="1. element.dataset"></a>1. element.dataset</h3><figure class="highlight maxima"><table><tr><td class="code"><pre><div class="line">function getDataSet(<span class="built_in">elem</span>)&#123;</div><div class="line">    <span class="keyword">if</span>(<span class="built_in">elem</span>.dataset)&#123;</div><div class="line">      <span class="built_in">return</span> <span class="built_in">elem</span>.dataset;</div><div class="line">    &#125;</div><div class="line">    <span class="built_in">var</span> datas = &#123;&#125;;</div><div class="line">    <span class="built_in">var</span> attrs = <span class="built_in">elem</span>.attributes;</div><div class="line">    <span class="built_in">var</span> nodeName,nodeNames;</div><div class="line">    <span class="keyword">for</span>(<span class="built_in">var</span> i = <span class="number">0</span>,attr;attr = attrs[i];i++)&#123;</div><div class="line">      nodeName = attr.nodeName;</div><div class="line">      <span class="keyword">if</span>(nodeName.indexOf('data-')!==-<span class="number">1</span>)&#123;</div><div class="line">        nodeNames = nodeName.slice(<span class="number">5</span>).<span class="built_in">split</span>(<span class="string">"-"</span>);</div><div class="line">        nodeName = nodeNames[<span class="number">0</span>];</div><div class="line">      &#125; <span class="keyword">else</span>&#123;</div><div class="line">        continue;</div><div class="line">      &#125;</div><div class="line">      <span class="keyword">for</span>(<span class="built_in">var</span> j=<span class="number">1</span>;j&lt;nodeNames.<span class="built_in">length</span>;j++)&#123;</div><div class="line">        nodeName += nodeNames[j].slice(<span class="number">0</span>,<span class="number">1</span>).toUpperCase + nodeNames[j].slice(<span class="number">1</span>);</div><div class="line">      &#125;</div><div class="line">      datas[nodeName] = attr.nodeValue;</div><div class="line">      <span class="built_in">return</span> datas;</div><div class="line">    &#125;</div><div class="line">  &#125;</div></pre></td></tr></table></figure>
 <h3 id="2-JSON-stringify"><a href="#2-JSON-stringify" class="headerlink" title="2. JSON.stringify"></a>2. JSON.stringify</h3><ol>
 <li><p>自定义stringify函数</p>
@@ -2661,7 +2661,7 @@ background-image: url(&quot;data:image/gif;base64,R0lGODlhAwADAIAAAP///8zMzCH5BA
     
     <entry>
       <title><![CDATA[IE hasLayout渲染引擎]]></title>
-      <url>http://vino24.cn/2015/12/27/IE-hasLayout/</url>
+      <url>http://iminyao.com/2015/12/27/IE-hasLayout/</url>
       <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><h2 id="1-概念："><a href="#1-概念：" class="headerlink" title="1. 概念："></a>1. 概念：</h2><blockquote>
 <p>IE6-7的显示引擎使用的是一个称为布局（layout）的内部概念来<em>控制元素的尺寸和定位</em>，那些拥有布局（have layout）的元素负责本身及其子元素的尺寸设置和定位。如果一个元素的 hasLayout 为false，那么它的尺寸和位置由<em>最近拥有布局的祖先元素控制</em>。</p>
 <p>由于这个显示引擎自身存在很多的缺陷，直接导致了IE6-7的很多显示bug。</p>
@@ -2682,7 +2682,7 @@ background-image: url(&quot;data:image/gif;base64,R0lGODlhAwADAIAAAP///8zMzCH5BA
     
     <entry>
       <title><![CDATA[Netease实习第一周周报]]></title>
-      <url>http://vino24.cn/2015/12/26/netease-weekly-01/</url>
+      <url>http://iminyao.com/2015/12/26/netease-weekly-01/</url>
       <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><h2 id="一、布局"><a href="#一、布局" class="headerlink" title="一、布局"></a>一、布局</h2><ol>
 <li><p>父元素宽度固定设置与子元素间距</p>
 <blockquote>
@@ -2832,7 +2832,7 @@ input:-ms-input-placeholder {color:red;}    // IE10+
     
     <entry>
       <title><![CDATA[HTTP请求信息之Referer]]></title>
-      <url>http://vino24.cn/2015/12/22/HTTP-referer/</url>
+      <url>http://iminyao.com/2015/12/22/HTTP-referer/</url>
       <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><h3 id="什么是referer？"><a href="#什么是referer？" class="headerlink" title="什么是referer？"></a>什么是referer？</h3><blockquote>
 <p>HTTP Referer是header的一部分，当浏览器向web服务器发送请求的时候，一般会带上Referer，告诉服务器我是从哪个页面链接过来的，服务器籍此可以获得一些信息用于处理。HTTP Referer是header的一部分，当浏览器向web服务器发送请求的时候，一般会带上Referer，告诉服务器我是从哪个页面链接过来的，服务器籍此可以获得一些信息用于处理。</p>
 </blockquote>
@@ -2856,7 +2856,7 @@ input:-ms-input-placeholder {color:red;}    // IE10+
     
     <entry>
       <title><![CDATA[Web Audio API基础知识]]></title>
-      <url>http://vino24.cn/2015/09/09/web-audio-first/</url>
+      <url>http://iminyao.com/2015/09/09/web-audio-first/</url>
       <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><h3 id="1-音频上下文（AudioContext）"><a href="#1-音频上下文（AudioContext）" class="headerlink" title="1. 音频上下文（AudioContext）"></a>1. 音频上下文（AudioContext）</h3><blockquote>
 <p>Web Audio API 是一套以音频上下文（AudioContext）为基础的接口系统；基本上每一次的开发都需要第一个用到。</p>
 <p>一个<code>AudioContext</code>代表一系列音频节点以及节点之间的连接方式，它允许一个或以上的音频信号在经过任意的连接之后最终连接在音频播放设备节点上；节点都是可以通过音频上下文对象然后连接到了一起；通常一个文档中只需要一个一个音频上下文对象即可。</p>
@@ -3000,8 +3000,8 @@ function decodeAudio (audioCtx, audioData, callback) {
     
     <entry>
       <title><![CDATA[JavaScript实现跨域的几种方案]]></title>
-      <url>http://vino24.cn/2015/09/03/cross-source/</url>
-      <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><h3 id="1-Ajax的跨域-CORS"><a href="#1-Ajax的跨域-CORS" class="headerlink" title="1.Ajax的跨域: CORS"></a>1.<a href="http://vino24.cn/2015/07/01/CORS/">Ajax的跨域: CORS</a></h3><h3 id="2-JSONP"><a href="#2-JSONP" class="headerlink" title="2. JSONP"></a>2. <a href="http://vino24.cn/2015/07/01/JSONP/">JSONP</a></h3><figure class="highlight xml"><table><tr><td class="code"><pre><div class="line">//	需要获取数据的页面 index.html</div><div class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">getWeather</span>(<span class="params">data</span>) </span>&#123;</div><div class="line">        <span class="built_in">console</span>.log(data);</div><div class="line">    &#125;</div><div class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"http://x.y.com/xx.js"</span>&gt;</span><span class="undefined"></span></div></pre></td></tr></table></figure>
+      <url>http://iminyao.com/2015/09/03/cross-source/</url>
+      <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><h3 id="1-Ajax的跨域-CORS"><a href="#1-Ajax的跨域-CORS" class="headerlink" title="1.Ajax的跨域: CORS"></a>1.<a href="http://iminyao.com/2015/07/01/CORS/">Ajax的跨域: CORS</a></h3><h3 id="2-JSONP"><a href="#2-JSONP" class="headerlink" title="2. JSONP"></a>2. <a href="http://iminyao.com/2015/07/01/JSONP/">JSONP</a></h3><figure class="highlight xml"><table><tr><td class="code"><pre><div class="line">//	需要获取数据的页面 index.html</div><div class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">getWeather</span>(<span class="params">data</span>) </span>&#123;</div><div class="line">        <span class="built_in">console</span>.log(data);</div><div class="line">    &#125;</div><div class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"http://x.y.com/xx.js"</span>&gt;</span><span class="undefined"></span></div></pre></td></tr></table></figure>
 <figure class="highlight elixir"><table><tr><td class="code"><pre><div class="line">/<span class="regexp">/	http:/</span><span class="regexp">/x.y.com/xx</span>.js 文件内容</div><div class="line">getWeather(&#123;</div><div class="line">    <span class="string">"城市"</span>: <span class="string">"北京"</span>,</div><div class="line">    <span class="string">"天气"</span>: <span class="string">"大雾"</span></div><div class="line">&#125;);</div></pre></td></tr></table></figure>
 <h3 id="3-document-domain-主要用在控制-lt-iframe-gt-的情况中"><a href="#3-document-domain-主要用在控制-lt-iframe-gt-的情况中" class="headerlink" title="3. document.domain(主要用在控制 &lt;iframe&gt; 的情况中)"></a>3. document.domain(主要用在控制 <code>&lt;iframe&gt;</code> 的情况中)</h3><h4 id="使用条件："><a href="#使用条件：" class="headerlink" title="使用条件："></a>使用条件：</h4><ol>
 <li>有其他页面 window 对象的引用。</li>
@@ -3012,7 +3012,7 @@ function decodeAudio (audioCtx, audioData, callback) {
 <figure class="highlight livescript"><table><tr><td class="code"><pre><div class="line"><span class="regexp">//	打开 http://</span>wwww.iminyao.com/，在 <span class="built_in">console</span> 中输入代码：</div><div class="line"><span class="built_in">document</span>.domain = <span class="string">'iminyao.com'</span>;</div><div class="line"></div><div class="line"><span class="keyword">var</span> otherWindow = <span class="built_in">window</span>.open(<span class="string">'http://bgm.iminyao.com/'</span>);</div></pre></td></tr></table></figure>
 <figure class="highlight livescript"><table><tr><td class="code"><pre><div class="line"><span class="regexp">//	在http://</span>bgm.iminyao.com的<span class="built_in">console</span>中输入代码：</div><div class="line"><span class="built_in">document</span>.domain = <span class="string">'iminyao.com'</span>;</div></pre></td></tr></table></figure>
 <figure class="highlight dart"><table><tr><td class="code"><pre><div class="line"><span class="comment">//	回到百度文库的网页，我们就可以使用百度知道网页的 window 对象来操作百度知道的网页了。例如：</span></div><div class="line"></div><div class="line"><span class="keyword">var</span> divs = otherWindow.<span class="built_in">document</span>.getElementsByTagName(<span class="string">'div'</span>);</div></pre></td></tr></table></figure>
-<h3 id="4-window-name"><a href="#4-window-name" class="headerlink" title="4. window.name"></a>4. window.name</h3><h3 id="5-HTML5-postMessage"><a href="#5-HTML5-postMessage" class="headerlink" title="5. HTML5 postMessage"></a>5.<a href="http://vino24.cn/2016/07/09/message-in-webview/"> HTML5 postMessage</a></h3><h3 id="参考："><a href="#参考：" class="headerlink" title="参考："></a>参考：</h3><ol>
+<h3 id="4-window-name"><a href="#4-window-name" class="headerlink" title="4. window.name"></a>4. window.name</h3><h3 id="5-HTML5-postMessage"><a href="#5-HTML5-postMessage" class="headerlink" title="5. HTML5 postMessage"></a>5.<a href="http://iminyao.com/2016/07/09/message-in-webview/"> HTML5 postMessage</a></h3><h3 id="参考："><a href="#参考：" class="headerlink" title="参考："></a>参考：</h3><ol>
 <li><a href="http://segmentfault.com/a/1190000003642057" target="_blank" rel="external">http://segmentfault.com/a/1190000003642057</a></li>
 <li><a href="https://imququ.com/post/cross-origin-resource-sharing.html" target="_blank" rel="external">也谈跨域数据交互解决方案</a></li>
 <li><a href="http://www.php-note.com/article/detail/875" target="_blank" rel="external">JS跨域（ajax跨域、iframe跨域）解决方法及原理详解(jsonp)</a></li>
@@ -3022,7 +3022,7 @@ function decodeAudio (audioCtx, audioData, callback) {
     
     <entry>
       <title><![CDATA[XMLHttpRequest 2.0中的响应数据类型]]></title>
-      <url>http://vino24.cn/2015/09/03/XHR2-data-type/</url>
+      <url>http://iminyao.com/2015/09/03/XHR2-data-type/</url>
       <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><h3 id="1-DOMString"><a href="#1-DOMString" class="headerlink" title="1. DOMString"></a>1. DOMString</h3><blockquote>
 <p><code>DOMString</code>指的是UTF-16字符串，而JavaScript正是使用了这种编码的字符串，因此，在Ajax中，<code>DOMString</code>就等同于JS中的普通字符串。</p>
 <p><code>XMLHttpRequest</code>中数据返回属性<code>responseText</code>,返回的数据是常规字符串。</p>
@@ -3111,7 +3111,7 @@ function decodeAudio (audioCtx, audioData, callback) {
     
     <entry>
       <title><![CDATA[小谈重排与重绘]]></title>
-      <url>http://vino24.cn/2015/08/29/repaint-reset/</url>
+      <url>http://iminyao.com/2015/08/29/repaint-reset/</url>
       <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><h3 id="1-重排与重绘"><a href="#1-重排与重绘" class="headerlink" title="1. 重排与重绘"></a>1. 重排与重绘</h3><blockquote>
 <p>当DOM的变化影响了元素的几何属性（宽或高），浏览器需要重新计算元素的几何属性，同样其他元素的几何属性和位置也会因此受到影响。浏览器会使渲染树中受到影响的部分失效，并重新构造渲染树。这个过程称为重排。完成重排后，浏览器会重新绘制受影响的部分到屏幕，该过程称为重绘。</p>
 <p>并不是所有的DOM变化都会影响几何属性，比如改变一个元素的背景色并不会影响元素的宽和高，这种情况下只会发生重绘。</p>
@@ -3161,7 +3161,7 @@ function decodeAudio (audioCtx, audioData, callback) {
     
     <entry>
       <title><![CDATA[DOM优化一览]]></title>
-      <url>http://vino24.cn/2015/08/29/DOM-Optimize/</url>
+      <url>http://iminyao.com/2015/08/29/DOM-Optimize/</url>
       <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><h3 id="1-DOM访问与修改"><a href="#1-DOM访问与修改" class="headerlink" title="1. DOM访问与修改"></a>1. DOM访问与修改</h3><blockquote>
 <p>访问DOM元素是有代价的，修改元素代价更高，因为它会导致浏览器重新计算页面的几何变化（重排和重绘）。</p>
 </blockquote>
@@ -3181,7 +3181,7 @@ function decodeAudio (audioCtx, audioData, callback) {
     
     <entry>
       <title><![CDATA[JavaScript实现继承的几种模式]]></title>
-      <url>http://vino24.cn/2015/08/27/javascript-design-mode/</url>
+      <url>http://iminyao.com/2015/08/27/javascript-design-mode/</url>
       <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><h3 id="1-最初"><a href="#1-最初" class="headerlink" title="1. 最初"></a>1. 最初</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> person = <span class="keyword">new</span> <span class="built_in">Object</span>();</div><div class="line">person.name = <span class="string">"vino24"</span>;</div><div class="line">person.age = <span class="number">22</span>;</div><div class="line">person.job = <span class="string">"FE Engineer"</span>;</div><div class="line"></div><div class="line">person.sayName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">	alert(<span class="keyword">this</span>.name);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h5 id="缺陷："><a href="#缺陷：" class="headerlink" title="缺陷："></a>缺陷：</h5><blockquote>
 <p>创建很多对象时，会产生大量重复代码</p>
@@ -3257,7 +3257,7 @@ function decodeAudio (audioCtx, audioData, callback) {
     
     <entry>
       <title><![CDATA[关于BOM中的坐标位置]]></title>
-      <url>http://vino24.cn/2015/08/26/BOM-position/</url>
+      <url>http://iminyao.com/2015/08/26/BOM-position/</url>
       <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><h4 id="1-查询窗口滚动条位置"><a href="#1-查询窗口滚动条位置" class="headerlink" title="1.查询窗口滚动条位置"></a>1.查询窗口滚动条位置</h4><ol>
 <li>window对象的<code>pageXOffset``pageYoffset</code></li>
 <li>文档根节点(<code>document.documentElement</code>)的<code>scrollLeft</code> <code>scrollTop</code></li>
@@ -3315,7 +3315,7 @@ function decodeAudio (audioCtx, audioData, callback) {
     
     <entry>
       <title><![CDATA[视频播放相关的网络协议]]></title>
-      <url>http://vino24.cn/2015/08/03/video-proto/</url>
+      <url>http://iminyao.com/2015/08/03/video-proto/</url>
       <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><ol>
 <li><p>RTSP/RTP/RTCP协议族</p>
 <p>本协议族是最早的视频传输协议。其中RTSP协议用于视频点播的会话控制，例如发起点播请求的SETUP请求，进行具体播放操作的PLAY、PAUSE请求，视频的跳转也是通过PLAY请求的参数支持的。而RTP协议用于具体的视频数据流的传输。RTCP协议中的C是控制的意思，用于在视频流数据之外，丢包或者码率之类的控制。<br>该协议族RTSP是建立在TCP之上的，RTP、RTCP建立在UDP之上。不过也可以通过interleave的方式，将RTP和RTSP一起在同一个TCP连接上传输。<br>RTSP协议族，是最早被提出来的，因此很多考虑的地方，都还带有早期的特征。比如使用UDP，是考虑到传输的效率，以及视频协议本身对丢包就有一定的容忍度。但是UDP协议，显然不能用于更大规模的网络，而且复杂网络下路由器的穿透也是问题。<br>从视频角度而言，RTSP协议族的优势，在于可以控制到视频帧，因此可以承载实时性很高的应用。这个优点是相对于HTTP方式的最大优点。H.323视频会议协议，底层一般采用RTSP协议。RTSP协议族的复杂度主要集中在服务器端，因为服务器端需要parse视频文件，seek到具体的视频帧，而且可能还需要进行倍速播放（就是老旧的DVD带的那种2倍速，4倍速播放的功能），倍速播放功能是RTSP协议独有的，其他视频协议都无法支持。<br>缺点，就是服务器端的复杂度也比较高，实现起来也比较复杂。</p>
@@ -3341,7 +3341,7 @@ function decodeAudio (audioCtx, audioData, callback) {
     
     <entry>
       <title><![CDATA[阿里音乐面试总结]]></title>
-      <url>http://vino24.cn/2015/07/23/alibaba/</url>
+      <url>http://iminyao.com/2015/07/23/alibaba/</url>
       <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><h2 id="一、基础："><a href="#一、基础：" class="headerlink" title="一、基础："></a>一、基础：</h2><h3 id="1-数组转化为字符串的方法，字符串转化成数组？"><a href="#1-数组转化为字符串的方法，字符串转化成数组？" class="headerlink" title="1. 数组转化为字符串的方法，字符串转化成数组？"></a>1. 数组转化为字符串的方法，字符串转化成数组？</h3><p>数组 - &gt; 字符串  <code>Array.join()</code> 其实还有最基础的<code>toString()</code>方法，一下子没想起来<br>字符串 - &gt; 数组 <code>String.split()</code>,</p>
 <h3 id="2-call和apply的区别："><a href="#2-call和apply的区别：" class="headerlink" title="2.call和apply的区别："></a>2.<code>call</code>和<code>apply</code>的区别：</h3><p><code>call</code>传入的是待调用函数的值，<code>apply</code>传入的是是保存有实参的数组</p>
 <blockquote>
@@ -3390,7 +3390,7 @@ function decodeAudio (audioCtx, audioData, callback) {
     
     <entry>
       <title><![CDATA[JavaScript中的声明提前(hoist)]]></title>
-      <url>http://vino24.cn/2015/07/19/javascript-hoist/</url>
+      <url>http://iminyao.com/2015/07/19/javascript-hoist/</url>
       <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><h3 id="代码段1：变量声明提前"><a href="#代码段1：变量声明提前" class="headerlink" title="代码段1：变量声明提前"></a>代码段1：变量声明提前</h3><figure class="highlight actionscript"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> hoistedVariable = <span class="number">1</span>;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">scopingFunction</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (!hoistedVariable) &#123;</div><div class="line">        <span class="keyword">var</span> hoistedVariable = <span class="number">10</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> hoistedVariable;</div><div class="line">&#125;</div><div class="line"></div><div class="line">scopingFunction(); <span class="comment">// returns 10</span></div></pre></td></tr></table></figure>
 <blockquote>
 <p>结果为<code>10</code></p>
@@ -3411,7 +3411,7 @@ function decodeAudio (audioCtx, audioData, callback) {
     
     <entry>
       <title><![CDATA[JavaScript 数组随机排序]]></title>
-      <url>http://vino24.cn/2015/07/18/javascript-array-sort/</url>
+      <url>http://iminyao.com/2015/07/18/javascript-array-sort/</url>
       <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><h3 id="常规方法："><a href="#常规方法：" class="headerlink" title="常规方法："></a>常规方法：</h3><figure class="highlight lsl"><table><tr><td class="code"><pre><div class="line">[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>].sort(function() &#123;return Math.random() - <span class="number">0.5</span>&#125;)</div></pre></td></tr></table></figure>
 <h3 id="Fisher–Yates-shuffle-算法"><a href="#Fisher–Yates-shuffle-算法" class="headerlink" title="Fisher–Yates shuffle 算法"></a>Fisher–Yates shuffle 算法</h3><blockquote>
 <p>类似摸牌<br>arr为原数组，cards为乱序结果数组<br>random取一个index，取arr中这个元素，放入cards，同时移除arr中这个元素。</p>
@@ -3425,7 +3425,7 @@ function decodeAudio (audioCtx, audioData, callback) {
     
     <entry>
       <title><![CDATA[事件批量绑定中闭包共享作用域问题的几种几种解决方案]]></title>
-      <url>http://vino24.cn/2015/07/14/share-scope/</url>
+      <url>http://iminyao.com/2015/07/14/share-scope/</url>
       <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><h3 id="问题描述："><a href="#问题描述：" class="headerlink" title="问题描述："></a>问题描述：</h3><blockquote>
 <p>每个links的onmouseover上执行的都是i=3时的情况</p>
 </blockquote>
@@ -3450,7 +3450,7 @@ function decodeAudio (audioCtx, audioData, callback) {
     
     <entry>
       <title><![CDATA[setTimeout中的this]]></title>
-      <url>http://vino24.cn/2015/07/13/setTimeout-this/</url>
+      <url>http://iminyao.com/2015/07/13/setTimeout-this/</url>
       <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><blockquote>
 <p><strong>超时调用的代码（或回调函数内代码）都是在全局作用域中执行的，因此函数中this的值在非严格模式下指向window对象，在严格模式下是undefined</strong>                             —–《JavaScript高级程序设计》</p>
 </blockquote>
@@ -3512,7 +3512,7 @@ function decodeAudio (audioCtx, audioData, callback) {
     
     <entry>
       <title><![CDATA[闭包]]></title>
-      <url>http://vino24.cn/2015/07/11/closure/</url>
+      <url>http://iminyao.com/2015/07/11/closure/</url>
       <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><h2 id="词法作用域"><a href="#词法作用域" class="headerlink" title="词法作用域"></a>词法作用域</h2><blockquote>
 <p>函数的执行依赖于变量作用域（作用域在函数定义时决定）</p>
 </blockquote>
@@ -3574,7 +3574,7 @@ function decodeAudio (audioCtx, audioData, callback) {
     
     <entry>
       <title><![CDATA[margin与padding应用场景分析]]></title>
-      <url>http://vino24.cn/2015/07/09/margin-padding/</url>
+      <url>http://iminyao.com/2015/07/09/margin-padding/</url>
       <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><h2 id="何时应当使用margin："><a href="#何时应当使用margin：" class="headerlink" title="何时应当使用margin："></a>何时应当使用margin：</h2><ol>
 <li>需要在border外侧添加空白时。</li>
 <li>空白处不需要背景（色）时。</li>
@@ -3602,7 +3602,7 @@ function decodeAudio (audioCtx, audioData, callback) {
     
     <entry>
       <title><![CDATA[JavaScript 数组去重]]></title>
-      <url>http://vino24.cn/2015/07/06/javascript-array-unique/</url>
+      <url>http://iminyao.com/2015/07/06/javascript-array-unique/</url>
       <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><h3 id="方法一：双重循环去重"><a href="#方法一：双重循环去重" class="headerlink" title="方法一：双重循环去重"></a>方法一：双重循环去重</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="built_in">Array</span>.prototype.unique1 = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> result = [];</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; arr.length; i++) &#123;</div><div class="line">        <span class="keyword">var</span> ietm=arr[i];    <span class="comment">// 性能优化</span></div><div class="line">        <span class="keyword">if</span> (arr.indexOf(item, i + <span class="number">1</span>) == <span class="number">-1</span>)</div><div class="line">            result.push(item);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> result;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>, <span class="string">'a'</span>, <span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'d'</span>, <span class="string">'e'</span>, <span class="string">'e'</span>, <span class="number">1</span>, <span class="number">0</span>]</div><div class="line">alert(arr.unique1());</div></pre></td></tr></table></figure>
 <h3 id="方法二："><a href="#方法二：" class="headerlink" title="方法二："></a>方法二：</h3><ol>
 <li><p>先将原数组进行排序</p>
@@ -3634,7 +3634,7 @@ function decodeAudio (audioCtx, audioData, callback) {
     
     <entry>
       <title><![CDATA[JavaScript事件绑定的几种方式与区别]]></title>
-      <url>http://vino24.cn/2015/07/05/js-event-bind/</url>
+      <url>http://iminyao.com/2015/07/05/js-event-bind/</url>
       <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><ol>
 <li><p>方式1：</p>
 <blockquote>
@@ -3667,7 +3667,7 @@ function decodeAudio (audioCtx, audioData, callback) {
     
     <entry>
       <title><![CDATA[跨域解决方案之JSONP]]></title>
-      <url>http://vino24.cn/2015/07/01/JSONP/</url>
+      <url>http://iminyao.com/2015/07/01/JSONP/</url>
       <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><blockquote>
 <p>JSON和JSONP虽然只有一个字母的差别，但其实他们根本不是一回事儿：JSON是一种数据交换格式，而JSONP是一种依靠开发人员的聪明才智创造出的一种非官方跨域数据交互协议。一个是描述信息的格式，一个是信息传递双方约定的方法。</p>
 </blockquote>
@@ -3727,7 +3727,7 @@ function decodeAudio (audioCtx, audioData, callback) {
     
     <entry>
       <title><![CDATA[跨域解决方案之CORS]]></title>
-      <url>http://vino24.cn/2015/07/01/CORS/</url>
+      <url>http://iminyao.com/2015/07/01/CORS/</url>
       <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><h3 id="跨站-HTTP-请求-Cross-site-HTTP-request"><a href="#跨站-HTTP-请求-Cross-site-HTTP-request" class="headerlink" title="跨站 HTTP 请求(Cross-site HTTP request)"></a>跨站 HTTP 请求(Cross-site HTTP request)</h3><p>是指发起请求的资源所在域不同于该请求所指向资源所在的域的 HTTP 请求。比如说，域名A(<a href="http://domaina.example" target="_blank" rel="external">http://domaina.example</a>) 的某 Web 应用程序中通过<code>&lt;img&gt;</code>标签引入了域名B(<a href="http://domainb.foo" target="_blank" rel="external">http://domainb.foo</a>) 站点的某图片资源(<a href="http://domainb.foo/image.jpg)，域名A的那" target="_blank" rel="external">http://domainb.foo/image.jpg)，域名A的那</a> Web 应用就会导致浏览器发起一个跨站 HTTP 请求。在当今的 Web 开发中，使用跨站 HTTP 请求加载各类资源（包括CSS、图片、JavaScript 脚本以及其它类资源），已经成为了一种普遍且流行的方式。</p>
 <h3 id="问题"><a href="#问题" class="headerlink" title="问题:"></a>问题:</h3><p>正如大家所知，出于安全考虑，浏览器会限制脚本中发起的跨站请求。比如，使用 XMLHttpRequest 对象发起 HTTP 请求就必须遵守同源策略（same-origin policy）。 具体而言，Web 应用程序能且只能使用 XMLHttpRequest 对象向其加载的源域名发起 HTTP 请求，而不能向任何其它域名发起请求。为了能开发出更强大、更丰富、更安全的Web应用程序，开发人员渴望着在不丢失安全的前提下，Web 应用技术能越来越强大、越来越丰富。比如，可以使用 XMLHttpRequest 发起跨站 HTTP 请求。</p>
 <h3 id="解决方案-CORS"><a href="#解决方案-CORS" class="headerlink" title="解决方案-CORS:"></a>解决方案-CORS:</h3><p>CORS主要是通过定义浏览器与服务器之间共享内容的方式来实现跨域。<br>CORS通过新增一系列 HTTP 头（Access-Control-Allow-Origin，Access-Control-Expose-Headers，Access-Control-Max-Age，Access-Control-Allow-Credentials，Access-Control-Allow-Methods，Access-Control-Allow-Headers等），让服务器能声明那些来源可以通过浏览器访问该服务器上的资源。另外，对那些会对服务器数据造成破坏性影响的 HTTP 请求方法（特别是 GET 以外的 HTTP 方法，或者搭配某些MIME类型的POST请求），标准强烈要求浏览器必须先以 OPTIONS 请求方式发送一个预请求(preflight request)，从而获知服务器端对跨源请求所支持 HTTP 方法。在确认服务器允许该跨源请求的情况下，以实际的 HTTP 请求方法发送那个真正的请求。服务器端也可以通知客户端，是不是需要随同请求一起发送信用信息（包括 Cookies 和 HTTP 认证相关数据）。</p>
@@ -3770,7 +3770,7 @@ function decodeAudio (audioCtx, audioData, callback) {
     
     <entry>
       <title><![CDATA[inline-block详解]]></title>
-      <url>http://vino24.cn/2015/06/21/inline-block/</url>
+      <url>http://iminyao.com/2015/06/21/inline-block/</url>
       <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><h3 id="IE6中inline和block的表现-demo"><a href="#IE6中inline和block的表现-demo" class="headerlink" title="IE6中inline和block的表现(demo)"></a>IE6中<code>inline</code>和<code>block</code>的表现(<a href="http://www.iyunlu.com/demo/inline-block-ie/" target="_blank" rel="external">demo</a>)</h3><ol>
 <li><p>inline 元素 display:inline-block</p>
 <figure class="highlight css"><table><tr><td class="code"><pre><div class="line"><span class="selector-class">.dib-inline</span>, <span class="selector-class">.dib-block</span> &#123;</div><div class="line"><span class="attribute">width</span>:<span class="number">100px</span>;</div><div class="line"><span class="attribute">height</span>:<span class="number">30px</span>;</div><div class="line"><span class="attribute">line-height</span>:<span class="number">30px</span>;</div><div class="line"><span class="attribute">text-align</span>:center;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.dib-inline</span> &#123;</div><div class="line"><span class="attribute">display</span>:inline-block;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
@@ -3837,7 +3837,7 @@ function decodeAudio (audioCtx, audioData, callback) {
     
     <entry>
       <title><![CDATA[JavaScript中的随机数]]></title>
-      <url>http://vino24.cn/2015/06/19/math-random/</url>
+      <url>http://iminyao.com/2015/06/19/math-random/</url>
       <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><p>There are some examples on the <a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Math/random" target="_blank" rel="external">MDN</a> page:<br><figure class="highlight processing"><table><tr><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * Returns a random number between min (inclusive) and max (exclusive)</div><div class="line"> */</div><div class="line">function getRandomArbitrary(<span class="built_in">min</span>, <span class="built_in">max</span>) &#123;</div><div class="line">    <span class="keyword">return</span> Math.<span class="built_in">random</span>() * (<span class="built_in">max</span> - <span class="built_in">min</span>) + <span class="built_in">min</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * Returns a random integer between min (inclusive) and max (inclusive)</div><div class="line"> * Using Math.round() will give you a non-uniform distribution!</div><div class="line"> */</div><div class="line">function getRandomInt(<span class="built_in">min</span>, <span class="built_in">max</span>) &#123;</div><div class="line">    <span class="keyword">return</span> Math.<span class="built_in">floor</span>(Math.<span class="built_in">random</span>() * (<span class="built_in">max</span> - <span class="built_in">min</span> + <span class="number">1</span>)) + <span class="built_in">min</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <h3 id="Here’s-the-logic-behind-it"><a href="#Here’s-the-logic-behind-it" class="headerlink" title="Here’s the logic behind it."></a>Here’s the logic behind it.</h3><ul>
 <li><p>Math.random() returns a Number between 0 (inclusive) and 1 (exclusive). So we have an interval like this:(Math.random()函数只是会产生0-1之间的随机数[0,1)包含0，不包含1)</p>
@@ -3866,7 +3866,7 @@ function decodeAudio (audioCtx, audioData, callback) {
     
     <entry>
       <title><![CDATA[伪类与伪元素本质区别]]></title>
-      <url>http://vino24.cn/2015/06/13/Pseudo-element-Pseudo-class/</url>
+      <url>http://iminyao.com/2015/06/13/Pseudo-element-Pseudo-class/</url>
       <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><h2 id="前导"><a href="#前导" class="headerlink" title="前导"></a>前导</h2><ul>
 <li>先看一个伪元素 first-line 例子。现在有一段HTML，内容是一个段落：</li>
 </ul>
@@ -3927,7 +3927,7 @@ function decodeAudio (audioCtx, audioData, callback) {
     
     <entry>
       <title><![CDATA[360前端星计划整理]]></title>
-      <url>http://vino24.cn/2015/06/13/360FE-star/</url>
+      <url>http://iminyao.com/2015/06/13/360FE-star/</url>
       <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><h2 id="文博老师PPT"><a href="#文博老师PPT" class="headerlink" title="文博老师PPT"></a>文博老师PPT</h2><ol>
 <li><a href="http://webzhao.github.io/sharing/slides.html?file=front-end-essentials-1#/" target="_blank" rel="external">http://webzhao.github.io/sharing/slides.html?file=front-end-essentials-1#/</a></li>
 <li><a href="http://webzhao.github.io/sharing/slides.html?file=front-end-essentials-2#/" target="_blank" rel="external">http://webzhao.github.io/sharing/slides.html?file=front-end-essentials-2#/</a></li>
@@ -3980,7 +3980,7 @@ function decodeAudio (audioCtx, audioData, callback) {
     
     <entry>
       <title><![CDATA[HTTP中的GET与POST]]></title>
-      <url>http://vino24.cn/2015/06/02/GET-POST/</url>
+      <url>http://iminyao.com/2015/06/02/GET-POST/</url>
       <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><h3 id="GET的劣势："><a href="#GET的劣势：" class="headerlink" title="GET的劣势："></a>GET的劣势：</h3><blockquote>
 <p>使用GET方法所有参数都包含在URL中，所有访问网站的URL都会记录在服务器的访问日志中。<br>而服务器的访问日志正是黑客攻击的重点对象之一！</p>
 <p>POST是通过携带数据体传递用户登录信息，登录的数据并不会出现在URL和服务器访问日志中。</p>
@@ -4017,7 +4017,7 @@ function decodeAudio (audioCtx, audioData, callback) {
     
     <entry>
       <title><![CDATA[JavaScript实现动画的两种方式比较]]></title>
-      <url>http://vino24.cn/2015/06/01/animation-use-javascript/</url>
+      <url>http://iminyao.com/2015/06/01/animation-use-javascript/</url>
       <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><h3 id="区别："><a href="#区别：" class="headerlink" title="区别："></a>区别：</h3><ol>
 <li>相当一部分的浏览器的显示频率是16.7ms,显示器16.7ms刷新间隔之前发生了其他绘制请求(setTimeout)，导致部分帧丢失，继而导致动画断续显示，这就是过度绘制带来的问题。不仅如此，这种计时器频率的降低也会对电池使用寿命造成负面影响，并会降低其他应用的性能。<br>这也是为何setTimeout的定时器值推荐最小使用16.7ms的原因（16.7 = 1000 / 60, 即每秒60帧）。</li>
 <li><p>而requestAnimationFrame就是为了这个而出现的。所做的事情很简单，跟着浏览器的绘制走，如果浏览设备绘制间隔是16.7ms，那我就这个间隔绘制；如果浏览设备绘制间隔是10ms, 我就10ms绘制。这样就不会存在过度绘制的问题，动画不会掉帧，自然流畅的说~~<br>内部是这么运作的：<br>浏览器（如页面）每次要重绘，就会通知requestAnimationFrame</p>
@@ -4038,7 +4038,7 @@ function decodeAudio (audioCtx, audioData, callback) {
     
     <entry>
       <title><![CDATA[CSS盒模型中的关于参照物很容易混淆的地方]]></title>
-      <url>http://vino24.cn/2015/05/25/css-width/</url>
+      <url>http://iminyao.com/2015/05/25/css-width/</url>
       <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><p>测试地址：<a href="http://codepen.io/vino24/pen/pEzrOk" target="_blank" rel="external">http://codepen.io/vino24/pen/pEzrOk</a></p>
 <blockquote>
 <p>百分百是CSS中最常用的一种尺寸单位了，但是平时在写的很容易的忽视的一点就是百分比的参照物，本文对常见的百分比使用做了总结。</p>
@@ -4059,7 +4059,7 @@ function decodeAudio (audioCtx, audioData, callback) {
     
     <entry>
       <title><![CDATA[CSS Hover特效应用]]></title>
-      <url>http://vino24.cn/2015/05/16/CSS-hover/</url>
+      <url>http://iminyao.com/2015/05/16/CSS-hover/</url>
       <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><h2 id="知识点："><a href="#知识点：" class="headerlink" title="知识点："></a>知识点：</h2><h3 id="rgba与opacity区别："><a href="#rgba与opacity区别：" class="headerlink" title="rgba与opacity区别："></a>rgba与opacity区别：</h3><ol>
 <li>rgba可用于设置背景色，字体颜色，边框颜色等,可设置颜色的地方。</li>
 <li>opacity是给元素设置透明度，其子元素也同样会有透明度。</li>
@@ -4112,7 +4112,7 @@ function decodeAudio (audioCtx, audioData, callback) {
     
     <entry>
       <title><![CDATA[JavaScript作用域链]]></title>
-      <url>http://vino24.cn/2015/05/04/Scope-Chain/</url>
+      <url>http://iminyao.com/2015/05/04/Scope-Chain/</url>
       <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><h3 id="目录："><a href="#目录：" class="headerlink" title="目录："></a>目录：</h3><ul>
 <li>EC(执行环境或者执行上下文，Execution Context)</li>
 </ul>
@@ -4241,7 +4241,7 @@ function decodeAudio (audioCtx, audioData, callback) {
     
     <entry>
       <title><![CDATA[CSS中神奇的负边距]]></title>
-      <url>http://vino24.cn/2015/04/26/negative-margin/</url>
+      <url>http://iminyao.com/2015/04/26/negative-margin/</url>
       <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><h3 id="理解负边距核心"><a href="#理解负边距核心" class="headerlink" title="理解负边距核心"></a>理解负边距核心</h3><ol>
 <li><p>在margin属性中一共有两类参考线，top和left的参考线属于一类，right和bottom的参考线属于另一类。</p>
 </li>
@@ -4346,7 +4346,7 @@ function decodeAudio (audioCtx, audioData, callback) {
     
     <entry>
       <title><![CDATA[CSS实现水平垂直居中的常见方式]]></title>
-      <url>http://vino24.cn/2015/04/25/CSS-center/</url>
+      <url>http://iminyao.com/2015/04/25/CSS-center/</url>
       <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><h2 id="水平居中"><a href="#水平居中" class="headerlink" title="水平居中"></a>水平居中</h2><ul>
 <li>如果需要居中的元素为常规流中inline元素，为父元素设置text-align: center;即可实现</li>
 <li><p>如果需要居中的元素为常规流中block元素，1）为元素设置宽度，2）设置左右margin为auto。3）IE6下需在父元素上设置text-align: center;,再给子元素恢复需要的值</p>
@@ -4506,7 +4506,7 @@ background:gray;
     
     <entry>
       <title><![CDATA[DOM操作一览]]></title>
-      <url>http://vino24.cn/2015/04/18/DOM/</url>
+      <url>http://iminyao.com/2015/04/18/DOM/</url>
       <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><h2 id="Node"><a href="#Node" class="headerlink" title="Node"></a>Node</h2><ol>
 <li>Document</li>
 <li>CharacterData<ul>
@@ -4715,7 +4715,7 @@ head.appendChild(cop);
     
     <entry>
       <title><![CDATA[Web Worker]]></title>
-      <url>http://vino24.cn/2015/04/15/web-worker/</url>
+      <url>http://iminyao.com/2015/04/15/web-worker/</url>
       <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><h3 id="·-问题描述"><a href="#·-问题描述" class="headerlink" title="· 问题描述"></a>· 问题描述</h3><blockquote>
 <p>现代编程语言对于大计算量工作都会放到后台完成，但 <strong>javascript</strong> 中代码始终在前台运行，因此耗时计算会阻塞页面</p>
 <h3 id="·-常规解决方法"><a href="#·-常规解决方法" class="headerlink" title="· 常规解决方法"></a>· 常规解决方法</h3><p>使用<code>setTimeout()或setInterval()</code>把大任务分成小任务</p>
@@ -4772,7 +4772,7 @@ data:&quot;primes&quot;});
     
     <entry>
       <title><![CDATA[CSS中的生成内容]]></title>
-      <url>http://vino24.cn/2015/04/06/CSS-content/</url>
+      <url>http://iminyao.com/2015/04/06/CSS-content/</url>
       <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><h3 id="1-定义"><a href="#1-定义" class="headerlink" title="1.定义"></a>1.定义</h3><blockquote>
 <p>由浏览器创建的内容而不是由标志或内容来表示。典型例子：列表标志</p>
 </blockquote>
@@ -4830,7 +4830,7 @@ quote:after { content:close-quote;}
     
     <entry>
       <title><![CDATA[CSS中的vertical-align属性]]></title>
-      <url>http://vino24.cn/2015/04/05/inline-element/</url>
+      <url>http://iminyao.com/2015/04/05/inline-element/</url>
       <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><h2 id="行内元素术语："><a href="#行内元素术语：" class="headerlink" title="行内元素术语："></a>行内元素术语：</h2><ol>
 <li><p><strong>em框：</strong>字体中定义，也称字符框，(个人理解：单个字符所形成的框)高度由<code>font-size</code>的值确定</p>
 </li>
@@ -4873,7 +4873,7 @@ Some more text
     
     <entry>
       <title><![CDATA[移动端开发的一些基础概念]]></title>
-      <url>http://vino24.cn/2015/03/24/mobile-dev-basic-concept/</url>
+      <url>http://iminyao.com/2015/03/24/mobile-dev-basic-concept/</url>
       <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><h3 id="此像素非彼像素"><a href="#此像素非彼像素" class="headerlink" title="此像素非彼像素"></a>此像素非彼像素</h3><blockquote>
 <p>我们通常所说的像素其实有两种，一种是CSS像素，另一种是设备像素。</p>
 </blockquote>
@@ -4913,7 +4913,7 @@ Some more text
     
     <entry>
       <title><![CDATA[网站优化之JavaScript异步加载]]></title>
-      <url>http://vino24.cn/2015/03/22/async-javascript/</url>
+      <url>http://iminyao.com/2015/03/22/async-javascript/</url>
       <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><h3 id="写在前面："><a href="#写在前面：" class="headerlink" title="写在前面："></a>写在前面：</h3><ul>
 <li><strong>DOMContentLoaded</strong></li>
 </ul>
@@ -5048,7 +5048,7 @@ document.body.appendChild(cache);
     
     <entry>
       <title><![CDATA[.htaccess文件配置详解]]></title>
-      <url>http://vino24.cn/2015/03/22/htaccess/</url>
+      <url>http://iminyao.com/2015/03/22/htaccess/</url>
       <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><h3 id="什么是-htaccess文件（分布式配置文件）"><a href="#什么是-htaccess文件（分布式配置文件）" class="headerlink" title="什么是.htaccess文件（分布式配置文件）"></a>什么是<code>.htaccess</code>文件（分布式配置文件）</h3><blockquote>
 <p>Apache Web 服务器可以通过 <code>.htaccess</code> 文件来操作各种信息，这是一个<strong>目录级配置文件</strong>的默认名称，允许去中央化的 Web 服务器配置管理。可用来重写服务器的全局配置。该文件的目的就是为了允许单独目录的访问控制配置，例如密码和内容访问。</p>
 <p>在一个目录下设置了<code>.htaccess</code>文件之后，当用户使用浏览器访问此目录时，Apache会读取该文件的配置来覆盖主配置文件<code>http.conf</code>的配置。</p>
@@ -5163,7 +5163,7 @@ ExpiresByType text/html A600
     
     <entry>
       <title><![CDATA[浏览器缓存(HTTP Cache)控制简介及配置策略]]></title>
-      <url>http://vino24.cn/2015/03/22/http-cache/</url>
+      <url>http://iminyao.com/2015/03/22/http-cache/</url>
       <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><h2 id="Web缓存分类"><a href="#Web缓存分类" class="headerlink" title="Web缓存分类"></a>Web缓存分类</h2><ol>
 <li><p>数据库缓存<br>我们可能听说过memcached，它就是一种数据库层面的缓存方案。数据库缓存是指，当web应用的关系比较复杂，数据库中的表很多的时候，如果频繁进行数据库查询，很容易导致数据库不堪重荷。为了提供查询的性能，将查询后的数据放到内存中进行缓存，下次查询时，直接从内存缓存直接返回，提供响应效率。</p>
 </li>
@@ -5234,7 +5234,7 @@ ExpiresByType text/html A600
     
     <entry>
       <title><![CDATA[Canvas入门]]></title>
-      <url>http://vino24.cn/2015/03/18/canvas-first/</url>
+      <url>http://iminyao.com/2015/03/18/canvas-first/</url>
       <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><h3 id="基础知识"><a href="#基础知识" class="headerlink" title="基础知识"></a>基础知识</h3><h4 id="页面基本结构"><a href="#页面基本结构" class="headerlink" title="页面基本结构:"></a>页面基本结构:</h4><figure class="highlight xml"><table><tr><td class="code"><pre><div class="line">css:</div><div class="line">canvas&#123;</div><div class="line">			border: 1px dashed black;</div><div class="line">		&#125;</div><div class="line">html</div><div class="line">        <span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">canvas</span> <span class="attr">id</span>=<span class="string">"drawingCanvas"</span> <span class="attr">width</span>=<span class="string">"500"</span> <span class="attr">height</span>=<span class="string">"300"</span>&gt;</span> <span class="comment">&lt;!--width height必须在此处设置--&gt;</span></div><div class="line">		<span class="tag">&lt;/<span class="name">canvas</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line">js:在页面加载是取得Canvas绘图上下文，以下所有绘图代码均添加在此函数</div><div class="line">window.onload=function()&#123;</div><div class="line">			var canvas=document.getElementById("drawingCanvas");</div><div class="line">			var context=canvas.getContext("2d"); //	取得二维绘图上下文</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h4 id="绘制直线"><a href="#绘制直线" class="headerlink" title="绘制直线"></a>绘制直线</h4><figure class="highlight verilog"><table><tr><td class="code"><pre><div class="line">                     <span class="comment">/* </span></div><div class="line">                      *线条样式设置 </div><div class="line">                     */</div><div class="line">                     <span class="keyword">context</span><span class="variable">.lineWidth</span>=<span class="number">10</span>; 			                <span class="comment">//设置线条宽度</span></div><div class="line"><span class="keyword">context</span><span class="variable">.strokeStyle</span>=<span class="string">"rgb(205,40,40)"</span>; 		<span class="comment">//设置线条颜色</span></div><div class="line"></div><div class="line"><span class="keyword">context</span><span class="variable">.moveTo</span>(<span class="number">10</span>,<span class="number">50</span>); 			<span class="comment">//找到直线的起点</span></div><div class="line"><span class="keyword">context</span><span class="variable">.lineTo</span>(<span class="number">400</span>,<span class="number">50</span>);			<span class="comment">//在起点和终点之间建立联系</span></div><div class="line"><span class="keyword">context</span><span class="variable">.lineCap</span>=<span class="string">"butt"</span>;			<span class="comment">//设置线条两端的形状 butt为默认</span></div><div class="line"><span class="keyword">context</span><span class="variable">.stroke</span>();				<span class="comment">//实际的绘制直线,lineTo()负责画直线，调用     </span></div><div class="line">                                                                             <span class="comment">//stroke()才会显示直线</span></div><div class="line"></div><div class="line"><span class="keyword">context</span><span class="variable">.beginPath</span>();			<span class="comment">//调用beginPath()重新开始新线段绘制</span></div><div class="line"><span class="keyword">context</span><span class="variable">.moveTo</span>(<span class="number">10</span>,<span class="number">120</span>);</div><div class="line"><span class="keyword">context</span><span class="variable">.lineTo</span>(<span class="number">400</span>,<span class="number">120</span>);</div><div class="line"><span class="keyword">context</span><span class="variable">.lineCap</span>=<span class="string">"round"</span>;                <span class="comment">//圆头</span></div><div class="line"><span class="keyword">context</span><span class="variable">.stroke</span>();</div><div class="line"></div><div class="line"><span class="keyword">context</span><span class="variable">.beginPath</span>();</div><div class="line"><span class="keyword">context</span><span class="variable">.moveTo</span>(<span class="number">10</span>,<span class="number">190</span>);</div><div class="line"><span class="keyword">context</span><span class="variable">.lineTo</span>(<span class="number">400</span>,<span class="number">190</span>);</div><div class="line"><span class="keyword">context</span><span class="variable">.lineCap</span>=<span class="string">"square"</span>; 	      <span class="comment">//加长方头</span></div><div class="line"><span class="keyword">context</span><span class="variable">.stroke</span>();</div></pre></td></tr></table></figure>
 <h4 id="绘制三角形并填充颜色"><a href="#绘制三角形并填充颜色" class="headerlink" title="绘制三角形并填充颜色"></a>绘制三角形并填充颜色</h4><figure class="highlight verilog"><table><tr><td class="code"><pre><div class="line"><span class="keyword">context</span><span class="variable">.lineWidth</span>=<span class="number">10</span>;</div><div class="line"><span class="keyword">context</span><span class="variable">.strokeStyle</span>=<span class="string">"red"</span>;</div><div class="line"><span class="keyword">context</span><span class="variable">.lineJoin</span>=<span class="string">"bevel"</span>;	                <span class="comment">//可以通过lineJoin属性设置交点的形状 默认</span></div><div class="line">                                                                             <span class="comment">// mitre(锐角斜接) round(圆头) bevel(平头斜接)</span></div><div class="line"><span class="keyword">context</span><span class="variable">.fillStyle</span>=<span class="string">"blue"</span>;	               <span class="comment">//先填充内部，后绘制轮廓，否则轮廓会被填充覆盖</span></div><div class="line"></div><div class="line">                     <span class="keyword">context</span><span class="variable">.moveTo</span>(<span class="number">250</span>,<span class="number">50</span>);</div><div class="line">                     <span class="keyword">context</span><span class="variable">.lineTo</span>(<span class="number">50</span>,<span class="number">250</span>);</div><div class="line"><span class="keyword">context</span><span class="variable">.lineTo</span>(<span class="number">450</span>,<span class="number">250</span>);</div><div class="line"><span class="keyword">context</span><span class="variable">.lineTo</span>(<span class="number">250</span>,<span class="number">50</span>);		<span class="comment">//可省略 closePath()会自动在最后一个绘制点绘制与起</span></div><div class="line">                                                                     <span class="comment">//点的连线</span></div><div class="line"><span class="keyword">context</span><span class="variable">.closePath</span>(); 		<span class="comment">//关闭路径</span></div><div class="line"></div><div class="line"><span class="keyword">context</span><span class="variable">.fill</span>();</div><div class="line"><span class="keyword">context</span><span class="variable">.stroke</span>();</div></pre></td></tr></table></figure>
@@ -5266,7 +5266,7 @@ ExpiresByType text/html A600
     
     <entry>
       <title><![CDATA[Audio&&Vedio兼容方案]]></title>
-      <url>http://vino24.cn/2015/03/15/audio-video-canvas-fixed/</url>
+      <url>http://iminyao.com/2015/03/15/audio-video-canvas-fixed/</url>
       <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><ul>
 <li><p>HTML5为兼容主体</p>
 <figure class="highlight dust"><table><tr><td class="code"><pre><div class="line"><span class="xml"><span class="tag">&lt;<span class="name">audio</span> <span class="attr">controls</span>&gt;</span></span></div><div class="line">		<span class="tag">&lt;<span class="name">source</span> <span class="attr">src</span>=<span class="string">""</span> <span class="attr">type</span>=<span class="string">"audio/mp3"</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">source</span> <span class="attr">src</span>=<span class="string">""</span> <span class="attr">type</span>=<span class="string">"audio/ogg"</span>&gt;</span></div><div class="line">		<span class="comment">&lt;!-- 不支持audio的浏览器加载Flash(外部播放器，如虾米、云音乐) --&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">object</span> <span class="attr">id</span>=<span class="string">"flowplayer"</span> <span class="attr">width</span>=<span class="string">"700"</span> <span class="attr">height</span>=<span class="string">"400"</span> <span class="attr">data</span>=<span class="string">"flowplayer-3.2.7.swf"</span> <span class="attr">type</span>=<span class="string">"application/x-shockwave-flash"</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">param</span> <span class="attr">name</span>=<span class="string">"movie"</span> <span class="attr">value</span>=<span class="string">"flowplayer-3.2.7.swf"</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">param</span> <span class="attr">name</span>=<span class="string">"flashvars"</span> <span class="attr">value</span>=<span class="string">'config=</span></span><span class="template-variable">&#123;"clip":"天空之城.mp3"&#125;</span><span class="xml"><span class="tag"><span class="string">'</span>&gt;</span></span></div><div class="line"></div><div class="line">			<span class="comment">&lt;!--既不支持audio，也没装Flash--&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">""</span> <span class="attr">alt</span>=<span class="string">"李志"</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">p</span>&gt;</span>Your browser do not support HTML5 video or flash.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line">		<span class="tag">&lt;/<span class="name">object</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">audio</span>&gt;</span></div></pre></td></tr></table></figure>
@@ -5282,7 +5282,7 @@ ExpiresByType text/html A600
     
     <entry>
       <title><![CDATA[Node.js Java开发环境安装配置]]></title>
-      <url>http://vino24.cn/2015/03/04/nodejs-install/</url>
+      <url>http://iminyao.com/2015/03/04/nodejs-install/</url>
       <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><h2 id="windows"><a href="#windows" class="headerlink" title="windows"></a>windows</h2><ol>
 <li>python配置</li>
 </ol>
@@ -5349,7 +5349,7 @@ ExpiresByType text/html A600
     
     <entry>
       <title><![CDATA[中国最好的民谣音乐网站“爱民谣”正式上线]]></title>
-      <url>http://vino24.cn/2015/03/01/iminyao/</url>
+      <url>http://iminyao.com/2015/03/01/iminyao/</url>
       <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><p>2015.02.28，中国最好的民谣网站”爱民谣”(<a href="www.imnyao.com">www.iminyao.com</a>)正式上线了。<br><img src="http://ww1.sinaimg.cn/large/bd0b5318gw1epp7ubowdnj210c0hen2n.jpg" alt="爱民谣"><br>因为钟情于民谣音乐，所以我要打造一个属于民谣爱好者的独立空间。不仅如此，如今中国新民谣蔚然成风，更需要一个专门网站整合资源，宣传推广，让民谣不再小众。</p>
 <ul>
 <li>在这里，你可以聆听娓娓道来的民谣，无论清新抒情，还是写实感怀，抑或恣意狂放，总有一种声音摄你心魄；</li>
@@ -5364,7 +5364,7 @@ ExpiresByType text/html A600
     
     <entry>
       <title><![CDATA[一种检测IE版本号神奇思路]]></title>
-      <url>http://vino24.cn/2015/01/06/ie-scan/</url>
+      <url>http://iminyao.com/2015/01/06/ie-scan/</url>
       <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><h3 id="1-常规方法"><a href="#1-常规方法" class="headerlink" title="1. 常规方法"></a>1. 常规方法</h3><figure class="highlight dart"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> isIE=!!<span class="built_in">window</span>.ActiveXObject;</div><div class="line"><span class="keyword">var</span> isIE6=isIE&amp;&amp;!<span class="built_in">window</span>.XMLHttpRequest;</div><div class="line"><span class="keyword">var</span> isIE8=isIE&amp;&amp;!!<span class="built_in">document</span>.documentMode;</div><div class="line"><span class="keyword">var</span> isIE7=isIE&amp;&amp;!isIE6&amp;&amp;!isIE8;</div></pre></td></tr></table></figure>
 <h3 id="2-更简短代码"><a href="#2-更简短代码" class="headerlink" title="2. 更简短代码"></a>2. 更简短代码</h3><figure class="highlight dart"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> ie = !-[<span class="number">1</span>,];</div><div class="line"><span class="keyword">var</span> ie6=!-[<span class="number">1</span>,]&amp;&amp;!<span class="built_in">window</span>.XMLHttpRequest;</div></pre></td></tr></table></figure>
 <h3 id="3-更神奇：-IE-HTML-hack"><a href="#3-更神奇：-IE-HTML-hack" class="headerlink" title="3. 更神奇： IE HTML hack"></a>3. 更神奇： IE HTML hack</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="comment">//	利用IE特有的注释在其他浏览器无法解析的特性</span></div><div class="line"></div><div class="line"><span class="keyword">var</span> isIE = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> b = <span class="built_in">document</span>.createElement(<span class="string">'b'</span>)</div><div class="line">    b.innerHTML = <span class="string">'&lt;!--[if IE]&gt;&lt;i&gt;&lt;/i&gt;&lt;![endif]--&gt;'</span></div><div class="line">    <span class="keyword">return</span> b.getElementsByTagName(<span class="string">'i'</span>).length === <span class="number">1</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> isIE6 = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> b = <span class="built_in">document</span>.createElement(<span class="string">'b'</span>)</div><div class="line">    b.innerHTML = <span class="string">'&lt;!--[if IE 6]&gt;&lt;i&gt;&lt;/i&gt;&lt;![endif]--&gt;'</span></div><div class="line">    <span class="keyword">return</span> b.getElementsByTagName(<span class="string">'i'</span>).length === <span class="number">1</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
