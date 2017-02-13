@@ -520,7 +520,15 @@ It will not impact the appearance and can give developers a lot of support :)
     
 </footer>
 
-				<!-- Import File -->
+				<script>
+if(navigator.serviceWorker){
+	navigator.serviceWorker
+			.register('/js/sw.js')
+			.then((registration) => {console.log('Service Worker Registered. ', registration)})
+			.catch((error) => {console.log('ServiceWorker registration failed: ', error)})
+}
+</script>
+<!-- Import File -->
 <script src="/js/highlight.min.js"></script>
 <script src="/js/js.min.js"></script>
 <script src="/js/nprogress.js"></script>
@@ -685,6 +693,7 @@ It will not impact the appearance and can give developers a lot of support :)
 
 <!-- MathJax Load-->
 
+
             </main>
         </div>
 
@@ -692,7 +701,7 @@ It will not impact the appearance and can give developers a lot of support :)
 
 	
 </html>
-ument.getElementById(content_id);
+ment.getElementById(content_id);
             $input.addEventListener('input', function(){
                 var str='<ul class=\"search-result-list\">';                
                 var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
@@ -783,6 +792,7 @@ ument.getElementById(content_id);
 </script>
 
 <!-- MathJax Load-->
+
 
             </main>
         </div>

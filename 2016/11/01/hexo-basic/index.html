@@ -671,7 +671,15 @@ It will not impact the appearance and can give developers a lot of support :)
     
 </footer>
 
-				<!-- Import File -->
+				<script>
+if(navigator.serviceWorker){
+	navigator.serviceWorker
+			.register('/js/sw.js')
+			.then((registration) => {console.log('Service Worker Registered. ', registration)})
+			.catch((error) => {console.log('ServiceWorker registration failed: ', error)})
+}
+</script>
+<!-- Import File -->
 <script src="/js/highlight.min.js"></script>
 <script src="/js/js.min.js"></script>
 <script src="/js/nprogress.js"></script>
@@ -835,6 +843,7 @@ It will not impact the appearance and can give developers a lot of support :)
 </script>
 
 <!-- MathJax Load-->
+
 
             </main>
         </div>
