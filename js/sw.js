@@ -71,9 +71,7 @@ const getRedirectUrl = (req) => {
 self.addEventListener('install', e => {
   e.waitUntil(
     caches.open(PRECACHE).then(cache => {
-      return cache.add('index.html')
-      .then(self.skipWaiting())
-      .catch(err => console.log(err))
+      self.skipWaiting()
     })
   )
 });
@@ -127,7 +125,7 @@ self.addEventListener('fetch', event => {
     event.respondWith(
       Promise.race([fetched.catch(_ => cached), cached])
         .then(resp => resp || fetched)
-        .catch(_ => caches.match('index.html'))
+        .catch()
     );
 
     // Update the cache with the version we fetched (only for ok status)
