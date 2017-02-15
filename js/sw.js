@@ -1,11 +1,34 @@
-const PRECACHE = 'precache-v3';
+importScripts('cache-pollyfill.js');
+const CACHE_VERSION = 'app-v3';
 const RUNTIME = 'runtime';
-const HOSTNAME_WHITELIST = [
-  self.location.hostname,
-  "iminyao.com",
-  "static.duoshuo.com",
-  "www.bing.com"
-]
+const CACHE_FILES = [ // 需要缓存的页面文件
+    '/',
+    'jquery.min.js',
+    'highlight.min.js',
+    'js.min.js',
+    'nprogress.js',
+    'smoothscroll.js',
+    'static.duoshuo.com/embed.js',
+    '../css/material.min.css',
+    '../css/style.min.css',
+    '../css/gallery.min.css',
+    '../css/duoshuo.min.css',
+    '../css/solarized-white.css',
+    '../img/apple-touch-icon.png',
+    '../img/favicon.png',
+    '../img/avatar.png',
+    '../img/bg.png',
+    '../img/daily_pic.png',
+    '../img/logo.png',
+    '../img/random/1.png',
+    '../img/random/2.png',
+    '../img/random/3.png',
+    '../img/random/4.png',
+    '../img/random/5.png',
+    '../img/footer/footer_ico-github.png',
+    '../img/sidebar_header.png',
+    '../fonts/MaterialIcons-Regular.woff2'
+];
 
 
 // The Util Function to hack URLs of intercepted requests
@@ -70,8 +93,9 @@ const getRedirectUrl = (req) => {
  */
 self.addEventListener('install', e => {
   e.waitUntil(
-    caches.open(PRECACHE).then(cache => {
-      self.skipWaiting()
+    caches.open(CACHE_VERSION).then(cache => {
+      console.log('install');
+      return cache.addAll(CACHE_FILES);
     })
   )
 });
@@ -85,7 +109,14 @@ self.addEventListener('install', e => {
  */
 self.addEventListener('activate',  event => {
   console.log('service worker activated.')
-  event.waitUntil(self.clients.claim());
+  event.waitUntil(
+    caches.keys().then(function(keys){
+            return Promise.all(keys.map(function(key, i){ // 清除旧版本缓存
+                if(key !== CACHE_VERSION){
+                    return caches.delete(keys[i]);
+                }
+            }))
+        }));
 });
 
 
@@ -96,43 +127,30 @@ self.addEventListener('activate',  event => {
  *  void respondWith(Promise<Response> r);
  */
 self.addEventListener('fetch', event => {
-  // logs for debugging
-  console.log(`fetch ${event.request.url}`)
-  //console.log(` - type: ${event.request.type}; destination: ${event.request.destination}`)
-  //console.log(` - mode: ${event.request.mode}, accept: ${event.request.headers.get('accept')}`)
-
-  // Skip some of cross-origin requests, like those for Google Analytics.
-  if (HOSTNAME_WHITELIST.indexOf(new URL(event.request.url).hostname) > -1) {
-
-    // Redirect in SW manually fixed github pages 404s on repo?blah
-    if(shouldRedirect(event.request)){
-      event.respondWith(Response.redirect(getRedirectUrl(event.request)))
-      return;
-    }
-
-    // Stale-while-revalidate
-    // similar to HTTP's stale-while-revalidate: https://www.mnot.net/blog/2007/12/12/stale
-    // Upgrade from Jake's to Surma's: https://gist.github.com/surma/eb441223daaedf880801ad80006389f1
-    const cached = caches.match(event.request);
-    const fixedUrl = getFixedUrl(event.request);
-    const fetched = fetch(fixedUrl, {cache: "no-store"});
-    const fetchedCopy = fetched.then(resp => resp.clone());
-
-    // Call respondWith() with whatever we get first.
-    // If the fetch fails (e.g disconnected), wait for the cache.
-    // If there’s nothing in cache, wait for the fetch.
-    // If neither yields a response, return offline pages.
-    event.respondWith(
-      Promise.race([fetched.catch(_ => cached), cached])
-        .then(resp => resp || fetched)
-        .catch()
-    );
-
-    // Update the cache with the version we fetched (only for ok status)
-    event.waitUntil(
-      Promise.all([fetchedCopy, caches.open(RUNTIME)])
-        .then(([response, cache]) => response.ok && cache.put(event.request, response))
-        .catch(_ => {/* eat any errors */})
-    );
-  }
+  event.respondWith( // 返回页面的资源请求
+          caches.match(event.request).then(function(res){ // 判断缓存是否命中
+              if(res){  // 返回缓存中的资源
+                  return res;
+              }
+              requestBackend(event); // 执行请求备份操作
+          })
+      )
 });
+
+function requestBackend(event){  // 请求备份操作
+    var url = event.request.clone();
+    return fetch(url).then(function(res){ // 请求线上资源
+        //if not a valid response send the error
+        if(!res || res.status !== 200 || res.type !== 'basic'){
+            return res;
+        }
+
+        var response = res.clone();
+
+        caches.open(CACHE_VERSION).then(function(cache){ // 缓存从线上获取的资源
+            cache.put(event.request, response);
+        });
+
+        return res;
+    })
+}
