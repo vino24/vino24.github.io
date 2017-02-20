@@ -335,7 +335,7 @@
 <li>版本库当前状态<code>git status</code></li>
 <li>版本比较<code>git diff</code></li>
 <li>查看提交历史<code>git log</code>:精简操作信息加<code>--pretty=oneline</code>,只显示版本号和提交说明</li>
-<li><p>版本回退<code>git reset --hard &lt;commit-id&gt;</code>:其中<code>HEAD</code>表示当前版本，<code>HEAD^</code>上一版本，以此类推，上10个版本，简写<code>HEAD~10</code>,<code>&lt;commit-id&gt;</code>无需写全，Git会自动查找</p>
+<li><p>版本回退<code>git reset &lt;commit-id&gt;</code>:其中<code>HEAD</code>表示当前版本，<code>HEAD^</code>上一版本，以此类推，上10个版本，简写<code>HEAD~10</code>,<code>&lt;commit-id&gt;</code>无需写全，Git会自动查找。默认的<code>git reset会保留工作目录，修改的内容还在磁盘上</code>，<code>git reset --hard</code>会撤销提交以及修改的内容.</p>
 <blockquote>
 <p>回退工作原理：</p>
 <p>Git在内部有个指向当前版本的HEAD指针，当你回退版本的时候，Git仅仅是把HEAD指向回退版本</p>
@@ -377,9 +377,10 @@
 <li>删除远端分支 <code>git push [远程名] :[分支名]</code>，例如<code>git push origin :serverfix</code></li>
 </ol>
 <h3 id="六-解决冲突"><a href="#六-解决冲突" class="headerlink" title="六.解决冲突"></a>六.<a href="http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000/001375840202368c74be33fbd884e71b570f2cc3c0d1dcf000" target="_blank" rel="external">解决冲突</a></h3><h3 id="七-临时存放工作现场"><a href="#七-临时存放工作现场" class="headerlink" title="七.临时存放工作现场"></a>七.临时存放工作现场</h3><ol>
-<li>保存当前工作现场:<code>git stash</code></li>
+<li>保存当前工作现场:<code>git stash</code>(完整版命令是<code>git stash &#39;message&#39;</code>)</li>
 <li>查看保存的工作现场:<code>git stash list</code></li>
 <li>恢复现场:<code>git stash apply</code>,恢复后<code>stash</code>并没有删除，需要使用<code>git stash drop</code>删除;第二种方法<code>git stash pop</code>,恢复时<code>stash</code>也被删除，多个<code>stash</code>时，<code>git stash apply@{stash-id}</code></li>
+<li>删除所以存储的进度<code>git stash clear</code></li>
 </ol>
 <h3 id="八-更新本地仓库分支"><a href="#八-更新本地仓库分支" class="headerlink" title="八.更新本地仓库分支"></a>八.更新本地仓库分支</h3><p>最近发现在本地分支列表里还会显示我很久之前在远端仓库早已删除的分支，这样分支切换起来比较麻烦，候选项老是出现之前已经删掉的分支。其实可以通过<code>git fetch -p</code>这个命令来删除本地仓库中远端仓库中不存在的分支。</p>
 <p><strong>官方对命令的释义：</strong></p>
@@ -533,7 +534,7 @@
         </a>
         <ul class="dropdown-menu">
             <li>
-            <a class="sidebar_archives-link" href="/archives/2017/02/">二月 2017<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/12/">十二月 2016<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/11/">十一月 2016<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/10/">十月 2016<span class="sidebar_archives-count">5</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/09/">九月 2016<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/08/">八月 2016<span class="sidebar_archives-count">6</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/07/">七月 2016<span class="sidebar_archives-count">9</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/05/">五月 2016<span class="sidebar_archives-count">6</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/04/">四月 2016<span class="sidebar_archives-count">7</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/03/">三月 2016<span class="sidebar_archives-count">5</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/02/">二月 2016<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/01/">一月 2016<span class="sidebar_archives-count">7</span></a></li><li><a class="sidebar_archives-link" href="/archives/2015/12/">十二月 2015<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/archives/2015/09/">九月 2015<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2015/08/">八月 2015<span class="sidebar_archives-count">5</span></a></li><li><a class="sidebar_archives-link" href="/archives/2015/07/">七月 2015<span class="sidebar_archives-count">11</span></a></li><li><a class="sidebar_archives-link" href="/archives/2015/06/">六月 2015<span class="sidebar_archives-count">6</span></a></li><li><a class="sidebar_archives-link" href="/archives/2015/05/">五月 2015<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2015/04/">四月 2015<span class="sidebar_archives-count">6</span></a></li><li><a class="sidebar_archives-link" href="/archives/2015/03/">三月 2015<span class="sidebar_archives-count">8</span></a></li><li><a class="sidebar_archives-link" href="/archives/2015/01/">一月 2015<span class="sidebar_archives-count">1</span></a>
+            <a class="sidebar_archives-link" href="/archives/2017/02/">二月 2017<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/12/">十二月 2016<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/11/">十一月 2016<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/10/">十月 2016<span class="sidebar_archives-count">5</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/09/">九月 2016<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/08/">八月 2016<span class="sidebar_archives-count">6</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/07/">七月 2016<span class="sidebar_archives-count">9</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/05/">五月 2016<span class="sidebar_archives-count">6</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/04/">四月 2016<span class="sidebar_archives-count">7</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/03/">三月 2016<span class="sidebar_archives-count">5</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/02/">二月 2016<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/01/">一月 2016<span class="sidebar_archives-count">7</span></a></li><li><a class="sidebar_archives-link" href="/archives/2015/12/">十二月 2015<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/archives/2015/09/">九月 2015<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2015/08/">八月 2015<span class="sidebar_archives-count">5</span></a></li><li><a class="sidebar_archives-link" href="/archives/2015/07/">七月 2015<span class="sidebar_archives-count">11</span></a></li><li><a class="sidebar_archives-link" href="/archives/2015/06/">六月 2015<span class="sidebar_archives-count">6</span></a></li><li><a class="sidebar_archives-link" href="/archives/2015/05/">五月 2015<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2015/04/">四月 2015<span class="sidebar_archives-count">6</span></a></li><li><a class="sidebar_archives-link" href="/archives/2015/03/">三月 2015<span class="sidebar_archives-count">8</span></a></li><li><a class="sidebar_archives-link" href="/archives/2015/01/">一月 2015<span class="sidebar_archives-count">1</span></a>
         </ul>
     </li>
 
@@ -566,7 +567,7 @@
     <li>
         <a href="/archives">
              文章总数
-             <span class="sidebar-badge">109</span>
+             <span class="sidebar-badge">110</span>
         </a>
     </li>
 </ul>

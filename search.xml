@@ -4,6 +4,30 @@
   
     
     <entry>
+      <title><![CDATA[关于Git中的"撤销"]]></title>
+      <url>http://iminyao.com/2017/02/20/git-undo/</url>
+      <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><h3 id="一-撤销push"><a href="#一-撤销push" class="headerlink" title="一. 撤销push"></a>一. 撤销push</h3><p><code>git revert &lt;SHA&gt;</code></p>
+<blockquote>
+<p>git revert 会产生一个新的 commit,在新的commit中将内容修改回原来的状态。（即任何从原先的 commit 里删除的内容会在新的 commit 里被加回去，任何在原先的 commit 里加入的内容会在新的 commit  里被删除。）</p>
+</blockquote>
+<p><code>git revert</code>是Git中最安全的撤销命令，因为它不会改变历史，回退到之前的某个状态，而是修改文件与之前的某个状态一模一样。</p>
+<h3 id="二-撤销add-撤销工作目录修改"><a href="#二-撤销add-撤销工作目录修改" class="headerlink" title="二. 撤销add(撤销工作目录修改)"></a>二. 撤销add(撤销工作目录修改)</h3><p><code>git checkout -- &lt;filename&gt;</code></p>
+<blockquote>
+<p>通过checkout撤销的修改会完全消失，因为其只在工作目录，从来没有被提交过，所以Git无法恢复。</p>
+</blockquote>
+<h3 id="三-撤销commit"><a href="#三-撤销commit" class="headerlink" title="三. 撤销commit"></a>三. 撤销commit</h3><p><code>git reset &lt;SHA&gt;</code>或<code>git reset --hard &lt;SHA&gt;</code></p>
+<blockquote>
+<p>git reset 会把你的代码库历史返回到指定的 SHA 状态。 这样就像是这些提交从来没有发生过。缺省情况下， git reset 会保留工作目录,但是修改内容还在磁盘上。而<code>--hard</code>会“撤销”提交以及修改内容.</p>
+</blockquote>
+<h3 id="四-修正最后一个commit的message-或是追加add"><a href="#四-修正最后一个commit的message-或是追加add" class="headerlink" title="四. 修正最后一个commit的message(或是追加add)"></a>四. 修正最后一个commit的message(或是追加add)</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line">git commit -m <span class="string">'message'</span></div><div class="line">git add xxx</div><div class="line">git commit --amend</div><div class="line"></div><div class="line">git commit -m <span class="string">'javascrpt'</span></div><div class="line">git commit --amend -m <span class="string">'javascript'</span></div></pre></td></tr></table></figure>
+<h3 id="相关文章"><a href="#相关文章" class="headerlink" title="相关文章:"></a>相关文章:</h3><ol>
+<li><a href="/2016/04/04/git-cmd/">Git常用命令</a><h3 id="参考："><a href="#参考：" class="headerlink" title="参考："></a>参考：</h3></li>
+<li><a href="http://blog.jobbole.com/87700/" target="_blank" rel="external">如何在 Git 里撤销(几乎)任何操作</a></li>
+</ol>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[es6 let vs const]]></title>
       <url>http://iminyao.com/2017/02/04/es6-let-vs-const/</url>
       <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><p>看一段代码<br><figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="comment">// 定义常量</span></div><div class="line"><span class="keyword">const</span> REG_GET_INPUT = <span class="regexp">/^\d&#123;1,3&#125;$/</span>;</div><div class="line"></div><div class="line"><span class="comment">// 定义配置项</span></div><div class="line"><span class="keyword">let</span> config = &#123;</div><div class="line">  <span class="attr">isDev</span> : <span class="literal">false</span>,</div><div class="line">  <span class="attr">pubDir</span>: <span class="string">'./admin/'</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 引入 gulp</span></div><div class="line"><span class="keyword">let</span> gulp    = <span class="built_in">require</span>(<span class="string">'gulp'</span>);</div><div class="line"></div><div class="line"><span class="comment">// 引入gulp相关插件</span></div><div class="line"><span class="keyword">let</span> concat  = <span class="built_in">require</span>(<span class="string">'gulp-concat'</span>);</div><div class="line"><span class="keyword">let</span> uglify  = <span class="built_in">require</span>(<span class="string">'gulp-uglify'</span>);</div><div class="line"><span class="keyword">let</span> cssnano = <span class="built_in">require</span>(<span class="string">'gulp-cssnano'</span>);</div></pre></td></tr></table></figure></p>
@@ -14,6 +38,7 @@
 <p>所以上述代码中使用所有let的地方其实都应使用const替代。</p>
 <h3 id="参考"><a href="#参考" class="headerlink" title="参考:"></a>参考:</h3><ol>
 <li><a href="http://taobaofed.org/blog/2016/07/22/es6-basics/" target="_blank" rel="external">ES6基础篇</a></li>
+<li><a href="https://codetower.github.io/es6-features/?utm_source=javascriptweekly&amp;utm_medium=email" target="_blank" rel="external">ES6 Features</a></li>
 </ol>
 ]]></content>
     </entry>
@@ -1845,7 +1870,7 @@ Warning: Invalid argument supplied for foreach() in /data/home/qxu1098560294/htd
 <li>版本库当前状态<code>git status</code></li>
 <li>版本比较<code>git diff</code></li>
 <li>查看提交历史<code>git log</code>:精简操作信息加<code>--pretty=oneline</code>,只显示版本号和提交说明</li>
-<li><p>版本回退<code>git reset --hard &lt;commit-id&gt;</code>:其中<code>HEAD</code>表示当前版本，<code>HEAD^</code>上一版本，以此类推，上10个版本，简写<code>HEAD~10</code>,<code>&lt;commit-id&gt;</code>无需写全，Git会自动查找</p>
+<li><p>版本回退<code>git reset &lt;commit-id&gt;</code>:其中<code>HEAD</code>表示当前版本，<code>HEAD^</code>上一版本，以此类推，上10个版本，简写<code>HEAD~10</code>,<code>&lt;commit-id&gt;</code>无需写全，Git会自动查找。默认的<code>git reset会保留工作目录，修改的内容还在磁盘上</code>，<code>git reset --hard</code>会撤销提交以及修改的内容.</p>
 <blockquote>
 <p>回退工作原理：</p>
 <p>Git在内部有个指向当前版本的HEAD指针，当你回退版本的时候，Git仅仅是把HEAD指向回退版本</p>
@@ -1887,9 +1912,10 @@ Warning: Invalid argument supplied for foreach() in /data/home/qxu1098560294/htd
 <li>删除远端分支 <code>git push [远程名] :[分支名]</code>，例如<code>git push origin :serverfix</code></li>
 </ol>
 <h3 id="六-解决冲突"><a href="#六-解决冲突" class="headerlink" title="六.解决冲突"></a>六.<a href="http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000/001375840202368c74be33fbd884e71b570f2cc3c0d1dcf000" target="_blank" rel="external">解决冲突</a></h3><h3 id="七-临时存放工作现场"><a href="#七-临时存放工作现场" class="headerlink" title="七.临时存放工作现场"></a>七.临时存放工作现场</h3><ol>
-<li>保存当前工作现场:<code>git stash</code></li>
+<li>保存当前工作现场:<code>git stash</code>(完整版命令是<code>git stash &#39;message&#39;</code>)</li>
 <li>查看保存的工作现场:<code>git stash list</code></li>
 <li>恢复现场:<code>git stash apply</code>,恢复后<code>stash</code>并没有删除，需要使用<code>git stash drop</code>删除;第二种方法<code>git stash pop</code>,恢复时<code>stash</code>也被删除，多个<code>stash</code>时，<code>git stash apply@{stash-id}</code></li>
+<li>删除所以存储的进度<code>git stash clear</code></li>
 </ol>
 <h3 id="八-更新本地仓库分支"><a href="#八-更新本地仓库分支" class="headerlink" title="八.更新本地仓库分支"></a>八.更新本地仓库分支</h3><p>最近发现在本地分支列表里还会显示我很久之前在远端仓库早已删除的分支，这样分支切换起来比较麻烦，候选项老是出现之前已经删掉的分支。其实可以通过<code>git fetch -p</code>这个命令来删除本地仓库中远端仓库中不存在的分支。</p>
 <p><strong>官方对命令的释义：</strong></p>
@@ -1923,113 +1949,6 @@ Warning: Invalid argument supplied for foreach() in /data/home/qxu1098560294/htd
 <li><a href="http://www.seozac.com/seo/url-canonicalization/" target="_blank" rel="external">URL网址规范化</a></li>
 <li><a href="#29">Apache重定向配置详解</a></li>
 <li><a href="#4">iminyao重定向实例</a></li>
-</ol>
-]]></content>
-    </entry>
-    
-    <entry>
-      <title><![CDATA[CSS三种基本定位机制]]></title>
-      <url>http://iminyao.com/2016/03/28/CSS-position/</url>
-      <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><h2 id="CSS常用的定位方法："><a href="#CSS常用的定位方法：" class="headerlink" title="CSS常用的定位方法："></a>CSS常用的定位方法：</h2><ol>
-<li>相对定位</li>
-<li>浮动</li>
-<li>绝对定位：直接应用于body下元素最佳</li>
-<li>margin</li>
-</ol>
-<h3 id="浮动定位劣势："><a href="#浮动定位劣势：" class="headerlink" title="浮动定位劣势："></a>浮动定位劣势：</h3><ol>
-<li>浮动的破坏性在于切断line box链，致使高度塌陷，可修复</li>
-</ol>
-<h3 id="绝对定位劣势："><a href="#绝对定位劣势：" class="headerlink" title="绝对定位劣势："></a>绝对定位劣势：</h3><ol>
-<li>破坏布局(降低了页面的扩展性和维护性)<blockquote>
-<p>因为绝对定位的元素与文档流无关，所以他们不影响普通流中的框，如果扩大绝对定位的框(增加字号等)，周围的框不会重新定位。因此，尺寸的任何改变都会导致绝对定位的框产生重叠，从而破坏布局。</p>
-</blockquote>
-</li>
-<li>高度宽度皆塌陷，不可修复</li>
-<li><p>流动性差：</p>
-<blockquote>
-<p>由于absolute属性（尤其是带有left/top值）的破坏性，会导致高宽塌陷，于是，不得已，需要设定一个高度值（或是足以撑开高度的值）</p>
-</blockquote>
-<p><img src="http://image.zhangxinxu.com/image/blog/201012/2010-12-09_221942.png" alt="sina1"><br><img src="http://image.zhangxinxu.com/image/blog/201012/2010-12-09_222350.png" alt="sina2"></p>
-<h4 id="测试代码："><a href="#测试代码：" class="headerlink" title="测试代码："></a>测试代码：</h4><figure class="highlight stylus"><table><tr><td class="code"><pre><div class="line"><span class="comment">// HTML</span></div><div class="line">&lt;<span class="selector-tag">div</span> class=<span class="string">"div"</span>&gt;</div><div class="line">    &lt;<span class="selector-tag">img</span> src=<span class="string">"http://image.zhangxinxu.com/image/study/s/s256/mm1.jpg"</span> /&gt;</div><div class="line">    &lt;p&gt;图片无absolute&lt;/p&gt;</div><div class="line">&lt;/div&gt;</div><div class="line">&lt;<span class="selector-tag">div</span> class=<span class="string">"div"</span>&gt;</div><div class="line">    &lt;<span class="selector-tag">img</span> class=<span class="string">"abs"</span> src=<span class="string">"http://image.zhangxinxu.com/image/study/s/s256/mm1.jpg"</span> /&gt;</div><div class="line">    &lt;p&gt;图片absolute后&lt;/p&gt;</div><div class="line">&lt;/div&gt;</div><div class="line"></div><div class="line"><span class="comment">// CSS</span></div><div class="line"><span class="selector-class">.div</span> &#123; <span class="attribute">padding</span>:<span class="number">20px</span>; <span class="attribute">margin</span>:<span class="number">10px</span> <span class="number">0</span> <span class="number">0</span> <span class="number">10px</span>; <span class="attribute">background-color</span>:<span class="number">#f0f3f9</span>; <span class="attribute">float</span>:left; &#125;</div><div class="line"><span class="selector-class">.abs</span> &#123; <span class="attribute">position</span>:absolute; &#125;</div></pre></td></tr></table></figure>
-</li>
-</ol>
-<p><img src="http://image.zhangxinxu.com/image/blog/201012/2010-12-09_233323.jpg" alt="pic"></p>
-<h3 id="margin劣势："><a href="#margin劣势：" class="headerlink" title="margin劣势："></a>margin劣势：</h3><ol>
-<li>margin-top值的改变会产生更强的回流(滚动播放效果时)</li>
-</ol>
-<h3 id="清理-clear-的本质："><a href="#清理-clear-的本质：" class="headerlink" title="清理(clear)的本质："></a>清理(clear)的本质：</h3><ul>
-<li><p><strong>CSS2</strong>中，清理元素时，浏览器在元素顶上添加足够的外边距，使元素的顶边缘垂直下降到浮动框的下面。<br><img src="https://cloud.githubusercontent.com/assets/4004044/7001000/bc14e862-dc62-11e4-80ca-79efbd6f971a.png" alt="clear"></p>
-</li>
-<li><p><strong>CSS2.1</strong>中，引入一个清除区域(clearance),清除区域是在元素上外边距之上增加的额外间隔，不允许任何浮动元素进入这个范围内。也就是说元素设置<code>clear</code>属性时，它的外边距并不改变。之所以会向下移是这个清除区域造成的。</p>
-</li>
-</ul>
-<h3 id="1-实例："><a href="#1-实例：" class="headerlink" title="1.实例："></a>1.实例：</h3><pre><code>img.sider{float:left; margin:0; }
-h3{border:1px solid gray; clearleft; margin-top:15px; }
-
-&lt;img src=&quot; &quot; class=&quot;sider&quot; height=&quot;50&quot; width=&quot;50&quot;&gt;
-&lt;img src&quot; &quot; height=&quot;10&quot; width=&quot;50&quot;&gt;
-&lt;h3&gt;Why....&lt;/h3&gt;
-</code></pre><p><img src="https://cloud.githubusercontent.com/assets/4004044/7001001/c516e640-dc62-11e4-9b16-338c447b83fc.png" alt="clear_01"></p>
-<blockquote>
-<p>示例中h3上边框与浮动图像下边框之间没有间隔，因为在h3的上边距(15px)之上增加了25px的清除区域，将h3的上边距边界推到刚好越过浮动元素的下边界。一般都会这样，除非h3的上边距计算值<code>&gt;40px(50px-10px)</code>，在这种情况下,h3会很自然的放在浮动元素的下面，<code>clear</code>值是什么则无关紧要。</p>
-</blockquote>
-<ul>
-<li><p><strong>解决方法：</strong><br>  要确保一个清除元素的顶端与一个浮动元素的低端之间有一定的空间，<strong>可以为浮动元素本身设置一个下外边距</strong>。</p>
-<pre><code>img.sider{float:left; margin:0 0 15px; }
-h3{border:1px solid gray; clear:left; }
-</code></pre><ul>
-<li><strong>原理：</strong>浮动元素的外边距边界定义了浮动框的边界。 <h3 id="2-实例："><a href="#2-实例：" class="headerlink" title="2.实例："></a>2.实例：</h3>.news{<br>  background-color:gray;<br>  border:solid 1px black;<br>  }<br>.news img{<br>  float:left;<br>  }<br>.news p{<br>  float:right;<br>  }<div class="news"><br>  <img src=" "><br>  <p>Some text</p><br></div>
-
-</li>
-</ul>
-</li>
-</ul>
-<blockquote>
-<p>因为浮动元素脱离了文档流，所以包围图片和文字的<code>div</code>不占据空间</p>
-</blockquote>
-<p><img src="https://cloud.githubusercontent.com/assets/4004044/7001009/dd6cac66-dc62-11e4-9496-e358787a0090.png" alt="clear_02"></p>
-<ol>
-<li><strong>解决方案1：</strong>在最后一段下面添加空元素并且清理它。</li>
-</ol>
-<pre><code>.clear{
-clear:both;
-}
-
-&lt;div class=&quot;news&quot;&gt;
-&lt;img src=&quot; &quot;&gt;
-&lt;p&gt;Some text&lt;/p&gt;
-&lt;br class=&quot;clear&quot; /&gt;
-&lt;/div&gt;
-</code></pre><ol>
-<li><p><strong>解决方案2：</strong>直接选择浮动容器<code>div</code></p>
-<pre><code>.news{
-float:left;
-} 
-</code></pre></li>
-<li><p><strong>解决方案3：</strong>设置<code>overflow</code>为<code>hidden</code>或<code>auto</code></p>
-<pre><code>.news{
-    overflow:hidden;
-}
-</code></pre></li>
-<li><p><strong>解决方案4：</strong><code>:after</code>伪元素(CSS生成内容)</p>
-<pre><code>&lt;div class=&quot;news clear&quot;&gt;
-    &lt;img src=&quot;&quot; /&gt;
-    &lt;p&gt;Some text&lt;/p&gt;
-&lt;/div&gt;
-
-.clear:after{
-    content:&quot;.&quot;;
-    height:0;
-    visibility:hidden;
-    display:block;    
-    clear:both;
-}
-</code></pre></li>
-<li>JavsScript方法</li>
-</ol>
-<h3 id="参考："><a href="#参考：" class="headerlink" title="参考："></a>参考：</h3><ol>
-<li><a href="http://www.zhangxinxu.com/wordpress/2011/03/css-%E7%9B%B8%E5%AF%B9%E7%BB%9D%E5%AF%B9relativeabsolute%E5%AE%9A%E4%BD%8D%E7%B3%BB%E5%88%97%EF%BC%88%E4%B8%80%EF%BC%89/" target="_blank" rel="external">css-相对绝对relativeabsolute定位系列（一）</a></li>
-<li><a href="http://www.zhangxinxu.com/wordpress/2011/03/css-%E7%9B%B8%E5%AF%B9%E7%BB%9D%E5%AF%B9relativeabsolute%E5%AE%9A%E4%BD%8D%E7%B3%BB%E5%88%97%EF%BC%88%E4%BA%8C%EF%BC%89/" target="_blank" rel="external">css-相对绝对relativeabsolute定位系列（二）</a></li>
 </ol>
 ]]></content>
     </entry>
@@ -2152,6 +2071,113 @@ p.lsd1.lsd2 {background:sliver;}
 </ul>
 </li>
 </ul>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[CSS三种基本定位机制]]></title>
+      <url>http://iminyao.com/2016/03/28/CSS-position/</url>
+      <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><h2 id="CSS常用的定位方法："><a href="#CSS常用的定位方法：" class="headerlink" title="CSS常用的定位方法："></a>CSS常用的定位方法：</h2><ol>
+<li>相对定位</li>
+<li>浮动</li>
+<li>绝对定位：直接应用于body下元素最佳</li>
+<li>margin</li>
+</ol>
+<h3 id="浮动定位劣势："><a href="#浮动定位劣势：" class="headerlink" title="浮动定位劣势："></a>浮动定位劣势：</h3><ol>
+<li>浮动的破坏性在于切断line box链，致使高度塌陷，可修复</li>
+</ol>
+<h3 id="绝对定位劣势："><a href="#绝对定位劣势：" class="headerlink" title="绝对定位劣势："></a>绝对定位劣势：</h3><ol>
+<li>破坏布局(降低了页面的扩展性和维护性)<blockquote>
+<p>因为绝对定位的元素与文档流无关，所以他们不影响普通流中的框，如果扩大绝对定位的框(增加字号等)，周围的框不会重新定位。因此，尺寸的任何改变都会导致绝对定位的框产生重叠，从而破坏布局。</p>
+</blockquote>
+</li>
+<li>高度宽度皆塌陷，不可修复</li>
+<li><p>流动性差：</p>
+<blockquote>
+<p>由于absolute属性（尤其是带有left/top值）的破坏性，会导致高宽塌陷，于是，不得已，需要设定一个高度值（或是足以撑开高度的值）</p>
+</blockquote>
+<p><img src="http://image.zhangxinxu.com/image/blog/201012/2010-12-09_221942.png" alt="sina1"><br><img src="http://image.zhangxinxu.com/image/blog/201012/2010-12-09_222350.png" alt="sina2"></p>
+<h4 id="测试代码："><a href="#测试代码：" class="headerlink" title="测试代码："></a>测试代码：</h4><figure class="highlight stylus"><table><tr><td class="code"><pre><div class="line"><span class="comment">// HTML</span></div><div class="line">&lt;<span class="selector-tag">div</span> class=<span class="string">"div"</span>&gt;</div><div class="line">    &lt;<span class="selector-tag">img</span> src=<span class="string">"http://image.zhangxinxu.com/image/study/s/s256/mm1.jpg"</span> /&gt;</div><div class="line">    &lt;p&gt;图片无absolute&lt;/p&gt;</div><div class="line">&lt;/div&gt;</div><div class="line">&lt;<span class="selector-tag">div</span> class=<span class="string">"div"</span>&gt;</div><div class="line">    &lt;<span class="selector-tag">img</span> class=<span class="string">"abs"</span> src=<span class="string">"http://image.zhangxinxu.com/image/study/s/s256/mm1.jpg"</span> /&gt;</div><div class="line">    &lt;p&gt;图片absolute后&lt;/p&gt;</div><div class="line">&lt;/div&gt;</div><div class="line"></div><div class="line"><span class="comment">// CSS</span></div><div class="line"><span class="selector-class">.div</span> &#123; <span class="attribute">padding</span>:<span class="number">20px</span>; <span class="attribute">margin</span>:<span class="number">10px</span> <span class="number">0</span> <span class="number">0</span> <span class="number">10px</span>; <span class="attribute">background-color</span>:<span class="number">#f0f3f9</span>; <span class="attribute">float</span>:left; &#125;</div><div class="line"><span class="selector-class">.abs</span> &#123; <span class="attribute">position</span>:absolute; &#125;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p><img src="http://image.zhangxinxu.com/image/blog/201012/2010-12-09_233323.jpg" alt="pic"></p>
+<h3 id="margin劣势："><a href="#margin劣势：" class="headerlink" title="margin劣势："></a>margin劣势：</h3><ol>
+<li>margin-top值的改变会产生更强的回流(滚动播放效果时)</li>
+</ol>
+<h3 id="清理-clear-的本质："><a href="#清理-clear-的本质：" class="headerlink" title="清理(clear)的本质："></a>清理(clear)的本质：</h3><ul>
+<li><p><strong>CSS2</strong>中，清理元素时，浏览器在元素顶上添加足够的外边距，使元素的顶边缘垂直下降到浮动框的下面。<br><img src="https://cloud.githubusercontent.com/assets/4004044/7001000/bc14e862-dc62-11e4-80ca-79efbd6f971a.png" alt="clear"></p>
+</li>
+<li><p><strong>CSS2.1</strong>中，引入一个清除区域(clearance),清除区域是在元素上外边距之上增加的额外间隔，不允许任何浮动元素进入这个范围内。也就是说元素设置<code>clear</code>属性时，它的外边距并不改变。之所以会向下移是这个清除区域造成的。</p>
+</li>
+</ul>
+<h3 id="1-实例："><a href="#1-实例：" class="headerlink" title="1.实例："></a>1.实例：</h3><pre><code>img.sider{float:left; margin:0; }
+h3{border:1px solid gray; clearleft; margin-top:15px; }
+
+&lt;img src=&quot; &quot; class=&quot;sider&quot; height=&quot;50&quot; width=&quot;50&quot;&gt;
+&lt;img src&quot; &quot; height=&quot;10&quot; width=&quot;50&quot;&gt;
+&lt;h3&gt;Why....&lt;/h3&gt;
+</code></pre><p><img src="https://cloud.githubusercontent.com/assets/4004044/7001001/c516e640-dc62-11e4-9b16-338c447b83fc.png" alt="clear_01"></p>
+<blockquote>
+<p>示例中h3上边框与浮动图像下边框之间没有间隔，因为在h3的上边距(15px)之上增加了25px的清除区域，将h3的上边距边界推到刚好越过浮动元素的下边界。一般都会这样，除非h3的上边距计算值<code>&gt;40px(50px-10px)</code>，在这种情况下,h3会很自然的放在浮动元素的下面，<code>clear</code>值是什么则无关紧要。</p>
+</blockquote>
+<ul>
+<li><p><strong>解决方法：</strong><br>  要确保一个清除元素的顶端与一个浮动元素的低端之间有一定的空间，<strong>可以为浮动元素本身设置一个下外边距</strong>。</p>
+<pre><code>img.sider{float:left; margin:0 0 15px; }
+h3{border:1px solid gray; clear:left; }
+</code></pre><ul>
+<li><strong>原理：</strong>浮动元素的外边距边界定义了浮动框的边界。 <h3 id="2-实例："><a href="#2-实例：" class="headerlink" title="2.实例："></a>2.实例：</h3>.news{<br>  background-color:gray;<br>  border:solid 1px black;<br>  }<br>.news img{<br>  float:left;<br>  }<br>.news p{<br>  float:right;<br>  }<div class="news"><br>  <img src=" "><br>  <p>Some text</p><br></div>
+
+</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>因为浮动元素脱离了文档流，所以包围图片和文字的<code>div</code>不占据空间</p>
+</blockquote>
+<p><img src="https://cloud.githubusercontent.com/assets/4004044/7001009/dd6cac66-dc62-11e4-9496-e358787a0090.png" alt="clear_02"></p>
+<ol>
+<li><strong>解决方案1：</strong>在最后一段下面添加空元素并且清理它。</li>
+</ol>
+<pre><code>.clear{
+clear:both;
+}
+
+&lt;div class=&quot;news&quot;&gt;
+&lt;img src=&quot; &quot;&gt;
+&lt;p&gt;Some text&lt;/p&gt;
+&lt;br class=&quot;clear&quot; /&gt;
+&lt;/div&gt;
+</code></pre><ol>
+<li><p><strong>解决方案2：</strong>直接选择浮动容器<code>div</code></p>
+<pre><code>.news{
+float:left;
+} 
+</code></pre></li>
+<li><p><strong>解决方案3：</strong>设置<code>overflow</code>为<code>hidden</code>或<code>auto</code></p>
+<pre><code>.news{
+    overflow:hidden;
+}
+</code></pre></li>
+<li><p><strong>解决方案4：</strong><code>:after</code>伪元素(CSS生成内容)</p>
+<pre><code>&lt;div class=&quot;news clear&quot;&gt;
+    &lt;img src=&quot;&quot; /&gt;
+    &lt;p&gt;Some text&lt;/p&gt;
+&lt;/div&gt;
+
+.clear:after{
+    content:&quot;.&quot;;
+    height:0;
+    visibility:hidden;
+    display:block;    
+    clear:both;
+}
+</code></pre></li>
+<li>JavsScript方法</li>
+</ol>
+<h3 id="参考："><a href="#参考：" class="headerlink" title="参考："></a>参考：</h3><ol>
+<li><a href="http://www.zhangxinxu.com/wordpress/2011/03/css-%E7%9B%B8%E5%AF%B9%E7%BB%9D%E5%AF%B9relativeabsolute%E5%AE%9A%E4%BD%8D%E7%B3%BB%E5%88%97%EF%BC%88%E4%B8%80%EF%BC%89/" target="_blank" rel="external">css-相对绝对relativeabsolute定位系列（一）</a></li>
+<li><a href="http://www.zhangxinxu.com/wordpress/2011/03/css-%E7%9B%B8%E5%AF%B9%E7%BB%9D%E5%AF%B9relativeabsolute%E5%AE%9A%E4%BD%8D%E7%B3%BB%E5%88%97%EF%BC%88%E4%BA%8C%EF%BC%89/" target="_blank" rel="external">css-相对绝对relativeabsolute定位系列（二）</a></li>
+</ol>
 ]]></content>
     </entry>
     
