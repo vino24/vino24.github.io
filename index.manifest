@@ -32,7 +32,7 @@
       "type": "image/png"
     }
   ],
-  "start_url": "http://iminyao.com/",
+  "start_url": "https://iminyao.com/",
   "theme_color": "#9E9E9E",
   "background_color": "#9E9E9E",
   "display": "standalone",
