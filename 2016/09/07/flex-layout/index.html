@@ -716,7 +716,7 @@ It will not impact the appearance and can give developers a lot of support :)
 				<script type="text/sw+javascript">
 if(navigator.serviceWorker){
 	navigator.serviceWorker
-			.register('/js/sw.js', {scope: '/'})
+			.register('/js/service_worker.js', {scope: '/'})
 			.then((registration) => {console.log('Service Worker Registered. ', registration)})
 			.catch((error) => {console.log('ServiceWorker registration failed: ', error)})
 }
