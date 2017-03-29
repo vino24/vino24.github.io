@@ -413,11 +413,7 @@
 <p>获取微信中需要数据函数getWechatFormatData(核心代码)<br><figure class="highlight php"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">getWechatFormatData</span><span class="params">($word)</span></span></div><div class="line">&#123;</div><div class="line">    $result = json_decode(music_search($word), <span class="keyword">true</span>); <span class="comment">// 默认按歌曲先搜索一次（true转换为数组）</span></div><div class="line"></div><div class="line">    $is_Song = <span class="keyword">false</span>;   <span class="comment">// 搜索关键词是否为歌曲</span></div><div class="line">    $isEnglish = preg_match(<span class="string">"/^[a-zA-Z\s]+$/"</span>,$word);   <span class="comment">// 是否为英文歌/歌手</span></div><div class="line">    $arr = preg_split(<span class="string">"/[\s,]+/"</span>, $word);</div><div class="line"></div><div class="line">    <span class="keyword">if</span>(!$isEnglish) &#123;</div><div class="line">        <span class="keyword">if</span>(count($arr) == <span class="number">1</span>) &#123; <span class="comment">// 非英文且只有一个搜索关键词</span></div><div class="line">        $is_Song = $result[<span class="string">'result'</span>][<span class="string">'songs'</span>][<span class="number">0</span>][<span class="string">'name'</span>] == $word; <span class="comment">// 如果返回的歌曲名与搜索关键词相同即表示关键词为歌曲</span></div><div class="line">        &#125; <span class="keyword">else</span> &#123;    <span class="comment">// 非英文且多个关键词</span></div><div class="line">        <span class="keyword">foreach</span> ($arr <span class="keyword">as</span> $key =&gt; $keyword) &#123;</div><div class="line">            $result = json_decode(music_search($keyword) ,<span class="keyword">true</span>);</div><div class="line">            <span class="keyword">if</span>($result[<span class="string">'result'</span>][<span class="string">'songs'</span>][<span class="number">0</span>][<span class="string">'name'</span>] == $keyword) &#123;</div><div class="line">                $is_Song = <span class="keyword">true</span>;    <span class="comment">//  如果搜索结果中的歌曲名与关键词中的某字段匹配则该字段为歌曲名</span></div><div class="line">                $result = json_decode(music_search($arr[$key]) , <span class="keyword">true</span>);</div><div class="line">                <span class="keyword">break</span>;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    &#125; <span class="keyword">else</span> &#123;    <span class="comment">//  全英文</span></div><div class="line">        $is_Song = stristr($word,$result[<span class="string">'result'</span>][<span class="string">'songs'</span>][<span class="number">0</span>][<span class="string">'name'</span>]); <span class="comment">// 如果搜索结果中的歌曲名中有某个字段则按歌曲搜索，否则按歌手搜索</span></div><div class="line">    &#125;</div><div class="line">    <span class="keyword">if</span> ($is_Song) &#123;</div><div class="line">        <span class="comment">// do operation</span></div><div class="line">        <span class="keyword">return</span> $info;</div><div class="line">    &#125;</div><div class="line">     <span class="keyword">else</span> &#123;</div><div class="line">        <span class="comment">// do operation</span></div><div class="line">        <span class="keyword">return</span> $info;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <h3 id="2-hexo音乐插件"><a href="#2-hexo音乐插件" class="headerlink" title="[2] hexo音乐插件"></a>[2] hexo音乐插件</h3><p>前两天在微博上看到胡子歌在barretlee.com上做了一个歌单展示页，上面竟然李志，不行我也得整一个。看他说UI是用了一款开源的播放器<a href="https://github.com/DIYgod/APlayer" target="_blank" rel="external">APlayer</a>,于是简单看了下，巧的是已经有人写过一个基于APlayer的hexo插件 - <a href="https://github.com/grzhan/hexo-tag-aplayer" target="_blank" rel="external">hexo-tag-aplayer</a>。不过看了只能添加单曲，添加不了专辑或是歌单。正好刚重写了搜索的API，感觉可以搞一搞。</p>
 <p>插件用的是利用了Hexo可以自定义标签插件自定义了歌单标签。<br><figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line">hexo.extend.tag.register(<span class="string">'aplayerlist'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">args</span>) </span>&#123;</div><div class="line">        <span class="keyword">var</span> albumlist_id = args[<span class="number">0</span>], narrow = <span class="literal">false</span>, autoplay = <span class="literal">false</span>, width = <span class="string">''</span>,</div><div class="line">        id = <span class="string">'aplayer'</span> + (counter++), raw = <span class="string">''</span>, content = <span class="string">''</span>;</div><div class="line">    <span class="comment">// Parse optional arguments</span></div><div class="line">    <span class="keyword">if</span> (args.length &gt; <span class="number">1</span>) &#123;</div><div class="line">        <span class="keyword">var</span> options = args.slice(<span class="number">1</span>);</div><div class="line">        narrow = options.indexOf(<span class="string">'narrow'</span>) &lt; <span class="number">0</span> ? <span class="literal">false</span> : <span class="literal">true</span>;</div><div class="line">        autoplay = options.indexOf(<span class="string">'autoplay'</span>) &lt; <span class="number">0</span> ? <span class="literal">false</span> : <span class="literal">true</span>;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; options.length; i++) &#123;</div><div class="line">            <span class="keyword">var</span> option = options[i];</div><div class="line">            width = option.indexOf(<span class="string">'width:'</span>) == <span class="number">0</span> ? option + <span class="string">';'</span> : width;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    width = narrow ? <span class="string">''</span> : width;</div><div class="line">    <span class="keyword">var</span> album;</div><div class="line">    <span class="keyword">var</span> req = <span class="keyword">new</span> XMLHttpRequest();</div><div class="line">        req.open(<span class="string">'GET'</span>, <span class="string">"***/hexo_playlist.php?id="</span> + albumlist_id, <span class="literal">false</span>);</div><div class="line">        req.send();</div><div class="line">        <span class="keyword">if</span>(req.status === <span class="number">200</span>) &#123;</div><div class="line">            album = req.responseText;</div><div class="line">        &#125;</div><div class="line">        raw = <span class="string">'&lt;div id="'</span>+ id + <span class="string">'" class="aplayer" style="margin-bottom: 20px;display:inline-block;'</span>+ width + <span class="string">'"&gt;'</span>;</div><div class="line">        raw +=</div><div class="line">        <span class="string">'&lt;/div&gt;&lt;script&gt;var '</span>+ id + <span class="string">' = new APlayer(&#123;'</span>+</div><div class="line">                <span class="string">'element: document.getElementById("'</span>+ id +<span class="string">'"),'</span> +</div><div class="line">                <span class="string">'narrow: '</span> + (narrow ? <span class="string">'true'</span> : <span class="string">'false'</span>) + <span class="string">','</span> +</div><div class="line">                <span class="string">'autoplay: '</span> + (autoplay ? <span class="string">'true'</span> : <span class="string">'false'</span>) + <span class="string">','</span> +</div><div class="line">                <span class="string">'music : '</span> + album +</div><div class="line">            <span class="string">'&#125;);'</span> +</div><div class="line">        id + <span class="string">'.init();&lt;/script&gt;'</span>;</div><div class="line">    <span class="keyword">return</span> raw;</div><div class="line"></div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
-<p>然后在md文件中以<code><div id="aplayer0" class="aplayer" style="margin-bottom: 20px;display:inline-block;"></div><script>var aplayer0 = new APlayer({element: document.getElementById("aplayer0"),narrow: false,autoplay: false,music : 
-Notice: Undefined index: album in /data/home/qxu1098560294/htdocs/wechat/hexo_api.php on line 69
-
-Warning: Invalid argument supplied for foreach() in /data/home/qxu1098560294/htdocs/wechat/hexo_api.php on line 71
-[]});aplayer0.init();</script></code>的格式即可调用。<br>其中只有<code>album_id</code>这个参数是必须的，传入的是专辑的id，当然也可以传歌单id，只要在实现里面调歌单搜索的API即可。后面的参数都是可选的。</p>
+<p>然后在md文件中以<code></code>的格式即可调用。<br>其中只有<code>album_id</code>这个参数是必须的，传入的是专辑的id，当然也可以传歌单id，只要在实现里面调歌单搜索的API即可。后面的参数都是可选的。</p>
 <ul>
 <li><code>narrow</code>是否显示歌曲列表，默认隐藏</li>
 <li><code>autoplay</code> 是否自动播放<br>除此之外还可以配置大小，不过这个地方我直接设了固定的宽度。</li>
@@ -1964,6 +1960,113 @@ Warning: Invalid argument supplied for foreach() in /data/home/qxu1098560294/htd
     </entry>
     
     <entry>
+      <title><![CDATA[CSS三种基本定位机制]]></title>
+      <url>http://iminyao.com/2016/03/28/CSS-position/</url>
+      <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><h2 id="CSS常用的定位方法："><a href="#CSS常用的定位方法：" class="headerlink" title="CSS常用的定位方法："></a>CSS常用的定位方法：</h2><ol>
+<li>相对定位</li>
+<li>浮动</li>
+<li>绝对定位：直接应用于body下元素最佳</li>
+<li>margin</li>
+</ol>
+<h3 id="浮动定位劣势："><a href="#浮动定位劣势：" class="headerlink" title="浮动定位劣势："></a>浮动定位劣势：</h3><ol>
+<li>浮动的破坏性在于切断line box链，致使高度塌陷，可修复</li>
+</ol>
+<h3 id="绝对定位劣势："><a href="#绝对定位劣势：" class="headerlink" title="绝对定位劣势："></a>绝对定位劣势：</h3><ol>
+<li>破坏布局(降低了页面的扩展性和维护性)<blockquote>
+<p>因为绝对定位的元素与文档流无关，所以他们不影响普通流中的框，如果扩大绝对定位的框(增加字号等)，周围的框不会重新定位。因此，尺寸的任何改变都会导致绝对定位的框产生重叠，从而破坏布局。</p>
+</blockquote>
+</li>
+<li>高度宽度皆塌陷，不可修复</li>
+<li><p>流动性差：</p>
+<blockquote>
+<p>由于absolute属性（尤其是带有left/top值）的破坏性，会导致高宽塌陷，于是，不得已，需要设定一个高度值（或是足以撑开高度的值）</p>
+</blockquote>
+<p><img src="http://image.zhangxinxu.com/image/blog/201012/2010-12-09_221942.png" alt="sina1"><br><img src="http://image.zhangxinxu.com/image/blog/201012/2010-12-09_222350.png" alt="sina2"></p>
+<h4 id="测试代码："><a href="#测试代码：" class="headerlink" title="测试代码："></a>测试代码：</h4><figure class="highlight stylus"><table><tr><td class="code"><pre><div class="line"><span class="comment">// HTML</span></div><div class="line">&lt;<span class="selector-tag">div</span> class=<span class="string">"div"</span>&gt;</div><div class="line">    &lt;<span class="selector-tag">img</span> src=<span class="string">"http://image.zhangxinxu.com/image/study/s/s256/mm1.jpg"</span> /&gt;</div><div class="line">    &lt;p&gt;图片无absolute&lt;/p&gt;</div><div class="line">&lt;/div&gt;</div><div class="line">&lt;<span class="selector-tag">div</span> class=<span class="string">"div"</span>&gt;</div><div class="line">    &lt;<span class="selector-tag">img</span> class=<span class="string">"abs"</span> src=<span class="string">"http://image.zhangxinxu.com/image/study/s/s256/mm1.jpg"</span> /&gt;</div><div class="line">    &lt;p&gt;图片absolute后&lt;/p&gt;</div><div class="line">&lt;/div&gt;</div><div class="line"></div><div class="line"><span class="comment">// CSS</span></div><div class="line"><span class="selector-class">.div</span> &#123; <span class="attribute">padding</span>:<span class="number">20px</span>; <span class="attribute">margin</span>:<span class="number">10px</span> <span class="number">0</span> <span class="number">0</span> <span class="number">10px</span>; <span class="attribute">background-color</span>:<span class="number">#f0f3f9</span>; <span class="attribute">float</span>:left; &#125;</div><div class="line"><span class="selector-class">.abs</span> &#123; <span class="attribute">position</span>:absolute; &#125;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p><img src="http://image.zhangxinxu.com/image/blog/201012/2010-12-09_233323.jpg" alt="pic"></p>
+<h3 id="margin劣势："><a href="#margin劣势：" class="headerlink" title="margin劣势："></a>margin劣势：</h3><ol>
+<li>margin-top值的改变会产生更强的回流(滚动播放效果时)</li>
+</ol>
+<h3 id="清理-clear-的本质："><a href="#清理-clear-的本质：" class="headerlink" title="清理(clear)的本质："></a>清理(clear)的本质：</h3><ul>
+<li><p><strong>CSS2</strong>中，清理元素时，浏览器在元素顶上添加足够的外边距，使元素的顶边缘垂直下降到浮动框的下面。<br><img src="https://cloud.githubusercontent.com/assets/4004044/7001000/bc14e862-dc62-11e4-80ca-79efbd6f971a.png" alt="clear"></p>
+</li>
+<li><p><strong>CSS2.1</strong>中，引入一个清除区域(clearance),清除区域是在元素上外边距之上增加的额外间隔，不允许任何浮动元素进入这个范围内。也就是说元素设置<code>clear</code>属性时，它的外边距并不改变。之所以会向下移是这个清除区域造成的。</p>
+</li>
+</ul>
+<h3 id="1-实例："><a href="#1-实例：" class="headerlink" title="1.实例："></a>1.实例：</h3><pre><code>img.sider{float:left; margin:0; }
+h3{border:1px solid gray; clearleft; margin-top:15px; }
+
+&lt;img src=&quot; &quot; class=&quot;sider&quot; height=&quot;50&quot; width=&quot;50&quot;&gt;
+&lt;img src&quot; &quot; height=&quot;10&quot; width=&quot;50&quot;&gt;
+&lt;h3&gt;Why....&lt;/h3&gt;
+</code></pre><p><img src="https://cloud.githubusercontent.com/assets/4004044/7001001/c516e640-dc62-11e4-9b16-338c447b83fc.png" alt="clear_01"></p>
+<blockquote>
+<p>示例中h3上边框与浮动图像下边框之间没有间隔，因为在h3的上边距(15px)之上增加了25px的清除区域，将h3的上边距边界推到刚好越过浮动元素的下边界。一般都会这样，除非h3的上边距计算值<code>&gt;40px(50px-10px)</code>，在这种情况下,h3会很自然的放在浮动元素的下面，<code>clear</code>值是什么则无关紧要。</p>
+</blockquote>
+<ul>
+<li><p><strong>解决方法：</strong><br>  要确保一个清除元素的顶端与一个浮动元素的低端之间有一定的空间，<strong>可以为浮动元素本身设置一个下外边距</strong>。</p>
+<pre><code>img.sider{float:left; margin:0 0 15px; }
+h3{border:1px solid gray; clear:left; }
+</code></pre><ul>
+<li><strong>原理：</strong>浮动元素的外边距边界定义了浮动框的边界。 <h3 id="2-实例："><a href="#2-实例：" class="headerlink" title="2.实例："></a>2.实例：</h3>.news{<br>  background-color:gray;<br>  border:solid 1px black;<br>  }<br>.news img{<br>  float:left;<br>  }<br>.news p{<br>  float:right;<br>  }<div class="news"><br>  <img src=" "><br>  <p>Some text</p><br></div>
+
+</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>因为浮动元素脱离了文档流，所以包围图片和文字的<code>div</code>不占据空间</p>
+</blockquote>
+<p><img src="https://cloud.githubusercontent.com/assets/4004044/7001009/dd6cac66-dc62-11e4-9496-e358787a0090.png" alt="clear_02"></p>
+<ol>
+<li><strong>解决方案1：</strong>在最后一段下面添加空元素并且清理它。</li>
+</ol>
+<pre><code>.clear{
+clear:both;
+}
+
+&lt;div class=&quot;news&quot;&gt;
+&lt;img src=&quot; &quot;&gt;
+&lt;p&gt;Some text&lt;/p&gt;
+&lt;br class=&quot;clear&quot; /&gt;
+&lt;/div&gt;
+</code></pre><ol>
+<li><p><strong>解决方案2：</strong>直接选择浮动容器<code>div</code></p>
+<pre><code>.news{
+float:left;
+} 
+</code></pre></li>
+<li><p><strong>解决方案3：</strong>设置<code>overflow</code>为<code>hidden</code>或<code>auto</code></p>
+<pre><code>.news{
+    overflow:hidden;
+}
+</code></pre></li>
+<li><p><strong>解决方案4：</strong><code>:after</code>伪元素(CSS生成内容)</p>
+<pre><code>&lt;div class=&quot;news clear&quot;&gt;
+    &lt;img src=&quot;&quot; /&gt;
+    &lt;p&gt;Some text&lt;/p&gt;
+&lt;/div&gt;
+
+.clear:after{
+    content:&quot;.&quot;;
+    height:0;
+    visibility:hidden;
+    display:block;    
+    clear:both;
+}
+</code></pre></li>
+<li>JavsScript方法</li>
+</ol>
+<h3 id="参考："><a href="#参考：" class="headerlink" title="参考："></a>参考：</h3><ol>
+<li><a href="http://www.zhangxinxu.com/wordpress/2011/03/css-%E7%9B%B8%E5%AF%B9%E7%BB%9D%E5%AF%B9relativeabsolute%E5%AE%9A%E4%BD%8D%E7%B3%BB%E5%88%97%EF%BC%88%E4%B8%80%EF%BC%89/" target="_blank" rel="external">css-相对绝对relativeabsolute定位系列（一）</a></li>
+<li><a href="http://www.zhangxinxu.com/wordpress/2011/03/css-%E7%9B%B8%E5%AF%B9%E7%BB%9D%E5%AF%B9relativeabsolute%E5%AE%9A%E4%BD%8D%E7%B3%BB%E5%88%97%EF%BC%88%E4%BA%8C%EF%BC%89/" target="_blank" rel="external">css-相对绝对relativeabsolute定位系列（二）</a></li>
+</ol>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[CSS选择器]]></title>
       <url>http://iminyao.com/2016/03/28/CSS-selector/</url>
       <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><ul>
@@ -2085,134 +2188,6 @@ p.lsd1.lsd2 {background:sliver;}
     </entry>
     
     <entry>
-      <title><![CDATA[CSS三种基本定位机制]]></title>
-      <url>http://iminyao.com/2016/03/28/CSS-position/</url>
-      <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><h2 id="CSS常用的定位方法："><a href="#CSS常用的定位方法：" class="headerlink" title="CSS常用的定位方法："></a>CSS常用的定位方法：</h2><ol>
-<li>相对定位</li>
-<li>浮动</li>
-<li>绝对定位：直接应用于body下元素最佳</li>
-<li>margin</li>
-</ol>
-<h3 id="浮动定位劣势："><a href="#浮动定位劣势：" class="headerlink" title="浮动定位劣势："></a>浮动定位劣势：</h3><ol>
-<li>浮动的破坏性在于切断line box链，致使高度塌陷，可修复</li>
-</ol>
-<h3 id="绝对定位劣势："><a href="#绝对定位劣势：" class="headerlink" title="绝对定位劣势："></a>绝对定位劣势：</h3><ol>
-<li>破坏布局(降低了页面的扩展性和维护性)<blockquote>
-<p>因为绝对定位的元素与文档流无关，所以他们不影响普通流中的框，如果扩大绝对定位的框(增加字号等)，周围的框不会重新定位。因此，尺寸的任何改变都会导致绝对定位的框产生重叠，从而破坏布局。</p>
-</blockquote>
-</li>
-<li>高度宽度皆塌陷，不可修复</li>
-<li><p>流动性差：</p>
-<blockquote>
-<p>由于absolute属性（尤其是带有left/top值）的破坏性，会导致高宽塌陷，于是，不得已，需要设定一个高度值（或是足以撑开高度的值）</p>
-</blockquote>
-<p><img src="http://image.zhangxinxu.com/image/blog/201012/2010-12-09_221942.png" alt="sina1"><br><img src="http://image.zhangxinxu.com/image/blog/201012/2010-12-09_222350.png" alt="sina2"></p>
-<h4 id="测试代码："><a href="#测试代码：" class="headerlink" title="测试代码："></a>测试代码：</h4><figure class="highlight stylus"><table><tr><td class="code"><pre><div class="line"><span class="comment">// HTML</span></div><div class="line">&lt;<span class="selector-tag">div</span> class=<span class="string">"div"</span>&gt;</div><div class="line">    &lt;<span class="selector-tag">img</span> src=<span class="string">"http://image.zhangxinxu.com/image/study/s/s256/mm1.jpg"</span> /&gt;</div><div class="line">    &lt;p&gt;图片无absolute&lt;/p&gt;</div><div class="line">&lt;/div&gt;</div><div class="line">&lt;<span class="selector-tag">div</span> class=<span class="string">"div"</span>&gt;</div><div class="line">    &lt;<span class="selector-tag">img</span> class=<span class="string">"abs"</span> src=<span class="string">"http://image.zhangxinxu.com/image/study/s/s256/mm1.jpg"</span> /&gt;</div><div class="line">    &lt;p&gt;图片absolute后&lt;/p&gt;</div><div class="line">&lt;/div&gt;</div><div class="line"></div><div class="line"><span class="comment">// CSS</span></div><div class="line"><span class="selector-class">.div</span> &#123; <span class="attribute">padding</span>:<span class="number">20px</span>; <span class="attribute">margin</span>:<span class="number">10px</span> <span class="number">0</span> <span class="number">0</span> <span class="number">10px</span>; <span class="attribute">background-color</span>:<span class="number">#f0f3f9</span>; <span class="attribute">float</span>:left; &#125;</div><div class="line"><span class="selector-class">.abs</span> &#123; <span class="attribute">position</span>:absolute; &#125;</div></pre></td></tr></table></figure>
-</li>
-</ol>
-<p><img src="http://image.zhangxinxu.com/image/blog/201012/2010-12-09_233323.jpg" alt="pic"></p>
-<h3 id="margin劣势："><a href="#margin劣势：" class="headerlink" title="margin劣势："></a>margin劣势：</h3><ol>
-<li>margin-top值的改变会产生更强的回流(滚动播放效果时)</li>
-</ol>
-<h3 id="清理-clear-的本质："><a href="#清理-clear-的本质：" class="headerlink" title="清理(clear)的本质："></a>清理(clear)的本质：</h3><ul>
-<li><p><strong>CSS2</strong>中，清理元素时，浏览器在元素顶上添加足够的外边距，使元素的顶边缘垂直下降到浮动框的下面。<br><img src="https://cloud.githubusercontent.com/assets/4004044/7001000/bc14e862-dc62-11e4-80ca-79efbd6f971a.png" alt="clear"></p>
-</li>
-<li><p><strong>CSS2.1</strong>中，引入一个清除区域(clearance),清除区域是在元素上外边距之上增加的额外间隔，不允许任何浮动元素进入这个范围内。也就是说元素设置<code>clear</code>属性时，它的外边距并不改变。之所以会向下移是这个清除区域造成的。</p>
-</li>
-</ul>
-<h3 id="1-实例："><a href="#1-实例：" class="headerlink" title="1.实例："></a>1.实例：</h3><pre><code>img.sider{float:left; margin:0; }
-h3{border:1px solid gray; clearleft; margin-top:15px; }
-
-&lt;img src=&quot; &quot; class=&quot;sider&quot; height=&quot;50&quot; width=&quot;50&quot;&gt;
-&lt;img src&quot; &quot; height=&quot;10&quot; width=&quot;50&quot;&gt;
-&lt;h3&gt;Why....&lt;/h3&gt;
-</code></pre><p><img src="https://cloud.githubusercontent.com/assets/4004044/7001001/c516e640-dc62-11e4-9b16-338c447b83fc.png" alt="clear_01"></p>
-<blockquote>
-<p>示例中h3上边框与浮动图像下边框之间没有间隔，因为在h3的上边距(15px)之上增加了25px的清除区域，将h3的上边距边界推到刚好越过浮动元素的下边界。一般都会这样，除非h3的上边距计算值<code>&gt;40px(50px-10px)</code>，在这种情况下,h3会很自然的放在浮动元素的下面，<code>clear</code>值是什么则无关紧要。</p>
-</blockquote>
-<ul>
-<li><p><strong>解决方法：</strong><br>  要确保一个清除元素的顶端与一个浮动元素的低端之间有一定的空间，<strong>可以为浮动元素本身设置一个下外边距</strong>。</p>
-<pre><code>img.sider{float:left; margin:0 0 15px; }
-h3{border:1px solid gray; clear:left; }
-</code></pre><ul>
-<li><strong>原理：</strong>浮动元素的外边距边界定义了浮动框的边界。 <h3 id="2-实例："><a href="#2-实例：" class="headerlink" title="2.实例："></a>2.实例：</h3>.news{<br>  background-color:gray;<br>  border:solid 1px black;<br>  }<br>.news img{<br>  float:left;<br>  }<br>.news p{<br>  float:right;<br>  }<div class="news"><br>  <img src=" "><br>  <p>Some text</p><br></div>
-
-</li>
-</ul>
-</li>
-</ul>
-<blockquote>
-<p>因为浮动元素脱离了文档流，所以包围图片和文字的<code>div</code>不占据空间</p>
-</blockquote>
-<p><img src="https://cloud.githubusercontent.com/assets/4004044/7001009/dd6cac66-dc62-11e4-9496-e358787a0090.png" alt="clear_02"></p>
-<ol>
-<li><strong>解决方案1：</strong>在最后一段下面添加空元素并且清理它。</li>
-</ol>
-<pre><code>.clear{
-clear:both;
-}
-
-&lt;div class=&quot;news&quot;&gt;
-&lt;img src=&quot; &quot;&gt;
-&lt;p&gt;Some text&lt;/p&gt;
-&lt;br class=&quot;clear&quot; /&gt;
-&lt;/div&gt;
-</code></pre><ol>
-<li><p><strong>解决方案2：</strong>直接选择浮动容器<code>div</code></p>
-<pre><code>.news{
-float:left;
-} 
-</code></pre></li>
-<li><p><strong>解决方案3：</strong>设置<code>overflow</code>为<code>hidden</code>或<code>auto</code></p>
-<pre><code>.news{
-    overflow:hidden;
-}
-</code></pre></li>
-<li><p><strong>解决方案4：</strong><code>:after</code>伪元素(CSS生成内容)</p>
-<pre><code>&lt;div class=&quot;news clear&quot;&gt;
-    &lt;img src=&quot;&quot; /&gt;
-    &lt;p&gt;Some text&lt;/p&gt;
-&lt;/div&gt;
-
-.clear:after{
-    content:&quot;.&quot;;
-    height:0;
-    visibility:hidden;
-    display:block;    
-    clear:both;
-}
-</code></pre></li>
-<li>JavsScript方法</li>
-</ol>
-<h3 id="参考："><a href="#参考：" class="headerlink" title="参考："></a>参考：</h3><ol>
-<li><a href="http://www.zhangxinxu.com/wordpress/2011/03/css-%E7%9B%B8%E5%AF%B9%E7%BB%9D%E5%AF%B9relativeabsolute%E5%AE%9A%E4%BD%8D%E7%B3%BB%E5%88%97%EF%BC%88%E4%B8%80%EF%BC%89/" target="_blank" rel="external">css-相对绝对relativeabsolute定位系列（一）</a></li>
-<li><a href="http://www.zhangxinxu.com/wordpress/2011/03/css-%E7%9B%B8%E5%AF%B9%E7%BB%9D%E5%AF%B9relativeabsolute%E5%AE%9A%E4%BD%8D%E7%B3%BB%E5%88%97%EF%BC%88%E4%BA%8C%EF%BC%89/" target="_blank" rel="external">css-相对绝对relativeabsolute定位系列（二）</a></li>
-</ol>
-]]></content>
-    </entry>
-    
-    <entry>
-      <title><![CDATA[CSS3 盒子应用]]></title>
-      <url>http://iminyao.com/2016/03/23/CSS3-box/</url>
-      <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><h3 id="透明盒子-通过设置不透明度实现"><a href="#透明盒子-通过设置不透明度实现" class="headerlink" title="透明盒子(通过设置不透明度实现)"></a>透明盒子(通过设置不透明度实现)</h3><blockquote>
-<p>rgba 与opacity应用范围:<br>    1.使用多种颜色(元素)的半透明效果，使用opacity不仅背景颜色，连文本颜色，边框颜色也会变透明<br>    2.在不知道颜色的情况下，实现半透明效果(例如通过其他样式表或JavaScript代码来设置半透明效果的)应使用opacity<br>    3.实现图片半透明效果，应该用opacity<br>    4.实现渐变动画效果，应该用opacity</p>
-</blockquote>
-<figure class="highlight css"><table><tr><td class="code"><pre><div class="line"><span class="selector-class">.semitransparentBox</span>&#123;</div><div class="line">	<span class="attribute">background</span>: <span class="built_in">rgba</span>(170,240,0,0.5);</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.semitransparentBox1</span>&#123;</div><div class="line">	<span class="attribute">background</span>: <span class="built_in">rgb</span>(170,240,0);</div><div class="line">	<span class="attribute">opacity</span>: <span class="number">0.5</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="圆角盒子（通过设置border-radius属性实现）"><a href="#圆角盒子（通过设置border-radius属性实现）" class="headerlink" title="圆角盒子（通过设置border-radius属性实现）"></a>圆角盒子（通过设置border-radius属性实现）</h3><figure class="highlight css"><table><tr><td class="code"><pre><div class="line">		<span class="selector-class">.roundBox</span>&#123;</div><div class="line">			<span class="attribute">text-align</span>: center;</div><div class="line">			<span class="attribute">background</span>: yellow;	</div><div class="line">			<span class="attribute">border-radius</span>: <span class="number">25px</span> <span class="number">50px</span> <span class="number">25px</span> <span class="number">85px</span>;</div><div class="line">		&#125;</div><div class="line"><span class="comment">/* 通过设置两个值（水平半径，垂直半径）可以实现把圆拉伸为椭圆，即让某一个轴向的圆弧更长 */</span></div><div class="line">		<span class="selector-class">.roundBox1</span>&#123;</div><div class="line">			<span class="attribute">background</span>: blue;</div><div class="line">			<span class="attribute">border-top-left-radius</span>: <span class="number">150px</span> <span class="number">30px</span>;</div><div class="line">			<span class="attribute">border-top-right-radius</span>: <span class="number">150px</span> <span class="number">30px</span>;</div><div class="line">		&#125;</div></pre></td></tr></table></figure>
-<h3 id="背景盒子（借助CSS3支持多背景-新增的background-position属性）"><a href="#背景盒子（借助CSS3支持多背景-新增的background-position属性）" class="headerlink" title="背景盒子（借助CSS3支持多背景 新增的background-position属性）"></a>背景盒子（借助CSS3支持多背景 新增的background-position属性）</h3><figure class="highlight css"><table><tr><td class="code"><pre><div class="line"><span class="selector-class">.decoratedBox</span>&#123;</div><div class="line">	<span class="attribute">margin</span>: <span class="number">50px</span>;</div><div class="line">	<span class="attribute">padding</span>: <span class="number">50px</span>;</div><div class="line">	<span class="attribute">background-image</span>: <span class="built_in">url</span>(<span class="string">"pen_blue.gif"</span>),<span class="built_in">url</span>(<span class="string">"pen_green.gif"</span>);</div><div class="line">	<span class="attribute">background-position</span>: left top,right bottom;</div><div class="line">	<span class="attribute">background-repeat</span>: no-repeat, no-repeat; </div><div class="line">&#125;</div><div class="line"><span class="selector-class">.decoratedBox1</span>&#123;</div><div class="line">	<span class="attribute">margin</span>: <span class="number">50px</span>;</div><div class="line">	<span class="attribute">padding</span>: <span class="number">50px</span>;</div><div class="line">	<span class="attribute">background-image</span>: <span class="built_in">url</span>(pen_green.gif),<span class="built_in">url</span>(pen_blue.gif),<span class="built_in">url</span>(pen_medium.gif);</div><div class="line">	<span class="attribute">background-position</span>: left top,left top,right bottom;</div><div class="line">	<span class="attribute">background-repeat</span>: no-repeat,repeat-x,no-repeat;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="盒子阴影（box-shadow属性）"><a href="#盒子阴影（box-shadow属性）" class="headerlink" title="盒子阴影（box-shadow属性）"></a>盒子阴影（box-shadow属性）</h3><figure class="highlight css"><table><tr><td class="code"><pre><div class="line">	<span class="selector-class">.shadowedBox</span>&#123;</div><div class="line">		<span class="attribute">border</span>:thin <span class="number">#336699</span> solid;</div><div class="line">		<span class="attribute">border-radius</span>: <span class="number">25px</span>;</div><div class="line">		<span class="attribute">box-shadow</span>:<span class="number">5px</span> <span class="number">5px</span> <span class="number">10px</span> <span class="number">5px</span> gray inset; </div><div class="line"><span class="comment">/*	前两个值是水平和垂直方向的偏移量 第三个是设置模糊距离（模糊程度） 第四个设置伸展范围（可选） 第五个设置阴影颜色(添加inset会在元素内部)  */</span></div><div class="line">	&#125;</div><div class="line">	<span class="selector-class">.textShadow</span>&#123;</div><div class="line">		<span class="attribute">font-size</span>: <span class="number">30px</span>;</div><div class="line">		<span class="attribute">font-weight</span>: bold;</div><div class="line">		<span class="attribute">text-shadow</span>:gray <span class="number">10px</span> <span class="number">10px</span> <span class="number">7px</span>; <span class="comment">/* 属性不同 先是颜色 然后水平垂直偏移量 最后设置模糊值*/</span></div><div class="line">	&#125;</div></pre></td></tr></table></figure>
-<h3 id="渐变盒子（gradient属性）"><a href="#渐变盒子（gradient属性）" class="headerlink" title="渐变盒子（gradient属性）"></a>渐变盒子（gradient属性）</h3><blockquote>
-<p>渐变是多种颜色混合而成的效果（本质上渐变就是两种或更多种颜色的混合）</p>
-</blockquote>
-<ol>
-<li>线性渐变 linear-gradient</li>
-<li>放射性渐变 radial-gradient<figure class="highlight css"><table><tr><td class="code"><pre><div class="line"><span class="selector-class">.colorBlendBox</span>&#123;</div><div class="line">	<span class="attribute">background</span>: <span class="built_in">-ms-linear-gradient</span>(top,red 0%,orange 20%,yellow 80%, violet 100%); <span class="comment">/*	设置渐变点	*/</span></div><div class="line">	<span class="attribute">background</span>: <span class="built_in">-moz-linear-gradient</span>(top,white,blue);   <span class="comment">/*	从上至下渐变	*/</span></div><div class="line">	<span class="attribute">background</span>: <span class="built_in">-webkit-linear-gradient</span>(top left,white,lightblue); <span class="comment">/*	从左上到右下渐变	*/</span></div><div class="line">&#125;</div><div class="line"><span class="selector-class">.colorBlendBox1</span>&#123;</div><div class="line">	<span class="attribute">background</span>: <span class="built_in">-moz-radial-gradient</span>(circle,white,lightblue); <span class="comment">/* 白色圆心逐渐过渡到圆周的蓝色 */</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-</ol>
-]]></content>
-    </entry>
-    
-    <entry>
       <title><![CDATA[CSS3 transition与transform]]></title>
       <url>http://iminyao.com/2016/03/23/CSS3-transition/</url>
       <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><h3 id="背景"><a href="#背景" class="headerlink" title="背景:"></a>背景:</h3><blockquote>
@@ -2241,6 +2216,27 @@ float:left;
 </angle></li>
 </ul>
 <h4 id="实例：在线数字影集"><a href="#实例：在线数字影集" class="headerlink" title="实例：在线数字影集"></a>实例：在线数字影集</h4><figure class="highlight stylus"><table><tr><td class="code"><pre><div class="line">	.gallery&#123;</div><div class="line">		<span class="attribute">margin</span>: <span class="number">0px</span> <span class="number">30px</span> <span class="number">0px</span> <span class="number">30px</span>;</div><div class="line">		<span class="attribute">background</span>: <span class="number">#D8EEFE</span>;</div><div class="line">		<span class="attribute">padding</span>: <span class="number">10px</span>;</div><div class="line">	&#125;</div><div class="line">	<span class="selector-class">.gallery</span> img&#123;</div><div class="line">		<span class="attribute">margin</span>: <span class="number">5px</span>;</div><div class="line">		<span class="attribute">padding</span>: <span class="number">5px</span>;</div><div class="line">		<span class="attribute">width</span>: <span class="number">75px</span>;</div><div class="line">		<span class="attribute">border</span>: solid <span class="number">1px</span> black;</div><div class="line">		<span class="attribute">background</span>: white;</div><div class="line">		<span class="attribute">transition</span>:all <span class="number">1s</span>;</div><div class="line">	&#125;</div><div class="line">	<span class="selector-class">.gallery</span> <span class="selector-tag">img</span>:hover&#123;</div><div class="line">		-webkit-<span class="attribute">transform</span>:scale(<span class="number">2.2</span>) rotate(<span class="number">10deg</span>);</div><div class="line">		-moz-<span class="attribute">transform</span>:scale(<span class="number">2.2</span>) rotate(<span class="number">10deg</span>);</div><div class="line">		-o-<span class="attribute">transform</span>:scale(<span class="number">2.2</span>) rotate(<span class="number">10deg</span>);</div><div class="line">	&#125;</div><div class="line"></div><div class="line">&lt;<span class="selector-tag">div</span> class=<span class="string">"gallery"</span>&gt;</div><div class="line">	&lt;<span class="selector-tag">img</span> src=<span class="string">"pen_blue.gif"</span>&gt;</div><div class="line">	&lt;<span class="selector-tag">img</span> src=<span class="string">"pen_medium.gif"</span>&gt;</div><div class="line">	&lt;<span class="selector-tag">img</span> src=<span class="string">"pen_green.gif"</span>&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[CSS3 盒子应用]]></title>
+      <url>http://iminyao.com/2016/03/23/CSS3-box/</url>
+      <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><h3 id="透明盒子-通过设置不透明度实现"><a href="#透明盒子-通过设置不透明度实现" class="headerlink" title="透明盒子(通过设置不透明度实现)"></a>透明盒子(通过设置不透明度实现)</h3><blockquote>
+<p>rgba 与opacity应用范围:<br>    1.使用多种颜色(元素)的半透明效果，使用opacity不仅背景颜色，连文本颜色，边框颜色也会变透明<br>    2.在不知道颜色的情况下，实现半透明效果(例如通过其他样式表或JavaScript代码来设置半透明效果的)应使用opacity<br>    3.实现图片半透明效果，应该用opacity<br>    4.实现渐变动画效果，应该用opacity</p>
+</blockquote>
+<figure class="highlight css"><table><tr><td class="code"><pre><div class="line"><span class="selector-class">.semitransparentBox</span>&#123;</div><div class="line">	<span class="attribute">background</span>: <span class="built_in">rgba</span>(170,240,0,0.5);</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.semitransparentBox1</span>&#123;</div><div class="line">	<span class="attribute">background</span>: <span class="built_in">rgb</span>(170,240,0);</div><div class="line">	<span class="attribute">opacity</span>: <span class="number">0.5</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="圆角盒子（通过设置border-radius属性实现）"><a href="#圆角盒子（通过设置border-radius属性实现）" class="headerlink" title="圆角盒子（通过设置border-radius属性实现）"></a>圆角盒子（通过设置border-radius属性实现）</h3><figure class="highlight css"><table><tr><td class="code"><pre><div class="line">		<span class="selector-class">.roundBox</span>&#123;</div><div class="line">			<span class="attribute">text-align</span>: center;</div><div class="line">			<span class="attribute">background</span>: yellow;	</div><div class="line">			<span class="attribute">border-radius</span>: <span class="number">25px</span> <span class="number">50px</span> <span class="number">25px</span> <span class="number">85px</span>;</div><div class="line">		&#125;</div><div class="line"><span class="comment">/* 通过设置两个值（水平半径，垂直半径）可以实现把圆拉伸为椭圆，即让某一个轴向的圆弧更长 */</span></div><div class="line">		<span class="selector-class">.roundBox1</span>&#123;</div><div class="line">			<span class="attribute">background</span>: blue;</div><div class="line">			<span class="attribute">border-top-left-radius</span>: <span class="number">150px</span> <span class="number">30px</span>;</div><div class="line">			<span class="attribute">border-top-right-radius</span>: <span class="number">150px</span> <span class="number">30px</span>;</div><div class="line">		&#125;</div></pre></td></tr></table></figure>
+<h3 id="背景盒子（借助CSS3支持多背景-新增的background-position属性）"><a href="#背景盒子（借助CSS3支持多背景-新增的background-position属性）" class="headerlink" title="背景盒子（借助CSS3支持多背景 新增的background-position属性）"></a>背景盒子（借助CSS3支持多背景 新增的background-position属性）</h3><figure class="highlight css"><table><tr><td class="code"><pre><div class="line"><span class="selector-class">.decoratedBox</span>&#123;</div><div class="line">	<span class="attribute">margin</span>: <span class="number">50px</span>;</div><div class="line">	<span class="attribute">padding</span>: <span class="number">50px</span>;</div><div class="line">	<span class="attribute">background-image</span>: <span class="built_in">url</span>(<span class="string">"pen_blue.gif"</span>),<span class="built_in">url</span>(<span class="string">"pen_green.gif"</span>);</div><div class="line">	<span class="attribute">background-position</span>: left top,right bottom;</div><div class="line">	<span class="attribute">background-repeat</span>: no-repeat, no-repeat; </div><div class="line">&#125;</div><div class="line"><span class="selector-class">.decoratedBox1</span>&#123;</div><div class="line">	<span class="attribute">margin</span>: <span class="number">50px</span>;</div><div class="line">	<span class="attribute">padding</span>: <span class="number">50px</span>;</div><div class="line">	<span class="attribute">background-image</span>: <span class="built_in">url</span>(pen_green.gif),<span class="built_in">url</span>(pen_blue.gif),<span class="built_in">url</span>(pen_medium.gif);</div><div class="line">	<span class="attribute">background-position</span>: left top,left top,right bottom;</div><div class="line">	<span class="attribute">background-repeat</span>: no-repeat,repeat-x,no-repeat;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="盒子阴影（box-shadow属性）"><a href="#盒子阴影（box-shadow属性）" class="headerlink" title="盒子阴影（box-shadow属性）"></a>盒子阴影（box-shadow属性）</h3><figure class="highlight css"><table><tr><td class="code"><pre><div class="line">	<span class="selector-class">.shadowedBox</span>&#123;</div><div class="line">		<span class="attribute">border</span>:thin <span class="number">#336699</span> solid;</div><div class="line">		<span class="attribute">border-radius</span>: <span class="number">25px</span>;</div><div class="line">		<span class="attribute">box-shadow</span>:<span class="number">5px</span> <span class="number">5px</span> <span class="number">10px</span> <span class="number">5px</span> gray inset; </div><div class="line"><span class="comment">/*	前两个值是水平和垂直方向的偏移量 第三个是设置模糊距离（模糊程度） 第四个设置伸展范围（可选） 第五个设置阴影颜色(添加inset会在元素内部)  */</span></div><div class="line">	&#125;</div><div class="line">	<span class="selector-class">.textShadow</span>&#123;</div><div class="line">		<span class="attribute">font-size</span>: <span class="number">30px</span>;</div><div class="line">		<span class="attribute">font-weight</span>: bold;</div><div class="line">		<span class="attribute">text-shadow</span>:gray <span class="number">10px</span> <span class="number">10px</span> <span class="number">7px</span>; <span class="comment">/* 属性不同 先是颜色 然后水平垂直偏移量 最后设置模糊值*/</span></div><div class="line">	&#125;</div></pre></td></tr></table></figure>
+<h3 id="渐变盒子（gradient属性）"><a href="#渐变盒子（gradient属性）" class="headerlink" title="渐变盒子（gradient属性）"></a>渐变盒子（gradient属性）</h3><blockquote>
+<p>渐变是多种颜色混合而成的效果（本质上渐变就是两种或更多种颜色的混合）</p>
+</blockquote>
+<ol>
+<li>线性渐变 linear-gradient</li>
+<li>放射性渐变 radial-gradient<figure class="highlight css"><table><tr><td class="code"><pre><div class="line"><span class="selector-class">.colorBlendBox</span>&#123;</div><div class="line">	<span class="attribute">background</span>: <span class="built_in">-ms-linear-gradient</span>(top,red 0%,orange 20%,yellow 80%, violet 100%); <span class="comment">/*	设置渐变点	*/</span></div><div class="line">	<span class="attribute">background</span>: <span class="built_in">-moz-linear-gradient</span>(top,white,blue);   <span class="comment">/*	从上至下渐变	*/</span></div><div class="line">	<span class="attribute">background</span>: <span class="built_in">-webkit-linear-gradient</span>(top left,white,lightblue); <span class="comment">/*	从左上到右下渐变	*/</span></div><div class="line">&#125;</div><div class="line"><span class="selector-class">.colorBlendBox1</span>&#123;</div><div class="line">	<span class="attribute">background</span>: <span class="built_in">-moz-radial-gradient</span>(circle,white,lightblue); <span class="comment">/* 白色圆心逐渐过渡到圆周的蓝色 */</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ol>
 ]]></content>
     </entry>
     
@@ -3295,14 +3291,11 @@ function decodeAudio (audioCtx, audioData, callback) {
       <title><![CDATA[关于BOM中的坐标位置]]></title>
       <url>http://iminyao.com/2015/08/26/BOM-position/</url>
       <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><h4 id="1-查询窗口滚动条位置"><a href="#1-查询窗口滚动条位置" class="headerlink" title="1.查询窗口滚动条位置"></a>1.查询窗口滚动条位置</h4><ol>
-<li>window对象的<code>pageXOffset``pageYoffset</code></li>
+<li>window对象的 <code>pageXOffset、pageYoffset</code></li>
 <li>文档根节点(<code>document.documentElement</code>)的<code>scrollLeft</code> <code>scrollTop</code></li>
 <li>怪异模式下(<code>document.body</code>)</li>
 </ol>
 <figure class="highlight groovy"><table><tr><td class="code"><pre><div class="line"><span class="comment">//  查询窗口滚动条位置</span></div><div class="line">function getScrollOffsets(w) &#123;</div><div class="line">    <span class="comment">//  可以传入iframe</span></div><div class="line">    w = w || window;</div><div class="line"></div><div class="line">    <span class="comment">//  除&lt;IE8以外</span></div><div class="line">    <span class="keyword">if</span> (w.pageXOffset != <span class="literal">null</span>) <span class="keyword">return</span> &#123;<span class="string">x:</span> w.pageXOffset, <span class="string">y:</span> w.pageYOffset&#125;;</div><div class="line"></div><div class="line">    <span class="comment">//  标准模式下的IE（或任何浏览器）</span></div><div class="line">    var d = w.document;</div><div class="line">    <span class="keyword">if</span> (document.compatMode == <span class="string">"CSS1Compat"</span>)</div><div class="line">        <span class="keyword">return</span> &#123;<span class="string">x:</span> d.documentElement.scrollLeft, <span class="string">y:</span> d.documentElement.scrollTop&#125;;</div><div class="line"></div><div class="line">    <span class="comment">//  怪异模式下的浏览器</span></div><div class="line">    <span class="keyword">return</span> &#123;<span class="string">x:</span> d.body.scrollLeft, <span class="string">y:</span> d.body.scrollTop&#125;;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h4 id="Chrome下的document-documentElement-scrollLeft-Top下的bug"><a href="#Chrome下的document-documentElement-scrollLeft-Top下的bug" class="headerlink" title="Chrome下的document.documentElement.scrollLeft/Top下的bug"></a>Chrome下的<code>document.documentElement.scrollLeft/Top</code>下的bug</h4><blockquote>
-<p>Chrome中两个值均返回<code>0</code>，可以用怪异模式的<code>document.body.scrollLeft/Top</code>来，尽管Chrome下是标准模式(document.compatMode==”CSS1Compat”)</p>
-</blockquote>
 <h4 id="2-查询窗口尺寸"><a href="#2-查询窗口尺寸" class="headerlink" title="2.查询窗口尺寸"></a>2.查询窗口尺寸</h4><ol>
 <li>window对象的<code>innerWidth/Height</code> IE8以后及其他高级浏览器</li>
 <li><code>document.documentElement.clientWidth/Height</code> IE8以前及其他高级浏览器</li>
@@ -3327,7 +3320,8 @@ function decodeAudio (audioCtx, audioData, callback) {
 <h4 id="6-innerWidth-Height、offsetWidth-Height、clientWidth-Height、scrollWidth-Height的区别："><a href="#6-innerWidth-Height、offsetWidth-Height、clientWidth-Height、scrollWidth-Height的区别：" class="headerlink" title="6. innerWidth/Height、offsetWidth/Height、clientWidth/Height、scrollWidth/Height的区别："></a>6. innerWidth/Height、offsetWidth/Height、clientWidth/Height、scrollWidth/Height的区别：</h4><ol>
 <li>innerWidth/Height为<code>window</code>对象的属性： <code>value=width+padding+scrollbar</code></li>
 <li>offsetWidth/Height: <code>value=width+padding+scrollbar+border</code></li>
-<li>clientWidth/Height: <code>value=width+padding</code><br>4.scrollWidth/Height: <code>value=width+padding+overflowarea</code><ul>
+<li>clientWidth/Height: <code>value=width+padding</code></li>
+<li>scrollWidth/Height: <code>value=width+padding+overflowarea</code><ul>
 <li>转换：<ol>
 <li><code>clientWidth/Height = visible height of content + visible padding</code></li>
 <li><code>offsetWidth/Height = clientWidth/Height + scrollbar + border</code></li>
