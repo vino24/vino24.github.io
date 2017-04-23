@@ -4,7 +4,7 @@
     <!-- Title -->
     
     <title>
-        ES6 spread和rest operator | 逢十借一
+        ES6 spread和rest | 逢十借一
     </title>
     <!-- DNS prefetch -->
     <link rel="dns-prefetch" href="//iminyao.com">
@@ -43,7 +43,7 @@
     <!-- The Open Graph protocol -->
     <meta property="og:url" content="http://iminyao.com">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="ES6 spread和rest operator | 逢十借一">
+    <meta property="og:title" content="ES6 spread和rest | 逢十借一">
     <meta property="og:description" content="web前端开发, 前端开发工程师, 前端开发攻城师, 前端资源, CSS, JavaScript, HTML, Web标准">
 
      <!--[if lte IE 9]>
@@ -216,7 +216,7 @@
 	<ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect"
 		for="post-toc-trigger-btn">
 			
-			<ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#spread-operator-array-gt-single-element"><span class="post-toc-number">1.</span> <span class="post-toc-text">spread operator array -> single element</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#用法"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">用法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#1-将数组展开成函数的多个参数"><span class="post-toc-number">1.1.1.</span> <span class="post-toc-text">1. 将数组展开成函数的多个参数</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#2-合并数组"><span class="post-toc-number">1.1.2.</span> <span class="post-toc-text">2. 合并数组</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#3-类数组对象转数组"><span class="post-toc-number">1.1.3.</span> <span class="post-toc-text">3. 类数组对象转数组</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#rest-operator-single-element-gt-array"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">rest operator single element -> array</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#rest-parameter"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">rest parameter</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#剩余参数和arguments对象的区别"><span class="post-toc-number">1.3.1.</span> <span class="post-toc-text">剩余参数和arguments对象的区别</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#参考："><span class="post-toc-number">1.4.</span> <span class="post-toc-text">参考：</span></a></li></ol></li></ol>
+			<ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#spread-operator-array-gt-single-element"><span class="post-toc-number">1.</span> <span class="post-toc-text">spread operator array -> single element</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#用法"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">用法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#1-将数组展开成函数的多个参数"><span class="post-toc-number">1.1.1.</span> <span class="post-toc-text">1. 将数组展开成函数的多个参数</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#2-合并数组"><span class="post-toc-number">1.1.2.</span> <span class="post-toc-text">2. 合并数组</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#3-类数组对象转数组"><span class="post-toc-number">1.1.3.</span> <span class="post-toc-text">3. 类数组对象转数组</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#rest-operator-single-element-gt-array"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">rest operator single element -> array</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#rest-parameter"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">rest parameter</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#剩余参数和arguments对象的区别"><span class="post-toc-number">1.3.1.</span> <span class="post-toc-text">剩余参数和arguments对象的区别</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#spread和rest在函数中应用中的区别："><span class="post-toc-number">1.4.</span> <span class="post-toc-text">spread和rest在函数中应用中的区别：</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#参考："><span class="post-toc-number">1.5.</span> <span class="post-toc-text">参考：</span></a></li></ol></li></ol>
 		
 <!--			<li class="mdl-menu__item">Some Action</li>-->
 	</ul>
@@ -250,7 +250,7 @@
 		
 	
         <p class="article-headline-p">
-            ES6 spread和rest operator
+            ES6 spread和rest
         </p>
     </div>
 
@@ -303,7 +303,7 @@
     
     
     <!-- Share Twitter -->
-    <a class="post_share-link" href="https://twitter.com/intent/tweet?text=ES6 spread和rest operator&url=http://iminyao.com//2016/12/08/es6-spread-rest/index.html&via=vino24" target="_blank">
+    <a class="post_share-link" href="https://twitter.com/intent/tweet?text=ES6 spread和rest&url=http://iminyao.com//2016/12/08/es6-spread-rest/index.html&via=vino24" target="_blank">
         <li class="mdl-menu__item">
             分享到 Twitter
         </li>
@@ -317,7 +317,7 @@
     </a>
     
     <!-- Share Weibo -->
-    <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=ES6 spread和rest operator&url=http://iminyao.com//2016/12/08/es6-spread-rest/index.html&pic=&searchPic=false&style=simple" target="_blank">
+    <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=ES6 spread和rest&url=http://iminyao.com//2016/12/08/es6-spread-rest/index.html&pic=&searchPic=false&style=simple" target="_blank">
         <li class="mdl-menu__item">
             分享到微博
         </li>
@@ -346,6 +346,7 @@
 </ol>
 <figure class="highlight javascript"><figcaption><span>arguments模拟剩余数组</span></figcaption><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params">a, b</span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> args = [].slice.call(<span class="built_in">arguments</span>, f.length);</div><div class="line">    ...</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <figure class="highlight javascript"><figcaption><span>rest</span></figcaption><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span>(<span class="params">a, b, ...args</span>)</span>&#123;&#125;</div></pre></td></tr></table></figure>
+<h3 id="spread和rest在函数中应用中的区别："><a href="#spread和rest在函数中应用中的区别：" class="headerlink" title="spread和rest在函数中应用中的区别："></a>spread和rest在函数中应用中的区别：</h3><p>当作为函数实参时fn(…Args)会将Args数组一一转换为函数参数<br>当作为函数形参是function fn(a, b, …Args)时，调用时多传入的参数将会形成Args数组</p>
 <h3 id="参考："><a href="#参考：" class="headerlink" title="参考："></a>参考：</h3><ol>
 <li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/Spread_operator" target="_blank" rel="external">展开运算符</a></li>
 <li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Functions/Rest_parameters" target="_blank" rel="external">剩余参数（rest parameter）</a></li>

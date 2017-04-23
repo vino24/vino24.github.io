@@ -91,7 +91,7 @@
     </entry>
     
     <entry>
-      <title><![CDATA[ES6 spread和rest operator]]></title>
+      <title><![CDATA[ES6 spread和rest]]></title>
       <url>http://iminyao.com/2016/12/08/es6-spread-rest/</url>
       <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><h2 id="spread-operator-array-gt-single-element"><a href="#spread-operator-array-gt-single-element" class="headerlink" title="spread operator array -&gt; single element"></a>spread operator array -&gt; single element</h2><h3 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h3><h4 id="1-将数组展开成函数的多个参数"><a href="#1-将数组展开成函数的多个参数" class="headerlink" title="1. 将数组展开成函数的多个参数"></a>1. 将数组展开成函数的多个参数</h4><figure class="highlight javascript"><figcaption><span>传统apply方法</span></figcaption><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params">x, y, z</span>) </span>&#123;&#125;</div><div class="line"><span class="keyword">var</span> args = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</div><div class="line">fn.apply(<span class="literal">null</span>,arg)</div></pre></td></tr></table></figure>
 <figure class="highlight javascript"><figcaption><span>ES6-spread</span></figcaption><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params">x, y, z</span>)</span>&#123;&#125;</div><div class="line"><span class="keyword">var</span> args = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</div><div class="line">fn(...args);</div></pre></td></tr></table></figure>
@@ -110,6 +110,7 @@
 </ol>
 <figure class="highlight javascript"><figcaption><span>arguments模拟剩余数组</span></figcaption><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params">a, b</span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> args = [].slice.call(<span class="built_in">arguments</span>, f.length);</div><div class="line">    ...</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <figure class="highlight javascript"><figcaption><span>rest</span></figcaption><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span>(<span class="params">a, b, ...args</span>)</span>&#123;&#125;</div></pre></td></tr></table></figure>
+<h3 id="spread和rest在函数中应用中的区别："><a href="#spread和rest在函数中应用中的区别：" class="headerlink" title="spread和rest在函数中应用中的区别："></a>spread和rest在函数中应用中的区别：</h3><p>当作为函数实参时fn(…Args)会将Args数组一一转换为函数参数<br>当作为函数形参是function fn(a, b, …Args)时，调用时多传入的参数将会形成Args数组</p>
 <h3 id="参考："><a href="#参考：" class="headerlink" title="参考："></a>参考：</h3><ol>
 <li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/Spread_operator" target="_blank" rel="external">展开运算符</a></li>
 <li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Functions/Rest_parameters" target="_blank" rel="external">剩余参数（rest parameter）</a></li>
