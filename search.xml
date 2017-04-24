@@ -116,6 +116,9 @@
 <p>解构赋值 语法是一个Javascript表达式，解构赋值允许你使用类似数组或对象字面量的语法将数组和对象的属性赋给各种变量。</p>
 </blockquote>
 <figure class="highlight stata"><table><tr><td class="code"><pre><div class="line"><span class="comment">// 解构数组</span></div><div class="line"><span class="keyword">var</span> foo = [<span class="string">"one"</span>, <span class="string">"two"</span>, <span class="string">"three"</span>];</div><div class="line"></div><div class="line"><span class="keyword">var</span> [<span class="keyword">one</span>, <span class="keyword">two</span>, three] = foo;</div><div class="line">console.<span class="built_in">log</span>(<span class="keyword">one</span>); <span class="comment">// "one"</span></div><div class="line">console.<span class="built_in">log</span>(<span class="keyword">two</span>); <span class="comment">// "two"</span></div><div class="line">console.<span class="built_in">log</span>(three); <span class="comment">// "three"</span></div></pre></td></tr></table></figure>
+<blockquote>
+<p>对象的解构与数组有一个重要的不同。数组的元素是按次序排列的，变量的取值由它的位置决定；而对象的属性没有次序，变量必须与属性同名，才能取到正确的值。</p>
+</blockquote>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="comment">// 解构函数</span></div><div class="line"><span class="keyword">var</span> o = &#123;<span class="attr">p</span>: <span class="number">42</span>, <span class="attr">q</span>: <span class="literal">true</span>&#125;;</div><div class="line"><span class="keyword">var</span> &#123;p, q&#125; = o;</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(p); <span class="comment">// 42</span></div><div class="line"><span class="built_in">console</span>.log(q); <span class="comment">// true </span></div><div class="line"></div><div class="line"><span class="comment">// 用新变量名赋值</span></div><div class="line"><span class="keyword">var</span> &#123;<span class="attr">p</span>: foo, <span class="attr">q</span>: bar&#125; = o;</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(foo); <span class="comment">// 42</span></div><div class="line"><span class="built_in">console</span>.log(bar); <span class="comment">// true</span></div></pre></td></tr></table></figure>
 <h4 id="常见用途"><a href="#常见用途" class="headerlink" title="常见用途:"></a>常见用途:</h4><ol>
 <li><p>交换变量</p>
@@ -127,6 +130,15 @@
 <li><p>for循环解构</p>
 <figure class="highlight xquery"><table><tr><td class="code"><pre><div class="line">var arr = [&#123;name: <span class="string">'chris'</span>, age: <span class="number">26</span>&#125;, &#123;name: <span class="string">'jack'</span>,    age: <span class="number">27</span>&#125;, &#123;name: <span class="string">'peter'</span>,age: <span class="number">28</span>&#125;];</div><div class="line"></div><div class="line"><span class="keyword">for</span> (<span class="keyword">let</span> &#123;age, name&#125; <span class="keyword">of</span> arr) &#123;</div><div class="line">    console.log(name + <span class="string">' '</span> + age);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 </li>
+<li><p>字符串解构</p>
+<figure class="highlight awk"><table><tr><td class="code"><pre><div class="line">const [a, b, c, d, e] = <span class="string">'hello'</span>;</div><div class="line"> a <span class="regexp">//</span> <span class="string">"h"</span></div><div class="line"> b <span class="regexp">//</span> <span class="string">"e"</span></div><div class="line"> c <span class="regexp">//</span> <span class="string">"l"</span></div><div class="line"> d <span class="regexp">//</span> <span class="string">"l"</span></div><div class="line"> e <span class="regexp">//</span> <span class="string">"o"</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>从函数返回多个值</p>
+<figure class="highlight ada"><table><tr><td class="code"><pre><div class="line"><span class="keyword">function</span> <span class="title">example</span>() &#123;</div><div class="line">    <span class="keyword">return</span> <span class="type">&#123;</span></div><div class="line">        foo: <span class="number">1</span>,</div><div class="line">        bar: <span class="number">2</span></div><div class="line">&#125;;</div><div class="line">&#125;</div><div class="line">let &#123; foo, bar &#125; = example();</div></pre></td></tr></table></figure>
+</li>
+<li><p>函数参数默认值</p>
+<figure class="highlight haxe"><table><tr><td class="code"><pre><div class="line">jQuery.ajax = <span class="function"><span class="keyword">function</span> </span>(url, &#123;</div><div class="line">async = <span class="literal">true</span>,</div><div class="line">beforeSend = <span class="function"><span class="keyword">function</span> </span>() &#123;&#125;,</div><div class="line">cache = <span class="literal">true</span>,</div><div class="line">complete = <span class="function"><span class="keyword">function</span> </span>() &#123;&#125;,</div><div class="line">crossDomain = <span class="literal">false</span>,</div><div class="line">global = <span class="literal">true</span>,</div><div class="line"><span class="comment">// ... more config</span></div><div class="line">&#125;) &#123;</div><div class="line"><span class="comment">// ... do stuff</span></div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+</li>
 </ol>
 <h3 id="总结"><a href="#总结" class="headerlink" title="总结:"></a>总结:</h3><ol>
 <li>当…作为函数实参或=号右侧时用作spread运算符</li>
@@ -137,6 +149,7 @@
 <li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Functions/Rest_parameters" target="_blank" rel="external">剩余参数（rest parameter）</a></li>
 <li><a href="http://exploringjs.com/es6/ch_destructuring.html#sec_rest-operator" target="_blank" rel="external">Rest operator</a></li>
 <li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment" target="_blank" rel="external">解构赋值</a></li>
+<li><a href="http://es6.ruanyifeng.com/#docs/destructuring" target="_blank" rel="external">变量的解构赋值</a></li>
 </ol>
 ]]></content>
     </entry>
