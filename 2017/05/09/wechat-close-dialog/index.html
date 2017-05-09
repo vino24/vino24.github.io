@@ -216,7 +216,7 @@
 	<ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect"
 		for="post-toc-trigger-btn">
 			
-			<ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#与窗口关闭相关的几个事件"><span class="post-toc-number">1.</span> <span class="post-toc-text">与窗口关闭相关的几个事件</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#参考："><span class="post-toc-number">2.</span> <span class="post-toc-text">参考：</span></a></li></ol>
+			<ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#与窗口关闭相关的几个事件"><span class="post-toc-number">1.</span> <span class="post-toc-text">与窗口关闭相关的几个事件</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#解决方案：history-pushState"><span class="post-toc-number">2.</span> <span class="post-toc-text">解决方案：history.pushState</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#参考："><span class="post-toc-number">3.</span> <span class="post-toc-text">参考：</span></a></li></ol>
 		
 <!--			<li class="mdl-menu__item">Some Action</li>-->
 	</ul>
@@ -330,7 +330,7 @@
                 <div id="post-content" class="markdown-Github mdl-color-text--grey-700 mdl-card__supporting-text fade out">
 	
 		<script src="/assets/js/APlayer.min.js"> </script><h3 id="与窗口关闭相关的几个事件"><a href="#与窗口关闭相关的几个事件" class="headerlink" title="与窗口关闭相关的几个事件"></a>与窗口关闭相关的几个事件</h3><ol>
-<li><p><del>window.onclose</del>(chrome中测试关闭窗口不会触发)</p>
+<li><p>window.onclose</p>
 <blockquote>
 <p>当在window对象上触发close事件时的事件处理器</p>
 </blockquote>
@@ -355,8 +355,20 @@
 </blockquote>
 </li>
 </ol>
-<pre><code><figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="built_in">document</span>.addEventListener(<span class="string">"visibilitychange"</span>, 		</div><div class="line"><span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line"> 	<span class="built_in">console</span>.log( <span class="built_in">document</span>.visibilityState );</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-</code></pre><h3 id="参考："><a href="#参考：" class="headerlink" title="参考："></a>参考：</h3><ol>
+<pre><code><figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="built_in">document</span>.addEventListener(<span class="string">"visibilitychange"</span>, 		</div><div class="line"><span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line"> 		<span class="built_in">console</span>.log( <span class="built_in">document</span>.visibilityState );</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+</code></pre><p>经过尝试上面的几个方案都行不通：</p>
+<ol>
+<li>window.close关闭时不会调用</li>
+<li>其他几个在关闭不能使用 alert、confirm 等方法来弹窗阻止页面关闭，所有类似方法都会被 block 掉</li>
+<li>visibilitychange在微信中无法使用</li>
+<li>onbeforeunload可以弹一个默认窗口，但窗口相关信息不可配置。</li>
+</ol>
+<h3 id="解决方案：history-pushState"><a href="#解决方案：history-pushState" class="headerlink" title="解决方案：history.pushState"></a>解决方案：history.pushState</h3><blockquote>
+<p>history.pushState() 方法向浏览器历史添加了一个状态。</p>
+</blockquote>
+<p><strong>语法：</strong><br><figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line">history.pushState(state, title, url);</div></pre></td></tr></table></figure></p>
+<p>示例代码：<br><figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">pushHistory</span>(<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="keyword">var</span> state = &#123;</div><div class="line">            <span class="attr">title</span>: <span class="string">''</span></div><div class="line">        &#125;</div><div class="line">        <span class="built_in">window</span>.history.pushState(state, <span class="string">''</span>, <span class="string">'#'</span>);</div><div class="line">&#125;</div><div class="line"><span class="built_in">window</span>.addEventListener(<span class="string">"popstate"</span>, <span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123; </div><div class="line">        showAlert(xxx, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">			<span class="comment">// 用户选择留在当前页，重写push一下</span></div><div class="line">			pushHistory();</div><div class="line">		&#125;, funcrion()&#123;</div><div class="line">			<span class="comment">// 用户选择离开返回</span></div><div class="line">			navigation.back();</div><div class="line">		&#125;);</div><div class="line">    &#125;, <span class="literal">false</span>); </div><div class="line">    &#125;</div></pre></td></tr></table></figure></p>
+<h3 id="参考："><a href="#参考：" class="headerlink" title="参考："></a>参考：</h3><ol>
 <li><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/GlobalEventHandlers/onclose" target="_blank" rel="external">GlobalEventHandlers.onclose
 </a></li>
 <li><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Window/onbeforeunload" target="_blank" rel="external">window.onbeforeunload</a></li>
@@ -364,6 +376,9 @@
 </a></li>
 <li><a href="https://developer.mozilla.org/zh-CN/docs/Web/Events/visibilitychange" target="_blank" rel="external">visibilitychange
 </a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Page_Visibility_API" target="_blank" rel="external">Page Visibility API</a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/History/pushState" target="_blank" rel="external">History.pushState()</a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/DOM/Manipulating_the_browser_history" target="_blank" rel="external">操纵浏览器的历史记录</a></li>
 </ol>
 
 	
