@@ -20,13 +20,12 @@
 </li>
 <li><p>window.onbeforeunload</p>
 <blockquote>
-<p>当窗口即将被卸载时,会触发该事件.此时页面文档依然可见,且      该事件的默认动作可以被取消.</p>
+<p>当窗口即将被卸载时,会触发该事件.此时页面文档依然可见,且该事件的默认动作可以被取消.<br>当该事件处理函数返回一个非空的值时,会有一个弹窗提示让用户决定是否要关闭该页面.在大多数浏览器中,返回值会转换为字符串显示在弹窗上.</p>
 </blockquote>
- <figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="built_in">window</span>.onbeforeunload = <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</div><div class="line">	e = e || <span class="built_in">window</span>.event;</div><div class="line"> 		<span class="comment">// 兼容IE8和Firefox 4之前的版本</span></div><div class="line"> 		<span class="keyword">if</span> (e) &#123;</div><div class="line">   		e.returnValue = <span class="string">'关闭提示'</span>;</div><div class="line"> 		&#125;</div><div class="line"> 		<span class="comment">// Chrome, Safari, Firefox 4+, Opera 12+ , IE 		9+</span></div><div class="line"> 		<span class="keyword">return</span> <span class="string">'关闭提示'</span>;</div><div class="line">	&#125;;</div></pre></td></tr></table></figure>
+ <figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="built_in">window</span>.onbeforeunload = <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</div><div class="line">	e = e || <span class="built_in">window</span>.event;</div><div class="line"> 		<span class="comment">// 兼容IE8和Firefox 4之前的版本</span></div><div class="line"> 		<span class="keyword">if</span> (e) &#123;</div><div class="line">   		e.returnValue = <span class="string">'关闭提示'</span>;</div><div class="line"> 		&#125;</div><div class="line"> 		<span class="comment">// Chrome, Safari, Firefox 4+, Opera 12+ , IE9+</span></div><div class="line"> 		<span class="keyword">return</span> <span class="string">'关闭提示'</span>;</div><div class="line">	&#125;;</div></pre></td></tr></table></figure>
 </li>
 </ol>
-<pre><code>&gt; 当该事件处理函数返回一个非空的值时,会有一个弹窗提示让用户      决定是否要关闭该页面.在大多数浏览器中,返回值会转换为字      符串显示在弹窗上.
-</code></pre><ol>
+<ol>
 <li><p>visibilitychange</p>
 <blockquote>
 <p>浏览器标签页被隐藏或显示的时候会触发visibilitychange事件.</p>
