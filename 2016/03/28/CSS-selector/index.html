@@ -32,12 +32,12 @@
     <meta name="theme-color" content="#0097A7">
     <meta name="author" content="vino24">
     <meta name="description" content="web前端开发, 前端开发工程师, 前端开发攻城师, 前端资源, CSS, JavaScript, HTML, Web标准">
-    <meta name="keywords" content="null,CSS Core">
+    <meta name="keywords" content="web前端开发, 前端开发工程师, 前端开发攻城师, 前端资源, CSS, JavaScript, HTML, Web标准,CSS Core">
 
     <!-- Favicons -->
     <link rel="icon shortcut" type="image/ico" href="/img/favicon.png">
-    <link rel="icon" sizes="192x192" href="/img/favicon.png">
-    <link rel="apple-touch-icon" href="/img/favicon.png">
+    <link rel="icon" sizes="192x192" href="/img/apple-touch-icon.png">
+    <link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
 
     <!--iOS -->
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
@@ -145,12 +145,12 @@
 <!-- Theme Background Related-->
 
     <style>
-      body{
+      body {
         background-color: #F5F5F5;
       }
 
       /* blog_info bottom background */
-      #scheme-Paradox .material-layout .something-else .mdl-card__supporting-text{
+      #scheme-Paradox .material-layout .something-else .mdl-card__supporting-text {
         background-color: #fff;
       }
     </style>
@@ -196,6 +196,12 @@
 
 
     <!-- Bing Background -->
+    
+        <script type="text/javascript">
+            queue.offer(function(){
+                $('body').attr('data-original', 'https://api.i-meto.com/bing?new');
+            });
+        </script>
     
 
     <!-- Custom Head -->
@@ -275,9 +281,9 @@
             <!-- Random Thumbnail -->
             <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
             <script>
-    var randomNum = Math.floor(Math.random() * 19 + 1);
+    var randomNum = Math.floor(Math.random() * 5 + 1);
 
-    $('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
+    $('.post_thumbnail-random').attr('data-original', '/img/random/' + randomNum + '.png');
     $('.post_thumbnail-random').addClass('lazy');
 </script>
 
@@ -318,6 +324,15 @@
 
     <!-- Qrcode -->
     
+        <button id="article-functions-qrcode-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+            <i class="material-icons" role="presentation">devices other</i>
+            <span class="visuallyhidden">devices other</span>
+        </button>
+        <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-qrcode-button">
+            <li class="mdl-menu__item">在其它设备中阅读本文章</li>
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACXElEQVR42u3aQW7DMAwEQP//0+21QBF3SUqKkY5ORRDLmhwkdsXr66PHhYeHh4eHh4eH9zDeFY+X0wXf//nJq9lePVVdGx4eHt4Z3h9bbfDi+8/zmResDQ8PD+8g737Rv7+Tb/rJG+9nS9aGh4eH92RevuheUY6Hh4f3H3jJN+/ZSYSBh4eH9zRetQi+3/SrgEdkLXh4eHgxL79kOv/30fs9PDw8vIBXHdWDYVVgUVghHh4e3mZevhHnzQTV6OH+LeVQGA8PD++tvHy7n8S7k58MDw8P7zwviVzzF+fs3iERzYyHh4e3mVd4rLX1T4rsXnmNh4eHt5uXl7D5U3kEnLMLb8HDw8M7wqsuMQ8R8oUmZXo0Dx4eHt4R3iQsmBflq8puPDw8vDO8fRf8eYQxaZPFw8PDO8/rRagJLC+CJ4FI4T8GPDw8vEW8fAvuRRXV67GcWi6p8fDw8Dbw5o1QhbB131GBh4eHt5mXL7caH/SWeLUGHh4e3nt5vamrLQLVsn5xTxkeHh7egFcNI1YxkgI9nxMPDw/vPK9a5ubRbR43RJdbvRgXDw8PbzOvemBMotvJ/M2DAQ8PD28pL48nksigELyO4w88PDy8k7zqyMvf6o/Va9vCw8PDO8/bvZUnwUe1yB71lOHh4eEt4uWHQRXQa1CoPoWHh4f3Ll41dOhd808OjOi9eHh4eI/kVa/QeuFv83DCw8PDeyQvj197hXveKNDsKcPDw8NbxJtcelXbpyblePkCDA8PD28DbxIB9K7K8qVXmxXw8PDwdvM+b+Dh4eHh4eHh4T1gfAOvcoaS9LA0NgAAAABJRU5ErkJggg==">
+        </ul>
+    
 
     <!-- Tags (bookmark) -->
     
@@ -343,38 +358,14 @@
 
     <!-- Share Weibo -->
     
-        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=CSS选择器&url=https://iminyao.com//2016/03/28/CSS-selector/index.html&pic=&searchPic=false&style=simple" target="_blank">
-            <li class="mdl-menu__item">
-                分享到微博
-            </li>
-        </a>
-    
 
     <!-- Share Twitter -->
-    
-        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=CSS选择器&url=https://iminyao.com//2016/03/28/CSS-selector/index.html&via=vino24" target="_blank">
-            <li class="mdl-menu__item">
-                分享到 Twitter
-            </li>
-        </a>
     
 
     <!-- Share Facebook -->
     
-        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=https://iminyao.com//2016/03/28/CSS-selector/index.html" target="_blank">
-            <li class="mdl-menu__item">
-                分享到 Facebook
-            </li>
-        </a>
-    
 
     <!-- Share Google+ -->
-    
-        <a class="post_share-link" href="https://plus.google.com/share?url=https://iminyao.com//2016/03/28/CSS-selector/index.html" target="_blank">
-            <li class="mdl-menu__item">
-                分享到 Google+
-            </li>
-        </a>
     
 
     <!-- Share LinkedIn -->
@@ -525,6 +516,33 @@ p.lsd1.lsd2 {background:sliver;}
 
 
 
+    <!-- 使用 DISQUS -->
+    <div id="disqus-comment">
+        <div id="disqus_thread"></div>
+<script>
+    var disqus_config = function () {
+        this.page.url = 'https://iminyao.com/2016/03/28/CSS-selector/';  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'https://iminyao.com/2016/03/28/CSS-selector/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    queue.offer(function() {
+            (function() { // DON'T EDIT BELOW THIS LINE
+                var d = document;
+                var s = d.createElement('script');
+                s.src = '//vino24.disqus.com/embed.js';
+                s.setAttribute('data-timestamp', + new Date());
+                (d.head || d.body).appendChild(s);
+            })();
+        });
+</script>
+
+    </div>
+    <style>
+        #disqus-comment{
+            background-color: #eee;
+            padding: 2pc;
+        }
+    </style>
+
 
 
 
@@ -592,7 +610,7 @@ p.lsd1.lsd2 {background:sliver;}
 
     <!-- Sidebar Email -->
     <a data-toggle="dropdown" class="sidebar-brand" href="#settings-dropdown">
-        youremail@email.com
+        jzwmxz@hotmail.com
         <b class="caret"></b>
     </a>
 </div>
@@ -605,7 +623,7 @@ p.lsd1.lsd2 {background:sliver;}
         <ul id="settings-dropdown" class="dropdown-menu">
             
                 <li>
-                    <a href="#" target="_blank" title="Email Me">
+                    <a href="jzwmxz@hotmail.com" target="_blank" title="Email Me">
                         
                             <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">email</i>
                         
@@ -651,6 +669,36 @@ p.lsd1.lsd2 {background:sliver;}
     
 
     <!-- Pages  -->
+    
+        <li>
+            <a href="/about" title="About">
+                
+                    <i class="material-icons sidebar-material-icons">person</i>
+                
+                About
+            </a>
+        </li>
+        
+    
+        <li>
+            <a href="/tags/" title="标签云">
+                
+                    <i class="material-icons sidebar-material-icons">person</i>
+                
+                标签云
+            </a>
+        </li>
+        
+    
+        <li>
+            <a href="links/" title="友情链接">
+                
+                    <i class="material-icons sidebar-material-icons">person</i>
+                
+                友情链接
+            </a>
+        </li>
+        
     
 
     <!-- Article Number  -->
@@ -725,29 +773,11 @@ It will not impact the appearance and can give developers a lot of support :)
         <div class="mdl-mini-footer--left-section sns-list">
     <!-- Twitter -->
     
-        <a href="https://twitter.com/twitter" target="_blank">
-            <button class="mdl-mini-footer--social-btn social-btn" style="background-image: url(/img/footer/footer_ico-twitter.svg);">
-                <span class="visuallyhidden">Twitter</span>
-            </button><!--
-     --></a>
-    
 
     <!-- Facebook -->
     
-        <a href="https://www.facebook.com/facebook" target="_blank">
-            <button class="mdl-mini-footer--social-btn social-btn" style="background-image: url(/img/footer/footer_ico-facebook.svg);">
-                <span class="visuallyhidden">Facebook</span>
-            </button><!--
-     --></a>
-    
 
     <!-- Google + -->
-    
-        <a href="https://www.google.com/" target="_blank">
-            <button class="mdl-mini-footer--social-btn social-btn" style="background-image: url(/img/footer/footer_ico-gplus.svg);">
-                <span class="visuallyhidden">Google Plus</span>
-            </button><!--
-     --></a>
     
 
     <!-- Weibo -->
@@ -760,6 +790,12 @@ It will not impact the appearance and can give developers a lot of support :)
     
 
     <!-- Github -->
+    
+        <a href="https://github.com/vino24/" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn" style="background-image: url(/img/footer/footer_ico-github.svg);">
+                <span class="visuallyhidden">Github</span>
+            </button><!--
+     --></a>
     
 
     <!-- LinkedIn -->
@@ -822,14 +858,14 @@ It will not impact the appearance and can give developers a lot of support :)
     });
     NProgress.start();
     $('#nprogress .bar').css({
-        'background': '#29d'
+        'background': '#FF4081'
     });
     $('#nprogress .peg').css({
-        'box-shadow': '0 0 10px #29d, 0 0 15px #29d'
+        'box-shadow': '0 0 10px #FF4081, 0 0 15px #FF4081'
     });
     $('#nprogress .spinner-icon').css({
-        'border-top-color': '#29d',
-        'border-left-color': '#29d'
+        'border-top-color': '#FF4081',
+        'border-left-color': '#FF4081'
     });
     setTimeout(function() {
         NProgress.done();
@@ -847,6 +883,9 @@ It will not impact the appearance and can give developers a lot of support :)
 
 
 
+
+    <!-- 使用 DISQUS js 代码 -->
+    <script id="dsq-count-scr" src="//vino24.disqus.com/count.js" async></script>
 
 
 

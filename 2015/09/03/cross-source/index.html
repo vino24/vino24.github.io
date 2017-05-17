@@ -32,12 +32,12 @@
     <meta name="theme-color" content="#0097A7">
     <meta name="author" content="vino24">
     <meta name="description" content="web前端开发, 前端开发工程师, 前端开发攻城师, 前端资源, CSS, JavaScript, HTML, Web标准">
-    <meta name="keywords" content="null">
+    <meta name="keywords" content="web前端开发, 前端开发工程师, 前端开发攻城师, 前端资源, CSS, JavaScript, HTML, Web标准">
 
     <!-- Favicons -->
     <link rel="icon shortcut" type="image/ico" href="/img/favicon.png">
-    <link rel="icon" sizes="192x192" href="/img/favicon.png">
-    <link rel="apple-touch-icon" href="/img/favicon.png">
+    <link rel="icon" sizes="192x192" href="/img/apple-touch-icon.png">
+    <link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
 
     <!--iOS -->
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
@@ -145,12 +145,12 @@
 <!-- Theme Background Related-->
 
     <style>
-      body{
+      body {
         background-color: #F5F5F5;
       }
 
       /* blog_info bottom background */
-      #scheme-Paradox .material-layout .something-else .mdl-card__supporting-text{
+      #scheme-Paradox .material-layout .something-else .mdl-card__supporting-text {
         background-color: #fff;
       }
     </style>
@@ -196,6 +196,12 @@
 
 
     <!-- Bing Background -->
+    
+        <script type="text/javascript">
+            queue.offer(function(){
+                $('body').attr('data-original', 'https://api.i-meto.com/bing?new');
+            });
+        </script>
     
 
     <!-- Custom Head -->
@@ -275,9 +281,9 @@
             <!-- Random Thumbnail -->
             <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
             <script>
-    var randomNum = Math.floor(Math.random() * 19 + 1);
+    var randomNum = Math.floor(Math.random() * 5 + 1);
 
-    $('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
+    $('.post_thumbnail-random').attr('data-original', '/img/random/' + randomNum + '.png');
     $('.post_thumbnail-random').addClass('lazy');
 </script>
 
@@ -318,6 +324,15 @@
 
     <!-- Qrcode -->
     
+        <button id="article-functions-qrcode-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+            <i class="material-icons" role="presentation">devices other</i>
+            <span class="visuallyhidden">devices other</span>
+        </button>
+        <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-qrcode-button">
+            <li class="mdl-menu__item">在其它设备中阅读本文章</li>
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACYElEQVR42u3aUbKCMAwFUPa/6fcW4IA3Ca3onH45qNDDR9u5yfH30+PAw8PDw8PDw8N7GO+Ix+u/rq/k169/U54bHh4e3hbem6X2ZCqvn88e2Vzii3PDw8PD2887m+LZbybL/dndqq8PDw8P71t4NyzfJ0/Bw8PD+z3e/ErvKXh4eHjP5FWX9SSGSA7ZD8pa8PDw8GJeXmTa/3lrfQ8PDw8v4PWKUr14ohcNl2eIh4eHt5g3aR3Ii1vVotr1Af1NEQ4PDw9vO6/aPtWLa5PDcW9WeHh4eKt5+e0mE+odr5uNX3h4eHiLeXkE0DsiT0pl1VgZDw8PbyevWvLPpz45oCdbCx4eHt5+Xr6s5wFBtRUgDymiqBcPDw/vQ7wkqJ20DuRBcN6ygIeHh7eHVz2w3nWArn57c9aCh4eHN+DlRalJfDApm+XhLx4eHt4eXo+RHHOrLys/yr8B4+Hh4S3m5XFDryQ22X56kQQeHh7eal4zKm3Fvvmd8y0BDw8P71O8JLTNF/cJPuH9XQ48PDy8PbxqPNGLWatNrtVNBQ8PD++zvKQ5oHfkzdsImq8eDw8PbzsvGfc2BySbxM09ZXh4eHhj3mS5z4OD/F/5BoOHh4e3n9fbEvINYB4ZlxsO8PDw8Bbzjnj0wtk8/K02vxbCCDw8PLwFvHn0kJCSpT/5Fg8PD+85vDxu6BWo5htGtP3g4eHhPZJXbbrqBbjJkR0PDw/vu3jzQlf19UXbDB4eHt5GXjWM6D0+L3rlrwMPDw9vP68aAUxaDfJtptlkgIeHh7eY93sDDw8PDw8PDw/vAeMfjGEmORSYyCkAAAAASUVORK5CYII=">
+        </ul>
+    
 
     <!-- Tags (bookmark) -->
     
@@ -343,38 +358,14 @@
 
     <!-- Share Weibo -->
     
-        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=JavaScript实现跨域的几种方案&url=https://iminyao.com//2015/09/03/cross-source/index.html&pic=&searchPic=false&style=simple" target="_blank">
-            <li class="mdl-menu__item">
-                分享到微博
-            </li>
-        </a>
-    
 
     <!-- Share Twitter -->
-    
-        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=JavaScript实现跨域的几种方案&url=https://iminyao.com//2015/09/03/cross-source/index.html&via=vino24" target="_blank">
-            <li class="mdl-menu__item">
-                分享到 Twitter
-            </li>
-        </a>
     
 
     <!-- Share Facebook -->
     
-        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=https://iminyao.com//2015/09/03/cross-source/index.html" target="_blank">
-            <li class="mdl-menu__item">
-                分享到 Facebook
-            </li>
-        </a>
-    
 
     <!-- Share Google+ -->
-    
-        <a class="post_share-link" href="https://plus.google.com/share?url=https://iminyao.com//2015/09/03/cross-source/index.html" target="_blank">
-            <li class="mdl-menu__item">
-                分享到 Google+
-            </li>
-        </a>
     
 
     <!-- Share LinkedIn -->
@@ -425,6 +416,33 @@
 
 
 
+
+    <!-- 使用 DISQUS -->
+    <div id="disqus-comment">
+        <div id="disqus_thread"></div>
+<script>
+    var disqus_config = function () {
+        this.page.url = 'https://iminyao.com/2015/09/03/cross-source/';  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'https://iminyao.com/2015/09/03/cross-source/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    queue.offer(function() {
+            (function() { // DON'T EDIT BELOW THIS LINE
+                var d = document;
+                var s = d.createElement('script');
+                s.src = '//vino24.disqus.com/embed.js';
+                s.setAttribute('data-timestamp', + new Date());
+                (d.head || d.body).appendChild(s);
+            })();
+        });
+</script>
+
+    </div>
+    <style>
+        #disqus-comment{
+            background-color: #eee;
+            padding: 2pc;
+        }
+    </style>
 
 
 
@@ -493,7 +511,7 @@
 
     <!-- Sidebar Email -->
     <a data-toggle="dropdown" class="sidebar-brand" href="#settings-dropdown">
-        youremail@email.com
+        jzwmxz@hotmail.com
         <b class="caret"></b>
     </a>
 </div>
@@ -506,7 +524,7 @@
         <ul id="settings-dropdown" class="dropdown-menu">
             
                 <li>
-                    <a href="#" target="_blank" title="Email Me">
+                    <a href="jzwmxz@hotmail.com" target="_blank" title="Email Me">
                         
                             <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">email</i>
                         
@@ -552,6 +570,36 @@
     
 
     <!-- Pages  -->
+    
+        <li>
+            <a href="/about" title="About">
+                
+                    <i class="material-icons sidebar-material-icons">person</i>
+                
+                About
+            </a>
+        </li>
+        
+    
+        <li>
+            <a href="/tags/" title="标签云">
+                
+                    <i class="material-icons sidebar-material-icons">person</i>
+                
+                标签云
+            </a>
+        </li>
+        
+    
+        <li>
+            <a href="links/" title="友情链接">
+                
+                    <i class="material-icons sidebar-material-icons">person</i>
+                
+                友情链接
+            </a>
+        </li>
+        
     
 
     <!-- Article Number  -->
@@ -626,29 +674,11 @@ It will not impact the appearance and can give developers a lot of support :)
         <div class="mdl-mini-footer--left-section sns-list">
     <!-- Twitter -->
     
-        <a href="https://twitter.com/twitter" target="_blank">
-            <button class="mdl-mini-footer--social-btn social-btn" style="background-image: url(/img/footer/footer_ico-twitter.svg);">
-                <span class="visuallyhidden">Twitter</span>
-            </button><!--
-     --></a>
-    
 
     <!-- Facebook -->
     
-        <a href="https://www.facebook.com/facebook" target="_blank">
-            <button class="mdl-mini-footer--social-btn social-btn" style="background-image: url(/img/footer/footer_ico-facebook.svg);">
-                <span class="visuallyhidden">Facebook</span>
-            </button><!--
-     --></a>
-    
 
     <!-- Google + -->
-    
-        <a href="https://www.google.com/" target="_blank">
-            <button class="mdl-mini-footer--social-btn social-btn" style="background-image: url(/img/footer/footer_ico-gplus.svg);">
-                <span class="visuallyhidden">Google Plus</span>
-            </button><!--
-     --></a>
     
 
     <!-- Weibo -->
@@ -661,6 +691,12 @@ It will not impact the appearance and can give developers a lot of support :)
     
 
     <!-- Github -->
+    
+        <a href="https://github.com/vino24/" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn" style="background-image: url(/img/footer/footer_ico-github.svg);">
+                <span class="visuallyhidden">Github</span>
+            </button><!--
+     --></a>
     
 
     <!-- LinkedIn -->
@@ -723,14 +759,14 @@ It will not impact the appearance and can give developers a lot of support :)
     });
     NProgress.start();
     $('#nprogress .bar').css({
-        'background': '#29d'
+        'background': '#FF4081'
     });
     $('#nprogress .peg').css({
-        'box-shadow': '0 0 10px #29d, 0 0 15px #29d'
+        'box-shadow': '0 0 10px #FF4081, 0 0 15px #FF4081'
     });
     $('#nprogress .spinner-icon').css({
-        'border-top-color': '#29d',
-        'border-left-color': '#29d'
+        'border-top-color': '#FF4081',
+        'border-left-color': '#FF4081'
     });
     setTimeout(function() {
         NProgress.done();
@@ -748,6 +784,9 @@ It will not impact the appearance and can give developers a lot of support :)
 
 
 
+
+    <!-- 使用 DISQUS js 代码 -->
+    <script id="dsq-count-scr" src="//vino24.disqus.com/count.js" async></script>
 
 
 

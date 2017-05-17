@@ -32,12 +32,12 @@
     <meta name="theme-color" content="#0097A7">
     <meta name="author" content="vino24">
     <meta name="description" content="web前端开发, 前端开发工程师, 前端开发攻城师, 前端资源, CSS, JavaScript, HTML, Web标准">
-    <meta name="keywords" content="null">
+    <meta name="keywords" content="web前端开发, 前端开发工程师, 前端开发攻城师, 前端资源, CSS, JavaScript, HTML, Web标准">
 
     <!-- Favicons -->
     <link rel="icon shortcut" type="image/ico" href="/img/favicon.png">
-    <link rel="icon" sizes="192x192" href="/img/favicon.png">
-    <link rel="apple-touch-icon" href="/img/favicon.png">
+    <link rel="icon" sizes="192x192" href="/img/apple-touch-icon.png">
+    <link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
 
     <!--iOS -->
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
@@ -145,12 +145,12 @@
 <!-- Theme Background Related-->
 
     <style>
-      body{
+      body {
         background-color: #F5F5F5;
       }
 
       /* blog_info bottom background */
-      #scheme-Paradox .material-layout .something-else .mdl-card__supporting-text{
+      #scheme-Paradox .material-layout .something-else .mdl-card__supporting-text {
         background-color: #fff;
       }
     </style>
@@ -196,6 +196,12 @@
 
 
     <!-- Bing Background -->
+    
+        <script type="text/javascript">
+            queue.offer(function(){
+                $('body').attr('data-original', 'https://api.i-meto.com/bing?new');
+            });
+        </script>
     
 
     <!-- Custom Head -->
@@ -358,10 +364,10 @@
 
     var locatePost = $('.locate-thumbnail-symbol').next();
     for(var i = 0; i < 10; i++) {
-        randomNum = Math.floor(Math.random() * 19 + 1);
+        randomNum = Math.floor(Math.random() * 5 + 1);
 
         locatePost.children('.post_thumbnail-random').attr('id', 'random_thumbnail-'+randomNum);
-        locatePost.children('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
+        locatePost.children('.post_thumbnail-random').attr('data-original', '/img/random/' + randomNum + '.png');
     $('.post_thumbnail-random').addClass('lazy');
 
         locatePost = locatePost.next();
@@ -400,7 +406,7 @@
 
     <!-- Sidebar Email -->
     <a data-toggle="dropdown" class="sidebar-brand" href="#settings-dropdown">
-        youremail@email.com
+        jzwmxz@hotmail.com
         <b class="caret"></b>
     </a>
 </div>
@@ -413,7 +419,7 @@
         <ul id="settings-dropdown" class="dropdown-menu">
             
                 <li>
-                    <a href="#" target="_blank" title="Email Me">
+                    <a href="jzwmxz@hotmail.com" target="_blank" title="Email Me">
                         
                             <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">email</i>
                         
@@ -459,6 +465,36 @@
     
 
     <!-- Pages  -->
+    
+        <li>
+            <a href="/about" title="About">
+                
+                    <i class="material-icons sidebar-material-icons">person</i>
+                
+                About
+            </a>
+        </li>
+        
+    
+        <li>
+            <a href="/tags/" title="标签云">
+                
+                    <i class="material-icons sidebar-material-icons">person</i>
+                
+                标签云
+            </a>
+        </li>
+        
+    
+        <li>
+            <a href="links/" title="友情链接">
+                
+                    <i class="material-icons sidebar-material-icons">person</i>
+                
+                友情链接
+            </a>
+        </li>
+        
     
 
     <!-- Article Number  -->
@@ -525,29 +561,11 @@ It will not impact the appearance and can give developers a lot of support :)
         <div class="mdl-mini-footer--left-section sns-list">
     <!-- Twitter -->
     
-        <a href="https://twitter.com/twitter" target="_blank">
-            <button class="mdl-mini-footer--social-btn social-btn" style="background-image: url(/img/footer/footer_ico-twitter.svg);">
-                <span class="visuallyhidden">Twitter</span>
-            </button><!--
-     --></a>
-    
 
     <!-- Facebook -->
     
-        <a href="https://www.facebook.com/facebook" target="_blank">
-            <button class="mdl-mini-footer--social-btn social-btn" style="background-image: url(/img/footer/footer_ico-facebook.svg);">
-                <span class="visuallyhidden">Facebook</span>
-            </button><!--
-     --></a>
-    
 
     <!-- Google + -->
-    
-        <a href="https://www.google.com/" target="_blank">
-            <button class="mdl-mini-footer--social-btn social-btn" style="background-image: url(/img/footer/footer_ico-gplus.svg);">
-                <span class="visuallyhidden">Google Plus</span>
-            </button><!--
-     --></a>
     
 
     <!-- Weibo -->
@@ -560,6 +578,12 @@ It will not impact the appearance and can give developers a lot of support :)
     
 
     <!-- Github -->
+    
+        <a href="https://github.com/vino24/" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn" style="background-image: url(/img/footer/footer_ico-github.svg);">
+                <span class="visuallyhidden">Github</span>
+            </button><!--
+     --></a>
     
 
     <!-- LinkedIn -->
@@ -622,14 +646,14 @@ It will not impact the appearance and can give developers a lot of support :)
     });
     NProgress.start();
     $('#nprogress .bar').css({
-        'background': '#29d'
+        'background': '#FF4081'
     });
     $('#nprogress .peg').css({
-        'box-shadow': '0 0 10px #29d, 0 0 15px #29d'
+        'box-shadow': '0 0 10px #FF4081, 0 0 15px #FF4081'
     });
     $('#nprogress .spinner-icon').css({
-        'border-top-color': '#29d',
-        'border-left-color': '#29d'
+        'border-top-color': '#FF4081',
+        'border-left-color': '#FF4081'
     });
     setTimeout(function() {
         NProgress.done();
@@ -647,6 +671,9 @@ It will not impact the appearance and can give developers a lot of support :)
 
 
 
+
+    <!-- 使用 DISQUS js 代码 -->
+    <script id="dsq-count-scr" src="//vino24.disqus.com/count.js" async></script>
 
 
 
