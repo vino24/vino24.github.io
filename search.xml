@@ -38,46 +38,36 @@
     
     <entry>
       <title><![CDATA[微信中页面关闭时弹窗]]></title>
-      <url>https://iminyao.com/2017/05/09/wechat-close-dialog/</url>
-      <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><h3 id="与窗口关闭相关的几个事件"><a href="#与窗口关闭相关的几个事件" class="headerlink" title="与窗口关闭相关的几个事件"></a>与窗口关闭相关的几个事件</h3><ol>
-<li><p>window.onclose</p>
-<blockquote>
+      <url>https://iminyao.com/2017/05/09/wechat_close_alert/</url>
+      <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><h3 id="1-window-onclose"><a href="#1-window-onclose" class="headerlink" title="1. window.onclose"></a>1. window.onclose</h3><blockquote>
 <p>当在window对象上触发close事件时的事件处理器</p>
 </blockquote>
-</li>
-<li><p>window.onunload</p>
-<blockquote>
+<h3 id="2-window-onunload"><a href="#2-window-onunload" class="headerlink" title="2. window.onunload"></a>2. window.onunload</h3><blockquote>
 <p>当页面关闭后,会触发unload事件.</p>
 </blockquote>
-<p> <strong>语法：</strong> <code>window.onunload = funcRef;</code></p>
-</li>
-<li><p>window.onbeforeunload</p>
-<blockquote>
-<p>当窗口即将被卸载时,会触发该事件.此时页面文档依然可见,且该事件的默认动作可以被取消.<br>当该事件处理函数返回一个非空的值时,会有一个弹窗提示让用户决定是否要关闭该页面.在大多数浏览器中,返回值会转换为字符串显示在弹窗上.</p>
+<p><strong>语法：</strong> <code>window.onunload = funcRef;</code></p>
+<h3 id="3-window-onbeforeunload"><a href="#3-window-onbeforeunload" class="headerlink" title="3. window.onbeforeunload"></a>3. window.onbeforeunload</h3><blockquote>
+<p>当窗口即将被卸载时,会触发该事件.此时页面文档依然可见,且该事件的默认动作可以被取消.</p>
+<p>当该事件处理函数返回一个非空的值时,会有一个弹窗提示让用户决定是否要关闭该页面.在大多数浏览器中,返回值会转换为字符串显示在弹窗上.</p>
 </blockquote>
- <figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="built_in">window</span>.onbeforeunload = <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</div><div class="line">	e = e || <span class="built_in">window</span>.event;</div><div class="line"> 		<span class="comment">// 兼容IE8和Firefox 4之前的版本</span></div><div class="line"> 		<span class="keyword">if</span> (e) &#123;</div><div class="line">   		e.returnValue = <span class="string">'关闭提示'</span>;</div><div class="line"> 		&#125;</div><div class="line"> 		<span class="comment">// Chrome, Safari, Firefox 4+, Opera 12+ , IE9+</span></div><div class="line"> 		<span class="keyword">return</span> <span class="string">'关闭提示'</span>;</div><div class="line">	&#125;;</div></pre></td></tr></table></figure>
-</li>
-</ol>
-<ol>
-<li><p>visibilitychange</p>
-<blockquote>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="built_in">window</span>.onbeforeunload = <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</div><div class="line">	e = e || <span class="built_in">window</span>.event;</div><div class="line"> 		<span class="comment">// 兼容IE8和Firefox 4之前的版本</span></div><div class="line"> 		<span class="keyword">if</span> (e) &#123;</div><div class="line">   		e.returnValue = <span class="string">'关闭提示'</span>;</div><div class="line"> 		&#125;</div><div class="line"> 		<span class="comment">// Chrome, Safari, Firefox 4+, Opera 12+ , IE9+</span></div><div class="line"> 		<span class="keyword">return</span> <span class="string">'关闭提示'</span>;</div><div class="line">	&#125;;</div></pre></td></tr></table></figure>
+<h3 id="4-visibilitychange"><a href="#4-visibilitychange" class="headerlink" title="4. visibilitychange"></a>4. visibilitychange</h3><blockquote>
 <p>浏览器标签页被隐藏或显示的时候会触发visibilitychange事件.</p>
 </blockquote>
-</li>
-</ol>
-<pre><code><figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="built_in">document</span>.addEventListener(<span class="string">"visibilitychange"</span>, 		</div><div class="line"><span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line"> 		<span class="built_in">console</span>.log( <span class="built_in">document</span>.visibilityState );</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-</code></pre><p>经过尝试上面的几个方案都行不通：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="built_in">document</span>.addEventListener(<span class="string">"visibilitychange"</span>, 		</div><div class="line"><span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line"> 		<span class="built_in">console</span>.log( <span class="built_in">document</span>.visibilityState );</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>经过尝试上面的几个方案都行不通:</p>
 <ol>
 <li>window.close关闭时不会调用</li>
 <li>其他几个在关闭不能使用 alert、confirm 等方法来弹窗阻止页面关闭，所有类似方法都会被 block 掉</li>
 <li>visibilitychange在微信中无法使用</li>
 <li>onbeforeunload可以弹一个默认窗口，但窗口相关信息不可配置。</li>
 </ol>
-<h3 id="解决方案：history-pushState"><a href="#解决方案：history-pushState" class="headerlink" title="解决方案：history.pushState"></a>解决方案：history.pushState</h3><blockquote>
-<p>history.pushState() 方法向浏览器历史添加了一个状态。</p>
+<h2 id="解决方案：history-pushState"><a href="#解决方案：history-pushState" class="headerlink" title="解决方案：history.pushState"></a>解决方案：history.pushState</h2><blockquote>
+<p><code>history.pushState()</code> 方法向浏览器历史添加了一个状态。</p>
 </blockquote>
-<p><strong>语法：</strong><br><figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line">history.pushState(state, title, url);</div></pre></td></tr></table></figure></p>
-<p>示例代码：<br><figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">pushHistory</span>(<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="keyword">var</span> state = &#123;</div><div class="line">            <span class="attr">title</span>: <span class="string">''</span></div><div class="line">        &#125;</div><div class="line">        <span class="built_in">window</span>.history.pushState(state, <span class="string">''</span>, <span class="string">'#'</span>);</div><div class="line">&#125;</div><div class="line"><span class="built_in">window</span>.addEventListener(<span class="string">"popstate"</span>, <span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123; </div><div class="line">        showAlert(xxx, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">			<span class="comment">// 用户选择留在当前页，重写push一下</span></div><div class="line">			pushHistory();</div><div class="line">		&#125;, funcrion()&#123;</div><div class="line">			<span class="comment">// 用户选择离开返回</span></div><div class="line">			navigation.back();</div><div class="line">		&#125;);</div><div class="line">    &#125;, <span class="literal">false</span>); </div><div class="line">    &#125;</div></pre></td></tr></table></figure></p>
+<p><strong>语法：</strong><br><code>history.pushState(state, title, url);</code></p>
+<p>示例代码:</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">pushHistory</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> state = &#123;</div><div class="line">       <span class="attr">title</span>: <span class="string">''</span></div><div class="line">    &#125;</div><div class="line">    <span class="built_in">window</span>.history.pushState(state, <span class="string">''</span>, <span class="string">'#'</span>);</div><div class="line">&#125;</div><div class="line"><span class="built_in">window</span>.addEventListener(<span class="string">"popstate"</span>, <span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123; </div><div class="line">    showAlert(xxx, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        <span class="comment">// 留在当前页面时重新 push</span></div><div class="line">		pushHistory();</div><div class="line">	&#125;, funcrion()&#123;</div><div class="line">        <span class="comment">// 离开时执行原本操作</span></div><div class="line">		navigation.back();</div><div class="line">	&#125;);</div><div class="line">&#125;, <span class="literal">false</span>); </div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h3 id="参考："><a href="#参考：" class="headerlink" title="参考："></a>参考：</h3><ol>
 <li><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/GlobalEventHandlers/onclose" target="_blank" rel="external">GlobalEventHandlers.onclose
 </a></li>
@@ -2666,6 +2656,127 @@ Warning: Invalid argument supplied for foreach() in /data/home/qxu1098560294/htd
     </entry>
     
     <entry>
+      <title><![CDATA[CSS三种基本定位机制]]></title>
+      <url>https://iminyao.com/2016/03/28/CSS-position/</url>
+      <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><h2 id="CSS常用的定位方法："><a href="#CSS常用的定位方法：" class="headerlink" title="CSS常用的定位方法："></a>CSS常用的定位方法：</h2><ol>
+<li>相对定位</li>
+<li>浮动</li>
+<li>绝对定位：直接应用于body下元素最佳</li>
+<li>margin</li>
+</ol>
+<h3 id="浮动定位劣势："><a href="#浮动定位劣势：" class="headerlink" title="浮动定位劣势："></a>浮动定位劣势：</h3><ol>
+<li>浮动的破坏性在于切断line box链，致使高度塌陷，可修复</li>
+</ol>
+<h3 id="绝对定位劣势："><a href="#绝对定位劣势：" class="headerlink" title="绝对定位劣势："></a>绝对定位劣势：</h3><ol>
+<li>破坏布局(降低了页面的扩展性和维护性)<blockquote>
+<p>因为绝对定位的元素与文档流无关，所以他们不影响普通流中的框，如果扩大绝对定位的框(增加字号等)，周围的框不会重新定位。因此，尺寸的任何改变都会导致绝对定位的框产生重叠，从而破坏布局。</p>
+</blockquote>
+</li>
+<li>高度宽度皆塌陷，不可修复</li>
+<li><p>流动性差：</p>
+<blockquote>
+<p>由于absolute属性（尤其是带有left/top值）的破坏性，会导致高宽塌陷，于是，不得已，需要设定一个高度值（或是足以撑开高度的值）</p>
+</blockquote>
+<p><img src="http://image.zhangxinxu.com/image/blog/201012/2010-12-09_221942.png" alt="sina1"><br><img src="http://image.zhangxinxu.com/image/blog/201012/2010-12-09_222350.png" alt="sina2"></p>
+<h4 id="测试代码："><a href="#测试代码：" class="headerlink" title="测试代码："></a>测试代码：</h4><figure class="highlight stylus"><table><tr><td class="code"><pre><div class="line"><span class="comment">// HTML</span></div><div class="line">&lt;<span class="selector-tag">div</span> class=<span class="string">"div"</span>&gt;</div><div class="line">    &lt;<span class="selector-tag">img</span> src=<span class="string">"http://image.zhangxinxu.com/image/study/s/s256/mm1.jpg"</span> /&gt;</div><div class="line">    &lt;p&gt;图片无absolute&lt;/p&gt;</div><div class="line">&lt;/div&gt;</div><div class="line">&lt;<span class="selector-tag">div</span> class=<span class="string">"div"</span>&gt;</div><div class="line">    &lt;<span class="selector-tag">img</span> class=<span class="string">"abs"</span> src=<span class="string">"http://image.zhangxinxu.com/image/study/s/s256/mm1.jpg"</span> /&gt;</div><div class="line">    &lt;p&gt;图片absolute后&lt;/p&gt;</div><div class="line">&lt;/div&gt;</div><div class="line"></div><div class="line"><span class="comment">// CSS</span></div><div class="line"><span class="selector-class">.div</span> &#123; <span class="attribute">padding</span>:<span class="number">20px</span>; <span class="attribute">margin</span>:<span class="number">10px</span> <span class="number">0</span> <span class="number">0</span> <span class="number">10px</span>; <span class="attribute">background-color</span>:<span class="number">#f0f3f9</span>; <span class="attribute">float</span>:left; &#125;</div><div class="line"><span class="selector-class">.abs</span> &#123; <span class="attribute">position</span>:absolute; &#125;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p><img src="http://image.zhangxinxu.com/image/blog/201012/2010-12-09_233323.jpg" alt="pic"></p>
+<h3 id="margin劣势："><a href="#margin劣势：" class="headerlink" title="margin劣势："></a>margin劣势：</h3><ol>
+<li>margin-top值的改变会产生更强的回流(滚动播放效果时)</li>
+</ol>
+<h3 id="清理-clear-的本质："><a href="#清理-clear-的本质：" class="headerlink" title="清理(clear)的本质："></a>清理(clear)的本质：</h3><ul>
+<li><p><strong>CSS2</strong>中，清理元素时，浏览器在元素顶上添加足够的外边距，使元素的顶边缘垂直下降到浮动框的下面。<br><img src="https://cloud.githubusercontent.com/assets/4004044/7001000/bc14e862-dc62-11e4-80ca-79efbd6f971a.png" alt="clear"></p>
+</li>
+<li><p><strong>CSS2.1</strong>中，引入一个清除区域(clearance),清除区域是在元素上外边距之上增加的额外间隔，不允许任何浮动元素进入这个范围内。也就是说元素设置<code>clear</code>属性时，它的外边距并不改变。之所以会向下移是这个清除区域造成的。</p>
+</li>
+</ul>
+<h3 id="1-实例："><a href="#1-实例：" class="headerlink" title="1.实例："></a>1.实例：</h3><pre><code>img.sider{float:left; margin:0; }
+h3{border:1px solid gray; clearleft; margin-top:15px; }
+
+&lt;img src=&quot; &quot; class=&quot;sider&quot; height=&quot;50&quot; width=&quot;50&quot;&gt;
+&lt;img src&quot; &quot; height=&quot;10&quot; width=&quot;50&quot;&gt;
+&lt;h3&gt;Why....&lt;/h3&gt;
+</code></pre><p><img src="https://cloud.githubusercontent.com/assets/4004044/7001001/c516e640-dc62-11e4-9b16-338c447b83fc.png" alt="clear_01"></p>
+<blockquote>
+<p>示例中h3上边框与浮动图像下边框之间没有间隔，因为在h3的上边距(15px)之上增加了25px的清除区域，将h3的上边距边界推到刚好越过浮动元素的下边界。一般都会这样，除非h3的上边距计算值<code>&gt;40px(50px-10px)</code>，在这种情况下,h3会很自然的放在浮动元素的下面，<code>clear</code>值是什么则无关紧要。</p>
+</blockquote>
+<ul>
+<li><p><strong>解决方法：</strong><br>  要确保一个清除元素的顶端与一个浮动元素的低端之间有一定的空间，<strong>可以为浮动元素本身设置一个下外边距</strong>。</p>
+<pre><code>img.sider{float:left; margin:0 0 15px; }
+h3{border:1px solid gray; clear:left; }
+</code></pre><ul>
+<li><strong>原理：</strong>浮动元素的外边距边界定义了浮动框的边界。 <h3 id="2-实例："><a href="#2-实例：" class="headerlink" title="2.实例："></a>2.实例：</h3>.news{<br>  background-color:gray;<br>  border:solid 1px black;<br>  }<br>.news img{<br>  float:left;<br>  }<br>.news p{<br>  float:right;<br>  }<div class="news"><br>  <img src=" "><br>  <p>Some text</p><br></div>
+
+</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>因为浮动元素脱离了文档流，所以包围图片和文字的<code>div</code>不占据空间</p>
+</blockquote>
+<p><img src="https://cloud.githubusercontent.com/assets/4004044/7001009/dd6cac66-dc62-11e4-9496-e358787a0090.png" alt="clear_02"></p>
+<ol>
+<li><strong>解决方案1：</strong>在最后一段下面添加空元素并且清理它。</li>
+</ol>
+<pre><code>.clear{
+clear:both;
+}
+
+&lt;div class=&quot;news&quot;&gt;
+&lt;img src=&quot; &quot;&gt;
+&lt;p&gt;Some text&lt;/p&gt;
+&lt;br class=&quot;clear&quot; /&gt;
+&lt;/div&gt;
+</code></pre><ol>
+<li><p><strong>解决方案2：</strong>直接选择浮动容器<code>div</code></p>
+<pre><code>.news{
+float:left;
+} 
+</code></pre></li>
+<li><p><strong>解决方案3：</strong>设置<code>overflow</code>为<code>hidden</code>或<code>auto</code></p>
+<pre><code>.news{
+    overflow:hidden;
+}
+</code></pre></li>
+<li><p><strong>解决方案4：</strong><code>:after</code>伪元素(CSS生成内容)</p>
+<pre><code>&lt;div class=&quot;news clear&quot;&gt;
+    &lt;img src=&quot;&quot; /&gt;
+    &lt;p&gt;Some text&lt;/p&gt;
+&lt;/div&gt;
+
+.clear:after{
+    content:&quot;.&quot;;
+    height:0;
+    visibility:hidden;
+    display:block;    
+    clear:both;
+}
+</code></pre></li>
+<li>JavsScript方法</li>
+</ol>
+<h3 id="参考："><a href="#参考：" class="headerlink" title="参考："></a>参考：</h3><ol>
+<li><a href="http://www.zhangxinxu.com/wordpress/2011/03/css-%E7%9B%B8%E5%AF%B9%E7%BB%9D%E5%AF%B9relativeabsolute%E5%AE%9A%E4%BD%8D%E7%B3%BB%E5%88%97%EF%BC%88%E4%B8%80%EF%BC%89/" target="_blank" rel="external">css-相对绝对relativeabsolute定位系列（一）</a></li>
+<li><a href="http://www.zhangxinxu.com/wordpress/2011/03/css-%E7%9B%B8%E5%AF%B9%E7%BB%9D%E5%AF%B9relativeabsolute%E5%AE%9A%E4%BD%8D%E7%B3%BB%E5%88%97%EF%BC%88%E4%BA%8C%EF%BC%89/" target="_blank" rel="external">css-相对绝对relativeabsolute定位系列（二）</a></li>
+</ol>
+]]></content>
+      
+        <categories>
+            
+            <category> CSS </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> CSS Layout </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[CSS选择器]]></title>
       <url>https://iminyao.com/2016/03/28/CSS-selector/</url>
       <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><ul>
@@ -2795,127 +2906,6 @@ p.lsd1.lsd2 {background:sliver;}
         <tags>
             
             <tag> CSS Core </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[CSS三种基本定位机制]]></title>
-      <url>https://iminyao.com/2016/03/28/CSS-position/</url>
-      <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><h2 id="CSS常用的定位方法："><a href="#CSS常用的定位方法：" class="headerlink" title="CSS常用的定位方法："></a>CSS常用的定位方法：</h2><ol>
-<li>相对定位</li>
-<li>浮动</li>
-<li>绝对定位：直接应用于body下元素最佳</li>
-<li>margin</li>
-</ol>
-<h3 id="浮动定位劣势："><a href="#浮动定位劣势：" class="headerlink" title="浮动定位劣势："></a>浮动定位劣势：</h3><ol>
-<li>浮动的破坏性在于切断line box链，致使高度塌陷，可修复</li>
-</ol>
-<h3 id="绝对定位劣势："><a href="#绝对定位劣势：" class="headerlink" title="绝对定位劣势："></a>绝对定位劣势：</h3><ol>
-<li>破坏布局(降低了页面的扩展性和维护性)<blockquote>
-<p>因为绝对定位的元素与文档流无关，所以他们不影响普通流中的框，如果扩大绝对定位的框(增加字号等)，周围的框不会重新定位。因此，尺寸的任何改变都会导致绝对定位的框产生重叠，从而破坏布局。</p>
-</blockquote>
-</li>
-<li>高度宽度皆塌陷，不可修复</li>
-<li><p>流动性差：</p>
-<blockquote>
-<p>由于absolute属性（尤其是带有left/top值）的破坏性，会导致高宽塌陷，于是，不得已，需要设定一个高度值（或是足以撑开高度的值）</p>
-</blockquote>
-<p><img src="http://image.zhangxinxu.com/image/blog/201012/2010-12-09_221942.png" alt="sina1"><br><img src="http://image.zhangxinxu.com/image/blog/201012/2010-12-09_222350.png" alt="sina2"></p>
-<h4 id="测试代码："><a href="#测试代码：" class="headerlink" title="测试代码："></a>测试代码：</h4><figure class="highlight stylus"><table><tr><td class="code"><pre><div class="line"><span class="comment">// HTML</span></div><div class="line">&lt;<span class="selector-tag">div</span> class=<span class="string">"div"</span>&gt;</div><div class="line">    &lt;<span class="selector-tag">img</span> src=<span class="string">"http://image.zhangxinxu.com/image/study/s/s256/mm1.jpg"</span> /&gt;</div><div class="line">    &lt;p&gt;图片无absolute&lt;/p&gt;</div><div class="line">&lt;/div&gt;</div><div class="line">&lt;<span class="selector-tag">div</span> class=<span class="string">"div"</span>&gt;</div><div class="line">    &lt;<span class="selector-tag">img</span> class=<span class="string">"abs"</span> src=<span class="string">"http://image.zhangxinxu.com/image/study/s/s256/mm1.jpg"</span> /&gt;</div><div class="line">    &lt;p&gt;图片absolute后&lt;/p&gt;</div><div class="line">&lt;/div&gt;</div><div class="line"></div><div class="line"><span class="comment">// CSS</span></div><div class="line"><span class="selector-class">.div</span> &#123; <span class="attribute">padding</span>:<span class="number">20px</span>; <span class="attribute">margin</span>:<span class="number">10px</span> <span class="number">0</span> <span class="number">0</span> <span class="number">10px</span>; <span class="attribute">background-color</span>:<span class="number">#f0f3f9</span>; <span class="attribute">float</span>:left; &#125;</div><div class="line"><span class="selector-class">.abs</span> &#123; <span class="attribute">position</span>:absolute; &#125;</div></pre></td></tr></table></figure>
-</li>
-</ol>
-<p><img src="http://image.zhangxinxu.com/image/blog/201012/2010-12-09_233323.jpg" alt="pic"></p>
-<h3 id="margin劣势："><a href="#margin劣势：" class="headerlink" title="margin劣势："></a>margin劣势：</h3><ol>
-<li>margin-top值的改变会产生更强的回流(滚动播放效果时)</li>
-</ol>
-<h3 id="清理-clear-的本质："><a href="#清理-clear-的本质：" class="headerlink" title="清理(clear)的本质："></a>清理(clear)的本质：</h3><ul>
-<li><p><strong>CSS2</strong>中，清理元素时，浏览器在元素顶上添加足够的外边距，使元素的顶边缘垂直下降到浮动框的下面。<br><img src="https://cloud.githubusercontent.com/assets/4004044/7001000/bc14e862-dc62-11e4-80ca-79efbd6f971a.png" alt="clear"></p>
-</li>
-<li><p><strong>CSS2.1</strong>中，引入一个清除区域(clearance),清除区域是在元素上外边距之上增加的额外间隔，不允许任何浮动元素进入这个范围内。也就是说元素设置<code>clear</code>属性时，它的外边距并不改变。之所以会向下移是这个清除区域造成的。</p>
-</li>
-</ul>
-<h3 id="1-实例："><a href="#1-实例：" class="headerlink" title="1.实例："></a>1.实例：</h3><pre><code>img.sider{float:left; margin:0; }
-h3{border:1px solid gray; clearleft; margin-top:15px; }
-
-&lt;img src=&quot; &quot; class=&quot;sider&quot; height=&quot;50&quot; width=&quot;50&quot;&gt;
-&lt;img src&quot; &quot; height=&quot;10&quot; width=&quot;50&quot;&gt;
-&lt;h3&gt;Why....&lt;/h3&gt;
-</code></pre><p><img src="https://cloud.githubusercontent.com/assets/4004044/7001001/c516e640-dc62-11e4-9b16-338c447b83fc.png" alt="clear_01"></p>
-<blockquote>
-<p>示例中h3上边框与浮动图像下边框之间没有间隔，因为在h3的上边距(15px)之上增加了25px的清除区域，将h3的上边距边界推到刚好越过浮动元素的下边界。一般都会这样，除非h3的上边距计算值<code>&gt;40px(50px-10px)</code>，在这种情况下,h3会很自然的放在浮动元素的下面，<code>clear</code>值是什么则无关紧要。</p>
-</blockquote>
-<ul>
-<li><p><strong>解决方法：</strong><br>  要确保一个清除元素的顶端与一个浮动元素的低端之间有一定的空间，<strong>可以为浮动元素本身设置一个下外边距</strong>。</p>
-<pre><code>img.sider{float:left; margin:0 0 15px; }
-h3{border:1px solid gray; clear:left; }
-</code></pre><ul>
-<li><strong>原理：</strong>浮动元素的外边距边界定义了浮动框的边界。 <h3 id="2-实例："><a href="#2-实例：" class="headerlink" title="2.实例："></a>2.实例：</h3>.news{<br>  background-color:gray;<br>  border:solid 1px black;<br>  }<br>.news img{<br>  float:left;<br>  }<br>.news p{<br>  float:right;<br>  }<div class="news"><br>  <img src=" "><br>  <p>Some text</p><br></div>
-
-</li>
-</ul>
-</li>
-</ul>
-<blockquote>
-<p>因为浮动元素脱离了文档流，所以包围图片和文字的<code>div</code>不占据空间</p>
-</blockquote>
-<p><img src="https://cloud.githubusercontent.com/assets/4004044/7001009/dd6cac66-dc62-11e4-9496-e358787a0090.png" alt="clear_02"></p>
-<ol>
-<li><strong>解决方案1：</strong>在最后一段下面添加空元素并且清理它。</li>
-</ol>
-<pre><code>.clear{
-clear:both;
-}
-
-&lt;div class=&quot;news&quot;&gt;
-&lt;img src=&quot; &quot;&gt;
-&lt;p&gt;Some text&lt;/p&gt;
-&lt;br class=&quot;clear&quot; /&gt;
-&lt;/div&gt;
-</code></pre><ol>
-<li><p><strong>解决方案2：</strong>直接选择浮动容器<code>div</code></p>
-<pre><code>.news{
-float:left;
-} 
-</code></pre></li>
-<li><p><strong>解决方案3：</strong>设置<code>overflow</code>为<code>hidden</code>或<code>auto</code></p>
-<pre><code>.news{
-    overflow:hidden;
-}
-</code></pre></li>
-<li><p><strong>解决方案4：</strong><code>:after</code>伪元素(CSS生成内容)</p>
-<pre><code>&lt;div class=&quot;news clear&quot;&gt;
-    &lt;img src=&quot;&quot; /&gt;
-    &lt;p&gt;Some text&lt;/p&gt;
-&lt;/div&gt;
-
-.clear:after{
-    content:&quot;.&quot;;
-    height:0;
-    visibility:hidden;
-    display:block;    
-    clear:both;
-}
-</code></pre></li>
-<li>JavsScript方法</li>
-</ol>
-<h3 id="参考："><a href="#参考：" class="headerlink" title="参考："></a>参考：</h3><ol>
-<li><a href="http://www.zhangxinxu.com/wordpress/2011/03/css-%E7%9B%B8%E5%AF%B9%E7%BB%9D%E5%AF%B9relativeabsolute%E5%AE%9A%E4%BD%8D%E7%B3%BB%E5%88%97%EF%BC%88%E4%B8%80%EF%BC%89/" target="_blank" rel="external">css-相对绝对relativeabsolute定位系列（一）</a></li>
-<li><a href="http://www.zhangxinxu.com/wordpress/2011/03/css-%E7%9B%B8%E5%AF%B9%E7%BB%9D%E5%AF%B9relativeabsolute%E5%AE%9A%E4%BD%8D%E7%B3%BB%E5%88%97%EF%BC%88%E4%BA%8C%EF%BC%89/" target="_blank" rel="external">css-相对绝对relativeabsolute定位系列（二）</a></li>
-</ol>
-]]></content>
-      
-        <categories>
-            
-            <category> CSS </category>
-            
-        </categories>
-        
-        
-        <tags>
-            
-            <tag> CSS Layout </tag>
             
         </tags>
         
@@ -3553,6 +3543,35 @@ background-image: url(&quot;data:image/gif;base64,R0lGODlhAwADAIAAAP///8zMzCH5BA
     </entry>
     
     <entry>
+      <title><![CDATA[IE hasLayout渲染引擎]]></title>
+      <url>https://iminyao.com/2015/12/27/IE-hasLayout/</url>
+      <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><h2 id="1-概念："><a href="#1-概念：" class="headerlink" title="1. 概念："></a>1. 概念：</h2><blockquote>
+<p>IE6-7的显示引擎使用的是一个称为布局（layout）的内部概念来<em>控制元素的尺寸和定位</em>，那些拥有布局（have layout）的元素负责本身及其子元素的尺寸设置和定位。如果一个元素的 hasLayout 为false，那么它的尺寸和位置由<em>最近拥有布局的祖先元素控制</em>。</p>
+<p>由于这个显示引擎自身存在很多的缺陷，直接导致了IE6-7的很多显示bug。</p>
+</blockquote>
+<h2 id="2-hasLayout默认为true的元素："><a href="#2-hasLayout默认为true的元素：" class="headerlink" title="2. hasLayout默认为true的元素："></a>2. <code>hasLayout</code>默认为<code>true</code>的元素：</h2><pre><code><figure class="highlight xml"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span>, <span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">table</span>&gt;</span>, <span class="tag">&lt;<span class="name">tr</span>&gt;</span>, <span class="tag">&lt;<span class="name">th</span>&gt;</span>, <span class="tag">&lt;<span class="name">td</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">img</span>&gt;</span>,<span class="tag">&lt;<span class="name">hr</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">input</span>&gt;</span>, <span class="tag">&lt;<span class="name">button</span>&gt;</span>, <span class="tag">&lt;<span class="name">select</span>&gt;</span>, <span class="tag">&lt;<span class="name">textarea</span>&gt;</span>, <span class="tag">&lt;<span class="name">fieldset</span>&gt;</span>, <span class="tag">&lt;<span class="name">legend</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">iframe</span>&gt;</span>, <span class="tag">&lt;<span class="name">embed</span>&gt;</span>, <span class="tag">&lt;<span class="name">object</span>&gt;</span>, <span class="tag">&lt;<span class="name">applet</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">marquee</span>&gt;</span></div></pre></td></tr></table></figure>
+</code></pre><h2 id="3-能够触发hasLayout的CSS属性"><a href="#3-能够触发hasLayout的CSS属性" class="headerlink" title="3. 能够触发hasLayout的CSS属性"></a>3. 能够触发<code>hasLayout</code>的CSS属性</h2><figure class="highlight arduino"><table><tr><td class="code"><pre><div class="line"><span class="built_in">position</span>: absolute </div><div class="line"> </div><div class="line"><span class="keyword">float</span>: left|right </div><div class="line"> </div><div class="line"><span class="built_in">display</span>: <span class="keyword">inline</span>-block </div><div class="line"> </div><div class="line"><span class="built_in">width</span>: 除 “<span class="keyword">auto</span>” 外的任意值 </div><div class="line"> </div><div class="line"><span class="built_in">height</span>: 除 “<span class="keyword">auto</span>” 外的任意值</div><div class="line"> </div><div class="line">zoom: 除 “normal” 外的任意值 </div><div class="line"> </div><div class="line">writing-mode: tb-rl</div><div class="line"><span class="comment">// IE 7新增</span></div><div class="line"><span class="built_in">overflow</span>: hidden|scroll|<span class="keyword">auto</span></div><div class="line"><span class="built_in">overflow</span>-x|-y: hidden|scroll|<span class="keyword">auto</span></div><div class="line"><span class="built_in">position</span>: fixed</div><div class="line"></div><div class="line"><span class="built_in">min</span>-<span class="built_in">width</span>: any value</div><div class="line">Even the value <span class="number">0</span> lets the element gain layout.</div><div class="line"><span class="built_in">max</span>-<span class="built_in">width</span>: any value other than <span class="string">'none'</span></div><div class="line"></div><div class="line"><span class="built_in">min</span>-<span class="built_in">height</span>: any value</div><div class="line">Even the value <span class="number">0</span> sets haslayout=true</div><div class="line"><span class="built_in">max</span>-<span class="built_in">height</span>: any value other than <span class="string">'none'</span></div></pre></td></tr></table></figure>
+<h2 id="4-hasLayout常用触发CSS-Hack"><a href="#4-hasLayout常用触发CSS-Hack" class="headerlink" title="4. hasLayout常用触发CSS Hack"></a>4. <code>hasLayout</code>常用触发CSS Hack</h2><figure class="highlight scss"><table><tr><td class="code"><pre><div class="line"><span class="comment">// IE 6</span></div><div class="line"><span class="selector-class">.gainlayout</span> &#123; <span class="attribute">height</span>: <span class="number">1%</span>; &#125; <span class="comment">// Holly hack</span></div><div class="line"><span class="comment">// IE 7</span></div><div class="line"><span class="selector-class">.gainlayout</span> &#123; _height: <span class="number">0</span>; &#125;</div></pre></td></tr></table></figure>
+<h2 id="5-调试"><a href="#5-调试" class="headerlink" title="5.调试"></a>5.调试</h2><blockquote>
+<p>。通过 IE Developer Toolbar 可以查看 IE 下 HTML 元素是否拥有haslayout，在 IE Developer Toolbar 下，拥有 haslayout 的元素，通常显示为“haslayout = -1”。</p>
+</blockquote>
+<h2 id="参考："><a href="#参考：" class="headerlink" title="参考："></a>参考：</h2><ol>
+<li><a href="http://www.satzansatz.de/cssd/onhavinglayout.html" target="_blank" rel="external">On having layout</a></li>
+<li><a href="http://baike.baidu.com/item/hasLayout" target="_blank" rel="external">hasLayout</a></li>
+<li><a href="http://www.iyunlu.com/view/css-xhtml/55.html" target="_blank" rel="external">BFC与hasLayout</a></li>
+</ol>
+]]></content>
+      
+        <categories>
+            
+            <category> IE </category>
+            
+        </categories>
+        
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[IE pollyfills汇总]]></title>
       <url>https://iminyao.com/2015/12/27/IE-pollyfills/</url>
       <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><h3 id="1-element-dataset"><a href="#1-element-dataset" class="headerlink" title="1. element.dataset"></a>1. element.dataset</h3><figure class="highlight maxima"><table><tr><td class="code"><pre><div class="line">function getDataSet(<span class="built_in">elem</span>)&#123;</div><div class="line">    <span class="keyword">if</span>(<span class="built_in">elem</span>.dataset)&#123;</div><div class="line">      <span class="built_in">return</span> <span class="built_in">elem</span>.dataset;</div><div class="line">    &#125;</div><div class="line">    <span class="built_in">var</span> datas = &#123;&#125;;</div><div class="line">    <span class="built_in">var</span> attrs = <span class="built_in">elem</span>.attributes;</div><div class="line">    <span class="built_in">var</span> nodeName,nodeNames;</div><div class="line">    <span class="keyword">for</span>(<span class="built_in">var</span> i = <span class="number">0</span>,attr;attr = attrs[i];i++)&#123;</div><div class="line">      nodeName = attr.nodeName;</div><div class="line">      <span class="keyword">if</span>(nodeName.indexOf('data-')!==-<span class="number">1</span>)&#123;</div><div class="line">        nodeNames = nodeName.slice(<span class="number">5</span>).<span class="built_in">split</span>(<span class="string">"-"</span>);</div><div class="line">        nodeName = nodeNames[<span class="number">0</span>];</div><div class="line">      &#125; <span class="keyword">else</span>&#123;</div><div class="line">        continue;</div><div class="line">      &#125;</div><div class="line">      <span class="keyword">for</span>(<span class="built_in">var</span> j=<span class="number">1</span>;j&lt;nodeNames.<span class="built_in">length</span>;j++)&#123;</div><div class="line">        nodeName += nodeNames[j].slice(<span class="number">0</span>,<span class="number">1</span>).toUpperCase + nodeNames[j].slice(<span class="number">1</span>);</div><div class="line">      &#125;</div><div class="line">      datas[nodeName] = attr.nodeValue;</div><div class="line">      <span class="built_in">return</span> datas;</div><div class="line">    &#125;</div><div class="line">  &#125;</div></pre></td></tr></table></figure>
@@ -3577,35 +3596,6 @@ background-image: url(&quot;data:image/gif;base64,R0lGODlhAwADAIAAAP///8zMzCH5BA
         <categories>
             
             <category> 总结 </category>
-            
-        </categories>
-        
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[IE hasLayout渲染引擎]]></title>
-      <url>https://iminyao.com/2015/12/27/IE-hasLayout/</url>
-      <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><h2 id="1-概念："><a href="#1-概念：" class="headerlink" title="1. 概念："></a>1. 概念：</h2><blockquote>
-<p>IE6-7的显示引擎使用的是一个称为布局（layout）的内部概念来<em>控制元素的尺寸和定位</em>，那些拥有布局（have layout）的元素负责本身及其子元素的尺寸设置和定位。如果一个元素的 hasLayout 为false，那么它的尺寸和位置由<em>最近拥有布局的祖先元素控制</em>。</p>
-<p>由于这个显示引擎自身存在很多的缺陷，直接导致了IE6-7的很多显示bug。</p>
-</blockquote>
-<h2 id="2-hasLayout默认为true的元素："><a href="#2-hasLayout默认为true的元素：" class="headerlink" title="2. hasLayout默认为true的元素："></a>2. <code>hasLayout</code>默认为<code>true</code>的元素：</h2><pre><code><figure class="highlight xml"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span>, <span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">table</span>&gt;</span>, <span class="tag">&lt;<span class="name">tr</span>&gt;</span>, <span class="tag">&lt;<span class="name">th</span>&gt;</span>, <span class="tag">&lt;<span class="name">td</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">img</span>&gt;</span>,<span class="tag">&lt;<span class="name">hr</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">input</span>&gt;</span>, <span class="tag">&lt;<span class="name">button</span>&gt;</span>, <span class="tag">&lt;<span class="name">select</span>&gt;</span>, <span class="tag">&lt;<span class="name">textarea</span>&gt;</span>, <span class="tag">&lt;<span class="name">fieldset</span>&gt;</span>, <span class="tag">&lt;<span class="name">legend</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">iframe</span>&gt;</span>, <span class="tag">&lt;<span class="name">embed</span>&gt;</span>, <span class="tag">&lt;<span class="name">object</span>&gt;</span>, <span class="tag">&lt;<span class="name">applet</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">marquee</span>&gt;</span></div></pre></td></tr></table></figure>
-</code></pre><h2 id="3-能够触发hasLayout的CSS属性"><a href="#3-能够触发hasLayout的CSS属性" class="headerlink" title="3. 能够触发hasLayout的CSS属性"></a>3. 能够触发<code>hasLayout</code>的CSS属性</h2><figure class="highlight arduino"><table><tr><td class="code"><pre><div class="line"><span class="built_in">position</span>: absolute </div><div class="line"> </div><div class="line"><span class="keyword">float</span>: left|right </div><div class="line"> </div><div class="line"><span class="built_in">display</span>: <span class="keyword">inline</span>-block </div><div class="line"> </div><div class="line"><span class="built_in">width</span>: 除 “<span class="keyword">auto</span>” 外的任意值 </div><div class="line"> </div><div class="line"><span class="built_in">height</span>: 除 “<span class="keyword">auto</span>” 外的任意值</div><div class="line"> </div><div class="line">zoom: 除 “normal” 外的任意值 </div><div class="line"> </div><div class="line">writing-mode: tb-rl</div><div class="line"><span class="comment">// IE 7新增</span></div><div class="line"><span class="built_in">overflow</span>: hidden|scroll|<span class="keyword">auto</span></div><div class="line"><span class="built_in">overflow</span>-x|-y: hidden|scroll|<span class="keyword">auto</span></div><div class="line"><span class="built_in">position</span>: fixed</div><div class="line"></div><div class="line"><span class="built_in">min</span>-<span class="built_in">width</span>: any value</div><div class="line">Even the value <span class="number">0</span> lets the element gain layout.</div><div class="line"><span class="built_in">max</span>-<span class="built_in">width</span>: any value other than <span class="string">'none'</span></div><div class="line"></div><div class="line"><span class="built_in">min</span>-<span class="built_in">height</span>: any value</div><div class="line">Even the value <span class="number">0</span> sets haslayout=true</div><div class="line"><span class="built_in">max</span>-<span class="built_in">height</span>: any value other than <span class="string">'none'</span></div></pre></td></tr></table></figure>
-<h2 id="4-hasLayout常用触发CSS-Hack"><a href="#4-hasLayout常用触发CSS-Hack" class="headerlink" title="4. hasLayout常用触发CSS Hack"></a>4. <code>hasLayout</code>常用触发CSS Hack</h2><figure class="highlight scss"><table><tr><td class="code"><pre><div class="line"><span class="comment">// IE 6</span></div><div class="line"><span class="selector-class">.gainlayout</span> &#123; <span class="attribute">height</span>: <span class="number">1%</span>; &#125; <span class="comment">// Holly hack</span></div><div class="line"><span class="comment">// IE 7</span></div><div class="line"><span class="selector-class">.gainlayout</span> &#123; _height: <span class="number">0</span>; &#125;</div></pre></td></tr></table></figure>
-<h2 id="5-调试"><a href="#5-调试" class="headerlink" title="5.调试"></a>5.调试</h2><blockquote>
-<p>。通过 IE Developer Toolbar 可以查看 IE 下 HTML 元素是否拥有haslayout，在 IE Developer Toolbar 下，拥有 haslayout 的元素，通常显示为“haslayout = -1”。</p>
-</blockquote>
-<h2 id="参考："><a href="#参考：" class="headerlink" title="参考："></a>参考：</h2><ol>
-<li><a href="http://www.satzansatz.de/cssd/onhavinglayout.html" target="_blank" rel="external">On having layout</a></li>
-<li><a href="http://baike.baidu.com/item/hasLayout" target="_blank" rel="external">hasLayout</a></li>
-<li><a href="http://www.iyunlu.com/view/css-xhtml/55.html" target="_blank" rel="external">BFC与hasLayout</a></li>
-</ol>
-]]></content>
-      
-        <categories>
-            
-            <category> IE </category>
             
         </categories>
         
@@ -6806,5 +6796,52 @@ ExpiresByType text/html A600
     </entry>
     
   
+  
+    
+    <entry>
+      <title><![CDATA[About me]]></title>
+      <url>https://iminyao.com/about/index.html</url>
+      <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><p>网名: 逢十借一<br>16届南邮软件工程专业毕业，目前在杭州后互联网金融公司打杂。</p>
+<p>成长经历:</p>
+<ul>
+<li>1993-2012 山东 淄博</li>
+<li>2012-2016 江苏 南京<br>   皇家邮电大学软工专业，人生真正之开端，学习、成长，开眼看世界。</li>
+<li>2016 - ~ 浙江 杭州<br>   我跑爱跑，只为追上那个曾被寄予厚望的自己！</li>
+</ul>
+<p>工作经历:</p>
+<ul>
+<li>2015.05 360 前端星计划首批毕业学员</li>
+<li>2015.12 - 2016.03 网易 云音乐实习前端开发师</li>
+<li>2016.06 - ~ 创业公司打杂</li>
+<li>未来 工作联系 jzwmxz@hotmail.com</li>
+</ul>
+<p>兴趣爱好：<br>爱音乐，李宗盛、张国荣、李志、赵雷<br>微信音乐公众号：每天一首背景音乐<br>音乐网站:bgm.iminyao.com</p>
+<div id="aplayer1" class="aplayer" style="margin-bottom: 20px;display:inline-block;"></div><script>var aplayer1 = new APlayer({element: document.getElementById("aplayer1"),narrow: true,autoplay: true,music : [{title:'意味',author:'李志',url:'',pic:'http://p1.music.126.net/qDiDdR6wbQCsGsn34dmCVg==/2378243650941255.jpg'},{title:'苍井空',author:'李志',url:'',pic:'http://p1.music.126.net/qDiDdR6wbQCsGsn34dmCVg==/2378243650941255.jpg'},{title:'结婚',author:'李志',url:'',pic:'http://p1.music.126.net/qDiDdR6wbQCsGsn34dmCVg==/2378243650941255.jpg'},{title:'鸵鸟',author:'李志',url:'',pic:'http://p1.music.126.net/qDiDdR6wbQCsGsn34dmCVg==/2378243650941255.jpg'},{title:'天空之城',author:'李志',url:'',pic:'http://p1.music.126.net/qDiDdR6wbQCsGsn34dmCVg==/2378243650941255.jpg'},{title:'倒影',author:'李志',url:'',pic:'http://p1.music.126.net/qDiDdR6wbQCsGsn34dmCVg==/2378243650941255.jpg'},{title:'爱',author:'李志',url:'',pic:'http://p1.music.126.net/qDiDdR6wbQCsGsn34dmCVg==/2378243650941255.jpg'},{title:'家乡',author:'李志',url:'',pic:'http://p1.music.126.net/qDiDdR6wbQCsGsn34dmCVg==/2378243650941255.jpg'},{title:'1990年的春天',author:'李志',url:'',pic:'http://p1.music.126.net/qDiDdR6wbQCsGsn34dmCVg==/2378243650941255.jpg'},{title:'冬妮娅',author:'李志',url:'',pic:'http://p1.music.126.net/qDiDdR6wbQCsGsn34dmCVg==/2378243650941255.jpg'},{title:'听妈妈讲那过去的事情',author:'李志',url:'',pic:'http://p1.music.126.net/qDiDdR6wbQCsGsn34dmCVg==/2378243650941255.jpg'},{title:'美丽的梭罗河',author:'李志',url:'',pic:'http://p1.music.126.net/qDiDdR6wbQCsGsn34dmCVg==/2378243650941255.jpg'},{title:'米店',author:'李志',url:'',pic:'http://p1.music.126.net/qDiDdR6wbQCsGsn34dmCVg==/2378243650941255.jpg'},{title:'思念观世音',author:'李志',url:'',pic:'http://p1.music.126.net/qDiDdR6wbQCsGsn34dmCVg==/2378243650941255.jpg'},{title:'在那遥远的地方',author:'李志',url:'',pic:'http://p1.music.126.net/qDiDdR6wbQCsGsn34dmCVg==/2378243650941255.jpg'},{title:'再见',author:'李志',url:'',pic:'http://p1.music.126.net/qDiDdR6wbQCsGsn34dmCVg==/2378243650941255.jpg'}]});aplayer1.init();</script>
+<div id="aplayer2" class="aplayer" style="margin-bottom: 20px;display:inline-block;"></div><script>var aplayer2 = new APlayer({element: document.getElementById("aplayer2"),narrow: true,autoplay: false,music : [{title:'Opening&空谷幽兰(Live)',author:'许巍',url:'',pic:'http://p1.music.126.net/VdH_sEpXERt8_9dB7OiaVQ==/6671836557873593.jpg'},{title:'出离(Live)',author:'许巍',url:'',pic:'http://p1.music.126.net/VdH_sEpXERt8_9dB7OiaVQ==/6671836557873593.jpg'},{title:'在别处 (Live)',author:'许巍',url:'',pic:'http://p1.music.126.net/VdH_sEpXERt8_9dB7OiaVQ==/6671836557873593.jpg'},{title:'爱情(Live)',author:'许巍',url:'',pic:'http://p1.music.126.net/VdH_sEpXERt8_9dB7OiaVQ==/6671836557873593.jpg'},{title:'像风一样自由(Live)',author:'许巍',url:'',pic:'http://p1.music.126.net/VdH_sEpXERt8_9dB7OiaVQ==/6671836557873593.jpg'},{title:'温暖(Live)',author:'许巍',url:'',pic:'http://p1.music.126.net/VdH_sEpXERt8_9dB7OiaVQ==/6671836557873593.jpg'},{title:'救赎之旅&鼓solo (Live)',author:'许巍',url:'',pic:'http://p1.music.126.net/VdH_sEpXERt8_9dB7OiaVQ==/6671836557873593.jpg'},{title:'世外桃源(Live)',author:'许巍',url:'',pic:'http://p1.music.126.net/VdH_sEpXERt8_9dB7OiaVQ==/6671836557873593.jpg'},{title:'喝茶去(Live)',author:'许巍',url:'',pic:'http://p1.music.126.net/VdH_sEpXERt8_9dB7OiaVQ==/6671836557873593.jpg'},{title:'故事(Live)',author:'许巍',url:'',pic:'http://p1.music.126.net/VdH_sEpXERt8_9dB7OiaVQ==/6671836557873593.jpg'},{title:'喜悦(Live)',author:'许巍',url:'',pic:'http://p1.music.126.net/VdH_sEpXERt8_9dB7OiaVQ==/6671836557873593.jpg'},{title:'曾经的你(Live)',author:'许巍',url:'',pic:'http://p1.music.126.net/VdH_sEpXERt8_9dB7OiaVQ==/6671836557873593.jpg'},{title:'那一年(Live)',author:'许巍',url:'',pic:'http://p1.music.126.net/VdH_sEpXERt8_9dB7OiaVQ==/6671836557873593.jpg'},{title:'故乡(Live)',author:'许巍',url:'',pic:'http://p1.music.126.net/VdH_sEpXERt8_9dB7OiaVQ==/6671836557873593.jpg'},{title:'星空(Live)',author:'许巍',url:'',pic:'http://p1.music.126.net/VdH_sEpXERt8_9dB7OiaVQ==/6671836557873593.jpg'},{title:'光明之门(Live)',author:'许巍',url:'',pic:'http://p1.music.126.net/VdH_sEpXERt8_9dB7OiaVQ==/6671836557873593.jpg'},{title:'逍遥行(Live)',author:'许巍',url:'',pic:'http://p1.music.126.net/VdH_sEpXERt8_9dB7OiaVQ==/6671836557873593.jpg'},{title:'礼物&乐队介绍(Live)',author:'许巍',url:'',pic:'http://p1.music.126.net/VdH_sEpXERt8_9dB7OiaVQ==/6671836557873593.jpg'},{title:'旅行(Live)',author:'许巍',url:'',pic:'http://p1.music.126.net/VdH_sEpXERt8_9dB7OiaVQ==/6671836557873593.jpg'},{title:'此时此刻(Live)',author:'许巍',url:'',pic:'http://p1.music.126.net/VdH_sEpXERt8_9dB7OiaVQ==/6671836557873593.jpg'},{title:'蓝莲花(Live)',author:'许巍',url:'',pic:'http://p1.music.126.net/VdH_sEpXERt8_9dB7OiaVQ==/6671836557873593.jpg'},{title:'心愿(Live)',author:'许巍',url:'',pic:'http://p1.music.126.net/VdH_sEpXERt8_9dB7OiaVQ==/6671836557873593.jpg'}]});aplayer2.init();</script>
+<div id="aplayer3" class="aplayer" style="margin-bottom: 20px;display:inline-block;"></div><script>var aplayer3 = new APlayer({element: document.getElementById("aplayer3"),narrow: true,autoplay: false,music : [{title:'和你在一起2013版[Live]',author:'李志',url:'',pic:'http://p1.music.126.net/q-V2SNRZhYo9sgftJm-olA==/5961552045955874.jpg'},{title:'墙上的向日葵2013版[Live]',author:'李志',url:'',pic:'http://p1.music.126.net/q-V2SNRZhYo9sgftJm-olA==/5961552045955874.jpg'},{title:'铅笔2013版[Live]',author:'李志',url:'',pic:'http://p1.music.126.net/q-V2SNRZhYo9sgftJm-olA==/5961552045955874.jpg'},{title:'下雨2013版[Live]',author:'李志',url:'',pic:'http://p1.music.126.net/q-V2SNRZhYo9sgftJm-olA==/5961552045955874.jpg'},{title:'你的早晨&天空之城&暧昧2013版[Live]',author:'李志',url:'',pic:'http://p1.music.126.net/q-V2SNRZhYo9sgftJm-olA==/5961552045955874.jpg'},{title:'被禁忌的游戏2013版[Live]',author:'李志',url:'',pic:'http://p1.music.126.net/q-V2SNRZhYo9sgftJm-olA==/5961552045955874.jpg'},{title:'秋天的老狼2013版[Live]',author:'李志',url:'',pic:'http://p1.music.126.net/q-V2SNRZhYo9sgftJm-olA==/5961552045955874.jpg'},{title:'离婚2013版[Live]',author:'李志',url:'',pic:'http://p1.music.126.net/q-V2SNRZhYo9sgftJm-olA==/5961552045955874.jpg'},{title:'门2013版[Live]',author:'李志',url:'',pic:'http://p1.music.126.net/q-V2SNRZhYo9sgftJm-olA==/5961552045955874.jpg'},{title:'斜2013版[Live]',author:'李志',url:'',pic:'http://p1.music.126.net/q-V2SNRZhYo9sgftJm-olA==/5961552045955874.jpg'},{title:'春末的南方城市2013版[Live]',author:'李志',url:'',pic:'http://p1.music.126.net/q-V2SNRZhYo9sgftJm-olA==/5961552045955874.jpg'},{title:'黑色信封2013版[Live]',author:'李志',url:'',pic:'http://p1.music.126.net/q-V2SNRZhYo9sgftJm-olA==/5961552045955874.jpg'},{title:'1990年的春天2013版[Live]',author:'李志',url:'',pic:'http://p1.music.126.net/q-V2SNRZhYo9sgftJm-olA==/5961552045955874.jpg'},{title:'意味2013版[Live]',author:'李志',url:'',pic:'http://p1.music.126.net/q-V2SNRZhYo9sgftJm-olA==/5961552045955874.jpg'},{title:'翁庆年的六英镑2013版[Live]',author:'李志',url:'',pic:'http://p1.music.126.net/q-V2SNRZhYo9sgftJm-olA==/5961552045955874.jpg'},{title:'来了2013版[Live]',author:'李志',url:'',pic:'http://p1.music.126.net/q-V2SNRZhYo9sgftJm-olA==/5961552045955874.jpg'},{title:'妈妈2013版[Live]',author:'李志',url:'',pic:'http://p1.music.126.net/q-V2SNRZhYo9sgftJm-olA==/5961552045955874.jpg'},{title:'董卓瑶2013版[Live]',author:'李志',url:'',pic:'http://p1.music.126.net/q-V2SNRZhYo9sgftJm-olA==/5961552045955874.jpg'},{title:'这个世界会好吗2013版[Live]',author:'李志',url:'',pic:'http://p1.music.126.net/q-V2SNRZhYo9sgftJm-olA==/5961552045955874.jpg'},{title:'杭州&我们不能失去信仰2013版[Live]',author:'李志',url:'',pic:'http://p1.music.126.net/q-V2SNRZhYo9sgftJm-olA==/5961552045955874.jpg'},{title:'山阴路的夏天2013版[Live]',author:'李志',url:'',pic:'http://p1.music.126.net/q-V2SNRZhYo9sgftJm-olA==/5961552045955874.jpg'}]});aplayer3.init();</script>
+<div id="aplayer4" class="aplayer" style="margin-bottom: 20px;display:inline-block;"></div><script>var aplayer4 = new APlayer({element: document.getElementById("aplayer4"),narrow: true,autoplay: false,music : [{title:'生命中的精灵',author:'李宗盛',url:'',pic:'http://p1.music.126.net/sf7Y4sKNTEpJy_RjHJ9kfw==/98956046505101.jpg'},{title:'风柜来的人+17岁女生的温柔',author:'李宗盛',url:'',pic:'http://p1.music.126.net/sf7Y4sKNTEpJy_RjHJ9kfw==/98956046505101.jpg'},{title:'没有人知道+爱情少尉',author:'李宗盛',url:'',pic:'http://p1.music.126.net/sf7Y4sKNTEpJy_RjHJ9kfw==/98956046505101.jpg'},{title:'如果你要离去',author:'李宗盛',url:'',pic:'http://p1.music.126.net/sf7Y4sKNTEpJy_RjHJ9kfw==/98956046505101.jpg'},{title:'寂寞难耐',author:'李宗盛',url:'',pic:'http://p1.music.126.net/sf7Y4sKNTEpJy_RjHJ9kfw==/98956046505101.jpg'},{title:'鬼迷心窍',author:'周华健',url:'',pic:'http://p1.music.126.net/sf7Y4sKNTEpJy_RjHJ9kfw==/98956046505101.jpg'},{title:'我终于失去了你',author:'李宗盛',url:'',pic:'http://p1.music.126.net/sf7Y4sKNTEpJy_RjHJ9kfw==/98956046505101.jpg'},{title:'明明白白我的心',author:'李宗盛',url:'',pic:'http://p1.music.126.net/sf7Y4sKNTEpJy_RjHJ9kfw==/98956046505101.jpg'},{title:'问',author:'梁静茹',url:'',pic:'http://p1.music.126.net/sf7Y4sKNTEpJy_RjHJ9kfw==/98956046505101.jpg'},{title:'梦醒时分',author:'梁静茹',url:'',pic:'http://p1.music.126.net/sf7Y4sKNTEpJy_RjHJ9kfw==/98956046505101.jpg'},{title:'领悟',author:'李宗盛',url:'',pic:'http://p1.music.126.net/sf7Y4sKNTEpJy_RjHJ9kfw==/98956046505101.jpg'},{title:'阴天',author:'李宗盛',url:'',pic:'http://p1.music.126.net/sf7Y4sKNTEpJy_RjHJ9kfw==/98956046505101.jpg'},{title:'铿锵玫瑰',author:'李宗盛',url:'',pic:'http://p1.music.126.net/sf7Y4sKNTEpJy_RjHJ9kfw==/98956046505101.jpg'},{title:'希望',author:'李宗盛',url:'',pic:'http://p1.music.126.net/sf7Y4sKNTEpJy_RjHJ9kfw==/98956046505101.jpg'},{title:'和自己赛跑的人',author:'李宗盛',url:'',pic:'http://p1.music.126.net/sf7Y4sKNTEpJy_RjHJ9kfw==/98956046505101.jpg'},{title:'凡人歌',author:'李宗盛',url:'',pic:'http://p1.music.126.net/sf7Y4sKNTEpJy_RjHJ9kfw==/98956046505101.jpg'},{title:'漂洋过海来看你',author:'李宗盛',url:'',pic:'http://p1.music.126.net/sf7Y4sKNTEpJy_RjHJ9kfw==/98956046505101.jpg'},{title:'一个人',author:'李宗盛',url:'',pic:'http://p1.music.126.net/sf7Y4sKNTEpJy_RjHJ9kfw==/98956046505101.jpg'},{title:'爱情有什么道理',author:'李宗盛',url:'',pic:'http://p1.music.126.net/sf7Y4sKNTEpJy_RjHJ9kfw==/98956046505101.jpg'},{title:'你像个孩子',author:'李宗盛',url:'',pic:'http://p1.music.126.net/sf7Y4sKNTEpJy_RjHJ9kfw==/98956046505101.jpg'},{title:'飞',author:'李宗盛',url:'',pic:'http://p1.music.126.net/sf7Y4sKNTEpJy_RjHJ9kfw==/98956046505101.jpg'},{title:'阿宗三件事',author:'李宗盛',url:'',pic:'http://p1.music.126.net/sf7Y4sKNTEpJy_RjHJ9kfw==/98956046505101.jpg'},{title:'我是一只小小鸟',author:'李宗盛',url:'',pic:'http://p1.music.126.net/sf7Y4sKNTEpJy_RjHJ9kfw==/98956046505101.jpg'},{title:'我是真的爱你',author:'李宗盛',url:'',pic:'http://p1.music.126.net/sf7Y4sKNTEpJy_RjHJ9kfw==/98956046505101.jpg'},{title:'当爱已成往事',author:'李宗盛',url:'',pic:'http://p1.music.126.net/sf7Y4sKNTEpJy_RjHJ9kfw==/98956046505101.jpg'},{title:'为你我受冷风吹',author:'梁静茹',url:'',pic:'http://p1.music.126.net/sf7Y4sKNTEpJy_RjHJ9kfw==/98956046505101.jpg'},{title:'诱惑的街',author:'梁静茹',url:'',pic:'http://p1.music.126.net/sf7Y4sKNTEpJy_RjHJ9kfw==/98956046505101.jpg'},{title:'十二楼',author:'李宗盛',url:'',pic:'http://p1.music.126.net/sf7Y4sKNTEpJy_RjHJ9kfw==/98956046505101.jpg'},{title:'伤心地铁',author:'李宗盛',url:'',pic:'http://p1.music.126.net/sf7Y4sKNTEpJy_RjHJ9kfw==/98956046505101.jpg'},{title:'远行',author:'李宗盛',url:'',pic:'http://p1.music.126.net/sf7Y4sKNTEpJy_RjHJ9kfw==/98956046505101.jpg'},{title:'爱的代价',author:'李宗盛',url:'',pic:'http://p1.music.126.net/sf7Y4sKNTEpJy_RjHJ9kfw==/98956046505101.jpg'},{title:'真心英雄',author:'李宗盛',url:'',pic:'http://p1.music.126.net/sf7Y4sKNTEpJy_RjHJ9kfw==/98956046505101.jpg'},{title:'不必在乎我是谁',author:'梁静茹',url:'',pic:'http://p1.music.126.net/sf7Y4sKNTEpJy_RjHJ9kfw==/98956046505101.jpg'}]});aplayer4.init();</script>
+<div id="aplayer5" class="aplayer" style="margin-bottom: 20px;display:inline-block;"></div><script>var aplayer5 = new APlayer({element: document.getElementById("aplayer5"),narrow: true,autoplay: false,music : [{title:'鹿港小镇',author:'罗大佑',url:'',pic:'http://p1.music.126.net/mTzFGa_47E8s9klwbG1fWA==/102254581395255.jpg'},{title:'恋曲1980',author:'罗大佑',url:'',pic:'http://p1.music.126.net/mTzFGa_47E8s9klwbG1fWA==/102254581395255.jpg'},{title:'童年',author:'罗大佑',url:'',pic:'http://p1.music.126.net/mTzFGa_47E8s9klwbG1fWA==/102254581395255.jpg'},{title:'错误',author:'罗大佑',url:'',pic:'http://p1.music.126.net/mTzFGa_47E8s9klwbG1fWA==/102254581395255.jpg'},{title:'摇篮曲',author:'罗大佑',url:'',pic:'http://p1.music.126.net/mTzFGa_47E8s9klwbG1fWA==/102254581395255.jpg'},{title:'之乎者也',author:'罗大佑',url:'',pic:'http://p1.music.126.net/mTzFGa_47E8s9klwbG1fWA==/102254581395255.jpg'},{title:'乡愁四韵',author:'罗大佑',url:'',pic:'http://p1.music.126.net/mTzFGa_47E8s9klwbG1fWA==/102254581395255.jpg'},{title:'将进酒',author:'罗大佑',url:'',pic:'http://p1.music.126.net/mTzFGa_47E8s9klwbG1fWA==/102254581395255.jpg'},{title:'光阴的故事',author:'罗大佑',url:'',pic:'http://p1.music.126.net/mTzFGa_47E8s9klwbG1fWA==/102254581395255.jpg'}]});aplayer5.init();</script>
+<div id="aplayer6" class="aplayer" style="margin-bottom: 20px;display:inline-block;"></div><script>var aplayer6 = new APlayer({element: document.getElementById("aplayer6"),narrow: true,autoplay: false,music : [{title:'人家',author:'赵雷',url:'',pic:'http://p1.music.126.net/ssi4HetlWMoLddmru_TSFA==/1383185642493278.jpg'},{title:'未给姐姐递出的信',author:'赵雷',url:'',pic:'http://p1.music.126.net/ssi4HetlWMoLddmru_TSFA==/1383185642493278.jpg'},{title:'画',author:'赵雷',url:'',pic:'http://p1.music.126.net/ssi4HetlWMoLddmru_TSFA==/1383185642493278.jpg'},{title:'不开的唇',author:'赵雷',url:'',pic:'http://p1.music.126.net/ssi4HetlWMoLddmru_TSFA==/1383185642493278.jpg'},{title:'赵小雷',author:'赵雷',url:'',pic:'http://p1.music.126.net/ssi4HetlWMoLddmru_TSFA==/1383185642493278.jpg'},{title:'南方姑娘',author:'赵雷',url:'',pic:'http://p1.music.126.net/ssi4HetlWMoLddmru_TSFA==/1383185642493278.jpg'},{title:'Over',author:'赵雷',url:'',pic:'http://p1.music.126.net/ssi4HetlWMoLddmru_TSFA==/1383185642493278.jpg'},{title:'开往北京的火车',author:'赵雷',url:'',pic:'http://p1.music.126.net/ssi4HetlWMoLddmru_TSFA==/1383185642493278.jpg'},{title:'背影',author:'赵雷',url:'',pic:'http://p1.music.126.net/ssi4HetlWMoLddmru_TSFA==/1383185642493278.jpg'},{title:'妈妈',author:'赵雷',url:'',pic:'http://p1.music.126.net/ssi4HetlWMoLddmru_TSFA==/1383185642493278.jpg'},{title:'南方姑娘 (弹唱版)',author:'赵雷',url:'',pic:'http://p1.music.126.net/ssi4HetlWMoLddmru_TSFA==/1383185642493278.jpg'},{title:'民谣',author:'赵雷',url:'',pic:'http://p1.music.126.net/ssi4HetlWMoLddmru_TSFA==/1383185642493278.jpg'}]});aplayer6.init();</script>
+<div id="aplayer7" class="aplayer" style="margin-bottom: 20px;display:inline-block;"></div><script>var aplayer7 = new APlayer({element: document.getElementById("aplayer7"),narrow: true,autoplay: false,music : [{title:'吉姆餐厅',author:'赵雷',url:'',pic:'http://p1.music.126.net/nlrwNWnlrkkT2oHMRuXwNw==/18579547486266531.jpg'},{title:'少年锦时',author:'赵雷',url:'',pic:'http://p1.music.126.net/nlrwNWnlrkkT2oHMRuXwNw==/18579547486266531.jpg'},{title:'梦中的哈德森',author:'赵雷',url:'',pic:'http://p1.music.126.net/nlrwNWnlrkkT2oHMRuXwNw==/18579547486266531.jpg'},{title:'我们的时光',author:'赵雷',url:'',pic:'http://p1.music.126.net/nlrwNWnlrkkT2oHMRuXwNw==/18579547486266531.jpg'},{title:'理想',author:'赵雷',url:'',pic:'http://p1.music.126.net/nlrwNWnlrkkT2oHMRuXwNw==/18579547486266531.jpg'},{title:'三十岁的女人',author:'赵雷',url:'',pic:'http://p1.music.126.net/nlrwNWnlrkkT2oHMRuXwNw==/18579547486266531.jpg'},{title:'家乡',author:'赵雷',url:'',pic:'http://p1.music.126.net/nlrwNWnlrkkT2oHMRuXwNw==/18579547486266531.jpg'},{title:'浮游',author:'赵雷',url:'',pic:'http://p1.music.126.net/nlrwNWnlrkkT2oHMRuXwNw==/18579547486266531.jpg'},{title:'小屋',author:'赵雷',url:'',pic:'http://p1.music.126.net/nlrwNWnlrkkT2oHMRuXwNw==/18579547486266531.jpg'},{title:'北京的冬天',author:'赵雷',url:'',pic:'http://p1.music.126.net/nlrwNWnlrkkT2oHMRuXwNw==/18579547486266531.jpg'}]});aplayer7.init();</script>
+<div id="aplayer8" class="aplayer" style="margin-bottom: 20px;display:inline-block;"></div><script>var aplayer8 = new APlayer({element: document.getElementById("aplayer8"),narrow: true,autoplay: false,music : [{title:'Opening+为你钟情(Live)',author:'张国荣',url:'',pic:'http://p1.music.126.net/FEgl2i8gDkOdppr5Ko3kEA==/69269232562640.jpg'},{title:'侧面(Live)',author:'张国荣',url:'',pic:'http://p1.music.126.net/FEgl2i8gDkOdppr5Ko3kEA==/69269232562640.jpg'},{title:'寂寞夜晚(Live)',author:'张国荣',url:'',pic:'http://p1.music.126.net/FEgl2i8gDkOdppr5Ko3kEA==/69269232562640.jpg'},{title:'蓝色忧郁＋少女心事＋不羁的风＋Monica',author:'张国荣',url:'',pic:'http://p1.music.126.net/FEgl2i8gDkOdppr5Ko3kEA==/69269232562640.jpg'},{title:'当年情(Live)',author:'张国荣',url:'',pic:'http://p1.music.126.net/FEgl2i8gDkOdppr5Ko3kEA==/69269232562640.jpg'},{title:'童年时+似水流年+但愿人长久(Live)',author:'张国荣',url:'',pic:'http://p1.music.126.net/FEgl2i8gDkOdppr5Ko3kEA==/69269232562640.jpg'},{title:'千千阙歌(Live)',author:'张国荣',url:'',pic:'http://p1.music.126.net/FEgl2i8gDkOdppr5Ko3kEA==/69269232562640.jpg'},{title:'请勿越轨(Live)',author:'张国荣',url:'',pic:'http://p1.music.126.net/FEgl2i8gDkOdppr5Ko3kEA==/69269232562640.jpg'},{title:'爱慕(Live)',author:'张国荣',url:'',pic:'http://p1.music.126.net/FEgl2i8gDkOdppr5Ko3kEA==/69269232562640.jpg'},{title:'想你(Live)',author:'张国荣',url:'',pic:'http://p1.music.126.net/FEgl2i8gDkOdppr5Ko3kEA==/69269232562640.jpg'},{title:'无心睡眠(Live)',author:'张国荣',url:'',pic:'http://p1.music.126.net/FEgl2i8gDkOdppr5Ko3kEA==/69269232562640.jpg'},{title:'有谁共鸣+沉默是金(Live)',author:'张国荣',url:'',pic:'http://p1.music.126.net/FEgl2i8gDkOdppr5Ko3kEA==/69269232562640.jpg'},{title:'倩女幽魂(Live)',author:'张国荣',url:'',pic:'http://p1.music.126.net/FEgl2i8gDkOdppr5Ko3kEA==/69269232562640.jpg'},{title:'Miss You Much(Live)',author:'张国荣',url:'',pic:'http://p1.music.126.net/FEgl2i8gDkOdppr5Ko3kEA==/69269232562640.jpg'},{title:'暴风一族(Live)',author:'张国荣',url:'',pic:'http://p1.music.126.net/FEgl2i8gDkOdppr5Ko3kEA==/69269232562640.jpg'},{title:'由零开始(Live)',author:'张国荣',url:'',pic:'http://p1.music.126.net/FEgl2i8gDkOdppr5Ko3kEA==/69269232562640.jpg'},{title:'共同渡过(Live)',author:'张国荣',url:'',pic:'http://p1.music.126.net/FEgl2i8gDkOdppr5Ko3kEA==/69269232562640.jpg'},{title:'风继续吹(Live)',author:'张国荣',url:'',pic:'http://p1.music.126.net/FEgl2i8gDkOdppr5Ko3kEA==/69269232562640.jpg'},{title:'明星(Live)',author:'张国荣',url:'',pic:'http://p1.music.126.net/FEgl2i8gDkOdppr5Ko3kEA==/69269232562640.jpg'},{title:'The Way We Were(Live)',author:'张国荣',url:'',pic:'http://p1.music.126.net/FEgl2i8gDkOdppr5Ko3kEA==/69269232562640.jpg'},{title:'风再起时(Live)',author:'张国荣',url:'',pic:'http://p1.music.126.net/FEgl2i8gDkOdppr5Ko3kEA==/69269232562640.jpg'}]});aplayer8.init();</script>
+<div id="aplayer9" class="aplayer" style="margin-bottom: 20px;display:inline-block;"></div><script>var aplayer9 = new APlayer({element: document.getElementById("aplayer9"),narrow: true,autoplay: false,music : [{title:'风再起时(Live)',author:'张国荣',url:'',pic:'http://p1.music.126.net/iG6UnT8omXR8hrFAVFyE2Q==/81363860461428.jpg'},{title:'今生今世(Live)',author:'张国荣',url:'',pic:'http://p1.music.126.net/iG6UnT8omXR8hrFAVFyE2Q==/81363860461428.jpg'},{title:'恋爱交叉+打开信箱+蓝色忧郁+黑色午夜+Monica(Live)',author:'张国荣',url:'',pic:'http://p1.music.126.net/iG6UnT8omXR8hrFAVFyE2Q==/81363860461428.jpg'},{title:'柔情蜜意(Live)',author:'张国荣',url:'',pic:'http://p1.music.126.net/iG6UnT8omXR8hrFAVFyE2Q==/81363860461428.jpg'},{title:'爱慕(Live)',author:'张国荣',url:'',pic:'http://p1.music.126.net/iG6UnT8omXR8hrFAVFyE2Q==/81363860461428.jpg'},{title:'侧面(Live)',author:'张国荣',url:'',pic:'http://p1.music.126.net/iG6UnT8omXR8hrFAVFyE2Q==/81363860461428.jpg'},{title:'侬本多情(Live)',author:'张国荣',url:'',pic:'http://p1.music.126.net/iG6UnT8omXR8hrFAVFyE2Q==/81363860461428.jpg'},{title:'有心人(Live)',author:'张国荣',url:'',pic:'http://p1.music.126.net/iG6UnT8omXR8hrFAVFyE2Q==/81363860461428.jpg'},{title:'阿飞正传+梦+A Thousand Dreams Of You(Live)',author:'张国荣',url:'',pic:'http://p1.music.126.net/iG6UnT8omXR8hrFAVFyE2Q==/81363860461428.jpg'},{title:'啼笑姻缘+当爱已成往事+啼笑姻缘(Live)',author:'张国荣',url:'',pic:'http://p1.music.126.net/iG6UnT8omXR8hrFAVFyE2Q==/81363860461428.jpg'},{title:'怪你过份美丽(Live)',author:'张国荣',url:'',pic:'http://p1.music.126.net/iG6UnT8omXR8hrFAVFyE2Q==/81363860461428.jpg'},{title:'风继续吹(Live)',author:'张国荣',url:'',pic:'http://p1.music.126.net/iG6UnT8omXR8hrFAVFyE2Q==/81363860461428.jpg'},{title:'只怕不再遇上(Live)',author:'张国荣',url:'',pic:'http://p1.music.126.net/iG6UnT8omXR8hrFAVFyE2Q==/81363860461428.jpg'},{title:'怨男(Live)',author:'张国荣',url:'',pic:'http://p1.music.126.net/iG6UnT8omXR8hrFAVFyE2Q==/81363860461428.jpg'},{title:'热辣辣(Live)',author:'张国荣',url:'',pic:'http://p1.music.126.net/iG6UnT8omXR8hrFAVFyE2Q==/81363860461428.jpg'},{title:'想你+偷情(Live)',author:'张国荣',url:'',pic:'http://p1.music.126.net/iG6UnT8omXR8hrFAVFyE2Q==/81363860461428.jpg'},{title:'深情相拥 (Live) - live',author:'张国荣',url:'',pic:'http://p1.music.126.net/iG6UnT8omXR8hrFAVFyE2Q==/81363860461428.jpg'},{title:'谈情说爱(Live)',author:'张国荣',url:'',pic:'http://p1.music.126.net/iG6UnT8omXR8hrFAVFyE2Q==/81363860461428.jpg'},{title:'红颜白发+最爱(Live)',author:'张国荣',url:'',pic:'http://p1.music.126.net/iG6UnT8omXR8hrFAVFyE2Q==/81363860461428.jpg'},{title:'明星(Live)',author:'张国荣',url:'',pic:'http://p1.music.126.net/iG6UnT8omXR8hrFAVFyE2Q==/81363860461428.jpg'},{title:'红(Live)',author:'张国荣',url:'',pic:'http://p1.music.126.net/iG6UnT8omXR8hrFAVFyE2Q==/81363860461428.jpg'},{title:'为你钟情(Live)',author:'张国荣',url:'',pic:'http://p1.music.126.net/iG6UnT8omXR8hrFAVFyE2Q==/81363860461428.jpg'},{title:'月亮代表我的心(Live)',author:'张国荣',url:'',pic:'http://p1.music.126.net/iG6UnT8omXR8hrFAVFyE2Q==/81363860461428.jpg'},{title:'追(Live)',author:'张国荣',url:'',pic:'http://p1.music.126.net/iG6UnT8omXR8hrFAVFyE2Q==/81363860461428.jpg'}]});aplayer9.init();</script>
+<div id="aplayer10" class="aplayer" style="margin-bottom: 20px;display:inline-block;"></div><script>var aplayer10 = new APlayer({element: document.getElementById("aplayer10"),narrow: true,autoplay: false,music : [{title:'同桌的你',author:'老狼',url:'',pic:'http://p1.music.126.net/43zi4iVMi5EswLx_Lfup9g==/50577534894703.jpg'},{title:'那天',author:'艾敬',url:'',pic:'http://p1.music.126.net/43zi4iVMi5EswLx_Lfup9g==/50577534894703.jpg'},{title:'寂寞是因为思念谁',author:'景岗山',url:'',pic:'http://p1.music.126.net/43zi4iVMi5EswLx_Lfup9g==/50577534894703.jpg'},{title:'故事里的树',author:'冯蓝',url:'',pic:'http://p1.music.126.net/43zi4iVMi5EswLx_Lfup9g==/50577534894703.jpg'},{title:'离开',author:'郁冬',url:'',pic:'http://p1.music.126.net/43zi4iVMi5EswLx_Lfup9g==/50577534894703.jpg'},{title:'睡在我上铺的兄弟',author:'老狼',url:'',pic:'http://p1.music.126.net/43zi4iVMi5EswLx_Lfup9g==/50577534894703.jpg'},{title:'等人就像在喝酒',author:'廖岷',url:'',pic:'http://p1.music.126.net/43zi4iVMi5EswLx_Lfup9g==/50577534894703.jpg'},{title:'我们相识',author:'冯蓝',url:'',pic:'http://p1.music.126.net/43zi4iVMi5EswLx_Lfup9g==/50577534894703.jpg'},{title:'青春',author:'沈庆',url:'',pic:'http://p1.music.126.net/43zi4iVMi5EswLx_Lfup9g==/50577534894703.jpg'},{title:'上班族',author:'丁薇',url:'',pic:'http://p1.music.126.net/43zi4iVMi5EswLx_Lfup9g==/50577534894703.jpg'},{title:'流浪歌手的情人',author:'老狼',url:'',pic:'http://p1.music.126.net/43zi4iVMi5EswLx_Lfup9g==/50577534894703.jpg'}]});aplayer10.init();</script>
+
+
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[友情链接]]></title>
+      <url>https://iminyao.com/links/index.html</url>
+      <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script>]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[标签云]]></title>
+      <url>https://iminyao.com/tags/index.html</url>
+      <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script>]]></content>
+    </entry>
+    
   
 </search>

@@ -255,7 +255,7 @@
     </button>
 
     <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
-        <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#与窗口关闭相关的几个事件"><span class="post-toc-number">1.</span> <span class="post-toc-text">与窗口关闭相关的几个事件</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#解决方案：history-pushState"><span class="post-toc-number">2.</span> <span class="post-toc-text">解决方案：history.pushState</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#参考："><span class="post-toc-number">3.</span> <span class="post-toc-text">参考：</span></a></li></ol>
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-window-onclose"><span class="post-toc-number">1.</span> <span class="post-toc-text">1. window.onclose</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-window-onunload"><span class="post-toc-number">2.</span> <span class="post-toc-text">2. window.onunload</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-window-onbeforeunload"><span class="post-toc-number">3.</span> <span class="post-toc-text">3. window.onbeforeunload</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#4-visibilitychange"><span class="post-toc-number">4.</span> <span class="post-toc-text">4. visibilitychange</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#解决方案：history-pushState"><span class="post-toc-number"></span> <span class="post-toc-text">解决方案：history.pushState</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#参考："><span class="post-toc-number">1.</span> <span class="post-toc-text">参考：</span></a></li></ol>
 
         <!--
         <li class="mdl-menu__item">
@@ -332,7 +332,7 @@
         </button>
         <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-qrcode-button">
             <li class="mdl-menu__item">在其它设备中阅读本文章</li>
-            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACZ0lEQVR42u3ay7IiIRAEUP//p2e2d6NmUoCGcXpl+OiuwwIwqce/n74eeHh4eHh4eHh4X8Z7xNfT2wXf//tO8npSGx4eHt4d3pup9sl3Xr//uvRn35zXhoeHh3eT92zCnUzrLfv1/aM74OHh4X0lL5/0kym+fS4eHh7eb/DyGKIoFA8PD+/reckf/oSRLCF5QHw1a8HDw8OLefkh0/3XV8/38PDw8AJe3dK0VFa+eGxuusLDw8M7wMsn4jYmyO85+S0eHh7ep3i7YoK9LVxJbcU/Bjw8PLwDvMWJeOm3eRzcRsB4eHh4p3lJuflkvdY6kC8A0cDh4eHhHeblQUAe0SbIZGlpQ2E8PDy8O7x8w9oGFpPAN9leF60DeHh4eId5bVlrQcNaS8GGhQEPDw9vzGs3rMkisdZMMIk88PDw8G7y8qOsdlAWiytbGaItNR4eHt5W3jwamMcTl5qu8PDw8Dbx5tP9ZELPg9oNTVd4eHh4m3htI9Sk7WAtBMkrxMPDw/sUbxKnzofpYE8ZHh4e3gFeHivk0err4/+kfSE/isPDw8O7yVt7Z74dT8AtGw8PD+8+Lz+saknJFnktwsDDw8P7FC9/8K7wYm3g3iwbeHh4eId57dWWmwS1bVRRHIDh4eHhHeC1sUIeWySf5pvyg01XeHh4eFtzzvbWk+WhjSHqfwx4eHh4B3j5BN02DSSxQr5QHcla8PDw8A7zkuh2Um47BHh4eHjfz3v9+DaYaAfuTbsDHh4e3kXeJFZoYe12OYmV8fDw8G7y9m58ky11W0MycHh4eHh3eL934eHh4eHh4eHhfcH1H21zAPydhLVRAAAAAElFTkSuQmCC">
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACZklEQVR42u3aQY6jQAwF0Nz/0j3bkXro+bYph44eKxQRUo8F5dj/9fXRxwsPDw8PDw8PD+9hvFd8/ONGf32eXH/1re/nk7Xh4eHh7fD+86q9+OGrKxNk8uvNteHh4eEt8q4Wl1+Tv+iTb1XXhoeHh/dk3mTR+XaCh4eH93m8n0vtvLmQ3w0PDw/vabxe4/Wyndr65M29Fjw8PLyYlw+Z9s9X53t4eHh4Aa8caQpaDEmrNw8olFeIh4eHd5iX/3zCqAanrtq+vfXg4eHhbfIKBWuxoZC3GO4areHh4eHt8CbtiXxx1bhAsoEV9j08PDy8Y7x8NJVQk8eXAAqFPh4eHt4KLw889YrpHJwHFPDw8PDexcsH+T9vD4VmQTzuqpbjeHh4eDu8fEHJeU7tbRU37Ht4eHh4Y161FK6++qtbS96MiKIDeHh4eAd41XBVb+g1ASdrw8PDw3sXr9osOFGU39DswMPDw1vhJa3SahyqN9bK73NDMgIPDw9vwCsUrMW41TwQUA7O4uHh4a3zeoOrc9tAUprj4eHh7fOqEatJ6yEvkXvBLDw8PLxNXm/0NSmU84ZI4W8AHh4e3iKvWtpOAge9WFUzdIWHh4d3jNfbHnpH9REXAl54eHh4h3nVo9c46FHzR4CHh4e3yZu8yquv+zyUUB224eHh4e3z8iHTvW2IwqInoSs8PDy8Y7xkfDVpSeTDsPw+eHh4eL+FV2gNxEuctHrx8PDwns/LQwC9wj15lDckI/Dw8PAOp5J2RmK97QcPDw9vn9drAVQDW70Wbd4WwcPDw9vhfd6Bh4eHh4eHh4f3gOMPi2n3Ewk4mxEAAAAASUVORK5CYII=">
         </ul>
     
 
@@ -387,45 +387,35 @@
                 <!-- Post Content -->
                 <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
     
-        <script src="/assets/js/APlayer.min.js"> </script><h3 id="与窗口关闭相关的几个事件"><a href="#与窗口关闭相关的几个事件" class="headerlink" title="与窗口关闭相关的几个事件"></a>与窗口关闭相关的几个事件</h3><ol>
-<li><p>window.onclose</p>
-<blockquote>
+        <script src="/assets/js/APlayer.min.js"> </script><h3 id="1-window-onclose"><a href="#1-window-onclose" class="headerlink" title="1. window.onclose"></a>1. window.onclose</h3><blockquote>
 <p>当在window对象上触发close事件时的事件处理器</p>
 </blockquote>
-</li>
-<li><p>window.onunload</p>
-<blockquote>
+<h3 id="2-window-onunload"><a href="#2-window-onunload" class="headerlink" title="2. window.onunload"></a>2. window.onunload</h3><blockquote>
 <p>当页面关闭后,会触发unload事件.</p>
 </blockquote>
-<p> <strong>语法：</strong> <code>window.onunload = funcRef;</code></p>
-</li>
-<li><p>window.onbeforeunload</p>
-<blockquote>
-<p>当窗口即将被卸载时,会触发该事件.此时页面文档依然可见,且该事件的默认动作可以被取消.<br>当该事件处理函数返回一个非空的值时,会有一个弹窗提示让用户决定是否要关闭该页面.在大多数浏览器中,返回值会转换为字符串显示在弹窗上.</p>
+<p><strong>语法：</strong> <code>window.onunload = funcRef;</code></p>
+<h3 id="3-window-onbeforeunload"><a href="#3-window-onbeforeunload" class="headerlink" title="3. window.onbeforeunload"></a>3. window.onbeforeunload</h3><blockquote>
+<p>当窗口即将被卸载时,会触发该事件.此时页面文档依然可见,且该事件的默认动作可以被取消.</p>
+<p>当该事件处理函数返回一个非空的值时,会有一个弹窗提示让用户决定是否要关闭该页面.在大多数浏览器中,返回值会转换为字符串显示在弹窗上.</p>
 </blockquote>
- <figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="built_in">window</span>.onbeforeunload = <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</div><div class="line">	e = e || <span class="built_in">window</span>.event;</div><div class="line"> 		<span class="comment">// 兼容IE8和Firefox 4之前的版本</span></div><div class="line"> 		<span class="keyword">if</span> (e) &#123;</div><div class="line">   		e.returnValue = <span class="string">'关闭提示'</span>;</div><div class="line"> 		&#125;</div><div class="line"> 		<span class="comment">// Chrome, Safari, Firefox 4+, Opera 12+ , IE9+</span></div><div class="line"> 		<span class="keyword">return</span> <span class="string">'关闭提示'</span>;</div><div class="line">	&#125;;</div></pre></td></tr></table></figure>
-</li>
-</ol>
-<ol>
-<li><p>visibilitychange</p>
-<blockquote>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="built_in">window</span>.onbeforeunload = <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</div><div class="line">	e = e || <span class="built_in">window</span>.event;</div><div class="line"> 		<span class="comment">// 兼容IE8和Firefox 4之前的版本</span></div><div class="line"> 		<span class="keyword">if</span> (e) &#123;</div><div class="line">   		e.returnValue = <span class="string">'关闭提示'</span>;</div><div class="line"> 		&#125;</div><div class="line"> 		<span class="comment">// Chrome, Safari, Firefox 4+, Opera 12+ , IE9+</span></div><div class="line"> 		<span class="keyword">return</span> <span class="string">'关闭提示'</span>;</div><div class="line">	&#125;;</div></pre></td></tr></table></figure>
+<h3 id="4-visibilitychange"><a href="#4-visibilitychange" class="headerlink" title="4. visibilitychange"></a>4. visibilitychange</h3><blockquote>
 <p>浏览器标签页被隐藏或显示的时候会触发visibilitychange事件.</p>
 </blockquote>
-</li>
-</ol>
-<pre><code><figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="built_in">document</span>.addEventListener(<span class="string">"visibilitychange"</span>, 		</div><div class="line"><span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line"> 		<span class="built_in">console</span>.log( <span class="built_in">document</span>.visibilityState );</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-</code></pre><p>经过尝试上面的几个方案都行不通：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="built_in">document</span>.addEventListener(<span class="string">"visibilitychange"</span>, 		</div><div class="line"><span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line"> 		<span class="built_in">console</span>.log( <span class="built_in">document</span>.visibilityState );</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>经过尝试上面的几个方案都行不通:</p>
 <ol>
 <li>window.close关闭时不会调用</li>
 <li>其他几个在关闭不能使用 alert、confirm 等方法来弹窗阻止页面关闭，所有类似方法都会被 block 掉</li>
 <li>visibilitychange在微信中无法使用</li>
 <li>onbeforeunload可以弹一个默认窗口，但窗口相关信息不可配置。</li>
 </ol>
-<h3 id="解决方案：history-pushState"><a href="#解决方案：history-pushState" class="headerlink" title="解决方案：history.pushState"></a>解决方案：history.pushState</h3><blockquote>
-<p>history.pushState() 方法向浏览器历史添加了一个状态。</p>
+<h2 id="解决方案：history-pushState"><a href="#解决方案：history-pushState" class="headerlink" title="解决方案：history.pushState"></a>解决方案：history.pushState</h2><blockquote>
+<p><code>history.pushState()</code> 方法向浏览器历史添加了一个状态。</p>
 </blockquote>
-<p><strong>语法：</strong><br><figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line">history.pushState(state, title, url);</div></pre></td></tr></table></figure></p>
-<p>示例代码：<br><figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">pushHistory</span>(<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="keyword">var</span> state = &#123;</div><div class="line">            <span class="attr">title</span>: <span class="string">''</span></div><div class="line">        &#125;</div><div class="line">        <span class="built_in">window</span>.history.pushState(state, <span class="string">''</span>, <span class="string">'#'</span>);</div><div class="line">&#125;</div><div class="line"><span class="built_in">window</span>.addEventListener(<span class="string">"popstate"</span>, <span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123; </div><div class="line">        showAlert(xxx, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">			<span class="comment">// 用户选择留在当前页，重写push一下</span></div><div class="line">			pushHistory();</div><div class="line">		&#125;, funcrion()&#123;</div><div class="line">			<span class="comment">// 用户选择离开返回</span></div><div class="line">			navigation.back();</div><div class="line">		&#125;);</div><div class="line">    &#125;, <span class="literal">false</span>); </div><div class="line">    &#125;</div></pre></td></tr></table></figure></p>
+<p><strong>语法：</strong><br><code>history.pushState(state, title, url);</code></p>
+<p>示例代码:</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">pushHistory</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> state = &#123;</div><div class="line">       <span class="attr">title</span>: <span class="string">''</span></div><div class="line">    &#125;</div><div class="line">    <span class="built_in">window</span>.history.pushState(state, <span class="string">''</span>, <span class="string">'#'</span>);</div><div class="line">&#125;</div><div class="line"><span class="built_in">window</span>.addEventListener(<span class="string">"popstate"</span>, <span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123; </div><div class="line">    showAlert(xxx, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        <span class="comment">// 留在当前页面时重新 push</span></div><div class="line">		pushHistory();</div><div class="line">	&#125;, funcrion()&#123;</div><div class="line">        <span class="comment">// 离开时执行原本操作</span></div><div class="line">		navigation.back();</div><div class="line">	&#125;);</div><div class="line">&#125;, <span class="literal">false</span>); </div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h3 id="参考："><a href="#参考：" class="headerlink" title="参考："></a>参考：</h3><ol>
 <li><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/GlobalEventHandlers/onclose" target="_blank" rel="external">GlobalEventHandlers.onclose
 </a></li>
@@ -455,7 +445,7 @@
     <!-- 使用 changyan -->
     <div id="changyan-comment">
         <!--PC和WAP自适应版-->
-<div id="SOHUCS" sid="2017/05/09/wechat-close-dialog/"  ></div>
+<div id="SOHUCS" sid="2017/05/09/wechat_close_alert/"  ></div>
 <script type="text/javascript">
 (function(){
 var appid = 'cysrjRKQi';
