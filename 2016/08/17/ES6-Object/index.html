@@ -23,6 +23,8 @@
     
     
     
+        <link rel="dns-prefetch" href="https://changyan.sohu.com"/>
+    
     
     
     
@@ -330,7 +332,7 @@
         </button>
         <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-qrcode-button">
             <li class="mdl-menu__item">在其它设备中阅读本文章</li>
-            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACbElEQVR42u3bQXLjMAwEQP//08kDvJZnQIlSZVunVCK72DyQqAHy+vnTzwsPDw8PDw8PD+9hvFf8vL//j69++/2n99+/89O35WvDw8PD28n7ctQeLi7/bIJP2F/WhoeHh7eRd3wZJO8cv5m/P1sbHh4e3jN5SWF9XBwneDw8PLz/h5cc67OSGg8PD++ZvDZQaA/6upW1P2vBw8PDi3ltA2znzzf09/Dw8PAOeesH93GhvHLxDFeFh4eHdzGvHX5KAPlI1uxTS1kLHh4e3sW8WSw7C2Hz+PjLGvDw8PAu5iWl8KxoviL8XQoj8PDw8E7iJUdtUl7nB30+gNUOvOLh4eHt57Wlbbs1s7GAfGALDw8P7y5eTlqBJRuUlOx4eHh4d/HOilNXQoe2lC8aYHh4eHin8nLSLJ5YvxLqiwcPDw9vCy9pMtWhwCjwbUtqPDw8vP28orE0OtBnZXdeyuPh4eHt57XN+/XrJB/SGgYleHh4eFt4bcQwO7JnowN15IGHh4f3AF4dB5TFdE6KRhzw8PDwtvCSxnw7ntX+ddaEw8PDw9vPm8UHM+rKVhZrw8PDw7uY18YB7RGfD0vVocOnbcLDw8O7mJdcCclRnsQH7dE/C0Tw8PDwrua1T0ttw9n298MGGB4eHt4Crx23mg1gXVemL2UteHh4eAu8usm00KbK/5EgCSnw8PDw7uW1DbCVcfzkOpnFwXh4eHjP5LUxbn4xrF8keHh4eE/j7RzMSoppPDw8vHt5bRjRFr7HW5Zv5bCkxsPDwzuV1zbAkksi2ZSVuPbC/h4eHh7eqfOcz3/w8PDw8PDw8PAe8PwCOvVt8Yumr1UAAAAASUVORK5CYII=">
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACcElEQVR42u3aS27DMAwFwNz/0u22m6jvUbbywWhlJK6lSQGJJvn4+erxwMPDw8PDw8PDezPeIx5PHxfc//eT5HpnbXh4eHhneP9stcvl5ktZ/zTJvNHa8PDw8A7yni1ofZ3/1fqedi48PDy8z+LN7smDcjw8PLzv5uUBcX4M4OHh4X0KL3nhfzZlG2TPwLfnWvDw8PBiXp6EPX99tL6Hh4eHF/DqlqblYbAua81C86M9ZXh4eHgBL9+Ic2rbTLD+OeomMDw8PLyDvLwdqk1n5KmN/BAq3hjw8PDwbuMlExTTbLQC7KR38fDw8O7mtQtaL679ydpS2VYaFw8PD+9S3j9bbbx9tyngvOGgCPHx8PDwjvDa5MIsXN4pmA2TEXh4eHg38KKSUtAokDxtlsDN8Xh4eHjvwMsbp9pjJg+gk1QFHh4e3mt5bZlqloSdgaN/AB4eHt5BXrH5lt8mT541XRUHAx4eHt5FvJ3wty1itUmQWfkNDw8P725evokny80X1LYRJIldPDw8vPO8Nryelan2E7t1AQwPDw/vZl4S4P4Eo03m7rRh4eHh4b2Kl6QDZuWuq9oLLnhjwMPDwzuYjGips4RFcl03XeHh4eHdxpulA/KGrZ0D4IICGB4eHt5FvHbMylptC0Iyb3Qw4OHh4d3A2ynS7xTD2hLX1rmHh4eHdwNvdhjk4XXbItCG3Xh4eHiv4uUbdJt+nT1/lpLAw8PD+xTebFnJ523iAw8PD+/9eW3yN78nD9Px8PDwXsWbLS5vtFqnGHLqsOkKDw8P71LeTkCcFLpmhbG8mQAPDw/vJO/7Bh4eHh4eHh4e3huMXyLezkp4uYt7AAAAAElFTkSuQmCC">
         </ul>
     
 
@@ -408,34 +410,27 @@
                     
 
 
-
-
-    <!-- 使用 DISQUS -->
-    <div id="disqus-comment">
-        <div id="disqus_thread"></div>
-<script>
-    var disqus_config = function () {
-        this.page.url = 'https://iminyao.com/2016/08/17/ES2015-Object/';  // Replace PAGE_URL with your page's canonical URL variable
-        this.page.identifier = 'https://iminyao.com/2016/08/17/ES2015-Object/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-    };
-    queue.offer(function() {
-            (function() { // DON'T EDIT BELOW THIS LINE
-                var d = document;
-                var s = d.createElement('script');
-                s.src = '//vino24.disqus.com/embed.js';
-                s.setAttribute('data-timestamp', + new Date());
-                (d.head || d.body).appendChild(s);
-            })();
-        });
-</script>
+    <!-- 使用 changyan -->
+    <div id="changyan-comment">
+        <!--PC和WAP自适应版-->
+<div id="SOHUCS" sid="2016/08/17/ES6-Object/"  ></div>
+<script type="text/javascript">
+(function(){
+var appid = 'cysrjRKQi';
+var conf = 'c046a1f3e62c6957ed716fbff67c8ad2';
+var width = window.innerWidth || document.documentElement.clientWidth;
+if (width < 960) {
+window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("https://changyan.sohu.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})}); } })(); </script>
 
     </div>
     <style>
-        #disqus-comment{
+        #changyan-comment{
             background-color: #eee;
             padding: 2pc;
         }
     </style>
+
+
 
 
 
@@ -686,7 +681,7 @@ It will not impact the appearance and can give developers a lot of support :)
     <!-- Github -->
     
         <a href="https://github.com/vino24/" target="_blank">
-            <button class="mdl-mini-footer--social-btn social-btn" style="background-image: url(/img/footer/footer_ico-github.svg);">
+            <button class="mdl-mini-footer--social-btn social-btn" style="background-image: url(/img/footer/footer_ico-github.png);">
                 <span class="visuallyhidden">Github</span>
             </button><!--
      --></a>
@@ -708,11 +703,7 @@ It will not impact the appearance and can give developers a lot of support :)
 
         <!--Copyright-->
         <div id="copyright">
-            Copyright&nbsp;©&nbsp;
-            <script type="text/javascript">
-                var fd = new Date();
-                document.write(fd.getFullYear());
-            </script>
+            Copyright&nbsp;©&nbsp;2017
             &nbsp;逢十借一
         </div>
 
@@ -776,10 +767,12 @@ It will not impact the appearance and can give developers a lot of support :)
 
 
 
+    <!-- 畅言公共 js 代码 start -->
+		<script id="cy_cmt_num" src="https://changyan.sohu.com/upload/plugins/plugins.list.count.js?clientId=cysrjRKQi">
+</script>
+    <!-- 畅言公共 js 代码 end -->
 
 
-    <!-- 使用 DISQUS js 代码 -->
-    <script id="dsq-count-scr" src="//vino24.disqus.com/count.js" async></script>
 
 
 

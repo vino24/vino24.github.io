@@ -20,6 +20,20 @@
 <li><a href="https://github.com/PyMySQL/PyMySQL" target="_blank" rel="external">PyMySQL</a></li>
 </ol>
 ]]></content>
+      
+        <categories>
+            
+            <category> 自我学习 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> MySQL </tag>
+            
+        </tags>
+        
     </entry>
     
     <entry>
@@ -77,6 +91,20 @@
 <li><a href="https://developer.mozilla.org/zh-CN/docs/DOM/Manipulating_the_browser_history" target="_blank" rel="external">操纵浏览器的历史记录</a></li>
 </ol>
 ]]></content>
+      
+        <categories>
+            
+            <category> Mobile Develop </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> HTML5 </tag>
+            
+        </tags>
+        
     </entry>
     
     <entry>
@@ -101,6 +129,20 @@
 <li><a href="http://blog.jobbole.com/87700/" target="_blank" rel="external">如何在 Git 里撤销(几乎)任何操作</a></li>
 </ol>
 ]]></content>
+      
+        <categories>
+            
+            <category> devTools&amp;&amp;Configuration </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> Git </tag>
+            
+        </tags>
+        
     </entry>
     
     <entry>
@@ -117,6 +159,20 @@
 <li><a href="https://codetower.github.io/es6-features/?utm_source=javascriptweekly&amp;utm_medium=email" target="_blank" rel="external">ES6 Features</a></li>
 </ol>
 ]]></content>
+      
+        <categories>
+            
+            <category> JavaScript </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> ES6 </tag>
+            
+        </tags>
+        
     </entry>
     
     <entry>
@@ -158,6 +214,20 @@
 <li><a href="https://github.com/alivebao/clean-code-js/blob/master/README.md" target="_blank" rel="external">JavaScript风格指南</a></li>
 </ol>
 ]]></content>
+      
+        <categories>
+            
+            <category> JavaScript </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> JavaScript Core </tag>
+            
+        </tags>
+        
     </entry>
     
     <entry>
@@ -222,6 +292,20 @@
 <li><a href="http://es6.ruanyifeng.com/#docs/destructuring" target="_blank" rel="external">变量的解构赋值</a></li>
 </ol>
 ]]></content>
+      
+        <categories>
+            
+            <category> JavaScript </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> ES6 </tag>
+            
+        </tags>
+        
     </entry>
     
     <entry>
@@ -250,6 +334,20 @@
 <figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> MyFormMultiSelect = React.createClass(&#123;</div><div class="line">    <span class="attr">getInitialState</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="keyword">return</span> &#123;</div><div class="line">            <span class="attr">options</span>: [<span class="string">'B'</span>]</div><div class="line">        &#125;;</div><div class="line">    &#125;,</div><div class="line">    <span class="attr">handleChange</span>: <span class="function"><span class="keyword">function</span> (<span class="params">event</span>) </span>&#123;</div><div class="line">        <span class="keyword">var</span> checked = [];</div><div class="line">        <span class="keyword">var</span> sel = event.target;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; sel.length; i++) &#123;</div><div class="line">            <span class="keyword">var</span> option = sel.options[i]</div><div class="line">            <span class="keyword">if</span>(option.selected) &#123;</div><div class="line">                checked.push(option.value);</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">this</span>.setState(&#123;</div><div class="line">            <span class="attr">options</span>: checked</div><div class="line">        &#125;);</div><div class="line">    &#125;,</div><div class="line">    <span class="attr">submitHandler</span>: <span class="function"><span class="keyword">function</span> (<span class="params">event</span>) </span>&#123;</div><div class="line">        event.preventDefault()</div><div class="line">        alert(<span class="keyword">this</span>.state.options)</div><div class="line">    &#125;,</div><div class="line">    <span class="attr">render</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="keyword">return</span> (</div><div class="line">            <span class="xml"><span class="tag">&lt;<span class="name">form</span> <span class="attr">onSubmit</span>=<span class="string">&#123;this.submitHandler&#125;</span>&gt;</span></span></div><div class="line">                <span class="tag">&lt;<span class="name">select</span> <span class="attr">multiple</span> <span class="attr">value</span>=<span class="string">&#123;this.state.options&#125;</span></span></div><div class="line">                    <span class="attr">onChange</span>=<span class="string">&#123;this.handleChange&#125;</span>&gt;</div><div class="line">                    <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">"A"</span>&gt;</span>A<span class="tag">&lt;/<span class="name">option</span>&gt;</span></div><div class="line">                    <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">"B"</span>&gt;</span>B<span class="tag">&lt;/<span class="name">option</span>&gt;</span></div><div class="line">                    <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">"C"</span>&gt;</span>C<span class="tag">&lt;/<span class="name">option</span>&gt;</span></div><div class="line">                <span class="tag">&lt;/<span class="name">select</span>&gt;</span></div><div class="line">                <span class="tag">&lt;<span class="name">br</span> /&gt;</span></div><div class="line">                <span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">"submit"</span>&gt;</span>Speak<span class="tag">&lt;/<span class="name">button</span>&gt;</span></div><div class="line">            <span class="tag">&lt;/<span class="name">form</span>&gt;</span></div><div class="line">        );</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;);</div></pre></td></tr></table></figure>
 <h3 id="自定义表单"><a href="#自定义表单" class="headerlink" title="自定义表单"></a>自定义表单</h3><h4 id="Radio-js"><a href="#Radio-js" class="headerlink" title="Radio.js"></a>Radio.js</h4><figure class="highlight javascript"><figcaption><span>key</span></figcaption><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> Radio = React.createClass(&#123;</div><div class="line">    <span class="attr">propTypes</span>: &#123;</div><div class="line">        <span class="attr">onChange</span>: React.PropTypes.func</div><div class="line">    &#125;,</div><div class="line">    <span class="attr">getInitialState</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="keyword">return</span> &#123;</div><div class="line">            <span class="attr">value</span>: <span class="keyword">this</span>.props.defaultValue</div><div class="line">        &#125;;</div><div class="line">    &#125;,</div><div class="line">    <span class="attr">handleChange</span>: <span class="function"><span class="keyword">function</span> (<span class="params">event</span>) </span>&#123;</div><div class="line">        <span class="keyword">if</span> (<span class="keyword">this</span>.props.onChange) &#123;</div><div class="line">            <span class="keyword">this</span>.props.onChange(event);</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">this</span>.setState(&#123;</div><div class="line">            <span class="attr">value</span>: event.target.value</div><div class="line">        &#125;);</div><div class="line">    &#125;,</div><div class="line">    <span class="attr">render</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="keyword">var</span> children = [];</div><div class="line">        <span class="keyword">var</span> value = <span class="keyword">this</span>.props.value || <span class="keyword">this</span>.state.value;</div><div class="line">        React.Children.forEach(<span class="keyword">this</span>.props.children,</div><div class="line">            <span class="function"><span class="keyword">function</span>(<span class="params">child, i</span>) </span>&#123;</div><div class="line">            <span class="keyword">var</span> label =(</div><div class="line">                <span class="xml"><span class="tag">&lt;<span class="name">label</span> <span class="attr">key</span>=<span class="string">&#123;</span>"<span class="attr">radio</span>" + <span class="attr">i</span>&#125;&gt;</span> // 生成unique key，标识组件，便于react更快的更新，没有key会warning</span></div><div class="line">                    <span class="tag">&lt;<span class="name">input</span></span></div><div class="line">                        <span class="attr">type</span>=<span class="string">"radio"</span></div><div class="line">                        <span class="attr">name</span>=<span class="string">&#123;child.props.value&#125;</span> // <span class="attr">child.props</span>有两个值 &#123;<span class="attr">value:A</span>/<span class="attr">B</span>,<span class="attr">children:A</span>/<span class="attr">B</span>&#125;</div><div class="line">                        <span class="attr">checked</span>=<span class="string">&#123;child.props.value</span> === <span class="string">value&#125;</span></div><div class="line">                        <span class="attr">value</span>=<span class="string">&#123;child.props.value&#125;</span></div><div class="line">                        <span class="attr">onChange</span>=<span class="string">&#123;this.handleChange&#125;</span> /&gt;</div><div class="line">                    &#123;child.props.children&#125;</div><div class="line">                <span class="tag">&lt;/<span class="name">label</span>&gt;</span>)</div><div class="line"></div><div class="line">            children[i] = label;</div><div class="line">            &#125;.bind(this));</div><div class="line"></div><div class="line">        return <span class="tag">&lt;<span class="name">div</span>&gt;</span>&#123;children&#125;<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">    &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
 <figure class="highlight javascript"><figcaption><span>key</span></figcaption><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> Radio = <span class="built_in">require</span>(<span class="string">'./Radio'</span>);</div><div class="line"><span class="keyword">var</span> RadioForm = React.createClass(&#123;</div><div class="line">    <span class="attr">getInitialState</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="keyword">return</span> &#123;</div><div class="line">            <span class="attr">my_radio</span>: <span class="string">"B"</span></div><div class="line">        &#125;;</div><div class="line">    &#125;,</div><div class="line">    <span class="attr">handleChange</span>: <span class="function"><span class="keyword">function</span> (<span class="params">event</span>) </span>&#123;</div><div class="line">        <span class="keyword">this</span>.setState(&#123;</div><div class="line">            <span class="attr">my_radio</span>: event.target.value</div><div class="line">        &#125;);</div><div class="line">    &#125;,</div><div class="line">    <span class="attr">submitHandler</span>:<span class="function"><span class="keyword">function</span> (<span class="params">event</span>) </span>&#123;</div><div class="line">        event.preventDefault()</div><div class="line">        alert(<span class="keyword">this</span>.state.my_radio)</div><div class="line">    &#125;,</div><div class="line">    <span class="attr">render</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="keyword">return</span> (</div><div class="line">            <span class="xml"><span class="tag">&lt;<span class="name">form</span> <span class="attr">onSubmit</span>=<span class="string">&#123;this.submitHandler&#125;</span>&gt;</span></span></div><div class="line">                <span class="tag">&lt;<span class="name">Radio</span></span></div><div class="line">                    <span class="attr">name</span>=<span class="string">"my_radio"</span></div><div class="line">                    <span class="attr">value</span>=<span class="string">&#123;this.state.my_radio&#125;</span></div><div class="line">                    <span class="attr">onChange</span>=<span class="string">&#123;this.handleChange&#125;</span>&gt;</div><div class="line">                    <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">"A"</span>&gt;</span>A<span class="tag">&lt;/<span class="name">option</span>&gt;</span></div><div class="line">                    <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">"B"</span>&gt;</span>B<span class="tag">&lt;/<span class="name">option</span>&gt;</span></div><div class="line">                <span class="tag">&lt;/<span class="name">Radio</span>&gt;</span></div><div class="line">                <span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">"submit"</span>&gt;</span>Speak<span class="tag">&lt;/<span class="name">button</span>&gt;</span></div><div class="line">            <span class="tag">&lt;/<span class="name">form</span>&gt;</span></div><div class="line">        );</div><div class="line">    &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>]]></content>
+      
+        <categories>
+            
+            <category> JavaScript Framework </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> react.js </tag>
+            
+        </tags>
+        
     </entry>
     
     <entry>
@@ -273,6 +371,20 @@
 </ol>
 <h3 id="tag-插件-github-star-tag"><a href="#tag-插件-github-star-tag" class="headerlink" title="tag 插件 -  github star tag"></a>tag 插件 -  github star tag</h3><p>不知不觉github上star的项目已经超过了70个，然而github官方并没有tag功能，只能看下&gt;有没有第三方的工具了。试用了一番最后选择了<a href="https://app.astralapp.com/，简洁，但功" target="_blank" rel="external">https://app.astralapp.com/，简洁，但功</a><br>能够用。</p>
 ]]></content>
+      
+        <categories>
+            
+            <category> 总结 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> git </tag>
+            
+        </tags>
+        
     </entry>
     
     <entry>
@@ -331,6 +443,20 @@
 <li><a href="https://gist.github.com/sebmarkbage/07bbe37bc42b6d4aef81" target="_blank" rel="external">JSX Spread Attributes</a></li>
 </ol>
 ]]></content>
+      
+        <categories>
+            
+            <category> JavaScript Framework </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> react.js </tag>
+            
+        </tags>
+        
     </entry>
     
     <entry>
@@ -390,6 +516,20 @@
 </code></pre><h3 id="参考"><a href="#参考" class="headerlink" title="参考:"></a>参考:</h3><pre><code>1. [avalon入门教程](http://www.cnblogs.com/rubylouvre/p/3181291.html)
 2. [avalon最佳实践](http://www.cnblogs.com/rubylouvre/p/3385373.html)
 </code></pre>]]></content>
+      
+        <categories>
+            
+            <category> JavaScript Framework </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> avalon.js </tag>
+            
+        </tags>
+        
     </entry>
     
     <entry>
@@ -416,6 +556,14 @@
 <li><a href="http://www.cnblogs.com/Wayou/p/chrome-console-tips-and-tricks.html" target="_blank" rel="external">Chrome 控制台不完全指南</a></li>
 </ol>
 ]]></content>
+      
+        <categories>
+            
+            <category> 总结 </category>
+            
+        </categories>
+        
+        
     </entry>
     
     <entry>
@@ -472,6 +620,20 @@
 <li><a href="https://www.w3ctech.com/topic/854" target="_blank" rel="external">这个API很“迷人”</a></li>
 </ol>
 ]]></content>
+      
+        <categories>
+            
+            <category> JavaScript </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> Ajax </tag>
+            
+        </tags>
+        
     </entry>
     
     <entry>
@@ -509,6 +671,14 @@
 <h4 id="2-代码段"><a href="#2-代码段" class="headerlink" title="[2] 代码段"></a>[2] 代码段</h4><p>hexo中我们可以直接使用三个反引号来包含代码段<code>language] [title] [url] [link text] code snippet</code><br>之前只知道支持language，没想到还支持title url link，👍</p>
 <p>除此之外，hexo还支持其他很多种类型，详见 <a href="https://hexo.io/zh-cn/docs/tag-plugins.html" target="_blank" rel="external">https://hexo.io/zh-cn/docs/tag-plugins.html</a></p>
 ]]></content>
+      
+        <categories>
+            
+            <category> 总结 </category>
+            
+        </categories>
+        
+        
     </entry>
     
     <entry>
@@ -541,6 +711,14 @@ Warning: Invalid argument supplied for foreach() in /data/home/qxu1098560294/htd
 <p>还有一个大彩蛋，写完了往博客上添专辑的时候才想起来，虾米垄断了滚石的版权，小李的音乐包括《理性与感性作品音乐会》基本上都跪了。最蛋疼的是通过API还能搜到音乐资源，但是资源已经失效…专辑搜索的接口就是这么玩的，数据里面有MP3链接，但是全部是404…这个问题待解决。</p>
 <p>有钱真好，马云爸爸，请收下我的膝盖😭</p>
 ]]></content>
+      
+        <categories>
+            
+            <category> 总结 </category>
+            
+        </categories>
+        
+        
     </entry>
     
     <entry>
@@ -557,6 +735,20 @@ Warning: Invalid argument supplied for foreach() in /data/home/qxu1098560294/htd
 <p>这六个参数分别代表正交投影照相机拍摄到的空间的六个面的位置，这六个面围成一个长方体，我们称其为视景体（Frustum）。只有在视景体内部（下图中的灰色部分）的物体才可能显示在屏幕上，而视景体外的物体会在显示之前被裁减掉。<br><img src="/images/three.js-2016-10-27-2.png" alt="Orthographic Camera"></p>
 <p>这两天翻了下羡辙同学翻译的three.js,看完了感觉跟没看一样。正好京东图书搞活动买了本three.js的书，立个flag，年前整个元素周期表的那个特效出来，然后把元素都换成李老师专辑封面，献给我最爱的李老师。</p>
 ]]></content>
+      
+        <categories>
+            
+            <category> JavaScript Framework </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> three.js </tag>
+            
+        </tags>
+        
     </entry>
     
     <entry>
@@ -604,6 +796,14 @@ Warning: Invalid argument supplied for foreach() in /data/home/qxu1098560294/htd
 <p>0.0.0.0, in this context, means “all IP addresses on the local machine” (in fact probably, “all IPv4 addresses on the local machine”). So, if your webserver machine has two ip addresses, 192.168.1.1 and 10.1.2.1, and you allow a webserver daemon like apache to listen on 0.0.0.0, it will be reachable at both of those IPs. But only to what can contact those IPs and the web port(s).</p>
 </blockquote>
 ]]></content>
+      
+        <categories>
+            
+            <category> devTools&amp;&amp;Configuration </category>
+            
+        </categories>
+        
+        
     </entry>
     
     <entry>
@@ -618,6 +818,14 @@ Warning: Invalid argument supplied for foreach() in /data/home/qxu1098560294/htd
 <p>最常见的有两个问题：一个是url完整性的问题，url中是不包括’#’hash后面的部分，还有一个就是我碰到的问题GET请求中的参数一定要用encodeURIComponent编码。</p>
 <p>另外微信提供了一个在线的接口签名校验页面 <a href="http://mp.weixin.qq.com/debug/cgi-bin/sandbox?t=jsapisign" target="_blank" rel="external">http://mp.weixin.qq.com/debug/cgi-bin/sandbox?t=jsapisign</a></p>
 ]]></content>
+      
+        <categories>
+            
+            <category> 需求总结 </category>
+            
+        </categories>
+        
+        
     </entry>
     
     <entry>
@@ -664,6 +872,14 @@ Warning: Invalid argument supplied for foreach() in /data/home/qxu1098560294/htd
 <li><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/user-select" target="_blank" rel="external">user-select</a></li>
 </ol>
 ]]></content>
+      
+        <categories>
+            
+            <category> 需求总结 </category>
+            
+        </categories>
+        
+        
     </entry>
     
     <entry>
@@ -682,6 +898,20 @@ Warning: Invalid argument supplied for foreach() in /data/home/qxu1098560294/htd
 <li><a href="http://www.jstips.co/en/improve-nested-conditionals/" target="_blank" rel="external">Improve Nested Conditionals</a></li>
 </ol>
 ]]></content>
+      
+        <categories>
+            
+            <category> JavaScript </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> JavaScript Core </tag>
+            
+        </tags>
+        
     </entry>
     
     <entry>
@@ -730,6 +960,20 @@ Warning: Invalid argument supplied for foreach() in /data/home/qxu1098560294/htd
 <li><a href="http://vuejs.org.cn/api/#partial" target="_blank" rel="external">partial</a></li>
 </ol>
 ]]></content>
+      
+        <categories>
+            
+            <category> JavaScript Framework </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> Vue </tag>
+            
+        </tags>
+        
     </entry>
     
     <entry>
@@ -755,6 +999,14 @@ Warning: Invalid argument supplied for foreach() in /data/home/qxu1098560294/htd
 <li><a href="http://phrogz.net/css/htmlvsbody.html" target="_blank" rel="external">Understanding the HTML versus BODY Element in CSS</a></li>
 </ol>
 ]]></content>
+      
+        <categories>
+            
+            <category> 需求总结 </category>
+            
+        </categories>
+        
+        
     </entry>
     
     <entry>
@@ -834,6 +1086,20 @@ Warning: Invalid argument supplied for foreach() in /data/home/qxu1098560294/htd
 <li><a href="https://www.w3.org/html/ig/zh/css-flex-1/" target="_blank" rel="external">CSS 伸缩盒布局模组</a></li>
 </ol>
 ]]></content>
+      
+        <categories>
+            
+            <category> CSS </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> Flex </tag>
+            
+        </tags>
+        
     </entry>
     
     <entry>
@@ -843,11 +1109,25 @@ Warning: Invalid argument supplied for foreach() in /data/home/qxu1098560294/htd
 <p>首先选中要转换的图片，右键 选择预览，在预览窗口中再次选中要转换的图片 然后 文件 导出为其他格式即可。</p>
 <h3 id="音频提取"><a href="#音频提取" class="headerlink" title="音频提取"></a>音频提取</h3><p>Mac可以很方便的从视频直接提取出音频，右键 编码所选视频文件 仅音频 即可导出AAC格式音频。</p>
 ]]></content>
+      
+        <categories>
+            
+            <category> 总结 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> Mac </tag>
+            
+        </tags>
+        
     </entry>
     
     <entry>
       <title><![CDATA[ES6之对象字面量]]></title>
-      <url>https://iminyao.com/2016/08/17/ES2015-Object/</url>
+      <url>https://iminyao.com/2016/08/17/ES6-Object/</url>
       <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><h3 id="1-对象原型设置"><a href="#1-对象原型设置" class="headerlink" title="1. 对象原型设置"></a>1. 对象原型设置</h3><p>ES5中设置对象原型通常需要使用<code>Object.create</code>这个静态方法来设置对象原型，在ES6中可以直接在对象中设置<code>__proto__</code>属性来设置。<br><figure class="highlight actionscript"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> myProto = &#123;  </div><div class="line">  propertyExists: <span class="function"><span class="keyword">function</span><span class="params">(name)</span> </span>&#123;</div><div class="line">    <span class="keyword">return</span> name <span class="keyword">in</span> <span class="keyword">this</span>;    </div><div class="line">  &#125;</div><div class="line">&#125;;</div><div class="line"><span class="keyword">var</span> myNumbers = &#123;  </div><div class="line">  __proto__: myProto,</div><div class="line">  array: [<span class="number">1</span>, <span class="number">6</span>, <span class="number">7</span>]</div><div class="line">&#125;;</div><div class="line">myNumbers.propertyExists(<span class="string">'array'</span>);      <span class="comment">// =&gt; true  </span></div><div class="line">myNumbers.propertyExists(<span class="string">'collection'</span>); <span class="comment">// =&gt; false</span></div></pre></td></tr></table></figure></p>
 <blockquote>
 <p><strong>proto</strong>只允许出现一次，多次设置会报错；<strong>proto</strong>的值只允许是object和null，其他所有值都会被忽略。</p>
@@ -858,6 +1138,20 @@ Warning: Invalid argument supplied for foreach() in /data/home/qxu1098560294/htd
 <p>super只能在快速方法声明中使用，普通的<code>name: function(){}</code>中会抛异常。</p>
 </blockquote>
 ]]></content>
+      
+        <categories>
+            
+            <category> JavaScript </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> ES6 </tag>
+            
+        </tags>
+        
     </entry>
     
     <entry>
@@ -927,6 +1221,14 @@ Warning: Invalid argument supplied for foreach() in /data/home/qxu1098560294/htd
 <li><a href="http://lbs.amap.com/api/webservice/reference/staticmaps/" target="_blank" rel="external">静态地图</a></li>
 </ol>
 ]]></content>
+      
+        <categories>
+            
+            <category> 需求总结 </category>
+            
+        </categories>
+        
+        
     </entry>
     
     <entry>
@@ -961,6 +1263,14 @@ Warning: Invalid argument supplied for foreach() in /data/home/qxu1098560294/htd
 <p>曾看到过说侯牧人的一句话 正因为对这片土地爱的深沉，所以我才不满那些黑暗。用在李老师这也很合适。</p>
 </blockquote>
 ]]></content>
+      
+        <categories>
+            
+            <category> 随笔 </category>
+            
+        </categories>
+        
+        
     </entry>
     
     <entry>
@@ -1083,6 +1393,14 @@ Warning: Invalid argument supplied for foreach() in /data/home/qxu1098560294/htd
 <li><a href="http://www.w3school.com.cn/cssref/pr_text_white-space.asp" target="_blank" rel="external">http://www.w3school.com.cn/cssref/pr_text_white-space.asp</a></li>
 </ul>
 ]]></content>
+      
+        <categories>
+            
+            <category> 总结 </category>
+            
+        </categories>
+        
+        
     </entry>
     
     <entry>
@@ -1114,6 +1432,20 @@ Warning: Invalid argument supplied for foreach() in /data/home/qxu1098560294/htd
 <li><a href="https://vuefe.cn/guide/components.html" target="_blank" rel="external">vue组件</a></li>
 </ol>
 ]]></content>
+      
+        <categories>
+            
+            <category> JavaScript Framework </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> Vue </tag>
+            
+        </tags>
+        
     </entry>
     
     <entry>
@@ -1128,6 +1460,14 @@ Warning: Invalid argument supplied for foreach() in /data/home/qxu1098560294/htd
 <p>我做不到让他们过得好，然后我得自己找点乐子。  －－ 李志</p>
 </blockquote>
 ]]></content>
+      
+        <categories>
+            
+            <category> 随笔 </category>
+            
+        </categories>
+        
+        
     </entry>
     
     <entry>
@@ -1171,6 +1511,20 @@ Warning: Invalid argument supplied for foreach() in /data/home/qxu1098560294/htd
 <p>除此之外还可以为索引指定别名：</p>
 <figure class="highlight stylus"><table><tr><td class="code"><pre><div class="line">`&lt;<span class="selector-tag">div</span> v-<span class="keyword">for</span>=<span class="string">"(index, item) in items"</span>&gt;</div><div class="line">  &#123;&#123; index &#125;&#125; &#123;&#123; item<span class="selector-class">.message</span> &#125;&#125;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
 ]]></content>
+      
+        <categories>
+            
+            <category> JavaScript Framework </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> Vue </tag>
+            
+        </tags>
+        
     </entry>
     
     <entry>
@@ -1197,6 +1551,20 @@ Warning: Invalid argument supplied for foreach() in /data/home/qxu1098560294/htd
 <li><a href="https://segmentfault.com/a/1190000005351971" target="_blank" rel="external">https://segmentfault.com/a/1190000005351971</a></li>
 </ol>
 ]]></content>
+      
+        <categories>
+            
+            <category> JavaScript Framework </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> Vue </tag>
+            
+        </tags>
+        
     </entry>
     
     <entry>
@@ -1252,6 +1620,20 @@ Warning: Invalid argument supplied for foreach() in /data/home/qxu1098560294/htd
 <li><a href="http://www.haorooms.com/post/css_input_uploadmh" target="_blank" rel="external">css input[type=file] 样式美化</a></li>
 </ol>
 ]]></content>
+      
+        <categories>
+            
+            <category> 总结 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> Tips </tag>
+            
+        </tags>
+        
     </entry>
     
     <entry>
@@ -1323,6 +1705,14 @@ Warning: Invalid argument supplied for foreach() in /data/home/qxu1098560294/htd
 <li><a href="http://9iphp.com/web/html/sublime-text-code-snippets.html" target="_blank" rel="external">Sublime Text自定制代码片段</a></li>
 </ol>
 ]]></content>
+      
+        <categories>
+            
+            <category> devTools&amp;&amp;Configuration </category>
+            
+        </categories>
+        
+        
     </entry>
     
     <entry>
@@ -1373,6 +1763,20 @@ Warning: Invalid argument supplied for foreach() in /data/home/qxu1098560294/htd
 <p>vue-i18n：i18n</p>
 <p>vue-devtools：配合 chrome 的开发插件，调试时可用</p>
 ]]></content>
+      
+        <categories>
+            
+            <category> JavaScript Framework </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> Vue </tag>
+            
+        </tags>
+        
     </entry>
     
     <entry>
@@ -1415,6 +1819,20 @@ Warning: Invalid argument supplied for foreach() in /data/home/qxu1098560294/htd
 <li><a href="https://www.haomwei.com/technology/maupassant-hexo.html" target="_blank" rel="external">https://www.haomwei.com/technology/maupassant-hexo.html</a></li>
 </ol>
 ]]></content>
+      
+        <categories>
+            
+            <category> devTools&amp;&amp;Configuration </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> Git </tag>
+            
+        </tags>
+        
     </entry>
     
     <entry>
@@ -1447,6 +1865,20 @@ Warning: Invalid argument supplied for foreach() in /data/home/qxu1098560294/htd
 <li><a href="https://bugs.chromium.org/p/chromium/issues/detail?id=525262" target="_blank" rel="external">storage event not fired to other tabs</a></li>
 </ol>
 ]]></content>
+      
+        <categories>
+            
+            <category> 需求总结 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> JavaScript API </tag>
+            
+        </tags>
+        
     </entry>
     
     <entry>
@@ -1483,6 +1915,20 @@ Warning: Invalid argument supplied for foreach() in /data/home/qxu1098560294/htd
 <li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Function/bind" target="_blank" rel="external">https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Function/bind</a></li>
 </ol>
 ]]></content>
+      
+        <categories>
+            
+            <category> JavaScript </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> JavaScript Core </tag>
+            
+        </tags>
+        
     </entry>
     
     <entry>
@@ -1496,6 +1942,20 @@ Warning: Invalid argument supplied for foreach() in /data/home/qxu1098560294/htd
 <p>其实仔细看一下psd，头底部和主体是有联系的，如图</p>
 <p>所以最简单的办法是把整个头部和内容作为一部分切出来。</p>
 ]]></content>
+      
+        <categories>
+            
+            <category> 总结 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> PS </tag>
+            
+        </tags>
+        
     </entry>
     
     <entry>
@@ -1525,6 +1985,22 @@ Warning: Invalid argument supplied for foreach() in /data/home/qxu1098560294/htd
 <li><a href="http://blog.jobbole.com/80620/" target="_blank" rel="external">关于 Zsh，我最喜欢的那些特性</a></li>
 </ol>
 ]]></content>
+      
+        <categories>
+            
+            <category> 总结 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> Git </tag>
+            
+            <tag> Mac </tag>
+            
+        </tags>
+        
     </entry>
     
     <entry>
@@ -1554,6 +2030,20 @@ Warning: Invalid argument supplied for foreach() in /data/home/qxu1098560294/htd
 <li><a href="http://group.jobbole.com/19082/" target="_blank" rel="external">Mac 使用技巧</a></li>
 </ol>
 ]]></content>
+      
+        <categories>
+            
+            <category> 总结 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> Mac </tag>
+            
+        </tags>
+        
     </entry>
     
     <entry>
@@ -1590,6 +2080,14 @@ Warning: Invalid argument supplied for foreach() in /data/home/qxu1098560294/htd
 <li><a href="http://iminyao.com/2016/05/10/viewport/">两个viewport的故事</a></li>
 </ol>
 ]]></content>
+      
+        <categories>
+            
+            <category> Mobile Develop </category>
+            
+        </categories>
+        
+        
     </entry>
     
     <entry>
@@ -1646,6 +2144,14 @@ Warning: Invalid argument supplied for foreach() in /data/home/qxu1098560294/htd
 <p>正常在PC端，CSS像素与物理像素是1:1的，但在apple的retina屏是1:1.5甚至1:2的关系，所以传统的<code>width</code>会出问题，此时可以通过设置<code>viewport width=device-width</code>来解决，如果不设置<code>viewport</code>的话还这个时候可以应用<code>device-width</code>来作为查询条件。</p>
 </blockquote>
 <figure class="highlight scss"><table><tr><td class="code"><pre><div class="line"><span class="comment">/*原始样式	*/</span></div><div class="line">@<span class="keyword">import</span> url(example.css) screen and (max-width:<span class="number">800px</span>); &lt;!--导入样式表 媒体查询--&gt;</div><div class="line">		<span class="selector-tag">article</span>&#123;</div><div class="line">			<span class="attribute">border</span>:solid <span class="number">1px</span> black;</div><div class="line">			<span class="attribute">padding</span>: <span class="number">15px</span>;</div><div class="line">			<span class="attribute">margin</span>: <span class="number">5px</span>;</div><div class="line">			<span class="attribute">background</span>: yellow;</div><div class="line">			<span class="attribute">float</span>: left;</div><div class="line">			<span class="attribute">width</span>: <span class="number">330px</span>;</div><div class="line">		&#125;</div><div class="line"></div><div class="line">		<span class="selector-tag">aside</span>&#123;</div><div class="line">			<span class="attribute">border</span>:solid <span class="number">1px</span> black;</div><div class="line">			<span class="attribute">padding</span>: <span class="number">15px</span>;</div><div class="line">			<span class="attribute">margin</span>: <span class="number">5px</span>;</div><div class="line">			<span class="attribute">background</span>: yellow;</div><div class="line">			<span class="attribute">position</span>: absolute;</div><div class="line">			<span class="attribute">float</span>: left;</div><div class="line">			<span class="attribute">margin-left</span>: <span class="number">370px</span>;</div><div class="line">		&#125;</div><div class="line">	<span class="comment">/*	媒体适配	*/</span></div><div class="line">			@<span class="keyword">media</span>(max-device-width: 480px)&#123;</div><div class="line">			<span class="selector-tag">article</span>&#123;</div><div class="line">				<span class="attribute">float</span>: none;</div><div class="line">				<span class="attribute">width</span>: auto;</div><div class="line">			&#125;</div><div class="line">			<span class="selector-tag">aside</span>&#123;</div><div class="line">				<span class="attribute">position</span>: static;</div><div class="line">				<span class="attribute">float</span>: none;</div><div class="line">				<span class="attribute">background</span>: pink;</div><div class="line">				<span class="attribute">margin-left</span>: <span class="number">5px</span>;</div><div class="line">			&#125;</div><div class="line">		&#125;</div></pre></td></tr></table></figure>]]></content>
+      
+        <categories>
+            
+            <category> Mobile Develop </category>
+            
+        </categories>
+        
+        
     </entry>
     
     <entry>
@@ -1689,6 +2195,20 @@ Warning: Invalid argument supplied for foreach() in /data/home/qxu1098560294/htd
 <li><a href="http://mp.weixin.qq.com/s?timestamp=1482051697&amp;src=3&amp;ver=1&amp;signature=NFP5UrfMaZEhOrc0Sev8EIsWOJ-gqLkFai9tfWiqPc2rkgfIHVgPiLPEzlBYaXc5mQpyqIaE5GMXgNeX0*803l0TVsYBoLooRo9S0h7mnUK*Yonq-uNPKavloEKOI9Ttl9rkiedi9YoyraFLoq6UEUb8959h1cuviKbxCgE5Zas=" target="_blank" rel="external">React 源码剖析系列－生命周期的管理艺术</a></li>
 </ol>
 ]]></content>
+      
+        <categories>
+            
+            <category> JavaScript Framework </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> React </tag>
+            
+        </tags>
+        
     </entry>
     
     <entry>
@@ -1776,6 +2296,20 @@ Warning: Invalid argument supplied for foreach() in /data/home/qxu1098560294/htd
 <li><a href="http://www.w3.org/TR/css3-box/#block-level0" target="_blank" rel="external">Block-level boxes, containing blocks, flows and anonymous boxes</a></li>
 </ol>
 ]]></content>
+      
+        <categories>
+            
+            <category> CSS </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> CSS Layout </tag>
+            
+        </tags>
+        
     </entry>
     
     <entry>
@@ -1792,6 +2326,14 @@ Warning: Invalid argument supplied for foreach() in /data/home/qxu1098560294/htd
 <li><a href="https://github.com/npm/npm/issues/9204" target="_blank" rel="external">https://github.com/npm/npm/issues/9204</a></li>
 </ol>
 ]]></content>
+      
+        <categories>
+            
+            <category> 需求总结 </category>
+            
+        </categories>
+        
+        
     </entry>
     
     <entry>
@@ -1895,6 +2437,14 @@ Warning: Invalid argument supplied for foreach() in /data/home/qxu1098560294/htd
 <li><a href="http://taobaofed.org/blog/2016/12/08/happypack-source-code-analysis/" target="_blank" rel="external">happypack原理分析</a></li>
 </ol>
 ]]></content>
+      
+        <categories>
+            
+            <category> devTools&amp;&amp;Configuration </category>
+            
+        </categories>
+        
+        
     </entry>
     
     <entry>
@@ -1904,6 +2454,14 @@ Warning: Invalid argument supplied for foreach() in /data/home/qxu1098560294/htd
 <p>但是光在应用管理界面授权是无法生效的，还需要在代码中设置下参数。<br>在新建mysql类时设置一下<code>appname</code>,<code>akey</code>,<code>skey</code></p>
 <p>代码如下:<br><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">// <span class="variable">$appname</span>,<span class="variable">$akey</span>,<span class="variable">$skey</span>为主动授权的app信息</div><div class="line"><span class="variable">$mysql</span> = new SaeMysql();</div><div class="line"></div><div class="line"><span class="variable">$mysql</span>-&gt;<span class="built_in">set</span>Appname(<span class="variable">$appname</span>);</div><div class="line"></div><div class="line"><span class="variable">$mysql</span>-&gt;<span class="built_in">set</span>Auth(<span class="variable">$akey</span>, <span class="variable">$skey</span>);</div></pre></td></tr></table></figure></p>
 ]]></content>
+      
+        <categories>
+            
+            <category> 需求总结 </category>
+            
+        </categories>
+        
+        
     </entry>
     
     <entry>
@@ -1972,6 +2530,22 @@ Warning: Invalid argument supplied for foreach() in /data/home/qxu1098560294/htd
 <li><a href="https://github.com/CN-Chrome-DevTools/CN-Chrome-DevTools/blob/master/md/Performance-Profiling/javascript-memory-profiling.md" target="_blank" rel="external">JacaScript内存分析</a></li>
 </ol>
 ]]></content>
+      
+        <categories>
+            
+            <category> JavaScript </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> JavaScript Core </tag>
+            
+            <tag> 内存泄漏 </tag>
+            
+        </tags>
+        
     </entry>
     
     <entry>
@@ -2042,6 +2616,20 @@ Warning: Invalid argument supplied for foreach() in /data/home/qxu1098560294/htd
 <li><a href="http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000" target="_blank" rel="external">Git教程</a></li>
 </ol>
 ]]></content>
+      
+        <categories>
+            
+            <category> devTools&amp;&amp;Configuration </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> Git </tag>
+            
+        </tags>
+        
     </entry>
     
     <entry>
@@ -2067,113 +2655,14 @@ Warning: Invalid argument supplied for foreach() in /data/home/qxu1098560294/htd
 <li><a href="#4">iminyao重定向实例</a></li>
 </ol>
 ]]></content>
-    </entry>
-    
-    <entry>
-      <title><![CDATA[CSS三种基本定位机制]]></title>
-      <url>https://iminyao.com/2016/03/28/CSS-position/</url>
-      <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><h2 id="CSS常用的定位方法："><a href="#CSS常用的定位方法：" class="headerlink" title="CSS常用的定位方法："></a>CSS常用的定位方法：</h2><ol>
-<li>相对定位</li>
-<li>浮动</li>
-<li>绝对定位：直接应用于body下元素最佳</li>
-<li>margin</li>
-</ol>
-<h3 id="浮动定位劣势："><a href="#浮动定位劣势：" class="headerlink" title="浮动定位劣势："></a>浮动定位劣势：</h3><ol>
-<li>浮动的破坏性在于切断line box链，致使高度塌陷，可修复</li>
-</ol>
-<h3 id="绝对定位劣势："><a href="#绝对定位劣势：" class="headerlink" title="绝对定位劣势："></a>绝对定位劣势：</h3><ol>
-<li>破坏布局(降低了页面的扩展性和维护性)<blockquote>
-<p>因为绝对定位的元素与文档流无关，所以他们不影响普通流中的框，如果扩大绝对定位的框(增加字号等)，周围的框不会重新定位。因此，尺寸的任何改变都会导致绝对定位的框产生重叠，从而破坏布局。</p>
-</blockquote>
-</li>
-<li>高度宽度皆塌陷，不可修复</li>
-<li><p>流动性差：</p>
-<blockquote>
-<p>由于absolute属性（尤其是带有left/top值）的破坏性，会导致高宽塌陷，于是，不得已，需要设定一个高度值（或是足以撑开高度的值）</p>
-</blockquote>
-<p><img src="http://image.zhangxinxu.com/image/blog/201012/2010-12-09_221942.png" alt="sina1"><br><img src="http://image.zhangxinxu.com/image/blog/201012/2010-12-09_222350.png" alt="sina2"></p>
-<h4 id="测试代码："><a href="#测试代码：" class="headerlink" title="测试代码："></a>测试代码：</h4><figure class="highlight stylus"><table><tr><td class="code"><pre><div class="line"><span class="comment">// HTML</span></div><div class="line">&lt;<span class="selector-tag">div</span> class=<span class="string">"div"</span>&gt;</div><div class="line">    &lt;<span class="selector-tag">img</span> src=<span class="string">"http://image.zhangxinxu.com/image/study/s/s256/mm1.jpg"</span> /&gt;</div><div class="line">    &lt;p&gt;图片无absolute&lt;/p&gt;</div><div class="line">&lt;/div&gt;</div><div class="line">&lt;<span class="selector-tag">div</span> class=<span class="string">"div"</span>&gt;</div><div class="line">    &lt;<span class="selector-tag">img</span> class=<span class="string">"abs"</span> src=<span class="string">"http://image.zhangxinxu.com/image/study/s/s256/mm1.jpg"</span> /&gt;</div><div class="line">    &lt;p&gt;图片absolute后&lt;/p&gt;</div><div class="line">&lt;/div&gt;</div><div class="line"></div><div class="line"><span class="comment">// CSS</span></div><div class="line"><span class="selector-class">.div</span> &#123; <span class="attribute">padding</span>:<span class="number">20px</span>; <span class="attribute">margin</span>:<span class="number">10px</span> <span class="number">0</span> <span class="number">0</span> <span class="number">10px</span>; <span class="attribute">background-color</span>:<span class="number">#f0f3f9</span>; <span class="attribute">float</span>:left; &#125;</div><div class="line"><span class="selector-class">.abs</span> &#123; <span class="attribute">position</span>:absolute; &#125;</div></pre></td></tr></table></figure>
-</li>
-</ol>
-<p><img src="http://image.zhangxinxu.com/image/blog/201012/2010-12-09_233323.jpg" alt="pic"></p>
-<h3 id="margin劣势："><a href="#margin劣势：" class="headerlink" title="margin劣势："></a>margin劣势：</h3><ol>
-<li>margin-top值的改变会产生更强的回流(滚动播放效果时)</li>
-</ol>
-<h3 id="清理-clear-的本质："><a href="#清理-clear-的本质：" class="headerlink" title="清理(clear)的本质："></a>清理(clear)的本质：</h3><ul>
-<li><p><strong>CSS2</strong>中，清理元素时，浏览器在元素顶上添加足够的外边距，使元素的顶边缘垂直下降到浮动框的下面。<br><img src="https://cloud.githubusercontent.com/assets/4004044/7001000/bc14e862-dc62-11e4-80ca-79efbd6f971a.png" alt="clear"></p>
-</li>
-<li><p><strong>CSS2.1</strong>中，引入一个清除区域(clearance),清除区域是在元素上外边距之上增加的额外间隔，不允许任何浮动元素进入这个范围内。也就是说元素设置<code>clear</code>属性时，它的外边距并不改变。之所以会向下移是这个清除区域造成的。</p>
-</li>
-</ul>
-<h3 id="1-实例："><a href="#1-实例：" class="headerlink" title="1.实例："></a>1.实例：</h3><pre><code>img.sider{float:left; margin:0; }
-h3{border:1px solid gray; clearleft; margin-top:15px; }
-
-&lt;img src=&quot; &quot; class=&quot;sider&quot; height=&quot;50&quot; width=&quot;50&quot;&gt;
-&lt;img src&quot; &quot; height=&quot;10&quot; width=&quot;50&quot;&gt;
-&lt;h3&gt;Why....&lt;/h3&gt;
-</code></pre><p><img src="https://cloud.githubusercontent.com/assets/4004044/7001001/c516e640-dc62-11e4-9b16-338c447b83fc.png" alt="clear_01"></p>
-<blockquote>
-<p>示例中h3上边框与浮动图像下边框之间没有间隔，因为在h3的上边距(15px)之上增加了25px的清除区域，将h3的上边距边界推到刚好越过浮动元素的下边界。一般都会这样，除非h3的上边距计算值<code>&gt;40px(50px-10px)</code>，在这种情况下,h3会很自然的放在浮动元素的下面，<code>clear</code>值是什么则无关紧要。</p>
-</blockquote>
-<ul>
-<li><p><strong>解决方法：</strong><br>  要确保一个清除元素的顶端与一个浮动元素的低端之间有一定的空间，<strong>可以为浮动元素本身设置一个下外边距</strong>。</p>
-<pre><code>img.sider{float:left; margin:0 0 15px; }
-h3{border:1px solid gray; clear:left; }
-</code></pre><ul>
-<li><strong>原理：</strong>浮动元素的外边距边界定义了浮动框的边界。 <h3 id="2-实例："><a href="#2-实例：" class="headerlink" title="2.实例："></a>2.实例：</h3>.news{<br>  background-color:gray;<br>  border:solid 1px black;<br>  }<br>.news img{<br>  float:left;<br>  }<br>.news p{<br>  float:right;<br>  }<div class="news"><br>  <img src=" "><br>  <p>Some text</p><br></div>
-
-</li>
-</ul>
-</li>
-</ul>
-<blockquote>
-<p>因为浮动元素脱离了文档流，所以包围图片和文字的<code>div</code>不占据空间</p>
-</blockquote>
-<p><img src="https://cloud.githubusercontent.com/assets/4004044/7001009/dd6cac66-dc62-11e4-9496-e358787a0090.png" alt="clear_02"></p>
-<ol>
-<li><strong>解决方案1：</strong>在最后一段下面添加空元素并且清理它。</li>
-</ol>
-<pre><code>.clear{
-clear:both;
-}
-
-&lt;div class=&quot;news&quot;&gt;
-&lt;img src=&quot; &quot;&gt;
-&lt;p&gt;Some text&lt;/p&gt;
-&lt;br class=&quot;clear&quot; /&gt;
-&lt;/div&gt;
-</code></pre><ol>
-<li><p><strong>解决方案2：</strong>直接选择浮动容器<code>div</code></p>
-<pre><code>.news{
-float:left;
-} 
-</code></pre></li>
-<li><p><strong>解决方案3：</strong>设置<code>overflow</code>为<code>hidden</code>或<code>auto</code></p>
-<pre><code>.news{
-    overflow:hidden;
-}
-</code></pre></li>
-<li><p><strong>解决方案4：</strong><code>:after</code>伪元素(CSS生成内容)</p>
-<pre><code>&lt;div class=&quot;news clear&quot;&gt;
-    &lt;img src=&quot;&quot; /&gt;
-    &lt;p&gt;Some text&lt;/p&gt;
-&lt;/div&gt;
-
-.clear:after{
-    content:&quot;.&quot;;
-    height:0;
-    visibility:hidden;
-    display:block;    
-    clear:both;
-}
-</code></pre></li>
-<li>JavsScript方法</li>
-</ol>
-<h3 id="参考："><a href="#参考：" class="headerlink" title="参考："></a>参考：</h3><ol>
-<li><a href="http://www.zhangxinxu.com/wordpress/2011/03/css-%E7%9B%B8%E5%AF%B9%E7%BB%9D%E5%AF%B9relativeabsolute%E5%AE%9A%E4%BD%8D%E7%B3%BB%E5%88%97%EF%BC%88%E4%B8%80%EF%BC%89/" target="_blank" rel="external">css-相对绝对relativeabsolute定位系列（一）</a></li>
-<li><a href="http://www.zhangxinxu.com/wordpress/2011/03/css-%E7%9B%B8%E5%AF%B9%E7%BB%9D%E5%AF%B9relativeabsolute%E5%AE%9A%E4%BD%8D%E7%B3%BB%E5%88%97%EF%BC%88%E4%BA%8C%EF%BC%89/" target="_blank" rel="external">css-相对绝对relativeabsolute定位系列（二）</a></li>
-</ol>
-]]></content>
+      
+        <categories>
+            
+            <category> HTTP </category>
+            
+        </categories>
+        
+        
     </entry>
     
     <entry>
@@ -2295,6 +2784,176 @@ p.lsd1.lsd2 {background:sliver;}
 </li>
 </ul>
 ]]></content>
+      
+        <categories>
+            
+            <category> CSS </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> CSS Core </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[CSS三种基本定位机制]]></title>
+      <url>https://iminyao.com/2016/03/28/CSS-position/</url>
+      <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><h2 id="CSS常用的定位方法："><a href="#CSS常用的定位方法：" class="headerlink" title="CSS常用的定位方法："></a>CSS常用的定位方法：</h2><ol>
+<li>相对定位</li>
+<li>浮动</li>
+<li>绝对定位：直接应用于body下元素最佳</li>
+<li>margin</li>
+</ol>
+<h3 id="浮动定位劣势："><a href="#浮动定位劣势：" class="headerlink" title="浮动定位劣势："></a>浮动定位劣势：</h3><ol>
+<li>浮动的破坏性在于切断line box链，致使高度塌陷，可修复</li>
+</ol>
+<h3 id="绝对定位劣势："><a href="#绝对定位劣势：" class="headerlink" title="绝对定位劣势："></a>绝对定位劣势：</h3><ol>
+<li>破坏布局(降低了页面的扩展性和维护性)<blockquote>
+<p>因为绝对定位的元素与文档流无关，所以他们不影响普通流中的框，如果扩大绝对定位的框(增加字号等)，周围的框不会重新定位。因此，尺寸的任何改变都会导致绝对定位的框产生重叠，从而破坏布局。</p>
+</blockquote>
+</li>
+<li>高度宽度皆塌陷，不可修复</li>
+<li><p>流动性差：</p>
+<blockquote>
+<p>由于absolute属性（尤其是带有left/top值）的破坏性，会导致高宽塌陷，于是，不得已，需要设定一个高度值（或是足以撑开高度的值）</p>
+</blockquote>
+<p><img src="http://image.zhangxinxu.com/image/blog/201012/2010-12-09_221942.png" alt="sina1"><br><img src="http://image.zhangxinxu.com/image/blog/201012/2010-12-09_222350.png" alt="sina2"></p>
+<h4 id="测试代码："><a href="#测试代码：" class="headerlink" title="测试代码："></a>测试代码：</h4><figure class="highlight stylus"><table><tr><td class="code"><pre><div class="line"><span class="comment">// HTML</span></div><div class="line">&lt;<span class="selector-tag">div</span> class=<span class="string">"div"</span>&gt;</div><div class="line">    &lt;<span class="selector-tag">img</span> src=<span class="string">"http://image.zhangxinxu.com/image/study/s/s256/mm1.jpg"</span> /&gt;</div><div class="line">    &lt;p&gt;图片无absolute&lt;/p&gt;</div><div class="line">&lt;/div&gt;</div><div class="line">&lt;<span class="selector-tag">div</span> class=<span class="string">"div"</span>&gt;</div><div class="line">    &lt;<span class="selector-tag">img</span> class=<span class="string">"abs"</span> src=<span class="string">"http://image.zhangxinxu.com/image/study/s/s256/mm1.jpg"</span> /&gt;</div><div class="line">    &lt;p&gt;图片absolute后&lt;/p&gt;</div><div class="line">&lt;/div&gt;</div><div class="line"></div><div class="line"><span class="comment">// CSS</span></div><div class="line"><span class="selector-class">.div</span> &#123; <span class="attribute">padding</span>:<span class="number">20px</span>; <span class="attribute">margin</span>:<span class="number">10px</span> <span class="number">0</span> <span class="number">0</span> <span class="number">10px</span>; <span class="attribute">background-color</span>:<span class="number">#f0f3f9</span>; <span class="attribute">float</span>:left; &#125;</div><div class="line"><span class="selector-class">.abs</span> &#123; <span class="attribute">position</span>:absolute; &#125;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p><img src="http://image.zhangxinxu.com/image/blog/201012/2010-12-09_233323.jpg" alt="pic"></p>
+<h3 id="margin劣势："><a href="#margin劣势：" class="headerlink" title="margin劣势："></a>margin劣势：</h3><ol>
+<li>margin-top值的改变会产生更强的回流(滚动播放效果时)</li>
+</ol>
+<h3 id="清理-clear-的本质："><a href="#清理-clear-的本质：" class="headerlink" title="清理(clear)的本质："></a>清理(clear)的本质：</h3><ul>
+<li><p><strong>CSS2</strong>中，清理元素时，浏览器在元素顶上添加足够的外边距，使元素的顶边缘垂直下降到浮动框的下面。<br><img src="https://cloud.githubusercontent.com/assets/4004044/7001000/bc14e862-dc62-11e4-80ca-79efbd6f971a.png" alt="clear"></p>
+</li>
+<li><p><strong>CSS2.1</strong>中，引入一个清除区域(clearance),清除区域是在元素上外边距之上增加的额外间隔，不允许任何浮动元素进入这个范围内。也就是说元素设置<code>clear</code>属性时，它的外边距并不改变。之所以会向下移是这个清除区域造成的。</p>
+</li>
+</ul>
+<h3 id="1-实例："><a href="#1-实例：" class="headerlink" title="1.实例："></a>1.实例：</h3><pre><code>img.sider{float:left; margin:0; }
+h3{border:1px solid gray; clearleft; margin-top:15px; }
+
+&lt;img src=&quot; &quot; class=&quot;sider&quot; height=&quot;50&quot; width=&quot;50&quot;&gt;
+&lt;img src&quot; &quot; height=&quot;10&quot; width=&quot;50&quot;&gt;
+&lt;h3&gt;Why....&lt;/h3&gt;
+</code></pre><p><img src="https://cloud.githubusercontent.com/assets/4004044/7001001/c516e640-dc62-11e4-9b16-338c447b83fc.png" alt="clear_01"></p>
+<blockquote>
+<p>示例中h3上边框与浮动图像下边框之间没有间隔，因为在h3的上边距(15px)之上增加了25px的清除区域，将h3的上边距边界推到刚好越过浮动元素的下边界。一般都会这样，除非h3的上边距计算值<code>&gt;40px(50px-10px)</code>，在这种情况下,h3会很自然的放在浮动元素的下面，<code>clear</code>值是什么则无关紧要。</p>
+</blockquote>
+<ul>
+<li><p><strong>解决方法：</strong><br>  要确保一个清除元素的顶端与一个浮动元素的低端之间有一定的空间，<strong>可以为浮动元素本身设置一个下外边距</strong>。</p>
+<pre><code>img.sider{float:left; margin:0 0 15px; }
+h3{border:1px solid gray; clear:left; }
+</code></pre><ul>
+<li><strong>原理：</strong>浮动元素的外边距边界定义了浮动框的边界。 <h3 id="2-实例："><a href="#2-实例：" class="headerlink" title="2.实例："></a>2.实例：</h3>.news{<br>  background-color:gray;<br>  border:solid 1px black;<br>  }<br>.news img{<br>  float:left;<br>  }<br>.news p{<br>  float:right;<br>  }<div class="news"><br>  <img src=" "><br>  <p>Some text</p><br></div>
+
+</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>因为浮动元素脱离了文档流，所以包围图片和文字的<code>div</code>不占据空间</p>
+</blockquote>
+<p><img src="https://cloud.githubusercontent.com/assets/4004044/7001009/dd6cac66-dc62-11e4-9496-e358787a0090.png" alt="clear_02"></p>
+<ol>
+<li><strong>解决方案1：</strong>在最后一段下面添加空元素并且清理它。</li>
+</ol>
+<pre><code>.clear{
+clear:both;
+}
+
+&lt;div class=&quot;news&quot;&gt;
+&lt;img src=&quot; &quot;&gt;
+&lt;p&gt;Some text&lt;/p&gt;
+&lt;br class=&quot;clear&quot; /&gt;
+&lt;/div&gt;
+</code></pre><ol>
+<li><p><strong>解决方案2：</strong>直接选择浮动容器<code>div</code></p>
+<pre><code>.news{
+float:left;
+} 
+</code></pre></li>
+<li><p><strong>解决方案3：</strong>设置<code>overflow</code>为<code>hidden</code>或<code>auto</code></p>
+<pre><code>.news{
+    overflow:hidden;
+}
+</code></pre></li>
+<li><p><strong>解决方案4：</strong><code>:after</code>伪元素(CSS生成内容)</p>
+<pre><code>&lt;div class=&quot;news clear&quot;&gt;
+    &lt;img src=&quot;&quot; /&gt;
+    &lt;p&gt;Some text&lt;/p&gt;
+&lt;/div&gt;
+
+.clear:after{
+    content:&quot;.&quot;;
+    height:0;
+    visibility:hidden;
+    display:block;    
+    clear:both;
+}
+</code></pre></li>
+<li>JavsScript方法</li>
+</ol>
+<h3 id="参考："><a href="#参考：" class="headerlink" title="参考："></a>参考：</h3><ol>
+<li><a href="http://www.zhangxinxu.com/wordpress/2011/03/css-%E7%9B%B8%E5%AF%B9%E7%BB%9D%E5%AF%B9relativeabsolute%E5%AE%9A%E4%BD%8D%E7%B3%BB%E5%88%97%EF%BC%88%E4%B8%80%EF%BC%89/" target="_blank" rel="external">css-相对绝对relativeabsolute定位系列（一）</a></li>
+<li><a href="http://www.zhangxinxu.com/wordpress/2011/03/css-%E7%9B%B8%E5%AF%B9%E7%BB%9D%E5%AF%B9relativeabsolute%E5%AE%9A%E4%BD%8D%E7%B3%BB%E5%88%97%EF%BC%88%E4%BA%8C%EF%BC%89/" target="_blank" rel="external">css-相对绝对relativeabsolute定位系列（二）</a></li>
+</ol>
+]]></content>
+      
+        <categories>
+            
+            <category> CSS </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> CSS Layout </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[CSS3 盒子应用]]></title>
+      <url>https://iminyao.com/2016/03/23/CSS3-box/</url>
+      <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><h3 id="透明盒子-通过设置不透明度实现"><a href="#透明盒子-通过设置不透明度实现" class="headerlink" title="透明盒子(通过设置不透明度实现)"></a>透明盒子(通过设置不透明度实现)</h3><blockquote>
+<p>rgba 与opacity应用范围:<br>    1.使用多种颜色(元素)的半透明效果，使用opacity不仅背景颜色，连文本颜色，边框颜色也会变透明<br>    2.在不知道颜色的情况下，实现半透明效果(例如通过其他样式表或JavaScript代码来设置半透明效果的)应使用opacity<br>    3.实现图片半透明效果，应该用opacity<br>    4.实现渐变动画效果，应该用opacity</p>
+</blockquote>
+<figure class="highlight css"><table><tr><td class="code"><pre><div class="line"><span class="selector-class">.semitransparentBox</span>&#123;</div><div class="line">	<span class="attribute">background</span>: <span class="built_in">rgba</span>(170,240,0,0.5);</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.semitransparentBox1</span>&#123;</div><div class="line">	<span class="attribute">background</span>: <span class="built_in">rgb</span>(170,240,0);</div><div class="line">	<span class="attribute">opacity</span>: <span class="number">0.5</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="圆角盒子（通过设置border-radius属性实现）"><a href="#圆角盒子（通过设置border-radius属性实现）" class="headerlink" title="圆角盒子（通过设置border-radius属性实现）"></a>圆角盒子（通过设置border-radius属性实现）</h3><figure class="highlight css"><table><tr><td class="code"><pre><div class="line">		<span class="selector-class">.roundBox</span>&#123;</div><div class="line">			<span class="attribute">text-align</span>: center;</div><div class="line">			<span class="attribute">background</span>: yellow;	</div><div class="line">			<span class="attribute">border-radius</span>: <span class="number">25px</span> <span class="number">50px</span> <span class="number">25px</span> <span class="number">85px</span>;</div><div class="line">		&#125;</div><div class="line"><span class="comment">/* 通过设置两个值（水平半径，垂直半径）可以实现把圆拉伸为椭圆，即让某一个轴向的圆弧更长 */</span></div><div class="line">		<span class="selector-class">.roundBox1</span>&#123;</div><div class="line">			<span class="attribute">background</span>: blue;</div><div class="line">			<span class="attribute">border-top-left-radius</span>: <span class="number">150px</span> <span class="number">30px</span>;</div><div class="line">			<span class="attribute">border-top-right-radius</span>: <span class="number">150px</span> <span class="number">30px</span>;</div><div class="line">		&#125;</div></pre></td></tr></table></figure>
+<h3 id="背景盒子（借助CSS3支持多背景-新增的background-position属性）"><a href="#背景盒子（借助CSS3支持多背景-新增的background-position属性）" class="headerlink" title="背景盒子（借助CSS3支持多背景 新增的background-position属性）"></a>背景盒子（借助CSS3支持多背景 新增的background-position属性）</h3><figure class="highlight css"><table><tr><td class="code"><pre><div class="line"><span class="selector-class">.decoratedBox</span>&#123;</div><div class="line">	<span class="attribute">margin</span>: <span class="number">50px</span>;</div><div class="line">	<span class="attribute">padding</span>: <span class="number">50px</span>;</div><div class="line">	<span class="attribute">background-image</span>: <span class="built_in">url</span>(<span class="string">"pen_blue.gif"</span>),<span class="built_in">url</span>(<span class="string">"pen_green.gif"</span>);</div><div class="line">	<span class="attribute">background-position</span>: left top,right bottom;</div><div class="line">	<span class="attribute">background-repeat</span>: no-repeat, no-repeat; </div><div class="line">&#125;</div><div class="line"><span class="selector-class">.decoratedBox1</span>&#123;</div><div class="line">	<span class="attribute">margin</span>: <span class="number">50px</span>;</div><div class="line">	<span class="attribute">padding</span>: <span class="number">50px</span>;</div><div class="line">	<span class="attribute">background-image</span>: <span class="built_in">url</span>(pen_green.gif),<span class="built_in">url</span>(pen_blue.gif),<span class="built_in">url</span>(pen_medium.gif);</div><div class="line">	<span class="attribute">background-position</span>: left top,left top,right bottom;</div><div class="line">	<span class="attribute">background-repeat</span>: no-repeat,repeat-x,no-repeat;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="盒子阴影（box-shadow属性）"><a href="#盒子阴影（box-shadow属性）" class="headerlink" title="盒子阴影（box-shadow属性）"></a>盒子阴影（box-shadow属性）</h3><figure class="highlight css"><table><tr><td class="code"><pre><div class="line">	<span class="selector-class">.shadowedBox</span>&#123;</div><div class="line">		<span class="attribute">border</span>:thin <span class="number">#336699</span> solid;</div><div class="line">		<span class="attribute">border-radius</span>: <span class="number">25px</span>;</div><div class="line">		<span class="attribute">box-shadow</span>:<span class="number">5px</span> <span class="number">5px</span> <span class="number">10px</span> <span class="number">5px</span> gray inset; </div><div class="line"><span class="comment">/*	前两个值是水平和垂直方向的偏移量 第三个是设置模糊距离（模糊程度） 第四个设置伸展范围（可选） 第五个设置阴影颜色(添加inset会在元素内部)  */</span></div><div class="line">	&#125;</div><div class="line">	<span class="selector-class">.textShadow</span>&#123;</div><div class="line">		<span class="attribute">font-size</span>: <span class="number">30px</span>;</div><div class="line">		<span class="attribute">font-weight</span>: bold;</div><div class="line">		<span class="attribute">text-shadow</span>:gray <span class="number">10px</span> <span class="number">10px</span> <span class="number">7px</span>; <span class="comment">/* 属性不同 先是颜色 然后水平垂直偏移量 最后设置模糊值*/</span></div><div class="line">	&#125;</div></pre></td></tr></table></figure>
+<h3 id="渐变盒子（gradient属性）"><a href="#渐变盒子（gradient属性）" class="headerlink" title="渐变盒子（gradient属性）"></a>渐变盒子（gradient属性）</h3><blockquote>
+<p>渐变是多种颜色混合而成的效果（本质上渐变就是两种或更多种颜色的混合）</p>
+</blockquote>
+<ol>
+<li>线性渐变 linear-gradient</li>
+<li>放射性渐变 radial-gradient<figure class="highlight css"><table><tr><td class="code"><pre><div class="line"><span class="selector-class">.colorBlendBox</span>&#123;</div><div class="line">	<span class="attribute">background</span>: <span class="built_in">-ms-linear-gradient</span>(top,red 0%,orange 20%,yellow 80%, violet 100%); <span class="comment">/*	设置渐变点	*/</span></div><div class="line">	<span class="attribute">background</span>: <span class="built_in">-moz-linear-gradient</span>(top,white,blue);   <span class="comment">/*	从上至下渐变	*/</span></div><div class="line">	<span class="attribute">background</span>: <span class="built_in">-webkit-linear-gradient</span>(top left,white,lightblue); <span class="comment">/*	从左上到右下渐变	*/</span></div><div class="line">&#125;</div><div class="line"><span class="selector-class">.colorBlendBox1</span>&#123;</div><div class="line">	<span class="attribute">background</span>: <span class="built_in">-moz-radial-gradient</span>(circle,white,lightblue); <span class="comment">/* 白色圆心逐渐过渡到圆周的蓝色 */</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+]]></content>
+      
+        <categories>
+            
+            <category> CSS </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> CSS Core </tag>
+            
+        </tags>
+        
     </entry>
     
     <entry>
@@ -2327,27 +2986,20 @@ p.lsd1.lsd2 {background:sliver;}
 </ul>
 <h4 id="实例：在线数字影集"><a href="#实例：在线数字影集" class="headerlink" title="实例：在线数字影集"></a>实例：在线数字影集</h4><figure class="highlight stylus"><table><tr><td class="code"><pre><div class="line">	.gallery&#123;</div><div class="line">		<span class="attribute">margin</span>: <span class="number">0px</span> <span class="number">30px</span> <span class="number">0px</span> <span class="number">30px</span>;</div><div class="line">		<span class="attribute">background</span>: <span class="number">#D8EEFE</span>;</div><div class="line">		<span class="attribute">padding</span>: <span class="number">10px</span>;</div><div class="line">	&#125;</div><div class="line">	<span class="selector-class">.gallery</span> img&#123;</div><div class="line">		<span class="attribute">margin</span>: <span class="number">5px</span>;</div><div class="line">		<span class="attribute">padding</span>: <span class="number">5px</span>;</div><div class="line">		<span class="attribute">width</span>: <span class="number">75px</span>;</div><div class="line">		<span class="attribute">border</span>: solid <span class="number">1px</span> black;</div><div class="line">		<span class="attribute">background</span>: white;</div><div class="line">		<span class="attribute">transition</span>:all <span class="number">1s</span>;</div><div class="line">	&#125;</div><div class="line">	<span class="selector-class">.gallery</span> <span class="selector-tag">img</span>:hover&#123;</div><div class="line">		-webkit-<span class="attribute">transform</span>:scale(<span class="number">2.2</span>) rotate(<span class="number">10deg</span>);</div><div class="line">		-moz-<span class="attribute">transform</span>:scale(<span class="number">2.2</span>) rotate(<span class="number">10deg</span>);</div><div class="line">		-o-<span class="attribute">transform</span>:scale(<span class="number">2.2</span>) rotate(<span class="number">10deg</span>);</div><div class="line">	&#125;</div><div class="line"></div><div class="line">&lt;<span class="selector-tag">div</span> class=<span class="string">"gallery"</span>&gt;</div><div class="line">	&lt;<span class="selector-tag">img</span> src=<span class="string">"pen_blue.gif"</span>&gt;</div><div class="line">	&lt;<span class="selector-tag">img</span> src=<span class="string">"pen_medium.gif"</span>&gt;</div><div class="line">	&lt;<span class="selector-tag">img</span> src=<span class="string">"pen_green.gif"</span>&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
 ]]></content>
-    </entry>
-    
-    <entry>
-      <title><![CDATA[CSS3 盒子应用]]></title>
-      <url>https://iminyao.com/2016/03/23/CSS3-box/</url>
-      <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><h3 id="透明盒子-通过设置不透明度实现"><a href="#透明盒子-通过设置不透明度实现" class="headerlink" title="透明盒子(通过设置不透明度实现)"></a>透明盒子(通过设置不透明度实现)</h3><blockquote>
-<p>rgba 与opacity应用范围:<br>    1.使用多种颜色(元素)的半透明效果，使用opacity不仅背景颜色，连文本颜色，边框颜色也会变透明<br>    2.在不知道颜色的情况下，实现半透明效果(例如通过其他样式表或JavaScript代码来设置半透明效果的)应使用opacity<br>    3.实现图片半透明效果，应该用opacity<br>    4.实现渐变动画效果，应该用opacity</p>
-</blockquote>
-<figure class="highlight css"><table><tr><td class="code"><pre><div class="line"><span class="selector-class">.semitransparentBox</span>&#123;</div><div class="line">	<span class="attribute">background</span>: <span class="built_in">rgba</span>(170,240,0,0.5);</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.semitransparentBox1</span>&#123;</div><div class="line">	<span class="attribute">background</span>: <span class="built_in">rgb</span>(170,240,0);</div><div class="line">	<span class="attribute">opacity</span>: <span class="number">0.5</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="圆角盒子（通过设置border-radius属性实现）"><a href="#圆角盒子（通过设置border-radius属性实现）" class="headerlink" title="圆角盒子（通过设置border-radius属性实现）"></a>圆角盒子（通过设置border-radius属性实现）</h3><figure class="highlight css"><table><tr><td class="code"><pre><div class="line">		<span class="selector-class">.roundBox</span>&#123;</div><div class="line">			<span class="attribute">text-align</span>: center;</div><div class="line">			<span class="attribute">background</span>: yellow;	</div><div class="line">			<span class="attribute">border-radius</span>: <span class="number">25px</span> <span class="number">50px</span> <span class="number">25px</span> <span class="number">85px</span>;</div><div class="line">		&#125;</div><div class="line"><span class="comment">/* 通过设置两个值（水平半径，垂直半径）可以实现把圆拉伸为椭圆，即让某一个轴向的圆弧更长 */</span></div><div class="line">		<span class="selector-class">.roundBox1</span>&#123;</div><div class="line">			<span class="attribute">background</span>: blue;</div><div class="line">			<span class="attribute">border-top-left-radius</span>: <span class="number">150px</span> <span class="number">30px</span>;</div><div class="line">			<span class="attribute">border-top-right-radius</span>: <span class="number">150px</span> <span class="number">30px</span>;</div><div class="line">		&#125;</div></pre></td></tr></table></figure>
-<h3 id="背景盒子（借助CSS3支持多背景-新增的background-position属性）"><a href="#背景盒子（借助CSS3支持多背景-新增的background-position属性）" class="headerlink" title="背景盒子（借助CSS3支持多背景 新增的background-position属性）"></a>背景盒子（借助CSS3支持多背景 新增的background-position属性）</h3><figure class="highlight css"><table><tr><td class="code"><pre><div class="line"><span class="selector-class">.decoratedBox</span>&#123;</div><div class="line">	<span class="attribute">margin</span>: <span class="number">50px</span>;</div><div class="line">	<span class="attribute">padding</span>: <span class="number">50px</span>;</div><div class="line">	<span class="attribute">background-image</span>: <span class="built_in">url</span>(<span class="string">"pen_blue.gif"</span>),<span class="built_in">url</span>(<span class="string">"pen_green.gif"</span>);</div><div class="line">	<span class="attribute">background-position</span>: left top,right bottom;</div><div class="line">	<span class="attribute">background-repeat</span>: no-repeat, no-repeat; </div><div class="line">&#125;</div><div class="line"><span class="selector-class">.decoratedBox1</span>&#123;</div><div class="line">	<span class="attribute">margin</span>: <span class="number">50px</span>;</div><div class="line">	<span class="attribute">padding</span>: <span class="number">50px</span>;</div><div class="line">	<span class="attribute">background-image</span>: <span class="built_in">url</span>(pen_green.gif),<span class="built_in">url</span>(pen_blue.gif),<span class="built_in">url</span>(pen_medium.gif);</div><div class="line">	<span class="attribute">background-position</span>: left top,left top,right bottom;</div><div class="line">	<span class="attribute">background-repeat</span>: no-repeat,repeat-x,no-repeat;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="盒子阴影（box-shadow属性）"><a href="#盒子阴影（box-shadow属性）" class="headerlink" title="盒子阴影（box-shadow属性）"></a>盒子阴影（box-shadow属性）</h3><figure class="highlight css"><table><tr><td class="code"><pre><div class="line">	<span class="selector-class">.shadowedBox</span>&#123;</div><div class="line">		<span class="attribute">border</span>:thin <span class="number">#336699</span> solid;</div><div class="line">		<span class="attribute">border-radius</span>: <span class="number">25px</span>;</div><div class="line">		<span class="attribute">box-shadow</span>:<span class="number">5px</span> <span class="number">5px</span> <span class="number">10px</span> <span class="number">5px</span> gray inset; </div><div class="line"><span class="comment">/*	前两个值是水平和垂直方向的偏移量 第三个是设置模糊距离（模糊程度） 第四个设置伸展范围（可选） 第五个设置阴影颜色(添加inset会在元素内部)  */</span></div><div class="line">	&#125;</div><div class="line">	<span class="selector-class">.textShadow</span>&#123;</div><div class="line">		<span class="attribute">font-size</span>: <span class="number">30px</span>;</div><div class="line">		<span class="attribute">font-weight</span>: bold;</div><div class="line">		<span class="attribute">text-shadow</span>:gray <span class="number">10px</span> <span class="number">10px</span> <span class="number">7px</span>; <span class="comment">/* 属性不同 先是颜色 然后水平垂直偏移量 最后设置模糊值*/</span></div><div class="line">	&#125;</div></pre></td></tr></table></figure>
-<h3 id="渐变盒子（gradient属性）"><a href="#渐变盒子（gradient属性）" class="headerlink" title="渐变盒子（gradient属性）"></a>渐变盒子（gradient属性）</h3><blockquote>
-<p>渐变是多种颜色混合而成的效果（本质上渐变就是两种或更多种颜色的混合）</p>
-</blockquote>
-<ol>
-<li>线性渐变 linear-gradient</li>
-<li>放射性渐变 radial-gradient<figure class="highlight css"><table><tr><td class="code"><pre><div class="line"><span class="selector-class">.colorBlendBox</span>&#123;</div><div class="line">	<span class="attribute">background</span>: <span class="built_in">-ms-linear-gradient</span>(top,red 0%,orange 20%,yellow 80%, violet 100%); <span class="comment">/*	设置渐变点	*/</span></div><div class="line">	<span class="attribute">background</span>: <span class="built_in">-moz-linear-gradient</span>(top,white,blue);   <span class="comment">/*	从上至下渐变	*/</span></div><div class="line">	<span class="attribute">background</span>: <span class="built_in">-webkit-linear-gradient</span>(top left,white,lightblue); <span class="comment">/*	从左上到右下渐变	*/</span></div><div class="line">&#125;</div><div class="line"><span class="selector-class">.colorBlendBox1</span>&#123;</div><div class="line">	<span class="attribute">background</span>: <span class="built_in">-moz-radial-gradient</span>(circle,white,lightblue); <span class="comment">/* 白色圆心逐渐过渡到圆周的蓝色 */</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-</ol>
-]]></content>
+      
+        <categories>
+            
+            <category> CSS </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> CSS core </tag>
+            
+        </tags>
+        
     </entry>
     
     <entry>
@@ -2404,6 +3056,20 @@ p.lsd1.lsd2 {background:sliver;}
 <li><a href="http://weibo.com/ttarticle/p/show?id=2309403949643745620312" target="_blank" rel="external">Nginx工作原理</a></li>
 </ol>
 ]]></content>
+      
+        <categories>
+            
+            <category> 需求总结 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> Netease Weekly </tag>
+            
+        </tags>
+        
     </entry>
     
     <entry>
@@ -2451,6 +3117,14 @@ background-image: url(&quot;data:image/gif;base64,R0lGODlhAwADAIAAAP///8zMzCH5BA
 <li><a href="http://www.webhek.com/data-url" target="_blank" rel="external">Data URL和图片</a></li>
 </ol>
 ]]></content>
+      
+        <categories>
+            
+            <category> Performance Optimize </category>
+            
+        </categories>
+        
+        
     </entry>
     
     <entry>
@@ -2481,6 +3155,20 @@ background-image: url(&quot;data:image/gif;base64,R0lGODlhAwADAIAAAP///8zMzCH5BA
 </li>
 </ol>
 ]]></content>
+      
+        <categories>
+            
+            <category> 切图 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> PS </tag>
+            
+        </tags>
+        
     </entry>
     
     <entry>
@@ -2515,6 +3203,20 @@ background-image: url(&quot;data:image/gif;base64,R0lGODlhAwADAIAAAP///8zMzCH5BA
 <li><a href="http://yujiangshui.com/multidevice-frontend-debug/" target="_blank" rel="external">移动端前端开发调试</a></li>
 </ol>
 ]]></content>
+      
+        <categories>
+            
+            <category> 需求总结 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> Netease Weekly </tag>
+            
+        </tags>
+        
     </entry>
     
     <entry>
@@ -2596,6 +3298,14 @@ background-image: url(&quot;data:image/gif;base64,R0lGODlhAwADAIAAAP///8zMzCH5BA
 <li><a href="http://w3help.org/zh-cn/causes/RM8015" target="_blank" rel="external">IE6 IE7 IE8(Q) 中定位元素 ‘z-index’ 为默认值在某些情况下会产生新的层叠上下文</a></li>
 </ol>
 ]]></content>
+      
+        <categories>
+            
+            <category> IE </category>
+            
+        </categories>
+        
+        
     </entry>
     
     <entry>
@@ -2614,6 +3324,20 @@ background-image: url(&quot;data:image/gif;base64,R0lGODlhAwADAIAAAP///8zMzCH5BA
 <li><a href="http://alistapart.com/article/holygrail" target="_blank" rel="external">In Search of the Holy Grail</a></li>
 </ul>
 ]]></content>
+      
+        <categories>
+            
+            <category> CSS </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> CSS Layout </tag>
+            
+        </tags>
+        
     </entry>
     
     <entry>
@@ -2638,6 +3362,20 @@ background-image: url(&quot;data:image/gif;base64,R0lGODlhAwADAIAAAP///8zMzCH5BA
 </li>
 </ol>
 ]]></content>
+      
+        <categories>
+            
+            <category> 需求总结 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> Netease Weekly </tag>
+            
+        </tags>
+        
     </entry>
     
     <entry>
@@ -2665,6 +3403,20 @@ background-image: url(&quot;data:image/gif;base64,R0lGODlhAwADAIAAAP///8zMzCH5BA
 </li>
 </ol>
 ]]></content>
+      
+        <categories>
+            
+            <category> 需求总结 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> Netease Weekly </tag>
+            
+        </tags>
+        
     </entry>
     
     <entry>
@@ -2752,6 +3504,14 @@ background-image: url(&quot;data:image/gif;base64,R0lGODlhAwADAIAAAP///8zMzCH5BA
 <li><a href="http://www.html-js.com/article/Web-performance-optimization" target="_blank" rel="external">Web性能优化：图片优化</a></li>
 </ol>
 ]]></content>
+      
+        <categories>
+            
+            <category> Performance Optimize </category>
+            
+        </categories>
+        
+        
     </entry>
     
     <entry>
@@ -2776,6 +3536,20 @@ background-image: url(&quot;data:image/gif;base64,R0lGODlhAwADAIAAAP///8zMzCH5BA
 </li>
 </ol>
 ]]></content>
+      
+        <categories>
+            
+            <category> 需求总结 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> Netease Weekly </tag>
+            
+        </tags>
+        
     </entry>
     
     <entry>
@@ -2799,6 +3573,14 @@ background-image: url(&quot;data:image/gif;base64,R0lGODlhAwADAIAAAP///8zMzCH5BA
 <li><a href="http://w3help.org/zh-cn/causes/SJ9012" target="_blank" rel="external">W3-helo</a></li>
 </ol>
 ]]></content>
+      
+        <categories>
+            
+            <category> 总结 </category>
+            
+        </categories>
+        
+        
     </entry>
     
     <entry>
@@ -2820,6 +3602,14 @@ background-image: url(&quot;data:image/gif;base64,R0lGODlhAwADAIAAAP///8zMzCH5BA
 <li><a href="http://www.iyunlu.com/view/css-xhtml/55.html" target="_blank" rel="external">BFC与hasLayout</a></li>
 </ol>
 ]]></content>
+      
+        <categories>
+            
+            <category> IE </category>
+            
+        </categories>
+        
+        
     </entry>
     
     <entry>
@@ -2970,6 +3760,20 @@ input:-ms-input-placeholder {color:red;}    // IE10+
 <li><a href="http://nec.netease.com/library/category/#bug" target="_blank" rel="external">NEC-bug</a></li>
 </ol>
 ]]></content>
+      
+        <categories>
+            
+            <category> 需求总结 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> Netease Weekly </tag>
+            
+        </tags>
+        
     </entry>
     
     <entry>
@@ -2994,6 +3798,14 @@ input:-ms-input-placeholder {color:red;}    // IE10+
 <li><a href="http://www.fwolf.com/blog/post/320" target="_blank" rel="external">HTTP Referer二三事</a></li>
 </ol>
 ]]></content>
+      
+        <categories>
+            
+            <category> HTTP </category>
+            
+        </categories>
+        
+        
     </entry>
     
     <entry>
@@ -3138,6 +3950,14 @@ function decodeAudio (audioCtx, audioData, callback) {
 <li><a href="http://www.alloyteam.com/2015/01/web-audio-api-yin-pin-shang-xia-wen-yu-yin-pin-jie-dian-di-shi-yong-fang-shi/" target="_blank" rel="external">Web Audio初探</a></li>
 </ol>
 ]]></content>
+      
+        <categories>
+            
+            <category> JavaScript API </category>
+            
+        </categories>
+        
+        
     </entry>
     
     <entry>
@@ -3160,6 +3980,14 @@ function decodeAudio (audioCtx, audioData, callback) {
 <li><a href="http://www.php-note.com/article/detail/875" target="_blank" rel="external">JS跨域（ajax跨域、iframe跨域）解决方法及原理详解(jsonp)</a></li>
 </ol>
 ]]></content>
+      
+        <categories>
+            
+            <category> HTTP </category>
+            
+        </categories>
+        
+        
     </entry>
     
     <entry>
@@ -3249,6 +4077,14 @@ function decodeAudio (audioCtx, audioData, callback) {
 <li><a href="http://www.zhangxinxu.com/wordpress/2013/10/understand-domstring-document-formdata-blob-file-arraybuffer/" target="_blank" rel="external">理解DOMString、Document、FormData、Blob、File、ArrayBuffer数据类型</a></li>
 </ol>
 ]]></content>
+      
+        <categories>
+            
+            <category> HTTP </category>
+            
+        </categories>
+        
+        
     </entry>
     
     <entry>
@@ -3299,6 +4135,14 @@ function decodeAudio (audioCtx, audioData, callback) {
 </li>
 </ul>
 ]]></content>
+      
+        <categories>
+            
+            <category> Performance Optimize </category>
+            
+        </categories>
+        
+        
     </entry>
     
     <entry>
@@ -3319,6 +4163,20 @@ function decodeAudio (audioCtx, audioData, callback) {
 <p>跟数组的优化操作一样，缓存个length变量即可</p>
 </blockquote>
 ]]></content>
+      
+        <categories>
+            
+            <category> Performance Optimize </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> DOM </tag>
+            
+        </tags>
+        
     </entry>
     
     <entry>
@@ -3395,6 +4253,14 @@ function decodeAudio (audioCtx, audioData, callback) {
 <p>function Parent() {}<br>function Child() {}</p>
 <p>Child.prototype = Object.create(Parent.prototype)<br>Child.prototype.constructor = Child<br>```</p>
 ]]></content>
+      
+        <categories>
+            
+            <category> JavaScript </category>
+            
+        </categories>
+        
+        
     </entry>
     
     <entry>
@@ -3451,6 +4317,20 @@ function decodeAudio (audioCtx, audioData, callback) {
 <li><a href="http://weizhifeng.net/viewports2.html" target="_blank" rel="external">两个viewport的故事（第二部分）</a></li>
 </ol>
 ]]></content>
+      
+        <categories>
+            
+            <category> JavaScript </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> JavaScript API </tag>
+            
+        </tags>
+        
     </entry>
     
     <entry>
@@ -3477,6 +4357,14 @@ function decodeAudio (audioCtx, audioData, callback) {
 <li><a href="http://www.zhihu.com/question/20621558" target="_blank" rel="external">http://www.zhihu.com/question/20621558</a></li>
 </ol>
 ]]></content>
+      
+        <categories>
+            
+            <category> HTTP </category>
+            
+        </categories>
+        
+        
     </entry>
     
     <entry>
@@ -3526,6 +4414,14 @@ function decodeAudio (audioCtx, audioData, callback) {
 <p>基础方法感觉回答的还可以，有几个简单的问题答错了，其实主要问题还是缺乏面试经验，在很多会的问题上仅仅是答上来，但没有特别出彩的地方。</p>
 <p>二面三面都是问了一些项目相关的，二面面试官也是阿里音乐的，聊的很好；三面是交叉面，完全不在状态，我听不明白面试官说的，面试官也听不明白我说的，然后，就没有然后了…</p>
 ]]></content>
+      
+        <categories>
+            
+            <category> 总结 </category>
+            
+        </categories>
+        
+        
     </entry>
     
     <entry>
@@ -3547,6 +4443,20 @@ function decodeAudio (audioCtx, audioData, callback) {
 <li><a href="http://lucybain.com/blog/2014/hoisting/" target="_blank" rel="external">Explain “hoisting”</a></li>
 </ol>
 ]]></content>
+      
+        <categories>
+            
+            <category> JavaScript </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> JavaScript Core </tag>
+            
+        </tags>
+        
     </entry>
     
     <entry>
@@ -3561,6 +4471,20 @@ function decodeAudio (audioCtx, audioData, callback) {
 <li><a href="https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle" target="_blank" rel="external">Fisher–Yates shuffle</a></li>
 </ol>
 ]]></content>
+      
+        <categories>
+            
+            <category> JavaScript </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> JavaScript Core </tag>
+            
+        </tags>
+        
     </entry>
     
     <entry>
@@ -3586,6 +4510,22 @@ function decodeAudio (audioCtx, audioData, callback) {
 <li><a href="http://www.zhihu.com/question/32175033" target="_blank" rel="external">http://www.zhihu.com/question/32175033</a></li>
 </ol>
 ]]></content>
+      
+        <categories>
+            
+            <category> 总结 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> JavaScript Core </tag>
+            
+            <tag> this </tag>
+            
+        </tags>
+        
     </entry>
     
     <entry>
@@ -3648,6 +4588,20 @@ function decodeAudio (audioCtx, audioData, callback) {
 <li><a href="http://segmentfault.com/a/1190000003906484" target="_blank" rel="external">从Ecma规范深入理解js中的this的指向</a></li>
 </ol>
 ]]></content>
+      
+        <categories>
+            
+            <category> JavaScript </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> JavaScript Core </tag>
+            
+        </tags>
+        
     </entry>
     
     <entry>
@@ -3710,6 +4664,20 @@ function decodeAudio (audioCtx, audioData, callback) {
 <li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Closures" target="_blank" rel="external">https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Closures</a></li>
 </ol>
 ]]></content>
+      
+        <categories>
+            
+            <category> JavaScript </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> JavaScript Core </tag>
+            
+        </tags>
+        
     </entry>
     
     <entry>
@@ -3738,6 +4706,20 @@ function decodeAudio (audioCtx, audioData, callback) {
 <li><a href="http://www.hicss.net/do-not-tell-me-you-understand-margin/" target="_blank" rel="external">http://www.hicss.net/do-not-tell-me-you-understand-margin/</a></li>
 </ol>
 ]]></content>
+      
+        <categories>
+            
+            <category> 总结 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> CSS Core </tag>
+            
+        </tags>
+        
     </entry>
     
     <entry>
@@ -3770,6 +4752,20 @@ function decodeAudio (audioCtx, audioData, callback) {
 </blockquote>
 <figure class="highlight maxima"><table><tr><td class="code"><pre><div class="line">Sizzle.uniqueSort = function(results) &#123;</div><div class="line">            <span class="built_in">var</span> <span class="built_in">elem</span>,</div><div class="line">            duplicates = [],</div><div class="line">                i = <span class="number">1</span>,</div><div class="line">                j = <span class="number">0</span>;</div><div class="line"></div><div class="line">            // Unless we *know* we can detect duplicates, <span class="built_in">assume</span> their presence</div><div class="line">            hasDuplicate = !support.detectDuplicates;</div><div class="line">            results.<span class="built_in">sort</span>(sortOrder);</div><div class="line"></div><div class="line">            <span class="keyword">if</span> (hasDuplicate) &#123;</div><div class="line">                <span class="keyword">for</span> (;</div><div class="line">                (<span class="built_in">elem</span> = results[i]); i++) &#123;</div><div class="line">                    <span class="keyword">if</span> (<span class="built_in">elem</span> === results[i - <span class="number">1</span>]) &#123;</div><div class="line">                        j = duplicates.<span class="built_in">push</span>(i);</div><div class="line">                    &#125;</div><div class="line">                &#125;</div><div class="line">                <span class="keyword">while</span> (j--) &#123;</div><div class="line">                    results.<span class="built_in">splice</span>(duplicates[j], <span class="number">1</span>);</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line"></div><div class="line">            <span class="built_in">return</span> results;</div><div class="line">        &#125;;</div></pre></td></tr></table></figure>
 ]]></content>
+      
+        <categories>
+            
+            <category> JavaScript </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> JavaScript Core </tag>
+            
+        </tags>
+        
     </entry>
     
     <entry>
@@ -3803,6 +4799,14 @@ function decodeAudio (audioCtx, audioData, callback) {
 <li><a href="http://blog.csdn.net/aitangyong/article/details/43231111" target="_blank" rel="external">http://blog.csdn.net/aitangyong/article/details/43231111</a></li>
 </ol>
 ]]></content>
+      
+        <categories>
+            
+            <category> JavaScript </category>
+            
+        </categories>
+        
+        
     </entry>
     
     <entry>
@@ -3863,6 +4867,14 @@ function decodeAudio (audioCtx, audioData, callback) {
 <li><a href="http://www.ibm.com/developerworks/cn/web/wa-aj-jsonp1/index.html" target="_blank" rel="external">http://www.ibm.com/developerworks/cn/web/wa-aj-jsonp1/index.html</a></li>
 </ol>
 ]]></content>
+      
+        <categories>
+            
+            <category> JavaScript </category>
+            
+        </categories>
+        
+        
     </entry>
     
     <entry>
@@ -3906,6 +4918,14 @@ function decodeAudio (audioCtx, audioData, callback) {
 <li><a href="http://blog.brucefeng.info/post/web-crossdomain-2016" target="_blank" rel="external">前端跨域</a></li>
 </ol>
 ]]></content>
+      
+        <categories>
+            
+            <category> HTTP </category>
+            
+        </categories>
+        
+        
     </entry>
     
     <entry>
@@ -3973,6 +4993,20 @@ function decodeAudio (audioCtx, audioData, callback) {
 <li><a href="https://css-tricks.com/fighting-the-space-between-inline-block-elements/" target="_blank" rel="external">Fighting the Space Between Inline Block Elements</a></li>
 </ul>
 ]]></content>
+      
+        <categories>
+            
+            <category> CSS </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> CSS core </tag>
+            
+        </tags>
+        
     </entry>
     
     <entry>
@@ -4002,6 +5036,20 @@ function decodeAudio (audioCtx, audioData, callback) {
 <li><a href="http://stackoverflow.com/questions/1527803/generating-random-numbers-in-javascript-in-a-specific-range" target="_blank" rel="external">stackoverflow - generating-random-numbers</a></li>
 </ol>
 ]]></content>
+      
+        <categories>
+            
+            <category> JavaScript </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> JavaScript Core </tag>
+            
+        </tags>
+        
     </entry>
     
     <entry>
@@ -4063,6 +5111,20 @@ function decodeAudio (audioCtx, audioData, callback) {
 <li><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/content" target="_blank" rel="external">https://developer.mozilla.org/zh-CN/docs/Web/CSS/content</a></li>
 </ol>
 ]]></content>
+      
+        <categories>
+            
+            <category> CSS </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> CSS Core </tag>
+            
+        </tags>
+        
     </entry>
     
     <entry>
@@ -4116,6 +5178,14 @@ function decodeAudio (audioCtx, audioData, callback) {
 </li>
 </ol>
 ]]></content>
+      
+        <categories>
+            
+            <category> 总结 </category>
+            
+        </categories>
+        
+        
     </entry>
     
     <entry>
@@ -4153,6 +5223,14 @@ function decodeAudio (audioCtx, audioData, callback) {
 <li><a href="http://blog.csdn.net/javamxd/article/details/28602523" target="_blank" rel="external">密码加密</a></li>
 </ol>
 ]]></content>
+      
+        <categories>
+            
+            <category> HTTP </category>
+            
+        </categories>
+        
+        
     </entry>
     
     <entry>
@@ -4174,6 +5252,20 @@ function decodeAudio (audioCtx, audioData, callback) {
 <li><a href="http://cube.qq.com/?p=401" target="_blank" rel="external">transition和requestAnimationFrame动画学习</a></li>
 </ol>
 ]]></content>
+      
+        <categories>
+            
+            <category> JavaScript </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> JavaScript API </tag>
+            
+        </tags>
+        
     </entry>
     
     <entry>
@@ -4195,6 +5287,20 @@ function decodeAudio (audioCtx, audioData, callback) {
 <figure class="highlight css"><table><tr><td class="code"><pre><div class="line"><span class="selector-id">#child</span> &#123;</div><div class="line">     <span class="attribute">width</span>:<span class="number">50%</span>;</div><div class="line">     <span class="attribute">height</span>:<span class="number">50%</span>;</div><div class="line">     <span class="attribute">margin</span>: <span class="number">50%</span> <span class="number">0</span> <span class="number">0</span> <span class="number">50%</span>;</div><div class="line"> &#125;</div></pre></td></tr></table></figure>
 <p>从运行结果中我们惊讶的发现不论是margin-left还是margin-top相对的都是父元素的宽度，这看上去和我们通常的想法是不同的，二者都是相对于父元素的width，而且还会出现margin叠加现象。</p>
 ]]></content>
+      
+        <categories>
+            
+            <category> CSS </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> CSS Core </tag>
+            
+        </tags>
+        
     </entry>
     
     <entry>
@@ -4248,6 +5354,20 @@ function decodeAudio (audioCtx, audioData, callback) {
 <li><a href="http://codepen.io/Elainelele/pen/WbKXjd" target="_blank" rel="external">demo</a></li>
 </ol>
 ]]></content>
+      
+        <categories>
+            
+            <category> CSS </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> CSS Collection </tag>
+            
+        </tags>
+        
     </entry>
     
     <entry>
@@ -4377,6 +5497,20 @@ function decodeAudio (audioCtx, audioData, callback) {
 <li><a href="http://www.cnblogs.com/georgewing/archive/2009/09/29/1576641.html" target="_blank" rel="external">PPK 谈 JavaScript 的 this 关键字</a></li>
 </ul>
 ]]></content>
+      
+        <categories>
+            
+            <category> JavaScript </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> JavaScript Core </tag>
+            
+        </tags>
+        
     </entry>
     
     <entry>
@@ -4482,6 +5616,14 @@ function decodeAudio (audioCtx, audioData, callback) {
 <li><a href="http://www.hicss.net/i-know-you-do-not-know-the-negative-margin/" target="_blank" rel="external">http://www.hicss.net/i-know-you-do-not-know-the-negative-margin/</a></li>
 </ol>
 ]]></content>
+      
+        <categories>
+            
+            <category> CSS </category>
+            
+        </categories>
+        
+        
     </entry>
     
     <entry>
@@ -4642,6 +5784,20 @@ background:gray;
 <li><a href="http://www.cnblogs.com/Dudy/p/4085292.html" target="_blank" rel="external">CSS元素水平垂直居中方法总结</a></li>
 </ul>
 ]]></content>
+      
+        <categories>
+            
+            <category> 总结 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> CSS Layout </tag>
+            
+        </tags>
+        
     </entry>
     
     <entry>
@@ -4851,6 +6007,20 @@ head.appendChild(cop);
 <p><code>DocumentFragment</code>的特殊之处：使得一组节点被当做一个节点看待，如果给<code>appendChild() insertBefore() replaceChild()</code>传递一个<code>DocumentFragment</code>，插入的是文档片段的所有子节点，而非片段本身。(文档片段本身清空)。 </p>
 </blockquote>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="comment">// 本模块为不支持insertAdjacentHTML()的浏览器定义Element.insertAdjacentHTML</span></div><div class="line"><span class="comment">// 同时定义可移植的HTML插入函数：Insert.before() Insert.after() Insert.atStart() Insert.atEnd()</span></div><div class="line"></div><div class="line"><span class="keyword">var</span> Insert = (<span class="function"><span class="keyword">function</span>  (<span class="params"></span>) </span>&#123;</div><div class="line">	<span class="comment">// 如果支持原生的insertAdjacentHTML,在4个函数名更明了的HTML插入函数中使用它</span></div><div class="line">		<span class="keyword">if</span>(<span class="built_in">document</span>.createElement(<span class="string">"div"</span>).insertAdjacentHTML) &#123;</div><div class="line">			<span class="keyword">return</span> &#123;</div><div class="line">				<span class="attr">before</span>:<span class="function"><span class="keyword">function</span>  (<span class="params">e,h</span>) </span>&#123;e.insertAdjacentHTML(<span class="string">"beforebegin"</span>,h);&#125;,</div><div class="line">				<span class="attr">after</span>:<span class="function"><span class="keyword">function</span>  (<span class="params">e,h</span>) </span>&#123;e.insertAdjacentHTML(<span class="string">"afterend"</span>,h);&#125;,</div><div class="line">				<span class="attr">atStart</span>:<span class="function"><span class="keyword">function</span> (<span class="params">e,h</span>) </span>&#123;e.insertAdjacentHTML(<span class="string">"afterbegin"</span>,h);&#125;,</div><div class="line">				<span class="attr">atEnd</span>:<span class="function"><span class="keyword">function</span>  (<span class="params">e,h</span>) </span>&#123;e.insertAdjacentHTML(<span class="string">"beforeend"</span>,h);&#125;</div><div class="line">			&#125;;</div><div class="line"></div><div class="line">			<span class="comment">// 无原生的insertAdjacentHTML</span></div><div class="line">			<span class="comment">// 实现同样的4个插入函数，并使用它们来定义insertAdjacentHTML</span></div><div class="line">			</div><div class="line">			<span class="comment">// 首先定义一个工具函数，传入HTML字符串，返回一个DocumentFragment</span></div><div class="line">			<span class="function"><span class="keyword">function</span> <span class="title">fragment</span> (<span class="params">html</span>) </span>&#123;</div><div class="line">				<span class="keyword">var</span> elt=<span class="built_in">document</span>.createElement(<span class="string">"div"</span>);</div><div class="line">				<span class="keyword">var</span> frag=<span class="built_in">document</span>.createDocumentFragment();</div><div class="line">				elt.innerHTML=html;</div><div class="line">				<span class="keyword">while</span>(elt.firstChild)</div><div class="line">					frag.appendChild(elt.firstChild);</div><div class="line">				<span class="keyword">return</span> frag;</div><div class="line">			&#125;</div><div class="line"></div><div class="line">			<span class="keyword">var</span> Insert = &#123;</div><div class="line">				<span class="attr">before</span>:<span class="function"><span class="keyword">function</span>(<span class="params">elt,html</span>)</span>&#123;elt.parentNode.insertBefore(fragment(html),elt);&#125;,</div><div class="line">				<span class="attr">after</span>:<span class="function"><span class="keyword">function</span>(<span class="params">elt,html</span>)</span>&#123;elt.parentNode.insertBefore(fragment(html),elt.nextSibling);&#125;,</div><div class="line">				<span class="attr">atStart</span>:<span class="function"><span class="keyword">function</span>(<span class="params">elt,html</span>)</span>&#123;elt.insertBefore(fragment(html),elt.firstChild);&#125;,</div><div class="line">				<span class="attr">atEnd</span>:<span class="function"><span class="keyword">function</span>(<span class="params">elt,html</span>)</span>&#123;elt.insertBefore(fragment(html),elt.appendChild(fragment(html));&#125;</div><div class="line">			&#125;;</div><div class="line"></div><div class="line">			<span class="comment">// 基于以上函数实现insertAdjacentHTML</span></div><div class="line">			Element.prototype.insertAdjacentHTML=<span class="function"><span class="keyword">function</span>  (<span class="params">pos,html</span>) </span>&#123;</div><div class="line">				<span class="keyword">switch</span>(pos.toLowerCase())&#123;</div><div class="line">					<span class="keyword">case</span> <span class="string">"beforebegin"</span>:<span class="keyword">return</span> Insert.before(<span class="keyword">this</span>,html);</div><div class="line">					<span class="keyword">case</span> <span class="string">"afterend"</span>:<span class="keyword">return</span> Insert.after(<span class="keyword">this</span>,html);</div><div class="line">					<span class="keyword">case</span> <span class="string">"afterbegin"</span>:<span class="keyword">return</span> Insert.atStart(<span class="keyword">this</span>,html);</div><div class="line">					<span class="keyword">case</span> <span class="string">"beforeend"</span>:<span class="keyword">return</span> Insert.atEnd(<span class="keyword">this</span>,html);</div><div class="line">				&#125;</div><div class="line">			&#125;;</div><div class="line">			<span class="keyword">return</span> Insert;</div><div class="line">		&#125;</div><div class="line">&#125;());</div></pre></td></tr></table></figure>]]></content>
+      
+        <categories>
+            
+            <category> 总结 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> DOM </tag>
+            
+        </tags>
+        
     </entry>
     
     <entry>
@@ -4908,6 +6078,14 @@ data:&quot;primes&quot;});
 </code></pre></li>
 </ol>
 ]]></content>
+      
+        <categories>
+            
+            <category> JavaScript API </category>
+            
+        </categories>
+        
+        
     </entry>
     
     <entry>
@@ -4966,6 +6144,20 @@ quote:after { content:close-quote;}
 </code></pre></li>
 </ul>
 ]]></content>
+      
+        <categories>
+            
+            <category> CSS </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> CSS Core </tag>
+            
+        </tags>
+        
     </entry>
     
     <entry>
@@ -5009,6 +6201,20 @@ Some more text
 <li><a href="http://output.jsbin.com/EKiLOQU/1" target="_blank" rel="external">img 元素底部的空白到底从何而来？</a></li>
 </ul>
 ]]></content>
+      
+        <categories>
+            
+            <category> CSS </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> CSS Core </tag>
+            
+        </tags>
+        
     </entry>
     
     <entry>
@@ -5049,6 +6255,14 @@ Some more text
 <li><a href="https://isux.tencent.com/mobile-development-essential-knowledge.html" target="_blank" rel="external">移动端开发必备知识</a></li>
 </ol>
 ]]></content>
+      
+        <categories>
+            
+            <category> Mobile Develop </category>
+            
+        </categories>
+        
+        
     </entry>
     
     <entry>
@@ -5184,6 +6398,20 @@ document.body.appendChild(cache);
 </li>
 </ul>
 ]]></content>
+      
+        <categories>
+            
+            <category> Performance Optimize </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 性能优化 </tag>
+            
+        </tags>
+        
     </entry>
     
     <entry>
@@ -5299,6 +6527,14 @@ ExpiresByType text/html A600
 </blockquote>
 <figure class="highlight clean"><table><tr><td class="code"><pre><div class="line">&lt;IfModule mod_expires.c&gt;</div><div class="line">    &lt;FilesMatch <span class="string">"\.(css|js)$"</span>&gt;</div><div class="line">        ExpiresActive on </div><div class="line">        ExpiresDefault <span class="string">"access plus 1 week"</span></div><div class="line">    &lt;/FilesMatch&gt;</div><div class="line">&lt;/IfModule&gt;</div><div class="line">```	</div><div class="line"></div><div class="line">* 对某些文件设定</div><div class="line"></div><div class="line">&gt; 同理，也可以对某些文件启用特定的缓存策略。注意，文件名中的点`.`是需要转义的。</div></pre></td></tr></table></figure>
 <ifmodule mod_expires.c=""><br>    <filesmatch "^(example\.css|example\.js)$"=""><br>        ExpiresActive on<br>        ExpiresDefault “access plus 1 week”<br>    </filesmatch><br></ifmodule><br><figure class="highlight autohotkey"><table><tr><td class="code"><pre><div class="line"></div><div class="line">* 对某一文件夹下的所有文件设定</div><div class="line">&gt; 对于静态文件，一个比较方便的做法是将它们全部放到一个目录下，并对该目录下的所有文件设定。但是，此处需要注意防止其他规则将`ExpiresDefault`覆盖掉。</div></pre></td></tr></table></figure><br><br><ifmodule mod_expires.c=""><br>    ExpiresActive On<br>    ExpiresDefault “access plus 10 years”<br></ifmodule><br>```<br>   5.URL 重写<br><br>        <ifmodule mod_rewrite.c=""><br>        Options +FollowSymlinks<br>          RewriteEngine On<br><br>          RewriteCond %{http_host} ^iminyao.com [NC]<br>          RewriteRule ^(.<em>)$ <a href="http://www.iminyao.com/$1" target="_blank" rel="external">http://www.iminyao.com/$1</a> [L,R=301]<br>          RewriteCond %{REQUEST_FILENAME} !-d<br>          RewriteCond %{REQUEST_FILENAME} !-f<br>          RewriteRule ^(.</em>)$ index.php/$1 [QSA,PT,L]<br>          </ifmodule>]]></content>
+      
+        <categories>
+            
+            <category> devTools&amp;&amp;Configuration </category>
+            
+        </categories>
+        
+        
     </entry>
     
     <entry>
@@ -5370,6 +6606,14 @@ ExpiresByType text/html A600
 <li><a href="http://www.cnblogs.com/vajoy/p/5341664.html" target="_blank" rel="external">浅谈浏览器http的缓存机制</a></li>
 </ol>
 ]]></content>
+      
+        <categories>
+            
+            <category> HTTP </category>
+            
+        </categories>
+        
+        
     </entry>
     
     <entry>
@@ -5402,6 +6646,20 @@ ExpiresByType text/html A600
 <h2 id="canvas动画"><a href="#canvas动画" class="headerlink" title="canvas动画"></a>canvas动画</h2><h4 id="基本动画-方形下落"><a href="#基本动画-方形下落" class="headerlink" title="基本动画(方形下落)"></a>基本动画(方形下落)</h4><figure class="highlight verilog"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> canvas;</div><div class="line"><span class="keyword">var</span> <span class="keyword">context</span>;</div><div class="line"></div><div class="line">window<span class="variable">.onload</span> = <span class="keyword">function</span>() &#123;</div><div class="line">canvas = document<span class="variable">.getElementById</span>(<span class="string">"canvas"</span>);</div><div class="line"><span class="keyword">context</span> = canvas<span class="variable">.getContext</span>(<span class="string">"2d"</span>);</div><div class="line"></div><div class="line"><span class="comment">// 每0.02秒绘制一次画布</span></div><div class="line">setTimeout(<span class="string">"drawFrame()"</span>,<span class="number">20</span>);</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="comment">//设置方形初始位置</span></div><div class="line"><span class="keyword">var</span> squarePosition_y=<span class="number">0</span>;</div><div class="line"><span class="keyword">var</span> squarePosition_x=<span class="number">10</span>;</div><div class="line"></div><div class="line"><span class="keyword">function</span> drawFrame () &#123;</div><div class="line">	<span class="keyword">context</span><span class="variable">.clearRect</span>(<span class="number">0</span>,<span class="number">0</span>,canvas<span class="variable">.width</span>,canvas<span class="variable">.height</span>);</div><div class="line"></div><div class="line">	<span class="comment">// 调用beginPath()确保不会接上次绘制的图像绘制</span></div><div class="line">	<span class="keyword">context</span><span class="variable">.beginPath</span>();</div><div class="line"></div><div class="line">	<span class="comment">//在当前位置绘制10*10的方形</span></div><div class="line">	<span class="keyword">context</span><span class="variable">.rect</span>(squarePosition_x,squarePosition_y,<span class="number">10</span>,<span class="number">10</span>);</div><div class="line">	<span class="keyword">context</span><span class="variable">.lineStyle</span>=<span class="string">"black"</span>;</div><div class="line">	<span class="keyword">context</span><span class="variable">.lineWidth</span>=<span class="number">1</span>;</div><div class="line">	<span class="keyword">context</span><span class="variable">.stroke</span>();</div><div class="line"></div><div class="line">	<span class="comment">// 向下移动1像素</span></div><div class="line">	squarePosition_y +=<span class="number">1</span>;</div><div class="line"></div><div class="line">	setTimeout(<span class="string">"drawFrame()"</span>,<span class="number">20</span>);</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h4 id="多物体动画-模拟小球自由下落"><a href="#多物体动画-模拟小球自由下落" class="headerlink" title="多物体动画(模拟小球自由下落)"></a>多物体动画(模拟小球自由下落)</h4><figure class="highlight xml"><table><tr><td class="code"><pre><div class="line"></div><div class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">title</span>&gt;</span>Animation<span class="tag">&lt;/<span class="name">title</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="css"></span></div><div class="line"><span class="selector-tag">body</span> &#123;</div><div class="line">  <span class="attribute">font-family</span>: Verdana;</div><div class="line">  <span class="attribute">font-size</span>: small;</div><div class="line">&#125;</div><div class="line"><span class="selector-tag">canvas</span> &#123;</div><div class="line">  <span class="attribute">cursor</span>: pointer;</div><div class="line">  <span class="attribute">border</span>: <span class="number">1px</span> solid black;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-tag">div</span> &#123;</div><div class="line">  <span class="attribute">margin</span>: <span class="number">15px</span> <span class="number">0px</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-tag">button</span> &#123;</div><div class="line">  <span class="attribute">padding</span>: <span class="number">4px</span> <span class="number">10px</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-tag">input</span><span class="selector-attr">[type=number]</span> &#123;</div><div class="line">  <span class="attribute">width</span>: <span class="number">50px</span>;</div><div class="line">  <span class="attribute">margin-right</span>: <span class="number">15px</span>;</div><div class="line">&#125;</div><div class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></div><div class="line"></div><div class="line"><span class="comment">// These are the details that represent an individual ball.</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Ball</span>(<span class="params">x, y, dx, dy, radius</span>) </span>&#123;</div><div class="line">  <span class="keyword">this</span>.x = x;</div><div class="line">  <span class="keyword">this</span>.y = y;</div><div class="line">  <span class="keyword">this</span>.dx = dx;</div><div class="line">  <span class="keyword">this</span>.dy = dy;</div><div class="line">  <span class="keyword">this</span>.radius = radius;</div><div class="line">  <span class="keyword">this</span>.strokeColor = <span class="string">"black"</span>;</div><div class="line">  <span class="keyword">this</span>.fillColor = <span class="string">"red"</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// This is an array that will hold all the balls on the canvas</span></div><div class="line"><span class="keyword">var</span> balls = [];</div><div class="line"></div><div class="line"><span class="keyword">var</span> canvas;</div><div class="line"><span class="keyword">var</span> context;</div><div class="line"></div><div class="line"><span class="built_in">window</span>.onload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  canvas = <span class="built_in">document</span>.getElementById(<span class="string">"canvas"</span>);</div><div class="line">  context = canvas.getContext(<span class="string">"2d"</span>);</div><div class="line"></div><div class="line">  canvas.onmousedown = canvasClick;</div><div class="line"></div><div class="line">  <span class="comment">// Redraw every 20 milliseconds.</span></div><div class="line">  setTimeout(drawFrame, <span class="number">20</span>);</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">addBall</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="comment">// Get the requested size.</span></div><div class="line">  <span class="keyword">var</span> radius = <span class="built_in">parseFloat</span>(<span class="built_in">document</span>.getElementById(<span class="string">"ballSize"</span>).value);</div><div class="line"></div><div class="line">  <span class="comment">// Create the new ball.</span></div><div class="line">  <span class="keyword">var</span> ball = <span class="keyword">new</span> Ball(<span class="number">50</span>,<span class="number">50</span>,<span class="number">1</span>,<span class="number">1</span>,radius);</div><div class="line"></div><div class="line">  <span class="comment">// Store it in the ball array.</span></div><div class="line">  balls.push(ball);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">clearBalls</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="comment">// Remove all the balls.</span></div><div class="line">  balls = [];</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">drawFrame</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="comment">// Clear the canvas.</span></div><div class="line">  context.clearRect(<span class="number">0</span>, <span class="number">0</span>, canvas.width, canvas.height);</div><div class="line"></div><div class="line">  <span class="comment">// Note that you need to call beginPath() to make sure you don't redraw part of what</span></div><div class="line">  <span class="comment">// you were drawing before.</span></div><div class="line">  context.beginPath();</div><div class="line"></div><div class="line">  <span class="comment">// Go through all the balls.</span></div><div class="line">  <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>; i&lt;balls.length; i++) &#123;</div><div class="line">    <span class="comment">// Move each ball to its new position.</span></div><div class="line">    <span class="keyword">var</span> ball = balls[i];</div><div class="line">    ball.x += ball.dx;</div><div class="line">    ball.y += ball.dy;</div><div class="line"></div><div class="line">    <span class="comment">// Add in a "gravity" effect that makes the ball fall faster.</span></div><div class="line">    <span class="keyword">if</span> ((ball.y) &lt; canvas.height) ball.dy += <span class="number">0.22</span>;</div><div class="line"></div><div class="line">    <span class="comment">// Add in a "friction" effect that slows down the ball's side-to-side motion.</span></div><div class="line">    ball.dx = ball.dx * <span class="number">0.998</span>;</div><div class="line"></div><div class="line">    <span class="comment">// If the ball has hit the side, bounce it.</span></div><div class="line">    <span class="keyword">if</span> ((ball.x + ball.radius &gt; canvas.width) || (ball.x - ball.radius &lt; <span class="number">0</span>)) &#123;</div><div class="line">      ball.dx = -ball.dx;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">// If the ball has hit the bottom, bounce it, but slow it down slightly.</span></div><div class="line">    <span class="keyword">if</span> ((ball.y + ball.radius &gt; canvas.height) || (ball.y - ball.radius &lt; <span class="number">0</span>)) &#123; </div><div class="line">      ball.dy = -ball.dy*<span class="number">0.96</span>; </div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">// Check if the user wants lines.</span></div><div class="line">    <span class="keyword">if</span> (!<span class="built_in">document</span>.getElementById(<span class="string">"connectedBalls"</span>).checked) &#123;</div><div class="line">      context.beginPath();</div><div class="line">      context.fillStyle = ball.fillColor;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">else</span> &#123;</div><div class="line">      context.fillStyle = <span class="string">"white"</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">// Draw the ball.</span></div><div class="line">    context.arc(ball.x, ball.y, ball.radius, <span class="number">0</span>, <span class="built_in">Math</span>.PI*<span class="number">2</span>);</div><div class="line">    context.lineWidth = <span class="number">1</span>;</div><div class="line">    context.fill();</div><div class="line">    context.stroke(); </div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="comment">// Draw the next frame in 20 milliseconds.</span></div><div class="line">  setTimeout(drawFrame, <span class="number">20</span>);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">canvasClick</span>(<span class="params">e</span>) </span>&#123;</div><div class="line">  <span class="comment">// Get the canvas click coordinates.</span></div><div class="line">  <span class="keyword">var</span> clickX = e.pageX - canvas.offsetLeft;</div><div class="line">  <span class="keyword">var</span> clickY = e.pageY - canvas.offsetTop;</div><div class="line"></div><div class="line"></div><div class="line">  <span class="comment">// Look for the clicked ball.</span></div><div class="line">  <span class="keyword">for</span>(<span class="keyword">var</span> i <span class="keyword">in</span> balls)</div><div class="line">  &#123;</div><div class="line">    <span class="keyword">var</span> ball = balls[i];</div><div class="line">    <span class="keyword">if</span> ((clickX &gt; (ball.x-ball.radius)) &amp;&amp; (clickX &lt; (ball.x+ball.radius)))</div><div class="line">    &#123;</div><div class="line">      <span class="keyword">if</span> ((clickY &gt; (ball.y-ball.radius)) &amp;&amp; (clickY &lt; (ball.y+ball.radius)))</div><div class="line">      &#123;</div><div class="line">        <span class="comment">// Change the clicked ball's speed.</span></div><div class="line">        ball.dx -= <span class="number">2</span>;</div><div class="line">        ball.dy -= <span class="number">3</span>;</div><div class="line">        <span class="keyword">return</span>;</div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"></div><div class="line">  </div><div class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line"></div><div class="line">  <span class="tag">&lt;<span class="name">canvas</span> <span class="attr">id</span>=<span class="string">"canvas"</span> <span class="attr">width</span>=<span class="string">"400"</span> <span class="attr">height</span>=<span class="string">"300"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">canvas</span>&gt;</span></div><div class="line"></div><div class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">button</span> <span class="attr">onclick</span>=<span class="string">"addBall()"</span>&gt;</span>Add Ball<span class="tag">&lt;/<span class="name">button</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">button</span> <span class="attr">onclick</span>=<span class="string">"clearBalls()"</span>&gt;</span>Clear Canvas<span class="tag">&lt;/<span class="name">button</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span></div><div class="line">    Ball Size:<span class="tag">&lt;<span class="name">input</span> <span class="attr">id</span>=<span class="string">"ballSize"</span> <span class="attr">type</span>=<span class="string">"number"</span> <span class="attr">min</span>=<span class="string">"0"</span> <span class="attr">max</span>=<span class="string">"50"</span> <span class="attr">value</span>=<span class="string">"15"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">id</span>=<span class="string">"connectedBalls"</span> <span class="attr">type</span>=<span class="string">"checkbox"</span>&gt;</span>Connect Balls<span class="tag">&lt;<span class="name">br</span>&gt;</span></div><div class="line">    </div><div class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure>
 ]]></content>
+      
+        <categories>
+            
+            <category> JavaScript </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> JavaScript API </tag>
+            
+        </tags>
+        
     </entry>
     
     <entry>
@@ -5418,6 +6676,14 @@ ExpiresByType text/html A600
 <figure class="highlight xml"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line">  <span class="comment">&lt;!--[if lt IE 9]&gt;</span></div><div class="line">          &lt;script src="excanvas.js"&gt;&lt;/script&gt;</div><div class="line">   &lt;![endif]--&gt;</div><div class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></div></pre></td></tr></table></figure></li>
 </ul>
 ]]></content>
+      
+        <categories>
+            
+            <category> IE </category>
+            
+        </categories>
+        
+        
     </entry>
     
     <entry>
@@ -5485,6 +6751,14 @@ ExpiresByType text/html A600
 <li><a href="https://hungred.com/how-to/completely-removing-nodejs-npm/" target="_blank" rel="external">Completely removing Node.js and Npm</a></li>
 </ol>
 ]]></content>
+      
+        <categories>
+            
+            <category> 总结 </category>
+            
+        </categories>
+        
+        
     </entry>
     
     <entry>
@@ -5500,6 +6774,14 @@ ExpiresByType text/html A600
 <p>如上所述，“爱民谣”大体包括三个版块：<strong>音乐推荐区</strong>，<strong>民谣故事区</strong>，<strong>乐人轶事区</strong>。除了输入歌手，歌曲名搜索歌曲，我们把不同风格的音乐分门别类，设置不同的标签，帮助你快速找到感兴趣的歌曲。每天及时推送歌单，帮你发现好歌曲。根据用户的年龄地区，论坛区会设置各个年龄层，各个地区的聊天窗口，帮你快速找好友。在分享区中，用户可以直接上传图文音频视频等多种格式的资源，设立个人中心，打造属于用户自己的空间。</p>
 <p>“爱民谣”是一个集<strong>音乐</strong>、<strong>故事</strong>、<strong>情感</strong>为一体的兴趣网站，我们为兴趣而生，希望通过此平台，集合长久的用户资源。同时，给用户搭建一个休闲娱乐的好去处。在繁忙工作之余，静下心来歇一歇。</p>
 ]]></content>
+      
+        <categories>
+            
+            <category> 随笔 </category>
+            
+        </categories>
+        
+        
     </entry>
     
     <entry>
@@ -5513,55 +6795,16 @@ ExpiresByType text/html A600
 <li><a href="https://github.com/nioteam/jquery-plugins/issues/12" target="_blank" rel="external">JavaScript判断IE各版本最完美解决方案</a></li>
 </ol>
 ]]></content>
+      
+        <categories>
+            
+            <category> IE </category>
+            
+        </categories>
+        
+        
     </entry>
     
   
-  
-    
-    <entry>
-      <title><![CDATA[About me]]></title>
-      <url>https://iminyao.com/about/index.html</url>
-      <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><p>网名: 逢十借一<br>16届南邮软件工程专业毕业，目前在杭州后互联网金融公司打杂。</p>
-<p>成长经历:</p>
-<ul>
-<li>1993-2012 山东 淄博</li>
-<li>2012-2016 江苏 南京<br>   皇家邮电大学软工专业，人生真正之开端，学习、成长，开眼看世界。</li>
-<li>2016 - ~ 浙江 杭州<br>   我跑爱跑，只为追上那个曾被寄予厚望的自己！</li>
-</ul>
-<p>工作经历:</p>
-<ul>
-<li>2015.05 360 前端星计划首批毕业学员</li>
-<li>2015.12 - 2016.03 网易 云音乐实习前端开发师</li>
-<li>2016.06 - ~ 创业公司打杂</li>
-<li>未来 工作联系 jzwmxz@hotmail.com</li>
-</ul>
-<p>兴趣爱好：<br>爱音乐，李宗盛、张国荣、李志、赵雷<br>微信音乐公众号：每天一首背景音乐<br>音乐网站:bgm.iminyao.com</p>
-<div id="aplayer1" class="aplayer" style="margin-bottom: 20px;display:inline-block;"></div><script>var aplayer1 = new APlayer({element: document.getElementById("aplayer1"),narrow: true,autoplay: true,music : [{title:'意味',author:'李志',url:'http://m2.music.126.net/csgi2PSKvnXW9No_opY3ZQ==/2834540976445518.mp3',pic:'http://p1.music.126.net/qDiDdR6wbQCsGsn34dmCVg==/2378243650941255.jpg'},{title:'苍井空',author:'李志',url:'http://m2.music.126.net/ajRtWAGjafTyZXkKvRMKlg==/2834540976445522.mp3',pic:'http://p1.music.126.net/qDiDdR6wbQCsGsn34dmCVg==/2378243650941255.jpg'},{title:'结婚',author:'李志',url:'http://m2.music.126.net/gtZRBfKUBUM_FKVSjeRwxw==/2834540976445526.mp3',pic:'http://p1.music.126.net/qDiDdR6wbQCsGsn34dmCVg==/2378243650941255.jpg'},{title:'鸵鸟',author:'李志',url:'http://m2.music.126.net/2cch44bGP9aeWPyL5p2U5w==/3156697883400447.mp3',pic:'http://p1.music.126.net/qDiDdR6wbQCsGsn34dmCVg==/2378243650941255.jpg'},{title:'天空之城',author:'李志',url:'http://m2.music.126.net/5t0yPDKrP9Ym6UZkkc0myA==/3098423767127282.mp3',pic:'http://p1.music.126.net/qDiDdR6wbQCsGsn34dmCVg==/2378243650941255.jpg'},{title:'倒影',author:'李志',url:'http://m2.music.126.net/hMcQAtde7l_m27Lixgb2sA==/3079732069455050.mp3',pic:'http://p1.music.126.net/qDiDdR6wbQCsGsn34dmCVg==/2378243650941255.jpg'},{title:'爱',author:'李志',url:'http://m2.music.126.net/CCaUGfPYXEDU_oDBEq-BRQ==/3120413999683250.mp3',pic:'http://p1.music.126.net/qDiDdR6wbQCsGsn34dmCVg==/2378243650941255.jpg'},{title:'家乡',author:'李志',url:'http://m2.music.126.net/VeBzci7a8jyiifOnuaUtAw==/3178688115956432.mp3',pic:'http://p1.music.126.net/qDiDdR6wbQCsGsn34dmCVg==/2378243650941255.jpg'},{title:'1990年的春天',author:'李志',url:'http://m2.music.126.net/PFFRzIWyiQiCyqh8vEB8_Q==/3156697883400449.mp3',pic:'http://p1.music.126.net/qDiDdR6wbQCsGsn34dmCVg==/2378243650941255.jpg'},{title:'冬妮娅',author:'李志',url:'http://m2.music.126.net/9CYbD9ATtWqO6L-tz-MFww==/3098423767127284.mp3',pic:'http://p1.music.126.net/qDiDdR6wbQCsGsn34dmCVg==/2378243650941255.jpg'},{title:'听妈妈讲那过去的事情',author:'李志',url:'http://m2.music.126.net/DoKoUPcJJpUqvGw1o_Gqmg==/3079732069455052.mp3',pic:'http://p1.music.126.net/qDiDdR6wbQCsGsn34dmCVg==/2378243650941255.jpg'},{title:'美丽的梭罗河',author:'李志',url:'http://m2.music.126.net/Z9eY8a6OSLi79D_LY5eCww==/3120413999683252.mp3',pic:'http://p1.music.126.net/qDiDdR6wbQCsGsn34dmCVg==/2378243650941255.jpg'},{title:'米店',author:'李志',url:'http://m2.music.126.net/HCYxXjnzJqMc6D_DNobS0A==/3178688115956434.mp3',pic:'http://p1.music.126.net/qDiDdR6wbQCsGsn34dmCVg==/2378243650941255.jpg'},{title:'思念观世音',author:'李志',url:'http://m2.music.126.net/9z5J2-VXpss3tWg5eOghrA==/3156697883400451.mp3',pic:'http://p1.music.126.net/qDiDdR6wbQCsGsn34dmCVg==/2378243650941255.jpg'},{title:'在那遥远的地方',author:'李志',url:'http://m2.music.126.net/tt-q2PPlwhttb-62IUE7mQ==/3098423767127286.mp3',pic:'http://p1.music.126.net/qDiDdR6wbQCsGsn34dmCVg==/2378243650941255.jpg'},{title:'再见',author:'李志',url:'http://m2.music.126.net/qfR9yJIoPk5-FYSVe6UDhw==/3079732069455054.mp3',pic:'http://p1.music.126.net/qDiDdR6wbQCsGsn34dmCVg==/2378243650941255.jpg'}]});aplayer1.init();</script>
-<div id="aplayer2" class="aplayer" style="margin-bottom: 20px;display:inline-block;"></div><script>var aplayer2 = new APlayer({element: document.getElementById("aplayer2"),narrow: true,autoplay: false,music : [{title:'Opening&空谷幽兰(Live)',author:'许巍',url:'http://m2.music.126.net/6ZovfFlSIdVTOSAgNRQGuQ==/6671836557876751.mp3',pic:'http://p1.music.126.net/VdH_sEpXERt8_9dB7OiaVQ==/6671836557873593.jpg'},{title:'出离(Live)',author:'许巍',url:'http://m2.music.126.net/i6o86_lIbiLQETSKxMNTZA==/6658642418353289.mp3',pic:'http://p1.music.126.net/VdH_sEpXERt8_9dB7OiaVQ==/6671836557873593.jpg'},{title:'在别处 (Live)',author:'许巍',url:'http://m2.music.126.net/CaqmW7fgoYu3blo8yd1HkA==/6647647302068118.mp3',pic:'http://p1.music.126.net/VdH_sEpXERt8_9dB7OiaVQ==/6671836557873593.jpg'},{title:'爱情(Live)',author:'许巍',url:'http://m2.music.126.net/sEcoB6wjjUZDjiVRfNcTHw==/6646547790440624.mp3',pic:'http://p1.music.126.net/VdH_sEpXERt8_9dB7OiaVQ==/6671836557873593.jpg'},{title:'像风一样自由(Live)',author:'许巍',url:'http://m2.music.126.net/oPUKnWMlEgn6BXV5NYPy4g==/6671836557876760.mp3',pic:'http://p1.music.126.net/VdH_sEpXERt8_9dB7OiaVQ==/6671836557873593.jpg'},{title:'温暖(Live)',author:'许巍',url:'http://m2.music.126.net/uMYSA2mWZU9iSsY8yjXPuA==/6660841441609618.mp3',pic:'http://p1.music.126.net/VdH_sEpXERt8_9dB7OiaVQ==/6671836557873593.jpg'},{title:'救赎之旅&鼓solo (Live)',author:'许巍',url:'http://m2.music.126.net/q_kT0iTnO-jqkhxxiafAmQ==/6658642418353291.mp3',pic:'http://p1.music.126.net/VdH_sEpXERt8_9dB7OiaVQ==/6671836557873593.jpg'},{title:'世外桃源(Live)',author:'许巍',url:'http://m2.music.126.net/RyPtTzls6Rs4nXZ7eHf49A==/6657542906726189.mp3',pic:'http://p1.music.126.net/VdH_sEpXERt8_9dB7OiaVQ==/6671836557873593.jpg'},{title:'喝茶去(Live)',author:'许巍',url:'http://m2.music.126.net/p47R7UIFltwv02bfFEOHhA==/6644348767184068.mp3',pic:'http://p1.music.126.net/VdH_sEpXERt8_9dB7OiaVQ==/6671836557873593.jpg'},{title:'故事(Live)',author:'许巍',url:'http://m2.music.126.net/JDG9QhDBaLF2pb772Au5vQ==/6644348767184056.mp3',pic:'http://p1.music.126.net/VdH_sEpXERt8_9dB7OiaVQ==/6671836557873593.jpg'},{title:'喜悦(Live)',author:'许巍',url:'http://m2.music.126.net/wnZygxVvYcKtgZxI5yFKHQ==/6671836557876756.mp3',pic:'http://p1.music.126.net/VdH_sEpXERt8_9dB7OiaVQ==/6671836557873593.jpg'},{title:'曾经的你(Live)',author:'许巍',url:'http://m2.music.126.net/rMq6CQH-NUffm_Fg9ytwOg==/6657542906726188.mp3',pic:'http://p1.music.126.net/VdH_sEpXERt8_9dB7OiaVQ==/6671836557873593.jpg'},{title:'那一年(Live)',author:'许巍',url:'http://m2.music.126.net/Af7YtmLnCCS_7Buzf1t6EA==/6672936069504492.mp3',pic:'http://p1.music.126.net/VdH_sEpXERt8_9dB7OiaVQ==/6671836557873593.jpg'},{title:'故乡(Live)',author:'许巍',url:'http://m2.music.126.net/YruC1QqoGwNK9UMABph97w==/6644348767184060.mp3',pic:'http://p1.music.126.net/VdH_sEpXERt8_9dB7OiaVQ==/6671836557873593.jpg'},{title:'星空(Live)',author:'许巍',url:'http://m2.music.126.net/N1ElFEE8Ub17amChpiQAWg==/6665239488111364.mp3',pic:'http://p1.music.126.net/VdH_sEpXERt8_9dB7OiaVQ==/6671836557873593.jpg'},{title:'光明之门(Live)',author:'许巍',url:'http://m2.music.126.net/SSrSb3ItrYGiAgc5EsCbWQ==/6644348767184064.mp3',pic:'http://p1.music.126.net/VdH_sEpXERt8_9dB7OiaVQ==/6671836557873593.jpg'},{title:'逍遥行(Live)',author:'许巍',url:'http://m2.music.126.net/iLhM-xiWmt0e5JdR-qD7SQ==/6671836557876764.mp3',pic:'http://p1.music.126.net/VdH_sEpXERt8_9dB7OiaVQ==/6671836557873593.jpg'},{title:'礼物&乐队介绍(Live)',author:'许巍',url:'http://m2.music.126.net/Z_2VWLsce-Z1WC10aZn2Dw==/6672936069504484.mp3',pic:'http://p1.music.126.net/VdH_sEpXERt8_9dB7OiaVQ==/6671836557873593.jpg'},{title:'旅行(Live)',author:'许巍',url:'http://m2.music.126.net/pjDFj0gu1ce7XPhUImnE6w==/6672936069504488.mp3',pic:'http://p1.music.126.net/VdH_sEpXERt8_9dB7OiaVQ==/6671836557873593.jpg'},{title:'此时此刻(Live)',author:'许巍',url:'http://m2.music.126.net/qdXKL5GWDfvCknpF4a1Q0w==/6641050232303112.mp3',pic:'http://p1.music.126.net/VdH_sEpXERt8_9dB7OiaVQ==/6671836557873593.jpg'},{title:'蓝莲花(Live)',author:'许巍',url:'http://m2.music.126.net/mmXh8bvBMo1u2A5fmt7yBA==/6646547790440626.mp3',pic:'http://p1.music.126.net/VdH_sEpXERt8_9dB7OiaVQ==/6671836557873593.jpg'},{title:'心愿(Live)',author:'许巍',url:'http://m2.music.126.net/0ILYygruM6xTqCldtsMLQw==/6671836557876768.mp3',pic:'http://p1.music.126.net/VdH_sEpXERt8_9dB7OiaVQ==/6671836557873593.jpg'}]});aplayer2.init();</script>
-<div id="aplayer3" class="aplayer" style="margin-bottom: 20px;display:inline-block;"></div><script>var aplayer3 = new APlayer({element: document.getElementById("aplayer3"),narrow: true,autoplay: false,music : [{title:'和你在一起2013版[Live]',author:'李志',url:'http://m2.music.126.net/ZsqwuKBP5Ck_05o83yApOg==/3352410954148658.mp3',pic:'http://p1.music.126.net/q-V2SNRZhYo9sgftJm-olA==/5961552045955874.jpg'},{title:'墙上的向日葵2013版[Live]',author:'李志',url:'http://m2.music.126.net/g9a3jGxKhDTAEOSnIY4NSg==/3353510465778730.mp3',pic:'http://p1.music.126.net/q-V2SNRZhYo9sgftJm-olA==/5961552045955874.jpg'},{title:'铅笔2013版[Live]',author:'李志',url:'http://m2.music.126.net/HfO0jG9hyTevDxzeUY_TTQ==/3352410954148659.mp3',pic:'http://p1.music.126.net/q-V2SNRZhYo9sgftJm-olA==/5961552045955874.jpg'},{title:'下雨2013版[Live]',author:'李志',url:'http://m2.music.126.net/HaXnG7Io329F_VY-2tlXDQ==/3353510465778731.mp3',pic:'http://p1.music.126.net/q-V2SNRZhYo9sgftJm-olA==/5961552045955874.jpg'},{title:'你的早晨&天空之城&暧昧2013版[Live]',author:'李志',url:'http://m2.music.126.net/ToWvN4SMFf5O1adFZs2Z9g==/3352410954148660.mp3',pic:'http://p1.music.126.net/q-V2SNRZhYo9sgftJm-olA==/5961552045955874.jpg'},{title:'被禁忌的游戏2013版[Live]',author:'李志',url:'http://m2.music.126.net/Uw90zpOwTvIrNnmTinE2dQ==/3353510465778732.mp3',pic:'http://p1.music.126.net/q-V2SNRZhYo9sgftJm-olA==/5961552045955874.jpg'},{title:'秋天的老狼2013版[Live]',author:'李志',url:'http://m2.music.126.net/fmTIMesdq0qxsBiDHn1tvg==/3352410954148661.mp3',pic:'http://p1.music.126.net/q-V2SNRZhYo9sgftJm-olA==/5961552045955874.jpg'},{title:'离婚2013版[Live]',author:'李志',url:'http://m2.music.126.net/zX8B0sDCV1rncjXFtxQN3Q==/3393092883471227.mp3',pic:'http://p1.music.126.net/q-V2SNRZhYo9sgftJm-olA==/5961552045955874.jpg'},{title:'门2013版[Live]',author:'李志',url:'http://m2.music.126.net/QFPOEOzbY3aogwOK3YJeCA==/3393092883471231.mp3',pic:'http://p1.music.126.net/q-V2SNRZhYo9sgftJm-olA==/5961552045955874.jpg'},{title:'斜2013版[Live]',author:'李志',url:'http://m2.music.126.net/J50m1ciSk-CYsdn9EHFQ7g==/3393092883471235.mp3',pic:'http://p1.music.126.net/q-V2SNRZhYo9sgftJm-olA==/5961552045955874.jpg'},{title:'春末的南方城市2013版[Live]',author:'李志',url:'http://m2.music.126.net/YunK5zpAupic5ed1UhRQ1w==/3352410954148664.mp3',pic:'http://p1.music.126.net/q-V2SNRZhYo9sgftJm-olA==/5961552045955874.jpg'},{title:'黑色信封2013版[Live]',author:'李志',url:'http://m2.music.126.net/8VwWEJXTuPneCSWJdjfYtQ==/3352410954148668.mp3',pic:'http://p1.music.126.net/q-V2SNRZhYo9sgftJm-olA==/5961552045955874.jpg'},{title:'1990年的春天2013版[Live]',author:'李志',url:'http://m2.music.126.net/83bV9PdPyzAG-JUR-CddIg==/3352410954148672.mp3',pic:'http://p1.music.126.net/q-V2SNRZhYo9sgftJm-olA==/5961552045955874.jpg'},{title:'意味2013版[Live]',author:'李志',url:'http://m2.music.126.net/DhDL4zTNrpbzQG-S49poNw==/3404087999755885.mp3',pic:'http://p1.music.126.net/q-V2SNRZhYo9sgftJm-olA==/5961552045955874.jpg'},{title:'翁庆年的六英镑2013版[Live]',author:'李志',url:'http://m2.music.126.net/4lqbQPuWaXJv76YSygap9A==/3404087999755889.mp3',pic:'http://p1.music.126.net/q-V2SNRZhYo9sgftJm-olA==/5961552045955874.jpg'},{title:'来了2013版[Live]',author:'李志',url:'http://m2.music.126.net/gUUN5Vr0YXPyWnwnX5UeGw==/3404087999755893.mp3',pic:'http://p1.music.126.net/q-V2SNRZhYo9sgftJm-olA==/5961552045955874.jpg'},{title:'妈妈2013版[Live]',author:'李志',url:'http://m2.music.126.net/z6RTh_07mT7ZAsa_c73nqw==/3324923163466060.mp3',pic:'http://p1.music.126.net/q-V2SNRZhYo9sgftJm-olA==/5961552045955874.jpg'},{title:'董卓瑶2013版[Live]',author:'李志',url:'http://m2.music.126.net/7IdZF7XSLB79pr9cIHQHBA==/3429376767347445.mp3',pic:'http://p1.music.126.net/q-V2SNRZhYo9sgftJm-olA==/5961552045955874.jpg'},{title:'这个世界会好吗2013版[Live]',author:'李志',url:'http://m2.music.126.net/pxMaUMnmApdp3ec7Q4JixQ==/3324923163466061.mp3',pic:'http://p1.music.126.net/q-V2SNRZhYo9sgftJm-olA==/5961552045955874.jpg'},{title:'杭州&我们不能失去信仰2013版[Live]',author:'李志',url:'http://m2.music.126.net/nxCBKrHU7k5fe0WFTiaahg==/3429376767347446.mp3',pic:'http://p1.music.126.net/q-V2SNRZhYo9sgftJm-olA==/5961552045955874.jpg'},{title:'山阴路的夏天2013版[Live]',author:'李志',url:'http://m2.music.126.net/X2cXxXVAkKnbNKZbzvEaoQ==/3324923163466062.mp3',pic:'http://p1.music.126.net/q-V2SNRZhYo9sgftJm-olA==/5961552045955874.jpg'}]});aplayer3.init();</script>
-<div id="aplayer4" class="aplayer" style="margin-bottom: 20px;display:inline-block;"></div><script>var aplayer4 = new APlayer({element: document.getElementById("aplayer4"),narrow: true,autoplay: false,music : [{title:'生命中的精灵',author:'李宗盛',url:'http://m2.music.126.net/zXxlHYjMkzpC5FB1GxfHyw==/3367804116427635.mp3',pic:'http://p1.music.126.net/sf7Y4sKNTEpJy_RjHJ9kfw==/98956046505101.jpg'},{title:'风柜来的人+17岁女生的温柔',author:'李宗盛',url:'http://m2.music.126.net/p7OnkdpZ0_Da9J8srHc3MA==/7996748070345686.mp3',pic:'http://p1.music.126.net/sf7Y4sKNTEpJy_RjHJ9kfw==/98956046505101.jpg'},{title:'没有人知道+爱情少尉',author:'李宗盛',url:'http://m2.music.126.net/-_yvMaWh0OhQrSoVVA-SQA==/3367804116427638.mp3',pic:'http://p1.music.126.net/sf7Y4sKNTEpJy_RjHJ9kfw==/98956046505101.jpg'},{title:'如果你要离去',author:'李宗盛',url:'http://m2.music.126.net/8SNm7Gx2CvQvuNpXbU2KWA==/7987951978002903.mp3',pic:'http://p1.music.126.net/sf7Y4sKNTEpJy_RjHJ9kfw==/98956046505101.jpg'},{title:'寂寞难耐',author:'李宗盛',url:'http://m2.music.126.net/DoMvEBLMtpInx6o316Sn1A==/7996748070345689.mp3',pic:'http://p1.music.126.net/sf7Y4sKNTEpJy_RjHJ9kfw==/98956046505101.jpg'},{title:'鬼迷心窍',author:'周华健',url:'http://m2.music.126.net/DxE-bAJ-5bpsq-Mv2ok3hA==/5631698557597728.mp3',pic:'http://p1.music.126.net/sf7Y4sKNTEpJy_RjHJ9kfw==/98956046505101.jpg'},{title:'我终于失去了你',author:'李宗盛',url:'http://m2.music.126.net/A_Ri2JCCF9-u0W5MEP-OFQ==/7968160768710196.mp3',pic:'http://p1.music.126.net/sf7Y4sKNTEpJy_RjHJ9kfw==/98956046505101.jpg'},{title:'明明白白我的心',author:'李宗盛',url:'http://m2.music.126.net/ruvEhYQPQ0FvT1OBoOagiQ==/3304032442016215.mp3',pic:'http://p1.music.126.net/sf7Y4sKNTEpJy_RjHJ9kfw==/98956046505101.jpg'},{title:'问',author:'梁静茹',url:'http://m2.music.126.net/cutO75eyaehtSZLvZGK2QQ==/7706477001487146.mp3',pic:'http://p1.music.126.net/sf7Y4sKNTEpJy_RjHJ9kfw==/98956046505101.jpg'},{title:'梦醒时分',author:'梁静茹',url:'http://m2.music.126.net/1RPlXRvkqEY835k4QpTo3w==/7941772489637022.mp3',pic:'http://p1.music.126.net/sf7Y4sKNTEpJy_RjHJ9kfw==/98956046505101.jpg'},{title:'领悟',author:'李宗盛',url:'http://m2.music.126.net/rQbWryOE5TXp6p3uUVoL2A==/7996748070345692.mp3',pic:'http://p1.music.126.net/sf7Y4sKNTEpJy_RjHJ9kfw==/98956046505101.jpg'},{title:'阴天',author:'李宗盛',url:'http://m2.music.126.net/u6MDDz9PM2t4X2xaumQGcg==/7929677861734938.mp3',pic:'http://p1.music.126.net/sf7Y4sKNTEpJy_RjHJ9kfw==/98956046505101.jpg'},{title:'铿锵玫瑰',author:'李宗盛',url:'http://m2.music.126.net/7zBN8FslW2Qft3Sw2CBH0g==/7996748070345695.mp3',pic:'http://p1.music.126.net/sf7Y4sKNTEpJy_RjHJ9kfw==/98956046505101.jpg'},{title:'希望',author:'李宗盛',url:'http://m2.music.126.net/-WqVo9IkBcV8g0hXhSas2A==/3307330976899897.mp3',pic:'http://p1.music.126.net/sf7Y4sKNTEpJy_RjHJ9kfw==/98956046505101.jpg'},{title:'和自己赛跑的人',author:'李宗盛',url:'http://m2.music.126.net/xjLKtj_GxBSOzho5e2UQ-Q==/7996748070345698.mp3',pic:'http://p1.music.126.net/sf7Y4sKNTEpJy_RjHJ9kfw==/98956046505101.jpg'},{title:'凡人歌',author:'李宗盛',url:'http://m2.music.126.net/G6cZKPOoLCZVg1s_5SySfQ==/7880199837360394.mp3',pic:'http://p1.music.126.net/sf7Y4sKNTEpJy_RjHJ9kfw==/98956046505101.jpg'},{title:'漂洋过海来看你',author:'李宗盛',url:'http://m2.music.126.net/V74J3gDPErqqI5mCxNan5Q==/3307330976899900.mp3',pic:'http://p1.music.126.net/sf7Y4sKNTEpJy_RjHJ9kfw==/98956046505101.jpg'},{title:'一个人',author:'李宗盛',url:'http://m2.music.126.net/UVhrs6f3le-JhMDFdY4csg==/3307330976899903.mp3',pic:'http://p1.music.126.net/sf7Y4sKNTEpJy_RjHJ9kfw==/98956046505101.jpg'},{title:'爱情有什么道理',author:'李宗盛',url:'http://m2.music.126.net/wYRPxwJxFCQl_TP7gf1Ktw==/3355709488029833.mp3',pic:'http://p1.music.126.net/sf7Y4sKNTEpJy_RjHJ9kfw==/98956046505101.jpg'},{title:'你像个孩子',author:'李宗盛',url:'http://m2.music.126.net/Fuw8piyQL6Yrhlqec8xCnQ==/7995648558718773.mp3',pic:'http://p1.music.126.net/sf7Y4sKNTEpJy_RjHJ9kfw==/98956046505101.jpg'},{title:'飞',author:'李宗盛',url:'http://m2.music.126.net/qMT0RyXUoHmHvZLq4mh6Cg==/3352410953146939.mp3',pic:'http://p1.music.126.net/sf7Y4sKNTEpJy_RjHJ9kfw==/98956046505101.jpg'},{title:'阿宗三件事',author:'李宗盛',url:'http://m2.music.126.net/5yFjKOGAXbIeR7sEuGhRUw==/3308430488036149.mp3',pic:'http://p1.music.126.net/sf7Y4sKNTEpJy_RjHJ9kfw==/98956046505101.jpg'},{title:'我是一只小小鸟',author:'李宗盛',url:'http://m2.music.126.net/9nxe0mdUYKlauUPdQn6Lyg==/3268848069435276.mp3',pic:'http://p1.music.126.net/sf7Y4sKNTEpJy_RjHJ9kfw==/98956046505101.jpg'},{title:'我是真的爱你',author:'李宗盛',url:'http://m2.music.126.net/mEpUSQbphWf0zhZyGOOIBw==/3252355395019646.mp3',pic:'http://p1.music.126.net/sf7Y4sKNTEpJy_RjHJ9kfw==/98956046505101.jpg'},{title:'当爱已成往事',author:'李宗盛',url:'http://m2.music.126.net/okyECsU5hP6Fx5q1POMy-w==/3252355395019649.mp3',pic:'http://p1.music.126.net/sf7Y4sKNTEpJy_RjHJ9kfw==/98956046505101.jpg'},{title:'为你我受冷风吹',author:'梁静茹',url:'http://m2.music.126.net/MJTCadBKyJuzsNU0zMT8eQ==/3307330976899906.mp3',pic:'http://p1.music.126.net/sf7Y4sKNTEpJy_RjHJ9kfw==/98956046505101.jpg'},{title:'诱惑的街',author:'梁静茹',url:'http://m2.music.126.net/RIC2nbcfdZGSAk8jH9nhjw==/3304032442016217.mp3',pic:'http://p1.music.126.net/sf7Y4sKNTEpJy_RjHJ9kfw==/98956046505101.jpg'},{title:'十二楼',author:'李宗盛',url:'http://m2.music.126.net/BuMtFyQiQusNgDSgaLNy9g==/3252355395019652.mp3',pic:'http://p1.music.126.net/sf7Y4sKNTEpJy_RjHJ9kfw==/98956046505101.jpg'},{title:'伤心地铁',author:'李宗盛',url:'http://m2.music.126.net/Ch5PKocsSpxNoSP95W7y8A==/3252355395019655.mp3',pic:'http://p1.music.126.net/sf7Y4sKNTEpJy_RjHJ9kfw==/98956046505101.jpg'},{title:'远行',author:'李宗盛',url:'http://m2.music.126.net/gD6uDsJcRn0hCAncXfUUcQ==/3252355395019658.mp3',pic:'http://p1.music.126.net/sf7Y4sKNTEpJy_RjHJ9kfw==/98956046505101.jpg'},{title:'爱的代价',author:'李宗盛',url:'http://m2.music.126.net/bKgkwLMUmRyvMbm_JqdXMg==/3290838301991652.mp3',pic:'http://p1.music.126.net/sf7Y4sKNTEpJy_RjHJ9kfw==/98956046505101.jpg'},{title:'真心英雄',author:'李宗盛',url:'http://m2.music.126.net/LCr__fCLeA1QE7kDNSeeUg==/3298534883385240.mp3',pic:'http://p1.music.126.net/sf7Y4sKNTEpJy_RjHJ9kfw==/98956046505101.jpg'},{title:'不必在乎我是谁',author:'梁静茹',url:'http://m2.music.126.net/MwNnLRvw_1eyEo3a3kfAkQ==/2759774185729390.mp3',pic:'http://p1.music.126.net/sf7Y4sKNTEpJy_RjHJ9kfw==/98956046505101.jpg'}]});aplayer4.init();</script>
-<div id="aplayer5" class="aplayer" style="margin-bottom: 20px;display:inline-block;"></div><script>var aplayer5 = new APlayer({element: document.getElementById("aplayer5"),narrow: true,autoplay: false,music : [{title:'鹿港小镇',author:'罗大佑',url:'http://m2.music.126.net/vCeN8PEXRGwHWJyXTI94TQ==/5980243743856953.mp3',pic:'http://p1.music.126.net/mTzFGa_47E8s9klwbG1fWA==/102254581395255.jpg'},{title:'恋曲1980',author:'罗大佑',url:'http://m2.music.126.net/dXpUDeu5_fJEps_WiowHRQ==/5980243743856957.mp3',pic:'http://p1.music.126.net/mTzFGa_47E8s9klwbG1fWA==/102254581395255.jpg'},{title:'童年',author:'罗大佑',url:'http://m2.music.126.net/rJEnNEyEnAzF1NTVAg5T9g==/5980243743856961.mp3',pic:'http://p1.music.126.net/mTzFGa_47E8s9klwbG1fWA==/102254581395255.jpg'},{title:'错误',author:'罗大佑',url:'http://m2.music.126.net/tlXCb7sgvZakspc6OQ-Lmg==/6060508092935399.mp3',pic:'http://p1.music.126.net/mTzFGa_47E8s9klwbG1fWA==/102254581395255.jpg'},{title:'摇篮曲',author:'罗大佑',url:'http://m2.music.126.net/jhh4xfIVXhcFXq0jERalvg==/6069304185957647.mp3',pic:'http://p1.music.126.net/mTzFGa_47E8s9klwbG1fWA==/102254581395255.jpg'},{title:'之乎者也',author:'罗大佑',url:'http://m2.music.126.net/8zvIN0o-dQSTBSmjYq313w==/6001134464786695.mp3',pic:'http://p1.music.126.net/mTzFGa_47E8s9klwbG1fWA==/102254581395255.jpg'},{title:'乡愁四韵',author:'罗大佑',url:'http://m2.music.126.net/uLUbRZYbE7DAR7zjMYirRw==/6060508092935403.mp3',pic:'http://p1.music.126.net/mTzFGa_47E8s9klwbG1fWA==/102254581395255.jpg'},{title:'将进酒',author:'罗大佑',url:'http://m2.music.126.net/W52PovwxWs-RBiMo0QMdTw==/6060508092935407.mp3',pic:'http://p1.music.126.net/mTzFGa_47E8s9klwbG1fWA==/102254581395255.jpg'},{title:'光阴的故事',author:'罗大佑',url:'http://m2.music.126.net/nhA96gfXwOdDIfr_d78dUQ==/6060508092935411.mp3',pic:'http://p1.music.126.net/mTzFGa_47E8s9klwbG1fWA==/102254581395255.jpg'}]});aplayer5.init();</script>
-<div id="aplayer6" class="aplayer" style="margin-bottom: 20px;display:inline-block;"></div><script>var aplayer6 = new APlayer({element: document.getElementById("aplayer6"),narrow: true,autoplay: false,music : [{title:'人家',author:'赵雷',url:'http://m2.music.126.net/HTB6AJuEKSKDyZg1KxxIZQ==/3412884119114693.mp3',pic:'http://p1.music.126.net/ssi4HetlWMoLddmru_TSFA==/1383185642493278.jpg'},{title:'未给姐姐递出的信',author:'赵雷',url:'http://m2.music.126.net/mE3WS9N12sCve-Nz_rt0Tg==/3400789477635386.mp3',pic:'http://p1.music.126.net/ssi4HetlWMoLddmru_TSFA==/1383185642493278.jpg'},{title:'画',author:'赵雷',url:'http://m2.music.126.net/R4y-HmXqyiS2s8yB0PBb-Q==/18583945532848935.mp3',pic:'http://p1.music.126.net/ssi4HetlWMoLddmru_TSFA==/1383185642493278.jpg'},{title:'不开的唇',author:'赵雷',url:'http://m2.music.126.net/DM9Q4QpM3BNmY6UvxObssw==/3265549586117623.mp3',pic:'http://p1.music.126.net/ssi4HetlWMoLddmru_TSFA==/1383185642493278.jpg'},{title:'赵小雷',author:'赵雷',url:'http://m2.music.126.net/2gKiqcuzCLfMo8HSRUkByA==/1407374898322107.mp3',pic:'http://p1.music.126.net/ssi4HetlWMoLddmru_TSFA==/1383185642493278.jpg'},{title:'南方姑娘',author:'赵雷',url:'http://m2.music.126.net/NCb371nCQFvwYWpDE7-jHA==/3402988500870657.mp3',pic:'http://p1.music.126.net/ssi4HetlWMoLddmru_TSFA==/1383185642493278.jpg'},{title:'Over',author:'赵雷',url:'http://m2.music.126.net/k2lmNHxRXX9OqJQ76eTWHQ==/1367792480052456.mp3',pic:'http://p1.music.126.net/ssi4HetlWMoLddmru_TSFA==/1383185642493278.jpg'},{title:'开往北京的火车',author:'赵雷',url:'http://m2.music.126.net/_vUeV023epkm78j8FwlU-w==/3251255900623112.mp3',pic:'http://p1.music.126.net/ssi4HetlWMoLddmru_TSFA==/1383185642493278.jpg'},{title:'背影',author:'赵雷',url:'http://m2.music.126.net/P7YxW7v3RFy2_S2mOzjeGQ==/3402988500870659.mp3',pic:'http://p1.music.126.net/ssi4HetlWMoLddmru_TSFA==/1383185642493278.jpg'},{title:'妈妈',author:'赵雷',url:'http://m2.music.126.net/fFXsas3eMe1wmKHmcXiu2g==/3402988500870662.mp3',pic:'http://p1.music.126.net/ssi4HetlWMoLddmru_TSFA==/1383185642493278.jpg'},{title:'南方姑娘 (弹唱版)',author:'赵雷',url:'http://m2.music.126.net/bKLNY81EwGdJ-Ln7KASApg==/1410673434583556.mp3',pic:'http://p1.music.126.net/ssi4HetlWMoLddmru_TSFA==/1383185642493278.jpg'},{title:'民谣',author:'赵雷',url:'http://m2.music.126.net/W0wfl_1sIHyxOfx4PWqBUg==/1368891992778108.mp3',pic:'http://p1.music.126.net/ssi4HetlWMoLddmru_TSFA==/1383185642493278.jpg'}]});aplayer6.init();</script>
-<div id="aplayer7" class="aplayer" style="margin-bottom: 20px;display:inline-block;"></div><script>var aplayer7 = new APlayer({element: document.getElementById("aplayer7"),narrow: true,autoplay: false,music : [{title:'吉姆餐厅',author:'赵雷',url:'http://m2.music.126.net/d337466swXx7KASt2CeKbw==/1413971968361524.mp3',pic:'http://p1.music.126.net/nlrwNWnlrkkT2oHMRuXwNw==/18579547486266531.jpg'},{title:'少年锦时',author:'赵雷',url:'http://m2.music.126.net/Dq0lyklDEoY3DJFb4TM0aw==/18499283137511501.mp3',pic:'http://p1.music.126.net/nlrwNWnlrkkT2oHMRuXwNw==/18579547486266531.jpg'},{title:'梦中的哈德森',author:'赵雷',url:'http://m2.music.126.net/hWtvo4wOSvWCKekMBbqfRg==/1413971968361533.mp3',pic:'http://p1.music.126.net/nlrwNWnlrkkT2oHMRuXwNw==/18579547486266531.jpg'},{title:'我们的时光',author:'赵雷',url:'http://m2.music.126.net/9rUWjUGEed-3jIV4Uped3g==/3400789477621092.mp3',pic:'http://p1.music.126.net/nlrwNWnlrkkT2oHMRuXwNw==/18579547486266531.jpg'},{title:'理想',author:'赵雷',url:'http://m2.music.126.net/gQDmHxjY_gAtRE-RKqDQJw==/1413971968361530.mp3',pic:'http://p1.music.126.net/nlrwNWnlrkkT2oHMRuXwNw==/18579547486266531.jpg'},{title:'三十岁的女人',author:'赵雷',url:'http://m2.music.126.net/XhajtL8WIElMzt3J6hsT6g==/1413971968361536.mp3',pic:'http://p1.music.126.net/nlrwNWnlrkkT2oHMRuXwNw==/18579547486266531.jpg'},{title:'家乡',author:'赵雷',url:'http://m2.music.126.net/YL6Y1__o76pizpjCMC3Tfg==/1413971968361527.mp3',pic:'http://p1.music.126.net/nlrwNWnlrkkT2oHMRuXwNw==/18579547486266531.jpg'},{title:'浮游',author:'赵雷',url:'http://m2.music.126.net/rq43t0K8NS3-Q-nA71j8Qg==/3402988500873596.mp3',pic:'http://p1.music.126.net/nlrwNWnlrkkT2oHMRuXwNw==/18579547486266531.jpg'},{title:'小屋',author:'赵雷',url:'http://m2.music.126.net/-NEm2xy0nPJ6LYUAEQJmpQ==/3427177770070379.mp3',pic:'http://p1.music.126.net/nlrwNWnlrkkT2oHMRuXwNw==/18579547486266531.jpg'},{title:'北京的冬天',author:'赵雷',url:'http://m2.music.126.net/lgXH6crtdpcd0SlwNoMuQg==/18512477277043081.mp3',pic:'http://p1.music.126.net/nlrwNWnlrkkT2oHMRuXwNw==/18579547486266531.jpg'}]});aplayer7.init();</script>
-<div id="aplayer8" class="aplayer" style="margin-bottom: 20px;display:inline-block;"></div><script>var aplayer8 = new APlayer({element: document.getElementById("aplayer8"),narrow: true,autoplay: false,music : [{title:'Opening+为你钟情(Live)',author:'张国荣',url:'http://m2.music.126.net/LuLFxiT-vPxMUtjSp0ZShA==/1223756441722857.mp3',pic:'http://p1.music.126.net/FEgl2i8gDkOdppr5Ko3kEA==/69269232562640.jpg'},{title:'侧面(Live)',author:'张国荣',url:'http://m2.music.126.net/8YeWdSDtAPpUKfybQG6GzA==/1221557418467264.mp3',pic:'http://p1.music.126.net/FEgl2i8gDkOdppr5Ko3kEA==/69269232562640.jpg'},{title:'寂寞夜晚(Live)',author:'张国荣',url:'http://m2.music.126.net/K2Erv6itZ4gxg152O37Vmg==/1007152651051077.mp3',pic:'http://p1.music.126.net/FEgl2i8gDkOdppr5Ko3kEA==/69269232562640.jpg'},{title:'蓝色忧郁＋少女心事＋不羁的风＋Monica',author:'张国荣',url:'http://m2.music.126.net/2NE5hkfbmZnDJhwnGBzT4Q==/1140193558011934.mp3',pic:'http://p1.music.126.net/FEgl2i8gDkOdppr5Ko3kEA==/69269232562640.jpg'},{title:'当年情(Live)',author:'张国荣',url:'http://m2.music.126.net/oS5vxdXopn8lWGyLB4LZJQ==/1050033604534161.mp3',pic:'http://p1.music.126.net/FEgl2i8gDkOdppr5Ko3kEA==/69269232562640.jpg'},{title:'童年时+似水流年+但愿人长久(Live)',author:'张国荣',url:'http://m2.music.126.net/V2S1uw1aeslHCvOnhJUwCA==/1223756441722859.mp3',pic:'http://p1.music.126.net/FEgl2i8gDkOdppr5Ko3kEA==/69269232562640.jpg'},{title:'千千阙歌(Live)',author:'张国荣',url:'http://m2.music.126.net/8-6oAu5G9Piv-4M7BqNEnw==/1221557418467266.mp3',pic:'http://p1.music.126.net/FEgl2i8gDkOdppr5Ko3kEA==/69269232562640.jpg'},{title:'请勿越轨(Live)',author:'张国荣',url:'http://m2.music.126.net/7etsxxXL48fzpBZ9kUyICg==/1007152651051079.mp3',pic:'http://p1.music.126.net/FEgl2i8gDkOdppr5Ko3kEA==/69269232562640.jpg'},{title:'爱慕(Live)',author:'张国荣',url:'http://m2.music.126.net/DSbfnBWzUXDAn8YYcHw_2g==/1140193558011936.mp3',pic:'http://p1.music.126.net/FEgl2i8gDkOdppr5Ko3kEA==/69269232562640.jpg'},{title:'想你(Live)',author:'张国荣',url:'http://m2.music.126.net/rqVCYWQSF-pscl0oLtrchg==/1050033604534163.mp3',pic:'http://p1.music.126.net/FEgl2i8gDkOdppr5Ko3kEA==/69269232562640.jpg'},{title:'无心睡眠(Live)',author:'张国荣',url:'http://m2.music.126.net/3MJaGXwYoGWZZ11SW1bgXQ==/1223756441722861.mp3',pic:'http://p1.music.126.net/FEgl2i8gDkOdppr5Ko3kEA==/69269232562640.jpg'},{title:'有谁共鸣+沉默是金(Live)',author:'张国荣',url:'http://m2.music.126.net/XCP3zaJO7iP7zSFrmkqDEA==/1221557418467268.mp3',pic:'http://p1.music.126.net/FEgl2i8gDkOdppr5Ko3kEA==/69269232562640.jpg'},{title:'倩女幽魂(Live)',author:'张国荣',url:'http://m2.music.126.net/7f7t9IIhWWEuXwJVW9IdGA==/1007152651051081.mp3',pic:'http://p1.music.126.net/FEgl2i8gDkOdppr5Ko3kEA==/69269232562640.jpg'},{title:'Miss You Much(Live)',author:'张国荣',url:'http://m2.music.126.net/Afv0FQ4Kuz9E9RsKr-De2w==/1140193558011938.mp3',pic:'http://p1.music.126.net/FEgl2i8gDkOdppr5Ko3kEA==/69269232562640.jpg'},{title:'暴风一族(Live)',author:'张国荣',url:'http://m2.music.126.net/dCGJpWWGdxsZpt69aAmfpg==/1050033604534165.mp3',pic:'http://p1.music.126.net/FEgl2i8gDkOdppr5Ko3kEA==/69269232562640.jpg'},{title:'由零开始(Live)',author:'张国荣',url:'http://m2.music.126.net/9LjLt3bfLbdm4FdCDj7A2Q==/1223756441722863.mp3',pic:'http://p1.music.126.net/FEgl2i8gDkOdppr5Ko3kEA==/69269232562640.jpg'},{title:'共同渡过(Live)',author:'张国荣',url:'http://m2.music.126.net/dr3axYNMaiGyMb5vQE6jZA==/1221557418467270.mp3',pic:'http://p1.music.126.net/FEgl2i8gDkOdppr5Ko3kEA==/69269232562640.jpg'},{title:'风继续吹(Live)',author:'张国荣',url:'http://m2.music.126.net/a5RHhN_F21v1KwcGOtiWqw==/1007152651051083.mp3',pic:'http://p1.music.126.net/FEgl2i8gDkOdppr5Ko3kEA==/69269232562640.jpg'},{title:'明星(Live)',author:'张国荣',url:'http://m2.music.126.net/jjmVo7i0pYYs-veXCe54Hg==/1140193558011940.mp3',pic:'http://p1.music.126.net/FEgl2i8gDkOdppr5Ko3kEA==/69269232562640.jpg'},{title:'The Way We Were(Live)',author:'张国荣',url:'http://m2.music.126.net/aJbrR3p3dQCxgONHQS5www==/1050033604534167.mp3',pic:'http://p1.music.126.net/FEgl2i8gDkOdppr5Ko3kEA==/69269232562640.jpg'},{title:'风再起时(Live)',author:'张国荣',url:'http://m2.music.126.net/jk-p1w6jA7nFRcqz9RvE1g==/1223756441722865.mp3',pic:'http://p1.music.126.net/FEgl2i8gDkOdppr5Ko3kEA==/69269232562640.jpg'}]});aplayer8.init();</script>
-<div id="aplayer9" class="aplayer" style="margin-bottom: 20px;display:inline-block;"></div><script>var aplayer9 = new APlayer({element: document.getElementById("aplayer9"),narrow: true,autoplay: false,music : [{title:'风再起时(Live)',author:'张国荣',url:'http://m2.music.126.net/5SNfRiFJetns4VVXy8Uq3A==/7696581394842654.mp3',pic:'http://p1.music.126.net/iG6UnT8omXR8hrFAVFyE2Q==/81363860461428.jpg'},{title:'今生今世(Live)',author:'张国荣',url:'http://m2.music.126.net/Xwr0SZ2-cO5XdCZreo75JQ==/5814217487793378.mp3',pic:'http://p1.music.126.net/iG6UnT8omXR8hrFAVFyE2Q==/81363860461428.jpg'},{title:'恋爱交叉+打开信箱+蓝色忧郁+黑色午夜+Monica(Live)',author:'张国荣',url:'http://m2.music.126.net/qA-lSLwE1eEg8vYtbtcTxw==/5807620418026726.mp3',pic:'http://p1.music.126.net/iG6UnT8omXR8hrFAVFyE2Q==/81363860461428.jpg'},{title:'柔情蜜意(Live)',author:'张国荣',url:'http://m2.music.126.net/AEola5Vs7zszS75Lt-7X1g==/1047834581278595.mp3',pic:'http://p1.music.126.net/iG6UnT8omXR8hrFAVFyE2Q==/81363860461428.jpg'},{title:'爱慕(Live)',author:'张国荣',url:'http://m2.music.126.net/3HblX06xmJQDXu3FOiEs_A==/1224855953350550.mp3',pic:'http://p1.music.126.net/iG6UnT8omXR8hrFAVFyE2Q==/81363860461428.jpg'},{title:'侧面(Live)',author:'张国荣',url:'http://m2.music.126.net/SOBNm_5l7abjWQqMT8XZUQ==/1058829697556551.mp3',pic:'http://p1.music.126.net/iG6UnT8omXR8hrFAVFyE2Q==/81363860461428.jpg'},{title:'侬本多情(Live)',author:'张国荣',url:'http://m2.music.126.net/HbqUVGh-KSJ2F_yh3HDBrQ==/1203965232422941.mp3',pic:'http://p1.music.126.net/iG6UnT8omXR8hrFAVFyE2Q==/81363860461428.jpg'},{title:'有心人(Live)',author:'张国荣',url:'http://m2.music.126.net/7C6T7sodLPFwEBOIlnUZzg==/1059929209184368.mp3',pic:'http://p1.music.126.net/iG6UnT8omXR8hrFAVFyE2Q==/81363860461428.jpg'},{title:'阿飞正传+梦+A Thousand Dreams Of You(Live)',author:'张国荣',url:'http://m2.music.126.net/CKTo_ISeJYbP7TR9d0uUdg==/1047834581278597.mp3',pic:'http://p1.music.126.net/iG6UnT8omXR8hrFAVFyE2Q==/81363860461428.jpg'},{title:'啼笑姻缘+当爱已成往事+啼笑姻缘(Live)',author:'张国荣',url:'http://m2.music.126.net/1jGQSqmdLIMEFTtwSUpOIA==/1224855953350552.mp3',pic:'http://p1.music.126.net/iG6UnT8omXR8hrFAVFyE2Q==/81363860461428.jpg'},{title:'怪你过份美丽(Live)',author:'张国荣',url:'http://m2.music.126.net/N3Nh5NqWhgBIqd_Rt6aJ3A==/1224855953350556.mp3',pic:'http://p1.music.126.net/iG6UnT8omXR8hrFAVFyE2Q==/81363860461428.jpg'},{title:'风继续吹(Live)',author:'张国荣',url:'http://m2.music.126.net/4gmgzoGierbfN3oPUtQ-Sg==/1224855953350560.mp3',pic:'http://p1.music.126.net/iG6UnT8omXR8hrFAVFyE2Q==/81363860461428.jpg'},{title:'只怕不再遇上(Live)',author:'张国荣',url:'http://m2.music.126.net/UMpNNvI-Dag8X6bS2roKyA==/1224855953350564.mp3',pic:'http://p1.music.126.net/iG6UnT8omXR8hrFAVFyE2Q==/81363860461428.jpg'},{title:'怨男(Live)',author:'张国荣',url:'http://m2.music.126.net/t4TGqIBDsV6v0OxjVkEdAg==/1180875488239830.mp3',pic:'http://p1.music.126.net/iG6UnT8omXR8hrFAVFyE2Q==/81363860461428.jpg'},{title:'热辣辣(Live)',author:'张国荣',url:'http://m2.music.126.net/w2CzqgLIpkk10_mX8RKhEw==/1136895023128556.mp3',pic:'http://p1.music.126.net/iG6UnT8omXR8hrFAVFyE2Q==/81363860461428.jpg'},{title:'想你+偷情(Live)',author:'张国荣',url:'http://m2.music.126.net/PvlbGzTRnGkka5ctQGJOGg==/1199567185911870.mp3',pic:'http://p1.music.126.net/iG6UnT8omXR8hrFAVFyE2Q==/81363860461428.jpg'},{title:'深情相拥 (Live) - live',author:'张国荣',url:'http://m2.music.126.net/Ymlxoe-hbcgFzB8xRvGQFQ==/1065426767323213.mp3',pic:'http://p1.music.126.net/iG6UnT8omXR8hrFAVFyE2Q==/81363860461428.jpg'},{title:'谈情说爱(Live)',author:'张国荣',url:'http://m2.music.126.net/TbSA4ToHuTBYn1KDECk92A==/1205064744050722.mp3',pic:'http://p1.music.126.net/iG6UnT8omXR8hrFAVFyE2Q==/81363860461428.jpg'},{title:'红颜白发+最爱(Live)',author:'张国荣',url:'http://m2.music.126.net/YCC0dEIJKAF8n5x9hPMIOw==/1180875488239832.mp3',pic:'http://p1.music.126.net/iG6UnT8omXR8hrFAVFyE2Q==/81363860461428.jpg'},{title:'明星(Live)',author:'张国荣',url:'http://m2.music.126.net/zMfdVayBeqg0Inflh_Z7_g==/1136895023128558.mp3',pic:'http://p1.music.126.net/iG6UnT8omXR8hrFAVFyE2Q==/81363860461428.jpg'},{title:'红(Live)',author:'张国荣',url:'http://m2.music.126.net/DPaWTQj6U3SSM0o24kltHQ==/1199567185911872.mp3',pic:'http://p1.music.126.net/iG6UnT8omXR8hrFAVFyE2Q==/81363860461428.jpg'},{title:'为你钟情(Live)',author:'张国荣',url:'http://m2.music.126.net/YVLX1_Gxd_xOTfWUEKqk3A==/1065426767323215.mp3',pic:'http://p1.music.126.net/iG6UnT8omXR8hrFAVFyE2Q==/81363860461428.jpg'},{title:'月亮代表我的心(Live)',author:'张国荣',url:'http://m2.music.126.net/hemRoZFL85MowZuZaF8uBA==/5764739464542550.mp3',pic:'http://p1.music.126.net/iG6UnT8omXR8hrFAVFyE2Q==/81363860461428.jpg'},{title:'追(Live)',author:'张国荣',url:'http://m2.music.126.net/qfKqD0rDkS9CRr0jFV_Nkg==/1180875488239834.mp3',pic:'http://p1.music.126.net/iG6UnT8omXR8hrFAVFyE2Q==/81363860461428.jpg'}]});aplayer9.init();</script>
-<div id="aplayer10" class="aplayer" style="margin-bottom: 20px;display:inline-block;"></div><script>var aplayer10 = new APlayer({element: document.getElementById("aplayer10"),narrow: true,autoplay: false,music : [{title:'同桌的你',author:'老狼',url:'http://m2.music.126.net/YUMRMjil9Z4FDZeKi2Eagg==/993958511518449.mp3',pic:'http://p1.music.126.net/43zi4iVMi5EswLx_Lfup9g==/50577534894703.jpg'},{title:'那天',author:'艾敬',url:'http://m2.music.126.net/_E1Re6fbahnBg7T-aL6kpg==/993958511518453.mp3',pic:'http://p1.music.126.net/43zi4iVMi5EswLx_Lfup9g==/50577534894703.jpg'},{title:'寂寞是因为思念谁',author:'景岗山',url:'http://m2.music.126.net/2OUMS2C_KkjnKuOKYRqzuQ==/1145691116151845.mp3',pic:'http://p1.music.126.net/43zi4iVMi5EswLx_Lfup9g==/50577534894703.jpg'},{title:'故事里的树',author:'冯蓝',url:'http://m2.music.126.net/uXBmQ1NpGZPOebmsGh3idw==/991759488262915.mp3',pic:'http://p1.music.126.net/43zi4iVMi5EswLx_Lfup9g==/50577534894703.jpg'},{title:'离开',author:'郁冬',url:'http://m2.music.126.net/1ammrczZZGMTv7a03Oju0Q==/1050033604534981.mp3',pic:'http://p1.music.126.net/43zi4iVMi5EswLx_Lfup9g==/50577534894703.jpg'},{title:'睡在我上铺的兄弟',author:'老狼',url:'http://m2.music.126.net/XXdZalXsbbl0aXcMTvwOow==/1002754604540721.mp3',pic:'http://p1.music.126.net/43zi4iVMi5EswLx_Lfup9g==/50577534894703.jpg'},{title:'等人就像在喝酒',author:'廖岷',url:'http://m2.music.126.net/gARuGmsA347lIdZvh9t1Rg==/1109407232434859.mp3',pic:'http://p1.music.126.net/43zi4iVMi5EswLx_Lfup9g==/50577534894703.jpg'},{title:'我们相识',author:'冯蓝',url:'http://m2.music.126.net/YkuI_Bv1GYWGDDiYeqh3-Q==/1145691116151847.mp3',pic:'http://p1.music.126.net/43zi4iVMi5EswLx_Lfup9g==/50577534894703.jpg'},{title:'青春',author:'沈庆',url:'http://m2.music.126.net/zg34-1nZUq1BF-O6enSaIw==/991759488262917.mp3',pic:'http://p1.music.126.net/43zi4iVMi5EswLx_Lfup9g==/50577534894703.jpg'},{title:'上班族',author:'丁薇',url:'http://m2.music.126.net/BJl0HACx6fHc7O-O7PwWjw==/1050033604534983.mp3',pic:'http://p1.music.126.net/43zi4iVMi5EswLx_Lfup9g==/50577534894703.jpg'},{title:'流浪歌手的情人',author:'老狼',url:'http://m2.music.126.net/ylPoYtoKu-8XeCu0KhOU-A==/1002754604540723.mp3',pic:'http://p1.music.126.net/43zi4iVMi5EswLx_Lfup9g==/50577534894703.jpg'}]});aplayer10.init();</script>
-
-
-]]></content>
-    </entry>
-    
-    <entry>
-      <title><![CDATA[友情链接]]></title>
-      <url>https://iminyao.com/links/index.html</url>
-      <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script>]]></content>
-    </entry>
-    
-    <entry>
-      <title><![CDATA[标签云]]></title>
-      <url>https://iminyao.com/tags/index.html</url>
-      <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script>]]></content>
-    </entry>
-    
   
 </search>
