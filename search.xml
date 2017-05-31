@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title><![CDATA[Chrome Dev Tips]]></title>
+      <url>https://iminyao.com/2017/05/25/dev-tips/</url>
+      <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><blockquote>
+<p>大部分功能仅 Chrome Canary 可用</p>
+</blockquote>
+<ol>
+<li><p>Quickly jump to other code while debugging JavaScript<br><img src="https://ci4.googleusercontent.com/proxy/BiCpjd-FFcsQp3BCADkgC2JL8lNIxc04giWytiz_8LOKKhhOPQML-pXIfpG05MnwD5SJuPVpgyxw6031SAChuD91yPXIcyRdbBM0fBfzyoROKziYCpS9_8rdDSE23LKMOFziCoWWqvTgoR6J90DGJttsR3YQeO6j1Oz4sJg=s0-d-e1-ft#https://gallery.mailchimp.com/2acb3bbbd6a2455edb2e65494/images/f24c91b9-3753-4739-880e-931df2e39f76.gif" alt="quike_jump"></p>
+</li>
+<li><p>快速运行 sniff<br><img src="https://ci3.googleusercontent.com/proxy/SMmJJyNwVd6aVYuVeQdKJ76cvkNDHV6NZcvmHTABcPZjskwFV1e9SN4lg3xTLFn_m85c-lZM6LPtcyQl2sEDfwrhu8RcOikor25hMT2e1QrDO4eUMtDdMD-4ENfFaLBajcBjqmvZrwJaSVigDolTdqNPzmk5mfO2fdT5GnE=s0-d-e1-ft#https://gallery.mailchimp.com/2acb3bbbd6a2455edb2e65494/images/b49ed8ad-81bd-4838-bad2-cf031c07059e.gif" alt="quick_sniff"></p>
+</li>
+</ol>
+]]></content>
+      
+        <categories>
+            
+            <category> devTools </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> Chrome Dev Tools </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[ES6箭头函数]]></title>
       <url>https://iminyao.com/2017/05/22/es6-arrow-function/</url>
       <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><h3 id="基础语法："><a href="#基础语法：" class="headerlink" title="基础语法："></a>基础语法：</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line">(param1, param2, …, paramN) =&gt; &#123; statements; &#125;</div><div class="line">等价于</div><div class="line">(param1, param2, …, paramN) =&gt; &#123; <span class="keyword">return</span> statements; &#125; </div><div class="line"></div><div class="line"><span class="comment">// 只有一个参数，圆括号可选</span></div><div class="line">singleParam =&gt; &#123; statements; &#125;</div><div class="line"><span class="comment">// 如果无参数</span></div><div class="line">() =&gt; &#123; statements; &#125; </div><div class="line">或</div><div class="line">_ =&gt; &#123; statements; &#125;</div></pre></td></tr></table></figure>
@@ -2591,7 +2620,7 @@ Warning: Invalid argument supplied for foreach() in /data/home/qxu1098560294/htd
 <h3 id="二-版本管理"><a href="#二-版本管理" class="headerlink" title="二.版本管理"></a>二.版本管理</h3><ol>
 <li>版本库当前状态<code>git status</code></li>
 <li>版本比较<code>git diff</code></li>
-<li>查看提交历史<code>git log</code>:精简操作信息加<code>--pretty=oneline</code>,只显示版本号和提交说明</li>
+<li>查看提交历史<code>git log</code>:精简操作信息加<code>--pretty=oneline</code>,只显示版本号和提交说明, <code>git log --author=xxx</code>,仅显示某人的提交纪录</li>
 <li><p>版本回退<code>git reset &lt;commit-id&gt;</code>:其中<code>HEAD</code>表示当前版本，<code>HEAD^</code>上一版本，以此类推，上10个版本，简写<code>HEAD~10</code>,<code>&lt;commit-id&gt;</code>无需写全，Git会自动查找。默认的<code>git reset会保留工作目录，修改的内容还在磁盘上</code>，<code>git reset --hard</code>会撤销提交以及修改的内容.</p>
 <blockquote>
 <p>回退工作原理：</p>
@@ -2694,6 +2723,127 @@ Warning: Invalid argument supplied for foreach() in /data/home/qxu1098560294/htd
             
         </categories>
         
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[CSS三种基本定位机制]]></title>
+      <url>https://iminyao.com/2016/03/28/CSS-position/</url>
+      <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><h2 id="CSS常用的定位方法："><a href="#CSS常用的定位方法：" class="headerlink" title="CSS常用的定位方法："></a>CSS常用的定位方法：</h2><ol>
+<li>相对定位</li>
+<li>浮动</li>
+<li>绝对定位：直接应用于body下元素最佳</li>
+<li>margin</li>
+</ol>
+<h3 id="浮动定位劣势："><a href="#浮动定位劣势：" class="headerlink" title="浮动定位劣势："></a>浮动定位劣势：</h3><ol>
+<li>浮动的破坏性在于切断line box链，致使高度塌陷，可修复</li>
+</ol>
+<h3 id="绝对定位劣势："><a href="#绝对定位劣势：" class="headerlink" title="绝对定位劣势："></a>绝对定位劣势：</h3><ol>
+<li>破坏布局(降低了页面的扩展性和维护性)<blockquote>
+<p>因为绝对定位的元素与文档流无关，所以他们不影响普通流中的框，如果扩大绝对定位的框(增加字号等)，周围的框不会重新定位。因此，尺寸的任何改变都会导致绝对定位的框产生重叠，从而破坏布局。</p>
+</blockquote>
+</li>
+<li>高度宽度皆塌陷，不可修复</li>
+<li><p>流动性差：</p>
+<blockquote>
+<p>由于absolute属性（尤其是带有left/top值）的破坏性，会导致高宽塌陷，于是，不得已，需要设定一个高度值（或是足以撑开高度的值）</p>
+</blockquote>
+<p><img src="http://image.zhangxinxu.com/image/blog/201012/2010-12-09_221942.png" alt="sina1"><br><img src="http://image.zhangxinxu.com/image/blog/201012/2010-12-09_222350.png" alt="sina2"></p>
+<h4 id="测试代码："><a href="#测试代码：" class="headerlink" title="测试代码："></a>测试代码：</h4><figure class="highlight stylus"><table><tr><td class="code"><pre><div class="line"><span class="comment">// HTML</span></div><div class="line">&lt;<span class="selector-tag">div</span> class=<span class="string">"div"</span>&gt;</div><div class="line">    &lt;<span class="selector-tag">img</span> src=<span class="string">"http://image.zhangxinxu.com/image/study/s/s256/mm1.jpg"</span> /&gt;</div><div class="line">    &lt;p&gt;图片无absolute&lt;/p&gt;</div><div class="line">&lt;/div&gt;</div><div class="line">&lt;<span class="selector-tag">div</span> class=<span class="string">"div"</span>&gt;</div><div class="line">    &lt;<span class="selector-tag">img</span> class=<span class="string">"abs"</span> src=<span class="string">"http://image.zhangxinxu.com/image/study/s/s256/mm1.jpg"</span> /&gt;</div><div class="line">    &lt;p&gt;图片absolute后&lt;/p&gt;</div><div class="line">&lt;/div&gt;</div><div class="line"></div><div class="line"><span class="comment">// CSS</span></div><div class="line"><span class="selector-class">.div</span> &#123; <span class="attribute">padding</span>:<span class="number">20px</span>; <span class="attribute">margin</span>:<span class="number">10px</span> <span class="number">0</span> <span class="number">0</span> <span class="number">10px</span>; <span class="attribute">background-color</span>:<span class="number">#f0f3f9</span>; <span class="attribute">float</span>:left; &#125;</div><div class="line"><span class="selector-class">.abs</span> &#123; <span class="attribute">position</span>:absolute; &#125;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p><img src="http://image.zhangxinxu.com/image/blog/201012/2010-12-09_233323.jpg" alt="pic"></p>
+<h3 id="margin劣势："><a href="#margin劣势：" class="headerlink" title="margin劣势："></a>margin劣势：</h3><ol>
+<li>margin-top值的改变会产生更强的回流(滚动播放效果时)</li>
+</ol>
+<h3 id="清理-clear-的本质："><a href="#清理-clear-的本质：" class="headerlink" title="清理(clear)的本质："></a>清理(clear)的本质：</h3><ul>
+<li><p><strong>CSS2</strong>中，清理元素时，浏览器在元素顶上添加足够的外边距，使元素的顶边缘垂直下降到浮动框的下面。<br><img src="https://cloud.githubusercontent.com/assets/4004044/7001000/bc14e862-dc62-11e4-80ca-79efbd6f971a.png" alt="clear"></p>
+</li>
+<li><p><strong>CSS2.1</strong>中，引入一个清除区域(clearance),清除区域是在元素上外边距之上增加的额外间隔，不允许任何浮动元素进入这个范围内。也就是说元素设置<code>clear</code>属性时，它的外边距并不改变。之所以会向下移是这个清除区域造成的。</p>
+</li>
+</ul>
+<h3 id="1-实例："><a href="#1-实例：" class="headerlink" title="1.实例："></a>1.实例：</h3><pre><code>img.sider{float:left; margin:0; }
+h3{border:1px solid gray; clearleft; margin-top:15px; }
+
+&lt;img src=&quot; &quot; class=&quot;sider&quot; height=&quot;50&quot; width=&quot;50&quot;&gt;
+&lt;img src&quot; &quot; height=&quot;10&quot; width=&quot;50&quot;&gt;
+&lt;h3&gt;Why....&lt;/h3&gt;
+</code></pre><p><img src="https://cloud.githubusercontent.com/assets/4004044/7001001/c516e640-dc62-11e4-9b16-338c447b83fc.png" alt="clear_01"></p>
+<blockquote>
+<p>示例中h3上边框与浮动图像下边框之间没有间隔，因为在h3的上边距(15px)之上增加了25px的清除区域，将h3的上边距边界推到刚好越过浮动元素的下边界。一般都会这样，除非h3的上边距计算值<code>&gt;40px(50px-10px)</code>，在这种情况下,h3会很自然的放在浮动元素的下面，<code>clear</code>值是什么则无关紧要。</p>
+</blockquote>
+<ul>
+<li><p><strong>解决方法：</strong><br>  要确保一个清除元素的顶端与一个浮动元素的低端之间有一定的空间，<strong>可以为浮动元素本身设置一个下外边距</strong>。</p>
+<pre><code>img.sider{float:left; margin:0 0 15px; }
+h3{border:1px solid gray; clear:left; }
+</code></pre><ul>
+<li><strong>原理：</strong>浮动元素的外边距边界定义了浮动框的边界。 <h3 id="2-实例："><a href="#2-实例：" class="headerlink" title="2.实例："></a>2.实例：</h3>.news{<br>  background-color:gray;<br>  border:solid 1px black;<br>  }<br>.news img{<br>  float:left;<br>  }<br>.news p{<br>  float:right;<br>  }<div class="news"><br>  <img src=" "><br>  <p>Some text</p><br></div>
+
+</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>因为浮动元素脱离了文档流，所以包围图片和文字的<code>div</code>不占据空间</p>
+</blockquote>
+<p><img src="https://cloud.githubusercontent.com/assets/4004044/7001009/dd6cac66-dc62-11e4-9496-e358787a0090.png" alt="clear_02"></p>
+<ol>
+<li><strong>解决方案1：</strong>在最后一段下面添加空元素并且清理它。</li>
+</ol>
+<pre><code>.clear{
+clear:both;
+}
+
+&lt;div class=&quot;news&quot;&gt;
+&lt;img src=&quot; &quot;&gt;
+&lt;p&gt;Some text&lt;/p&gt;
+&lt;br class=&quot;clear&quot; /&gt;
+&lt;/div&gt;
+</code></pre><ol>
+<li><p><strong>解决方案2：</strong>直接选择浮动容器<code>div</code></p>
+<pre><code>.news{
+float:left;
+} 
+</code></pre></li>
+<li><p><strong>解决方案3：</strong>设置<code>overflow</code>为<code>hidden</code>或<code>auto</code></p>
+<pre><code>.news{
+    overflow:hidden;
+}
+</code></pre></li>
+<li><p><strong>解决方案4：</strong><code>:after</code>伪元素(CSS生成内容)</p>
+<pre><code>&lt;div class=&quot;news clear&quot;&gt;
+    &lt;img src=&quot;&quot; /&gt;
+    &lt;p&gt;Some text&lt;/p&gt;
+&lt;/div&gt;
+
+.clear:after{
+    content:&quot;.&quot;;
+    height:0;
+    visibility:hidden;
+    display:block;    
+    clear:both;
+}
+</code></pre></li>
+<li>JavsScript方法</li>
+</ol>
+<h3 id="参考："><a href="#参考：" class="headerlink" title="参考："></a>参考：</h3><ol>
+<li><a href="http://www.zhangxinxu.com/wordpress/2011/03/css-%E7%9B%B8%E5%AF%B9%E7%BB%9D%E5%AF%B9relativeabsolute%E5%AE%9A%E4%BD%8D%E7%B3%BB%E5%88%97%EF%BC%88%E4%B8%80%EF%BC%89/" target="_blank" rel="external">css-相对绝对relativeabsolute定位系列（一）</a></li>
+<li><a href="http://www.zhangxinxu.com/wordpress/2011/03/css-%E7%9B%B8%E5%AF%B9%E7%BB%9D%E5%AF%B9relativeabsolute%E5%AE%9A%E4%BD%8D%E7%B3%BB%E5%88%97%EF%BC%88%E4%BA%8C%EF%BC%89/" target="_blank" rel="external">css-相对绝对relativeabsolute定位系列（二）</a></li>
+</ol>
+]]></content>
+      
+        <categories>
+            
+            <category> CSS </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> CSS Layout </tag>
+            
+        </tags>
         
     </entry>
     
@@ -2827,127 +2977,6 @@ p.lsd1.lsd2 {background:sliver;}
         <tags>
             
             <tag> CSS Core </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[CSS三种基本定位机制]]></title>
-      <url>https://iminyao.com/2016/03/28/CSS-position/</url>
-      <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><h2 id="CSS常用的定位方法："><a href="#CSS常用的定位方法：" class="headerlink" title="CSS常用的定位方法："></a>CSS常用的定位方法：</h2><ol>
-<li>相对定位</li>
-<li>浮动</li>
-<li>绝对定位：直接应用于body下元素最佳</li>
-<li>margin</li>
-</ol>
-<h3 id="浮动定位劣势："><a href="#浮动定位劣势：" class="headerlink" title="浮动定位劣势："></a>浮动定位劣势：</h3><ol>
-<li>浮动的破坏性在于切断line box链，致使高度塌陷，可修复</li>
-</ol>
-<h3 id="绝对定位劣势："><a href="#绝对定位劣势：" class="headerlink" title="绝对定位劣势："></a>绝对定位劣势：</h3><ol>
-<li>破坏布局(降低了页面的扩展性和维护性)<blockquote>
-<p>因为绝对定位的元素与文档流无关，所以他们不影响普通流中的框，如果扩大绝对定位的框(增加字号等)，周围的框不会重新定位。因此，尺寸的任何改变都会导致绝对定位的框产生重叠，从而破坏布局。</p>
-</blockquote>
-</li>
-<li>高度宽度皆塌陷，不可修复</li>
-<li><p>流动性差：</p>
-<blockquote>
-<p>由于absolute属性（尤其是带有left/top值）的破坏性，会导致高宽塌陷，于是，不得已，需要设定一个高度值（或是足以撑开高度的值）</p>
-</blockquote>
-<p><img src="http://image.zhangxinxu.com/image/blog/201012/2010-12-09_221942.png" alt="sina1"><br><img src="http://image.zhangxinxu.com/image/blog/201012/2010-12-09_222350.png" alt="sina2"></p>
-<h4 id="测试代码："><a href="#测试代码：" class="headerlink" title="测试代码："></a>测试代码：</h4><figure class="highlight stylus"><table><tr><td class="code"><pre><div class="line"><span class="comment">// HTML</span></div><div class="line">&lt;<span class="selector-tag">div</span> class=<span class="string">"div"</span>&gt;</div><div class="line">    &lt;<span class="selector-tag">img</span> src=<span class="string">"http://image.zhangxinxu.com/image/study/s/s256/mm1.jpg"</span> /&gt;</div><div class="line">    &lt;p&gt;图片无absolute&lt;/p&gt;</div><div class="line">&lt;/div&gt;</div><div class="line">&lt;<span class="selector-tag">div</span> class=<span class="string">"div"</span>&gt;</div><div class="line">    &lt;<span class="selector-tag">img</span> class=<span class="string">"abs"</span> src=<span class="string">"http://image.zhangxinxu.com/image/study/s/s256/mm1.jpg"</span> /&gt;</div><div class="line">    &lt;p&gt;图片absolute后&lt;/p&gt;</div><div class="line">&lt;/div&gt;</div><div class="line"></div><div class="line"><span class="comment">// CSS</span></div><div class="line"><span class="selector-class">.div</span> &#123; <span class="attribute">padding</span>:<span class="number">20px</span>; <span class="attribute">margin</span>:<span class="number">10px</span> <span class="number">0</span> <span class="number">0</span> <span class="number">10px</span>; <span class="attribute">background-color</span>:<span class="number">#f0f3f9</span>; <span class="attribute">float</span>:left; &#125;</div><div class="line"><span class="selector-class">.abs</span> &#123; <span class="attribute">position</span>:absolute; &#125;</div></pre></td></tr></table></figure>
-</li>
-</ol>
-<p><img src="http://image.zhangxinxu.com/image/blog/201012/2010-12-09_233323.jpg" alt="pic"></p>
-<h3 id="margin劣势："><a href="#margin劣势：" class="headerlink" title="margin劣势："></a>margin劣势：</h3><ol>
-<li>margin-top值的改变会产生更强的回流(滚动播放效果时)</li>
-</ol>
-<h3 id="清理-clear-的本质："><a href="#清理-clear-的本质：" class="headerlink" title="清理(clear)的本质："></a>清理(clear)的本质：</h3><ul>
-<li><p><strong>CSS2</strong>中，清理元素时，浏览器在元素顶上添加足够的外边距，使元素的顶边缘垂直下降到浮动框的下面。<br><img src="https://cloud.githubusercontent.com/assets/4004044/7001000/bc14e862-dc62-11e4-80ca-79efbd6f971a.png" alt="clear"></p>
-</li>
-<li><p><strong>CSS2.1</strong>中，引入一个清除区域(clearance),清除区域是在元素上外边距之上增加的额外间隔，不允许任何浮动元素进入这个范围内。也就是说元素设置<code>clear</code>属性时，它的外边距并不改变。之所以会向下移是这个清除区域造成的。</p>
-</li>
-</ul>
-<h3 id="1-实例："><a href="#1-实例：" class="headerlink" title="1.实例："></a>1.实例：</h3><pre><code>img.sider{float:left; margin:0; }
-h3{border:1px solid gray; clearleft; margin-top:15px; }
-
-&lt;img src=&quot; &quot; class=&quot;sider&quot; height=&quot;50&quot; width=&quot;50&quot;&gt;
-&lt;img src&quot; &quot; height=&quot;10&quot; width=&quot;50&quot;&gt;
-&lt;h3&gt;Why....&lt;/h3&gt;
-</code></pre><p><img src="https://cloud.githubusercontent.com/assets/4004044/7001001/c516e640-dc62-11e4-9b16-338c447b83fc.png" alt="clear_01"></p>
-<blockquote>
-<p>示例中h3上边框与浮动图像下边框之间没有间隔，因为在h3的上边距(15px)之上增加了25px的清除区域，将h3的上边距边界推到刚好越过浮动元素的下边界。一般都会这样，除非h3的上边距计算值<code>&gt;40px(50px-10px)</code>，在这种情况下,h3会很自然的放在浮动元素的下面，<code>clear</code>值是什么则无关紧要。</p>
-</blockquote>
-<ul>
-<li><p><strong>解决方法：</strong><br>  要确保一个清除元素的顶端与一个浮动元素的低端之间有一定的空间，<strong>可以为浮动元素本身设置一个下外边距</strong>。</p>
-<pre><code>img.sider{float:left; margin:0 0 15px; }
-h3{border:1px solid gray; clear:left; }
-</code></pre><ul>
-<li><strong>原理：</strong>浮动元素的外边距边界定义了浮动框的边界。 <h3 id="2-实例："><a href="#2-实例：" class="headerlink" title="2.实例："></a>2.实例：</h3>.news{<br>  background-color:gray;<br>  border:solid 1px black;<br>  }<br>.news img{<br>  float:left;<br>  }<br>.news p{<br>  float:right;<br>  }<div class="news"><br>  <img src=" "><br>  <p>Some text</p><br></div>
-
-</li>
-</ul>
-</li>
-</ul>
-<blockquote>
-<p>因为浮动元素脱离了文档流，所以包围图片和文字的<code>div</code>不占据空间</p>
-</blockquote>
-<p><img src="https://cloud.githubusercontent.com/assets/4004044/7001009/dd6cac66-dc62-11e4-9496-e358787a0090.png" alt="clear_02"></p>
-<ol>
-<li><strong>解决方案1：</strong>在最后一段下面添加空元素并且清理它。</li>
-</ol>
-<pre><code>.clear{
-clear:both;
-}
-
-&lt;div class=&quot;news&quot;&gt;
-&lt;img src=&quot; &quot;&gt;
-&lt;p&gt;Some text&lt;/p&gt;
-&lt;br class=&quot;clear&quot; /&gt;
-&lt;/div&gt;
-</code></pre><ol>
-<li><p><strong>解决方案2：</strong>直接选择浮动容器<code>div</code></p>
-<pre><code>.news{
-float:left;
-} 
-</code></pre></li>
-<li><p><strong>解决方案3：</strong>设置<code>overflow</code>为<code>hidden</code>或<code>auto</code></p>
-<pre><code>.news{
-    overflow:hidden;
-}
-</code></pre></li>
-<li><p><strong>解决方案4：</strong><code>:after</code>伪元素(CSS生成内容)</p>
-<pre><code>&lt;div class=&quot;news clear&quot;&gt;
-    &lt;img src=&quot;&quot; /&gt;
-    &lt;p&gt;Some text&lt;/p&gt;
-&lt;/div&gt;
-
-.clear:after{
-    content:&quot;.&quot;;
-    height:0;
-    visibility:hidden;
-    display:block;    
-    clear:both;
-}
-</code></pre></li>
-<li>JavsScript方法</li>
-</ol>
-<h3 id="参考："><a href="#参考：" class="headerlink" title="参考："></a>参考：</h3><ol>
-<li><a href="http://www.zhangxinxu.com/wordpress/2011/03/css-%E7%9B%B8%E5%AF%B9%E7%BB%9D%E5%AF%B9relativeabsolute%E5%AE%9A%E4%BD%8D%E7%B3%BB%E5%88%97%EF%BC%88%E4%B8%80%EF%BC%89/" target="_blank" rel="external">css-相对绝对relativeabsolute定位系列（一）</a></li>
-<li><a href="http://www.zhangxinxu.com/wordpress/2011/03/css-%E7%9B%B8%E5%AF%B9%E7%BB%9D%E5%AF%B9relativeabsolute%E5%AE%9A%E4%BD%8D%E7%B3%BB%E5%88%97%EF%BC%88%E4%BA%8C%EF%BC%89/" target="_blank" rel="external">css-相对绝对relativeabsolute定位系列（二）</a></li>
-</ol>
-]]></content>
-      
-        <categories>
-            
-            <category> CSS </category>
-            
-        </categories>
-        
-        
-        <tags>
-            
-            <tag> CSS Layout </tag>
             
         </tags>
         
@@ -3585,35 +3614,6 @@ background-image: url(&quot;data:image/gif;base64,R0lGODlhAwADAIAAAP///8zMzCH5BA
     </entry>
     
     <entry>
-      <title><![CDATA[IE hasLayout渲染引擎]]></title>
-      <url>https://iminyao.com/2015/12/27/IE-hasLayout/</url>
-      <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><h2 id="1-概念："><a href="#1-概念：" class="headerlink" title="1. 概念："></a>1. 概念：</h2><blockquote>
-<p>IE6-7的显示引擎使用的是一个称为布局（layout）的内部概念来<em>控制元素的尺寸和定位</em>，那些拥有布局（have layout）的元素负责本身及其子元素的尺寸设置和定位。如果一个元素的 hasLayout 为false，那么它的尺寸和位置由<em>最近拥有布局的祖先元素控制</em>。</p>
-<p>由于这个显示引擎自身存在很多的缺陷，直接导致了IE6-7的很多显示bug。</p>
-</blockquote>
-<h2 id="2-hasLayout默认为true的元素："><a href="#2-hasLayout默认为true的元素：" class="headerlink" title="2. hasLayout默认为true的元素："></a>2. <code>hasLayout</code>默认为<code>true</code>的元素：</h2><pre><code><figure class="highlight xml"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span>, <span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">table</span>&gt;</span>, <span class="tag">&lt;<span class="name">tr</span>&gt;</span>, <span class="tag">&lt;<span class="name">th</span>&gt;</span>, <span class="tag">&lt;<span class="name">td</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">img</span>&gt;</span>,<span class="tag">&lt;<span class="name">hr</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">input</span>&gt;</span>, <span class="tag">&lt;<span class="name">button</span>&gt;</span>, <span class="tag">&lt;<span class="name">select</span>&gt;</span>, <span class="tag">&lt;<span class="name">textarea</span>&gt;</span>, <span class="tag">&lt;<span class="name">fieldset</span>&gt;</span>, <span class="tag">&lt;<span class="name">legend</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">iframe</span>&gt;</span>, <span class="tag">&lt;<span class="name">embed</span>&gt;</span>, <span class="tag">&lt;<span class="name">object</span>&gt;</span>, <span class="tag">&lt;<span class="name">applet</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">marquee</span>&gt;</span></div></pre></td></tr></table></figure>
-</code></pre><h2 id="3-能够触发hasLayout的CSS属性"><a href="#3-能够触发hasLayout的CSS属性" class="headerlink" title="3. 能够触发hasLayout的CSS属性"></a>3. 能够触发<code>hasLayout</code>的CSS属性</h2><figure class="highlight arduino"><table><tr><td class="code"><pre><div class="line"><span class="built_in">position</span>: absolute </div><div class="line"> </div><div class="line"><span class="keyword">float</span>: left|right </div><div class="line"> </div><div class="line"><span class="built_in">display</span>: <span class="keyword">inline</span>-block </div><div class="line"> </div><div class="line"><span class="built_in">width</span>: 除 “<span class="keyword">auto</span>” 外的任意值 </div><div class="line"> </div><div class="line"><span class="built_in">height</span>: 除 “<span class="keyword">auto</span>” 外的任意值</div><div class="line"> </div><div class="line">zoom: 除 “normal” 外的任意值 </div><div class="line"> </div><div class="line">writing-mode: tb-rl</div><div class="line"><span class="comment">// IE 7新增</span></div><div class="line"><span class="built_in">overflow</span>: hidden|scroll|<span class="keyword">auto</span></div><div class="line"><span class="built_in">overflow</span>-x|-y: hidden|scroll|<span class="keyword">auto</span></div><div class="line"><span class="built_in">position</span>: fixed</div><div class="line"></div><div class="line"><span class="built_in">min</span>-<span class="built_in">width</span>: any value</div><div class="line">Even the value <span class="number">0</span> lets the element gain layout.</div><div class="line"><span class="built_in">max</span>-<span class="built_in">width</span>: any value other than <span class="string">'none'</span></div><div class="line"></div><div class="line"><span class="built_in">min</span>-<span class="built_in">height</span>: any value</div><div class="line">Even the value <span class="number">0</span> sets haslayout=true</div><div class="line"><span class="built_in">max</span>-<span class="built_in">height</span>: any value other than <span class="string">'none'</span></div></pre></td></tr></table></figure>
-<h2 id="4-hasLayout常用触发CSS-Hack"><a href="#4-hasLayout常用触发CSS-Hack" class="headerlink" title="4. hasLayout常用触发CSS Hack"></a>4. <code>hasLayout</code>常用触发CSS Hack</h2><figure class="highlight scss"><table><tr><td class="code"><pre><div class="line"><span class="comment">// IE 6</span></div><div class="line"><span class="selector-class">.gainlayout</span> &#123; <span class="attribute">height</span>: <span class="number">1%</span>; &#125; <span class="comment">// Holly hack</span></div><div class="line"><span class="comment">// IE 7</span></div><div class="line"><span class="selector-class">.gainlayout</span> &#123; _height: <span class="number">0</span>; &#125;</div></pre></td></tr></table></figure>
-<h2 id="5-调试"><a href="#5-调试" class="headerlink" title="5.调试"></a>5.调试</h2><blockquote>
-<p>。通过 IE Developer Toolbar 可以查看 IE 下 HTML 元素是否拥有haslayout，在 IE Developer Toolbar 下，拥有 haslayout 的元素，通常显示为“haslayout = -1”。</p>
-</blockquote>
-<h2 id="参考："><a href="#参考：" class="headerlink" title="参考："></a>参考：</h2><ol>
-<li><a href="http://www.satzansatz.de/cssd/onhavinglayout.html" target="_blank" rel="external">On having layout</a></li>
-<li><a href="http://baike.baidu.com/item/hasLayout" target="_blank" rel="external">hasLayout</a></li>
-<li><a href="http://www.iyunlu.com/view/css-xhtml/55.html" target="_blank" rel="external">BFC与hasLayout</a></li>
-</ol>
-]]></content>
-      
-        <categories>
-            
-            <category> IE </category>
-            
-        </categories>
-        
-        
-    </entry>
-    
-    <entry>
       <title><![CDATA[IE pollyfills汇总]]></title>
       <url>https://iminyao.com/2015/12/27/IE-pollyfills/</url>
       <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><h3 id="1-element-dataset"><a href="#1-element-dataset" class="headerlink" title="1. element.dataset"></a>1. element.dataset</h3><figure class="highlight maxima"><table><tr><td class="code"><pre><div class="line">function getDataSet(<span class="built_in">elem</span>)&#123;</div><div class="line">    <span class="keyword">if</span>(<span class="built_in">elem</span>.dataset)&#123;</div><div class="line">      <span class="built_in">return</span> <span class="built_in">elem</span>.dataset;</div><div class="line">    &#125;</div><div class="line">    <span class="built_in">var</span> datas = &#123;&#125;;</div><div class="line">    <span class="built_in">var</span> attrs = <span class="built_in">elem</span>.attributes;</div><div class="line">    <span class="built_in">var</span> nodeName,nodeNames;</div><div class="line">    <span class="keyword">for</span>(<span class="built_in">var</span> i = <span class="number">0</span>,attr;attr = attrs[i];i++)&#123;</div><div class="line">      nodeName = attr.nodeName;</div><div class="line">      <span class="keyword">if</span>(nodeName.indexOf('data-')!==-<span class="number">1</span>)&#123;</div><div class="line">        nodeNames = nodeName.slice(<span class="number">5</span>).<span class="built_in">split</span>(<span class="string">"-"</span>);</div><div class="line">        nodeName = nodeNames[<span class="number">0</span>];</div><div class="line">      &#125; <span class="keyword">else</span>&#123;</div><div class="line">        continue;</div><div class="line">      &#125;</div><div class="line">      <span class="keyword">for</span>(<span class="built_in">var</span> j=<span class="number">1</span>;j&lt;nodeNames.<span class="built_in">length</span>;j++)&#123;</div><div class="line">        nodeName += nodeNames[j].slice(<span class="number">0</span>,<span class="number">1</span>).toUpperCase + nodeNames[j].slice(<span class="number">1</span>);</div><div class="line">      &#125;</div><div class="line">      datas[nodeName] = attr.nodeValue;</div><div class="line">      <span class="built_in">return</span> datas;</div><div class="line">    &#125;</div><div class="line">  &#125;</div></pre></td></tr></table></figure>
@@ -3638,6 +3638,35 @@ background-image: url(&quot;data:image/gif;base64,R0lGODlhAwADAIAAAP///8zMzCH5BA
         <categories>
             
             <category> 总结 </category>
+            
+        </categories>
+        
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[IE hasLayout渲染引擎]]></title>
+      <url>https://iminyao.com/2015/12/27/IE-hasLayout/</url>
+      <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><h2 id="1-概念："><a href="#1-概念：" class="headerlink" title="1. 概念："></a>1. 概念：</h2><blockquote>
+<p>IE6-7的显示引擎使用的是一个称为布局（layout）的内部概念来<em>控制元素的尺寸和定位</em>，那些拥有布局（have layout）的元素负责本身及其子元素的尺寸设置和定位。如果一个元素的 hasLayout 为false，那么它的尺寸和位置由<em>最近拥有布局的祖先元素控制</em>。</p>
+<p>由于这个显示引擎自身存在很多的缺陷，直接导致了IE6-7的很多显示bug。</p>
+</blockquote>
+<h2 id="2-hasLayout默认为true的元素："><a href="#2-hasLayout默认为true的元素：" class="headerlink" title="2. hasLayout默认为true的元素："></a>2. <code>hasLayout</code>默认为<code>true</code>的元素：</h2><pre><code><figure class="highlight xml"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span>, <span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">table</span>&gt;</span>, <span class="tag">&lt;<span class="name">tr</span>&gt;</span>, <span class="tag">&lt;<span class="name">th</span>&gt;</span>, <span class="tag">&lt;<span class="name">td</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">img</span>&gt;</span>,<span class="tag">&lt;<span class="name">hr</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">input</span>&gt;</span>, <span class="tag">&lt;<span class="name">button</span>&gt;</span>, <span class="tag">&lt;<span class="name">select</span>&gt;</span>, <span class="tag">&lt;<span class="name">textarea</span>&gt;</span>, <span class="tag">&lt;<span class="name">fieldset</span>&gt;</span>, <span class="tag">&lt;<span class="name">legend</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">iframe</span>&gt;</span>, <span class="tag">&lt;<span class="name">embed</span>&gt;</span>, <span class="tag">&lt;<span class="name">object</span>&gt;</span>, <span class="tag">&lt;<span class="name">applet</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">marquee</span>&gt;</span></div></pre></td></tr></table></figure>
+</code></pre><h2 id="3-能够触发hasLayout的CSS属性"><a href="#3-能够触发hasLayout的CSS属性" class="headerlink" title="3. 能够触发hasLayout的CSS属性"></a>3. 能够触发<code>hasLayout</code>的CSS属性</h2><figure class="highlight arduino"><table><tr><td class="code"><pre><div class="line"><span class="built_in">position</span>: absolute </div><div class="line"> </div><div class="line"><span class="keyword">float</span>: left|right </div><div class="line"> </div><div class="line"><span class="built_in">display</span>: <span class="keyword">inline</span>-block </div><div class="line"> </div><div class="line"><span class="built_in">width</span>: 除 “<span class="keyword">auto</span>” 外的任意值 </div><div class="line"> </div><div class="line"><span class="built_in">height</span>: 除 “<span class="keyword">auto</span>” 外的任意值</div><div class="line"> </div><div class="line">zoom: 除 “normal” 外的任意值 </div><div class="line"> </div><div class="line">writing-mode: tb-rl</div><div class="line"><span class="comment">// IE 7新增</span></div><div class="line"><span class="built_in">overflow</span>: hidden|scroll|<span class="keyword">auto</span></div><div class="line"><span class="built_in">overflow</span>-x|-y: hidden|scroll|<span class="keyword">auto</span></div><div class="line"><span class="built_in">position</span>: fixed</div><div class="line"></div><div class="line"><span class="built_in">min</span>-<span class="built_in">width</span>: any value</div><div class="line">Even the value <span class="number">0</span> lets the element gain layout.</div><div class="line"><span class="built_in">max</span>-<span class="built_in">width</span>: any value other than <span class="string">'none'</span></div><div class="line"></div><div class="line"><span class="built_in">min</span>-<span class="built_in">height</span>: any value</div><div class="line">Even the value <span class="number">0</span> sets haslayout=true</div><div class="line"><span class="built_in">max</span>-<span class="built_in">height</span>: any value other than <span class="string">'none'</span></div></pre></td></tr></table></figure>
+<h2 id="4-hasLayout常用触发CSS-Hack"><a href="#4-hasLayout常用触发CSS-Hack" class="headerlink" title="4. hasLayout常用触发CSS Hack"></a>4. <code>hasLayout</code>常用触发CSS Hack</h2><figure class="highlight scss"><table><tr><td class="code"><pre><div class="line"><span class="comment">// IE 6</span></div><div class="line"><span class="selector-class">.gainlayout</span> &#123; <span class="attribute">height</span>: <span class="number">1%</span>; &#125; <span class="comment">// Holly hack</span></div><div class="line"><span class="comment">// IE 7</span></div><div class="line"><span class="selector-class">.gainlayout</span> &#123; _height: <span class="number">0</span>; &#125;</div></pre></td></tr></table></figure>
+<h2 id="5-调试"><a href="#5-调试" class="headerlink" title="5.调试"></a>5.调试</h2><blockquote>
+<p>。通过 IE Developer Toolbar 可以查看 IE 下 HTML 元素是否拥有haslayout，在 IE Developer Toolbar 下，拥有 haslayout 的元素，通常显示为“haslayout = -1”。</p>
+</blockquote>
+<h2 id="参考："><a href="#参考：" class="headerlink" title="参考："></a>参考：</h2><ol>
+<li><a href="http://www.satzansatz.de/cssd/onhavinglayout.html" target="_blank" rel="external">On having layout</a></li>
+<li><a href="http://baike.baidu.com/item/hasLayout" target="_blank" rel="external">hasLayout</a></li>
+<li><a href="http://www.iyunlu.com/view/css-xhtml/55.html" target="_blank" rel="external">BFC与hasLayout</a></li>
+</ol>
+]]></content>
+      
+        <categories>
+            
+            <category> IE </category>
             
         </categories>
         
@@ -6874,14 +6903,14 @@ ExpiresByType text/html A600
     </entry>
     
     <entry>
-      <title><![CDATA[标签云]]></title>
-      <url>https://iminyao.com/tags/index.html</url>
+      <title><![CDATA[友情链接]]></title>
+      <url>https://iminyao.com/links/index.html</url>
       <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script>]]></content>
     </entry>
     
     <entry>
-      <title><![CDATA[友情链接]]></title>
-      <url>https://iminyao.com/links/index.html</url>
+      <title><![CDATA[标签云]]></title>
+      <url>https://iminyao.com/tags/index.html</url>
       <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script>]]></content>
     </entry>
     
