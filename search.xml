@@ -1859,7 +1859,9 @@ Warning: Invalid argument supplied for foreach() in /data/home/qxu1098560294/htd
 <h3 id="绑定独立域名"><a href="#绑定独立域名" class="headerlink" title="绑定独立域名"></a>绑定独立域名</h3><h4 id="配置CNAME文件"><a href="#配置CNAME文件" class="headerlink" title="配置CNAME文件"></a><strong>配置CNAME文件</strong></h4><p>在source文件夹下创建CNAME文件，然后将域名添加进去</p>
 <h4 id="DNS解析"><a href="#DNS解析" class="headerlink" title="DNS解析"></a><strong>DNS解析</strong></h4><p>跟之前一样，略。Github Page的IP地址见官方文档。<a href="https://help.github.com/articles/what-ip-addresses-does-github-use-that-i-should-whitelist/" target="_blank" rel="external">https://help.github.com/articles/what-ip-addresses-does-github-use-that-i-should-whitelist/</a></p>
 <h3 id="更换主题"><a href="#更换主题" class="headerlink" title="更换主题"></a>更换主题</h3><p><a href="https://hexo.io/themes/" target="_blank" rel="external">hexo官方主题</a>，选择合适的主题然后themes目录下<code>git clone</code>下来，在根目录配置文件中修改<code>theme</code>参数即可。</p>
-<h3 id="写文章"><a href="#写文章" class="headerlink" title="写文章"></a>写文章</h3><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">$ hexo new <span class="string">"文章标题"</span>  // 在source_posts下生成 `.md`文件，编辑文件即可。</div><div class="line">$ hexo new page <span class="string">"页面标题"</span> // 新建页面</div></pre></td></tr></table></figure>
+<h3 id="写文章"><a href="#写文章" class="headerlink" title="写文章"></a>写文章</h3><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">$ hexo new <span class="string">"文章标题"</span>  <span class="comment"># 在source_posts下生成 `.md`文件，编辑文件即可。</span></div><div class="line">$ hexo new page <span class="string">"页面标题"</span> <span class="comment"># 新建页面</span></div></pre></td></tr></table></figure>
+<h3 id="界面化插件-hexo-admin"><a href="#界面化插件-hexo-admin" class="headerlink" title="界面化插件 hexo-admin"></a>界面化插件 hexo-admin</h3><figure class="highlight sql"><table><tr><td class="code"><pre><div class="line">npm <span class="keyword">install</span> <span class="comment">--save hexo-admin</span></div><div class="line">hexo <span class="keyword">server</span> -d</div></pre></td></tr></table></figure>
+<p>貌似 hexo-admin 的 packge.json中少了js-yaml,在其目录下npm install 一下 js-yaml 即可<br>然后访问 <code>http://localhost:4000/admin</code></p>
 <h3 id="附录："><a href="#附录：" class="headerlink" title="附录："></a>附录：</h3><ol>
 <li>hexo目录结构<br>├── .deploy #需要部署的文件<br>├── node_modules #Hexo插件<br>├── public #生成的静态网页文件<br>├── scaffolds #模板<br>├── source #博客正文和其他源文件，404、favicon、CNAME 都应该放在这里<br>| ├── _drafts #草稿<br>| └── _posts #文章<br>├── themes #主题<br>├── _config.yml #全局配置文件<br>└── package.json</li>
 <li><a href="http://mp.weixin.qq.com/s?__biz=MzI4MzE2MTQ5Mw==&amp;mid=401679929&amp;idx=1&amp;sn=bd752ae5ac550b4bf4dcccb1c12aa2b1&amp;scene=18#wechat_redirect" target="_blank" rel="external">全局配置_config.yml</a></li>
@@ -2983,41 +2985,6 @@ p.lsd1.lsd2 {background:sliver;}
     </entry>
     
     <entry>
-      <title><![CDATA[CSS3 盒子应用]]></title>
-      <url>https://iminyao.com/2016/03/23/CSS3-box/</url>
-      <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><h3 id="透明盒子-通过设置不透明度实现"><a href="#透明盒子-通过设置不透明度实现" class="headerlink" title="透明盒子(通过设置不透明度实现)"></a>透明盒子(通过设置不透明度实现)</h3><blockquote>
-<p>rgba 与opacity应用范围:<br>    1.使用多种颜色(元素)的半透明效果，使用opacity不仅背景颜色，连文本颜色，边框颜色也会变透明<br>    2.在不知道颜色的情况下，实现半透明效果(例如通过其他样式表或JavaScript代码来设置半透明效果的)应使用opacity<br>    3.实现图片半透明效果，应该用opacity<br>    4.实现渐变动画效果，应该用opacity</p>
-</blockquote>
-<figure class="highlight css"><table><tr><td class="code"><pre><div class="line"><span class="selector-class">.semitransparentBox</span>&#123;</div><div class="line">	<span class="attribute">background</span>: <span class="built_in">rgba</span>(170,240,0,0.5);</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.semitransparentBox1</span>&#123;</div><div class="line">	<span class="attribute">background</span>: <span class="built_in">rgb</span>(170,240,0);</div><div class="line">	<span class="attribute">opacity</span>: <span class="number">0.5</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="圆角盒子（通过设置border-radius属性实现）"><a href="#圆角盒子（通过设置border-radius属性实现）" class="headerlink" title="圆角盒子（通过设置border-radius属性实现）"></a>圆角盒子（通过设置border-radius属性实现）</h3><figure class="highlight css"><table><tr><td class="code"><pre><div class="line">		<span class="selector-class">.roundBox</span>&#123;</div><div class="line">			<span class="attribute">text-align</span>: center;</div><div class="line">			<span class="attribute">background</span>: yellow;	</div><div class="line">			<span class="attribute">border-radius</span>: <span class="number">25px</span> <span class="number">50px</span> <span class="number">25px</span> <span class="number">85px</span>;</div><div class="line">		&#125;</div><div class="line"><span class="comment">/* 通过设置两个值（水平半径，垂直半径）可以实现把圆拉伸为椭圆，即让某一个轴向的圆弧更长 */</span></div><div class="line">		<span class="selector-class">.roundBox1</span>&#123;</div><div class="line">			<span class="attribute">background</span>: blue;</div><div class="line">			<span class="attribute">border-top-left-radius</span>: <span class="number">150px</span> <span class="number">30px</span>;</div><div class="line">			<span class="attribute">border-top-right-radius</span>: <span class="number">150px</span> <span class="number">30px</span>;</div><div class="line">		&#125;</div></pre></td></tr></table></figure>
-<h3 id="背景盒子（借助CSS3支持多背景-新增的background-position属性）"><a href="#背景盒子（借助CSS3支持多背景-新增的background-position属性）" class="headerlink" title="背景盒子（借助CSS3支持多背景 新增的background-position属性）"></a>背景盒子（借助CSS3支持多背景 新增的background-position属性）</h3><figure class="highlight css"><table><tr><td class="code"><pre><div class="line"><span class="selector-class">.decoratedBox</span>&#123;</div><div class="line">	<span class="attribute">margin</span>: <span class="number">50px</span>;</div><div class="line">	<span class="attribute">padding</span>: <span class="number">50px</span>;</div><div class="line">	<span class="attribute">background-image</span>: <span class="built_in">url</span>(<span class="string">"pen_blue.gif"</span>),<span class="built_in">url</span>(<span class="string">"pen_green.gif"</span>);</div><div class="line">	<span class="attribute">background-position</span>: left top,right bottom;</div><div class="line">	<span class="attribute">background-repeat</span>: no-repeat, no-repeat; </div><div class="line">&#125;</div><div class="line"><span class="selector-class">.decoratedBox1</span>&#123;</div><div class="line">	<span class="attribute">margin</span>: <span class="number">50px</span>;</div><div class="line">	<span class="attribute">padding</span>: <span class="number">50px</span>;</div><div class="line">	<span class="attribute">background-image</span>: <span class="built_in">url</span>(pen_green.gif),<span class="built_in">url</span>(pen_blue.gif),<span class="built_in">url</span>(pen_medium.gif);</div><div class="line">	<span class="attribute">background-position</span>: left top,left top,right bottom;</div><div class="line">	<span class="attribute">background-repeat</span>: no-repeat,repeat-x,no-repeat;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="盒子阴影（box-shadow属性）"><a href="#盒子阴影（box-shadow属性）" class="headerlink" title="盒子阴影（box-shadow属性）"></a>盒子阴影（box-shadow属性）</h3><figure class="highlight css"><table><tr><td class="code"><pre><div class="line">	<span class="selector-class">.shadowedBox</span>&#123;</div><div class="line">		<span class="attribute">border</span>:thin <span class="number">#336699</span> solid;</div><div class="line">		<span class="attribute">border-radius</span>: <span class="number">25px</span>;</div><div class="line">		<span class="attribute">box-shadow</span>:<span class="number">5px</span> <span class="number">5px</span> <span class="number">10px</span> <span class="number">5px</span> gray inset; </div><div class="line"><span class="comment">/*	前两个值是水平和垂直方向的偏移量 第三个是设置模糊距离（模糊程度） 第四个设置伸展范围（可选） 第五个设置阴影颜色(添加inset会在元素内部)  */</span></div><div class="line">	&#125;</div><div class="line">	<span class="selector-class">.textShadow</span>&#123;</div><div class="line">		<span class="attribute">font-size</span>: <span class="number">30px</span>;</div><div class="line">		<span class="attribute">font-weight</span>: bold;</div><div class="line">		<span class="attribute">text-shadow</span>:gray <span class="number">10px</span> <span class="number">10px</span> <span class="number">7px</span>; <span class="comment">/* 属性不同 先是颜色 然后水平垂直偏移量 最后设置模糊值*/</span></div><div class="line">	&#125;</div></pre></td></tr></table></figure>
-<h3 id="渐变盒子（gradient属性）"><a href="#渐变盒子（gradient属性）" class="headerlink" title="渐变盒子（gradient属性）"></a>渐变盒子（gradient属性）</h3><blockquote>
-<p>渐变是多种颜色混合而成的效果（本质上渐变就是两种或更多种颜色的混合）</p>
-</blockquote>
-<ol>
-<li>线性渐变 linear-gradient</li>
-<li>放射性渐变 radial-gradient<figure class="highlight css"><table><tr><td class="code"><pre><div class="line"><span class="selector-class">.colorBlendBox</span>&#123;</div><div class="line">	<span class="attribute">background</span>: <span class="built_in">-ms-linear-gradient</span>(top,red 0%,orange 20%,yellow 80%, violet 100%); <span class="comment">/*	设置渐变点	*/</span></div><div class="line">	<span class="attribute">background</span>: <span class="built_in">-moz-linear-gradient</span>(top,white,blue);   <span class="comment">/*	从上至下渐变	*/</span></div><div class="line">	<span class="attribute">background</span>: <span class="built_in">-webkit-linear-gradient</span>(top left,white,lightblue); <span class="comment">/*	从左上到右下渐变	*/</span></div><div class="line">&#125;</div><div class="line"><span class="selector-class">.colorBlendBox1</span>&#123;</div><div class="line">	<span class="attribute">background</span>: <span class="built_in">-moz-radial-gradient</span>(circle,white,lightblue); <span class="comment">/* 白色圆心逐渐过渡到圆周的蓝色 */</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-</ol>
-]]></content>
-      
-        <categories>
-            
-            <category> CSS </category>
-            
-        </categories>
-        
-        
-        <tags>
-            
-            <tag> CSS Core </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
       <title><![CDATA[CSS3 transition与transform]]></title>
       <url>https://iminyao.com/2016/03/23/CSS3-transition/</url>
       <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><h3 id="背景"><a href="#背景" class="headerlink" title="背景:"></a>背景:</h3><blockquote>
@@ -3058,6 +3025,41 @@ p.lsd1.lsd2 {background:sliver;}
         <tags>
             
             <tag> CSS core </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[CSS3 盒子应用]]></title>
+      <url>https://iminyao.com/2016/03/23/CSS3-box/</url>
+      <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><h3 id="透明盒子-通过设置不透明度实现"><a href="#透明盒子-通过设置不透明度实现" class="headerlink" title="透明盒子(通过设置不透明度实现)"></a>透明盒子(通过设置不透明度实现)</h3><blockquote>
+<p>rgba 与opacity应用范围:<br>    1.使用多种颜色(元素)的半透明效果，使用opacity不仅背景颜色，连文本颜色，边框颜色也会变透明<br>    2.在不知道颜色的情况下，实现半透明效果(例如通过其他样式表或JavaScript代码来设置半透明效果的)应使用opacity<br>    3.实现图片半透明效果，应该用opacity<br>    4.实现渐变动画效果，应该用opacity</p>
+</blockquote>
+<figure class="highlight css"><table><tr><td class="code"><pre><div class="line"><span class="selector-class">.semitransparentBox</span>&#123;</div><div class="line">	<span class="attribute">background</span>: <span class="built_in">rgba</span>(170,240,0,0.5);</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.semitransparentBox1</span>&#123;</div><div class="line">	<span class="attribute">background</span>: <span class="built_in">rgb</span>(170,240,0);</div><div class="line">	<span class="attribute">opacity</span>: <span class="number">0.5</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="圆角盒子（通过设置border-radius属性实现）"><a href="#圆角盒子（通过设置border-radius属性实现）" class="headerlink" title="圆角盒子（通过设置border-radius属性实现）"></a>圆角盒子（通过设置border-radius属性实现）</h3><figure class="highlight css"><table><tr><td class="code"><pre><div class="line">		<span class="selector-class">.roundBox</span>&#123;</div><div class="line">			<span class="attribute">text-align</span>: center;</div><div class="line">			<span class="attribute">background</span>: yellow;	</div><div class="line">			<span class="attribute">border-radius</span>: <span class="number">25px</span> <span class="number">50px</span> <span class="number">25px</span> <span class="number">85px</span>;</div><div class="line">		&#125;</div><div class="line"><span class="comment">/* 通过设置两个值（水平半径，垂直半径）可以实现把圆拉伸为椭圆，即让某一个轴向的圆弧更长 */</span></div><div class="line">		<span class="selector-class">.roundBox1</span>&#123;</div><div class="line">			<span class="attribute">background</span>: blue;</div><div class="line">			<span class="attribute">border-top-left-radius</span>: <span class="number">150px</span> <span class="number">30px</span>;</div><div class="line">			<span class="attribute">border-top-right-radius</span>: <span class="number">150px</span> <span class="number">30px</span>;</div><div class="line">		&#125;</div></pre></td></tr></table></figure>
+<h3 id="背景盒子（借助CSS3支持多背景-新增的background-position属性）"><a href="#背景盒子（借助CSS3支持多背景-新增的background-position属性）" class="headerlink" title="背景盒子（借助CSS3支持多背景 新增的background-position属性）"></a>背景盒子（借助CSS3支持多背景 新增的background-position属性）</h3><figure class="highlight css"><table><tr><td class="code"><pre><div class="line"><span class="selector-class">.decoratedBox</span>&#123;</div><div class="line">	<span class="attribute">margin</span>: <span class="number">50px</span>;</div><div class="line">	<span class="attribute">padding</span>: <span class="number">50px</span>;</div><div class="line">	<span class="attribute">background-image</span>: <span class="built_in">url</span>(<span class="string">"pen_blue.gif"</span>),<span class="built_in">url</span>(<span class="string">"pen_green.gif"</span>);</div><div class="line">	<span class="attribute">background-position</span>: left top,right bottom;</div><div class="line">	<span class="attribute">background-repeat</span>: no-repeat, no-repeat; </div><div class="line">&#125;</div><div class="line"><span class="selector-class">.decoratedBox1</span>&#123;</div><div class="line">	<span class="attribute">margin</span>: <span class="number">50px</span>;</div><div class="line">	<span class="attribute">padding</span>: <span class="number">50px</span>;</div><div class="line">	<span class="attribute">background-image</span>: <span class="built_in">url</span>(pen_green.gif),<span class="built_in">url</span>(pen_blue.gif),<span class="built_in">url</span>(pen_medium.gif);</div><div class="line">	<span class="attribute">background-position</span>: left top,left top,right bottom;</div><div class="line">	<span class="attribute">background-repeat</span>: no-repeat,repeat-x,no-repeat;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="盒子阴影（box-shadow属性）"><a href="#盒子阴影（box-shadow属性）" class="headerlink" title="盒子阴影（box-shadow属性）"></a>盒子阴影（box-shadow属性）</h3><figure class="highlight css"><table><tr><td class="code"><pre><div class="line">	<span class="selector-class">.shadowedBox</span>&#123;</div><div class="line">		<span class="attribute">border</span>:thin <span class="number">#336699</span> solid;</div><div class="line">		<span class="attribute">border-radius</span>: <span class="number">25px</span>;</div><div class="line">		<span class="attribute">box-shadow</span>:<span class="number">5px</span> <span class="number">5px</span> <span class="number">10px</span> <span class="number">5px</span> gray inset; </div><div class="line"><span class="comment">/*	前两个值是水平和垂直方向的偏移量 第三个是设置模糊距离（模糊程度） 第四个设置伸展范围（可选） 第五个设置阴影颜色(添加inset会在元素内部)  */</span></div><div class="line">	&#125;</div><div class="line">	<span class="selector-class">.textShadow</span>&#123;</div><div class="line">		<span class="attribute">font-size</span>: <span class="number">30px</span>;</div><div class="line">		<span class="attribute">font-weight</span>: bold;</div><div class="line">		<span class="attribute">text-shadow</span>:gray <span class="number">10px</span> <span class="number">10px</span> <span class="number">7px</span>; <span class="comment">/* 属性不同 先是颜色 然后水平垂直偏移量 最后设置模糊值*/</span></div><div class="line">	&#125;</div></pre></td></tr></table></figure>
+<h3 id="渐变盒子（gradient属性）"><a href="#渐变盒子（gradient属性）" class="headerlink" title="渐变盒子（gradient属性）"></a>渐变盒子（gradient属性）</h3><blockquote>
+<p>渐变是多种颜色混合而成的效果（本质上渐变就是两种或更多种颜色的混合）</p>
+</blockquote>
+<ol>
+<li>线性渐变 linear-gradient</li>
+<li>放射性渐变 radial-gradient<figure class="highlight css"><table><tr><td class="code"><pre><div class="line"><span class="selector-class">.colorBlendBox</span>&#123;</div><div class="line">	<span class="attribute">background</span>: <span class="built_in">-ms-linear-gradient</span>(top,red 0%,orange 20%,yellow 80%, violet 100%); <span class="comment">/*	设置渐变点	*/</span></div><div class="line">	<span class="attribute">background</span>: <span class="built_in">-moz-linear-gradient</span>(top,white,blue);   <span class="comment">/*	从上至下渐变	*/</span></div><div class="line">	<span class="attribute">background</span>: <span class="built_in">-webkit-linear-gradient</span>(top left,white,lightblue); <span class="comment">/*	从左上到右下渐变	*/</span></div><div class="line">&#125;</div><div class="line"><span class="selector-class">.colorBlendBox1</span>&#123;</div><div class="line">	<span class="attribute">background</span>: <span class="built_in">-moz-radial-gradient</span>(circle,white,lightblue); <span class="comment">/* 白色圆心逐渐过渡到圆周的蓝色 */</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+]]></content>
+      
+        <categories>
+            
+            <category> CSS </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> CSS Core </tag>
             
         </tags>
         
