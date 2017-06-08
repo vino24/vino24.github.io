@@ -397,12 +397,14 @@
 </ol>
 <h4 id="1-getDefaultProps"><a href="#1-getDefaultProps" class="headerlink" title="1.getDefaultProps"></a>1.getDefaultProps</h4><p>并不是在组件实例化时调用，而是在React.createClass调用时就被调用，因为是在实例初始化之前调用，所以方法里面不能依赖<code>this.props</code>,而且，任何引用类型的值都会在实例中共享，而不是每个组件拥有单独的副本。</p>
 <h4 id="2-getInitialState"><a href="#2-getInitialState" class="headerlink" title="2.getInitialState"></a>2.getInitialState</h4><p>只在组件实例挂载之前调用一次，用于初始化每个实例的state，每次实例创建的时候都会调用一次，此时已经可以访问this.props。</p>
+<p>在ES6的语法中,也可以这样写<br><figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line">Class MyComponent extend React.Component &#123;</div><div class="line">    construtor() &#123;</div><div class="line">        <span class="keyword">super</span>()</div><div class="line">        <span class="keyword">this</span>.state = &#123;</div><div class="line">            <span class="attr">key</span>: value</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <h5 id="getDefaultProps与getInitialState区别："><a href="#getDefaultProps与getInitialState区别：" class="headerlink" title="getDefaultProps与getInitialState区别："></a>getDefaultProps与getInitialState区别：</h5><p>前者是对于组件类来说的，后者是对于组件实例来说的</p>
 <h5 id="state与props的区别："><a href="#state与props的区别：" class="headerlink" title="state与props的区别："></a>state与props的区别：</h5><p>state只存在于组件内部，props可以在组件树中传递</p>
 <h4 id="3-componentWillMount"><a href="#3-componentWillMount" class="headerlink" title="3.componentWillMount"></a>3.componentWillMount</h4><p>只在首次装载前调用一次，在render之前调用，这是在render方法调用前修改state最后的机会</p>
-<h4 id="4-render"><a href="#4-render" class="headerlink" title="4.render"></a>4.render</h4><p>调用render时会检测this.props和this.state,创建的是虚拟本地DOM组件(<code>eg:&lt;div /&gt;</code>)或自定义复合组件，这是react之所以效率高的核心</p>
+<h4 id="4-render"><a href="#4-render" class="headerlink" title="4.render"></a>4.render</h4><p>调用render时会检测this.props和this.state,创建的是虚拟本地DOM组件(<code>eg:&lt;div /&gt;</code>)或自定义复合组件，这是react之所以效率高的核心。<br>render函数可以返回false或null，这意味着我们没有任何东西需要渲染。</p>
 <p><strong>render函数应该是纯粹的，不能修改组件的state,每次调用都返回相同的结果，不读写DOM，不与浏览器交互(setTimeout等)</strong></p>
 <h4 id="5-componentDidMount"><a href="#5-componentDidMount" class="headerlink" title="5.componentDidMount"></a>5.componentDidMount</h4><p>render后调用，此时已经渲染出真实的DOM，已经可以通过<code>this.getDOMNode</code>或<code>ReactDOM.findDOMNode</code>访问真实DOM。集成其他框架，设置定时器，Ajax请求等都可以在此方法中操作。</p>
+<p>相对于父组件而言，该方法在子组件中会先被调用。</p>
 <h3 id="二、存在期"><a href="#二、存在期" class="headerlink" title="二、存在期"></a>二、存在期</h3><blockquote>
 <p>组件已经渲染完成可以与用户进行交互</p>
 </blockquote>
