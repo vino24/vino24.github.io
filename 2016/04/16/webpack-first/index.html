@@ -399,11 +399,15 @@
 </li>
 </ol>
 <h3 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h3><p>webpack 背后的原理其实就是把所有的非 js 资源都转换成 js (如把一个 css 文件转换成“创建一个 style 标签并把它插入 document”的脚本、把图片转换成一个图片地址的 js 变量或 base64 编码等)，然后用 CommonJS 的机制管理起来。</p>
-<h3 id="一-安装"><a href="#一-安装" class="headerlink" title="一.安装"></a>一.安装</h3><p>1.安装node和npm,webpack是基于node的<br>2.安装 npm install webpack -g</p>
-<h3 id="二-配置文件-webpack-config-js"><a href="#二-配置文件-webpack-config-js" class="headerlink" title="二.配置文件 webpack.config.js"></a>二.配置文件 webpack.config.js</h3><h4 id="配置文件组成："><a href="#配置文件组成：" class="headerlink" title="配置文件组成："></a>配置文件组成：</h4><ul>
+<h3 id="一-安装"><a href="#一-安装" class="headerlink" title="一.安装"></a>一.安装</h3><ol>
+<li>安装node和npm,webpack是基于node的</li>
+<li>安装 npm install webpack -g<h3 id="二-配置文件-webpack-config-js"><a href="#二-配置文件-webpack-config-js" class="headerlink" title="二.配置文件 webpack.config.js"></a>二.配置文件 webpack.config.js</h3><h4 id="配置文件组成："><a href="#配置文件组成：" class="headerlink" title="配置文件组成："></a>配置文件组成：</h4></li>
+</ol>
+<ul>
 <li>entry 入口文件 让webpack用哪个文件作为项目的入口</li>
 <li>output 出口 让webpack把处理完成的文件放在哪里</li>
-<li>module 模块 要用什么不同的模块来处理各种类型的文件</li>
+<li>loader webpack 只理解 JavaScript,webpack loader 会将其他类型文件转换为module(js)</li>
+<li>plugin 由于 loader 仅在每个文件的基础上执行转换，而 插件(plugins) 最常用于（但不限于）在打包模块的“compilation”和“chunk”生命周期执行操作和自定义功能</li>
 </ul>
 <h4 id="sample"><a href="#sample" class="headerlink" title="sample"></a>sample</h4><figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> path = <span class="built_in">require</span>(<span class="string">'path'</span>);</div><div class="line"><span class="keyword">var</span> HtmlwebpackPlugin = <span class="built_in">require</span>(<span class="string">'html-webpack-plugin'</span>);</div><div class="line"><span class="comment">//定义了一些文件夹的路径</span></div><div class="line"><span class="keyword">var</span> ROOT_PATH = path.resolve(__dirname);</div><div class="line"><span class="keyword">var</span> APP_PATH = path.resolve(ROOT_PATH, <span class="string">'app'</span>);</div><div class="line"><span class="keyword">var</span> BUILD_PATH = path.resolve(ROOT_PATH, <span class="string">'build'</span>);</div><div class="line"></div><div class="line"><span class="built_in">module</span>.exports = &#123;</div><div class="line">  <span class="comment">//项目的文件夹 可以直接用文件夹名称 默认会找index.js 也可以确定是哪个文件名字</span></div><div class="line">  entry: APP_PATH,</div><div class="line">  <span class="comment">//输出的文件名 合并以后的js会命名为bundle.js</span></div><div class="line">  output: &#123;</div><div class="line">    <span class="attr">path</span>: BUILD_PATH,</div><div class="line">    <span class="attr">filename</span>: <span class="string">'bundle.js'</span></div><div class="line">  &#125;</div></pre></td></tr></table></figure>
 <h4 id="其他配置"><a href="#其他配置" class="headerlink" title="其他配置"></a>其他配置</h4><ol>
