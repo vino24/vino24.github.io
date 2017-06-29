@@ -4,6 +4,49 @@
   
     
     <entry>
+      <title><![CDATA[React context]]></title>
+      <url>https://iminyao.com/2017/06/29/React-context/</url>
+      <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p>context就是一组属性的集合，并被<em>隐式</em>地传递给后代组件</p>
+<h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><blockquote>
+<p>已经有了props了吗，为什么还需要用context来传递属性呢？</p>
+</blockquote>
+<p>可以考虑这么一个情景，有一个层级很深的组件，最里层组件的行为将影响最外层的表现，一般来说我们就会在最外层组件上绑定回调，再一级一级地传入至最内层组件上，通过触发回调来进行上述行为。</p>
+<h3 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h3><p>使用getChildContext方法将属性传递给子组件，并使用childContextTypes声明传递数据类型，子组件中需要显式地使用contextTypes声明需要用到的属性的数据类型。</p>
+<p>需要传递进context参数才可以在constructor方法中使用context，要不然React将会报错。</p>
+<p>在组件中，通过this.context访问context中的属性或方法。</p>
+<h3 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Button</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</div><div class="line">  render() &#123;</div><div class="line">    <span class="keyword">return</span> (</div><div class="line">      &lt;button style=&#123;&#123;background: this.props.color&#125;&#125;&gt;</div><div class="line">        &#123;this.props.children&#125;</div><div class="line">      &lt;/button&gt;</div><div class="line">    );</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Message</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</div><div class="line">  render() &#123;</div><div class="line">    <span class="keyword">return</span> (</div><div class="line">      &lt;div&gt;</div><div class="line">        &#123;this.props.text&#125; &lt;Button color=&#123;this.props.color&#125;&gt;Delete&lt;/Button&gt;</div><div class="line">      &lt;/div&gt;</div><div class="line">    );</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">MessageList</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</div><div class="line">  render() &#123;</div><div class="line">    <span class="keyword">const</span> color = <span class="string">"purple"</span>;</div><div class="line">    <span class="keyword">const</span> children = <span class="keyword">this</span>.props.messages.map(<span class="function">(<span class="params">message</span>) =&gt;</span></div><div class="line">      &lt;Message text=&#123;message.text&#125; color=&#123;color&#125; /&gt;</div><div class="line">    );</div><div class="line">    <span class="keyword">return</span> &lt;div&gt;&#123;children&#125;&lt;/div&gt;;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>上面代码中color通过一层层传递最终到了 Button 组件，使用 context，可以自动在组件树中传递参数。<br>要使用 context首页要引入 React 的<code>prop-types</code><br><figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="keyword">const</span> PropTypes = <span class="built_in">require</span>(<span class="string">'prop-types'</span>);</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Button</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</div><div class="line">  render() &#123;</div><div class="line">    <span class="keyword">return</span> (</div><div class="line">      &lt;button style=&#123;&#123;background: this.context.color&#125;&#125;&gt;</div><div class="line">        &#123;this.props.children&#125;</div><div class="line">      &lt;/button&gt;</div><div class="line">    );</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">Button.contextTypes = &#123;</div><div class="line">  <span class="attr">color</span>: PropTypes.string</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Message</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</div><div class="line">  render() &#123;</div><div class="line">    <span class="keyword">return</span> (</div><div class="line">      &lt;div&gt;</div><div class="line">        &#123;this.props.text&#125; &lt;Button&gt;Delete&lt;/Button&gt;</div><div class="line">      &lt;/div&gt;</div><div class="line">    );</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">MessageList</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</div><div class="line">  getChildContext() &#123;</div><div class="line">    <span class="keyword">return</span> &#123;<span class="attr">color</span>: <span class="string">"purple"</span>&#125;;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  render() &#123;</div><div class="line">    <span class="keyword">const</span> children = <span class="keyword">this</span>.props.messages.map(<span class="function">(<span class="params">message</span>) =&gt;</span></div><div class="line">      &lt;Message text=&#123;message.text&#125; /&gt;</div><div class="line">    );</div><div class="line">    <span class="keyword">return</span> &lt;div&gt;&#123;children&#125;&lt;/div&gt;;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">MessageList.childContextTypes = &#123;</div><div class="line">  <span class="attr">color</span>: PropTypes.string</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
+<p>通过在MessageList（context提供者）中添加childContextTypes和getChildContext，React会向下自动传递参数，任何组件只要在它的子组件中（这个例子中是Button），就能通过定义contextTypes来获取参数。</p>
+<h3 id="在生命周期函数中引用Context"><a href="#在生命周期函数中引用Context" class="headerlink" title="在生命周期函数中引用Context"></a>在生命周期函数中引用Context</h3><p>如果在一个组件中定义了contextTypes，那么下面这些生命周期函数中将会接收到额外的参数，即context对象:</p>
+<ul>
+<li>constructor(props, context)</li>
+<li>componentWillReceiveProps(nextProps, nextContext)</li>
+<li>shouldComponentUpdate(nextProps, nextState, nextContext)</li>
+<li>componentWillUpdate(nextProps, nextState, nextContext)</li>
+<li>componentDidUpdate(prevProps, prevState, prevContext)</li>
+</ul>
+<h3 id="参考"><a href="#参考" class="headerlink" title="参考:"></a>参考:</h3><ol>
+<li><a href="https://github.com/brunoyang/blog/issues/9" target="_blank" rel="external">https://github.com/brunoyang/blog/issues/9</a></li>
+<li><a href="https://discountry.github.io/react/docs/context.html" target="_blank" rel="external">https://discountry.github.io/react/docs/context.html</a></li>
+</ol>
+]]></content>
+      
+        <categories>
+            
+            <category>  JavaScript Framework </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> React </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[Chrome Dev Tips]]></title>
       <url>https://iminyao.com/2017/05/25/dev-tips/</url>
       <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><blockquote>
@@ -2448,7 +2491,8 @@ Warning: Invalid argument supplied for foreach() in /data/home/qxu1098560294/htd
    <figure class="highlight sql"><table><tr><td class="code"><pre><div class="line">npm <span class="keyword">install</span> <span class="keyword">url</span>-loader <span class="comment">--save-dev</span></div><div class="line"></div><div class="line">//config</div><div class="line">&#123;</div><div class="line">   <span class="keyword">test</span>: /\.(png|jpg)$/,</div><div class="line">   loader:<span class="string">'url?limit=1024'</span> //  当图片大小小于<span class="keyword">limit</span>限制时会自动启用base64编码</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <ol>
 <li><p>独立CSS样式  <code>extract-text-webpack-plugin</code></p>
-<p>css-loader,style-loader会将样式打包成style内联样式，如果想要打包出单独的css文件需要<code>extract-text-webpack-plugin</code></p>
+<p>使用css-loader,style-loader  CSS会跟 JavaScript 打包在一起，并且在初始加载后，通过一个 <code>&lt;style&gt;</code> 标签注入样式，然后作用于页面。</p>
+<p>这里有一个缺点就是，你无法使用浏览器的能力，去异步且并行去加载 CSS。取而代之的是，你的页面需要等待整个 JavaScript 文件加载完，才能进行样式渲染。如果想要打包出单独的css文件需要<code>extract-text-webpack-plugin</code></p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line">        <span class="keyword">var</span> ExtractTextPlugin = <span class="built_in">require</span>(<span class="string">"extract-text-webpack-plugin"</span>);</div><div class="line">        <span class="built_in">module</span>.exports = &#123;</div><div class="line">        <span class="comment">// ...省略各种代码</span></div><div class="line">        <span class="built_in">module</span>: &#123;</div><div class="line">        <span class="attr">loaders</span>: [</div><div class="line">            &#123;<span class="attr">test</span>: <span class="regexp">/\.js$/</span>, <span class="attr">loader</span>: <span class="string">"babel"</span>&#125;,</div><div class="line">            &#123;<span class="attr">test</span>: <span class="regexp">/\.css$/</span>, <span class="attr">loader</span>: ExtractTextPlugin.extract(<span class="string">"style-loader"</span>, <span class="string">"css-loader"</span>)&#125;,</div><div class="line">            &#123;<span class="attr">test</span>: <span class="regexp">/\.(jpg|png|svg)$/</span>, <span class="attr">loader</span>: <span class="string">"url?limit=8192"</span>&#125;,</div><div class="line">            &#123;<span class="attr">test</span>: <span class="regexp">/\.scss$/</span>, <span class="attr">loader</span>: <span class="string">"style!css!sass"</span>&#125;</div><div class="line">        ]</div><div class="line">    &#125;,</div><div class="line">    <span class="attr">plugins</span>: [</div><div class="line">        <span class="keyword">new</span> webpack.optimize.CommonsChunkPlugin(<span class="string">'common.js'</span>),</div><div class="line">        <span class="keyword">new</span> ExtractTextPlugin(<span class="string">"[name].css"</span>)</div><div class="line">    ]</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>插件也支持所有独立样式打包成一个css文件<br><code>new ExtractTextPlugin(&quot;style.css&quot;, {allChunks: true})</code></p>
 <h3 id="三-添加第三方库"><a href="#三-添加第三方库" class="headerlink" title="三.添加第三方库"></a>三.添加第三方库</h3><figure class="highlight perl"><table><tr><td class="code"><pre><div class="line">npm install jquery moment --save-dev</div><div class="line"></div><div class="line">var <span class="function"><span class="keyword">sub</span> = <span class="title">require</span></span>('./sub');</div><div class="line">var $ = <span class="keyword">require</span>(<span class="string">'jquery'</span>);</div><div class="line">var moment = <span class="keyword">require</span>(<span class="string">'moment'</span>);</div><div class="line">var app  = document.createElement(<span class="string">'div'</span>);</div><div class="line">app.innerHTML = <span class="string">'&lt;h1&gt;Hello World it&lt;/h1&gt;'</span>;</div><div class="line">document.body.appendChild(app);</div><div class="line">app.appendChild(<span class="function"><span class="keyword">sub</span></span>());</div><div class="line">$(<span class="string">'body'</span>).append(<span class="string">'&lt;p&gt;look at me! now is '</span> + moment().format() + <span class="string">'&lt;/p&gt;'</span>);</div></pre></td></tr></table></figure>
@@ -2991,41 +3035,6 @@ float:left;
     </entry>
     
     <entry>
-      <title><![CDATA[CSS3 盒子应用]]></title>
-      <url>https://iminyao.com/2016/03/23/CSS3-box/</url>
-      <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><h3 id="透明盒子-通过设置不透明度实现"><a href="#透明盒子-通过设置不透明度实现" class="headerlink" title="透明盒子(通过设置不透明度实现)"></a>透明盒子(通过设置不透明度实现)</h3><blockquote>
-<p>rgba 与opacity应用范围:<br>    1.使用多种颜色(元素)的半透明效果，使用opacity不仅背景颜色，连文本颜色，边框颜色也会变透明<br>    2.在不知道颜色的情况下，实现半透明效果(例如通过其他样式表或JavaScript代码来设置半透明效果的)应使用opacity<br>    3.实现图片半透明效果，应该用opacity<br>    4.实现渐变动画效果，应该用opacity</p>
-</blockquote>
-<figure class="highlight css"><table><tr><td class="code"><pre><div class="line"><span class="selector-class">.semitransparentBox</span>&#123;</div><div class="line">	<span class="attribute">background</span>: <span class="built_in">rgba</span>(170,240,0,0.5);</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.semitransparentBox1</span>&#123;</div><div class="line">	<span class="attribute">background</span>: <span class="built_in">rgb</span>(170,240,0);</div><div class="line">	<span class="attribute">opacity</span>: <span class="number">0.5</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="圆角盒子（通过设置border-radius属性实现）"><a href="#圆角盒子（通过设置border-radius属性实现）" class="headerlink" title="圆角盒子（通过设置border-radius属性实现）"></a>圆角盒子（通过设置border-radius属性实现）</h3><figure class="highlight css"><table><tr><td class="code"><pre><div class="line">		<span class="selector-class">.roundBox</span>&#123;</div><div class="line">			<span class="attribute">text-align</span>: center;</div><div class="line">			<span class="attribute">background</span>: yellow;	</div><div class="line">			<span class="attribute">border-radius</span>: <span class="number">25px</span> <span class="number">50px</span> <span class="number">25px</span> <span class="number">85px</span>;</div><div class="line">		&#125;</div><div class="line"><span class="comment">/* 通过设置两个值（水平半径，垂直半径）可以实现把圆拉伸为椭圆，即让某一个轴向的圆弧更长 */</span></div><div class="line">		<span class="selector-class">.roundBox1</span>&#123;</div><div class="line">			<span class="attribute">background</span>: blue;</div><div class="line">			<span class="attribute">border-top-left-radius</span>: <span class="number">150px</span> <span class="number">30px</span>;</div><div class="line">			<span class="attribute">border-top-right-radius</span>: <span class="number">150px</span> <span class="number">30px</span>;</div><div class="line">		&#125;</div></pre></td></tr></table></figure>
-<h3 id="背景盒子（借助CSS3支持多背景-新增的background-position属性）"><a href="#背景盒子（借助CSS3支持多背景-新增的background-position属性）" class="headerlink" title="背景盒子（借助CSS3支持多背景 新增的background-position属性）"></a>背景盒子（借助CSS3支持多背景 新增的background-position属性）</h3><figure class="highlight css"><table><tr><td class="code"><pre><div class="line"><span class="selector-class">.decoratedBox</span>&#123;</div><div class="line">	<span class="attribute">margin</span>: <span class="number">50px</span>;</div><div class="line">	<span class="attribute">padding</span>: <span class="number">50px</span>;</div><div class="line">	<span class="attribute">background-image</span>: <span class="built_in">url</span>(<span class="string">"pen_blue.gif"</span>),<span class="built_in">url</span>(<span class="string">"pen_green.gif"</span>);</div><div class="line">	<span class="attribute">background-position</span>: left top,right bottom;</div><div class="line">	<span class="attribute">background-repeat</span>: no-repeat, no-repeat; </div><div class="line">&#125;</div><div class="line"><span class="selector-class">.decoratedBox1</span>&#123;</div><div class="line">	<span class="attribute">margin</span>: <span class="number">50px</span>;</div><div class="line">	<span class="attribute">padding</span>: <span class="number">50px</span>;</div><div class="line">	<span class="attribute">background-image</span>: <span class="built_in">url</span>(pen_green.gif),<span class="built_in">url</span>(pen_blue.gif),<span class="built_in">url</span>(pen_medium.gif);</div><div class="line">	<span class="attribute">background-position</span>: left top,left top,right bottom;</div><div class="line">	<span class="attribute">background-repeat</span>: no-repeat,repeat-x,no-repeat;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="盒子阴影（box-shadow属性）"><a href="#盒子阴影（box-shadow属性）" class="headerlink" title="盒子阴影（box-shadow属性）"></a>盒子阴影（box-shadow属性）</h3><figure class="highlight css"><table><tr><td class="code"><pre><div class="line">	<span class="selector-class">.shadowedBox</span>&#123;</div><div class="line">		<span class="attribute">border</span>:thin <span class="number">#336699</span> solid;</div><div class="line">		<span class="attribute">border-radius</span>: <span class="number">25px</span>;</div><div class="line">		<span class="attribute">box-shadow</span>:<span class="number">5px</span> <span class="number">5px</span> <span class="number">10px</span> <span class="number">5px</span> gray inset; </div><div class="line"><span class="comment">/*	前两个值是水平和垂直方向的偏移量 第三个是设置模糊距离（模糊程度） 第四个设置伸展范围（可选） 第五个设置阴影颜色(添加inset会在元素内部)  */</span></div><div class="line">	&#125;</div><div class="line">	<span class="selector-class">.textShadow</span>&#123;</div><div class="line">		<span class="attribute">font-size</span>: <span class="number">30px</span>;</div><div class="line">		<span class="attribute">font-weight</span>: bold;</div><div class="line">		<span class="attribute">text-shadow</span>:gray <span class="number">10px</span> <span class="number">10px</span> <span class="number">7px</span>; <span class="comment">/* 属性不同 先是颜色 然后水平垂直偏移量 最后设置模糊值*/</span></div><div class="line">	&#125;</div></pre></td></tr></table></figure>
-<h3 id="渐变盒子（gradient属性）"><a href="#渐变盒子（gradient属性）" class="headerlink" title="渐变盒子（gradient属性）"></a>渐变盒子（gradient属性）</h3><blockquote>
-<p>渐变是多种颜色混合而成的效果（本质上渐变就是两种或更多种颜色的混合）</p>
-</blockquote>
-<ol>
-<li>线性渐变 linear-gradient</li>
-<li>放射性渐变 radial-gradient<figure class="highlight css"><table><tr><td class="code"><pre><div class="line"><span class="selector-class">.colorBlendBox</span>&#123;</div><div class="line">	<span class="attribute">background</span>: <span class="built_in">-ms-linear-gradient</span>(top,red 0%,orange 20%,yellow 80%, violet 100%); <span class="comment">/*	设置渐变点	*/</span></div><div class="line">	<span class="attribute">background</span>: <span class="built_in">-moz-linear-gradient</span>(top,white,blue);   <span class="comment">/*	从上至下渐变	*/</span></div><div class="line">	<span class="attribute">background</span>: <span class="built_in">-webkit-linear-gradient</span>(top left,white,lightblue); <span class="comment">/*	从左上到右下渐变	*/</span></div><div class="line">&#125;</div><div class="line"><span class="selector-class">.colorBlendBox1</span>&#123;</div><div class="line">	<span class="attribute">background</span>: <span class="built_in">-moz-radial-gradient</span>(circle,white,lightblue); <span class="comment">/* 白色圆心逐渐过渡到圆周的蓝色 */</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-</ol>
-]]></content>
-      
-        <categories>
-            
-            <category> CSS </category>
-            
-        </categories>
-        
-        
-        <tags>
-            
-            <tag> CSS Core </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
       <title><![CDATA[CSS3 transition与transform]]></title>
       <url>https://iminyao.com/2016/03/23/CSS3-transition/</url>
       <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><h3 id="背景"><a href="#背景" class="headerlink" title="背景:"></a>背景:</h3><blockquote>
@@ -3066,6 +3075,41 @@ float:left;
         <tags>
             
             <tag> CSS core </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[CSS3 盒子应用]]></title>
+      <url>https://iminyao.com/2016/03/23/CSS3-box/</url>
+      <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><h3 id="透明盒子-通过设置不透明度实现"><a href="#透明盒子-通过设置不透明度实现" class="headerlink" title="透明盒子(通过设置不透明度实现)"></a>透明盒子(通过设置不透明度实现)</h3><blockquote>
+<p>rgba 与opacity应用范围:<br>    1.使用多种颜色(元素)的半透明效果，使用opacity不仅背景颜色，连文本颜色，边框颜色也会变透明<br>    2.在不知道颜色的情况下，实现半透明效果(例如通过其他样式表或JavaScript代码来设置半透明效果的)应使用opacity<br>    3.实现图片半透明效果，应该用opacity<br>    4.实现渐变动画效果，应该用opacity</p>
+</blockquote>
+<figure class="highlight css"><table><tr><td class="code"><pre><div class="line"><span class="selector-class">.semitransparentBox</span>&#123;</div><div class="line">	<span class="attribute">background</span>: <span class="built_in">rgba</span>(170,240,0,0.5);</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.semitransparentBox1</span>&#123;</div><div class="line">	<span class="attribute">background</span>: <span class="built_in">rgb</span>(170,240,0);</div><div class="line">	<span class="attribute">opacity</span>: <span class="number">0.5</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="圆角盒子（通过设置border-radius属性实现）"><a href="#圆角盒子（通过设置border-radius属性实现）" class="headerlink" title="圆角盒子（通过设置border-radius属性实现）"></a>圆角盒子（通过设置border-radius属性实现）</h3><figure class="highlight css"><table><tr><td class="code"><pre><div class="line">		<span class="selector-class">.roundBox</span>&#123;</div><div class="line">			<span class="attribute">text-align</span>: center;</div><div class="line">			<span class="attribute">background</span>: yellow;	</div><div class="line">			<span class="attribute">border-radius</span>: <span class="number">25px</span> <span class="number">50px</span> <span class="number">25px</span> <span class="number">85px</span>;</div><div class="line">		&#125;</div><div class="line"><span class="comment">/* 通过设置两个值（水平半径，垂直半径）可以实现把圆拉伸为椭圆，即让某一个轴向的圆弧更长 */</span></div><div class="line">		<span class="selector-class">.roundBox1</span>&#123;</div><div class="line">			<span class="attribute">background</span>: blue;</div><div class="line">			<span class="attribute">border-top-left-radius</span>: <span class="number">150px</span> <span class="number">30px</span>;</div><div class="line">			<span class="attribute">border-top-right-radius</span>: <span class="number">150px</span> <span class="number">30px</span>;</div><div class="line">		&#125;</div></pre></td></tr></table></figure>
+<h3 id="背景盒子（借助CSS3支持多背景-新增的background-position属性）"><a href="#背景盒子（借助CSS3支持多背景-新增的background-position属性）" class="headerlink" title="背景盒子（借助CSS3支持多背景 新增的background-position属性）"></a>背景盒子（借助CSS3支持多背景 新增的background-position属性）</h3><figure class="highlight css"><table><tr><td class="code"><pre><div class="line"><span class="selector-class">.decoratedBox</span>&#123;</div><div class="line">	<span class="attribute">margin</span>: <span class="number">50px</span>;</div><div class="line">	<span class="attribute">padding</span>: <span class="number">50px</span>;</div><div class="line">	<span class="attribute">background-image</span>: <span class="built_in">url</span>(<span class="string">"pen_blue.gif"</span>),<span class="built_in">url</span>(<span class="string">"pen_green.gif"</span>);</div><div class="line">	<span class="attribute">background-position</span>: left top,right bottom;</div><div class="line">	<span class="attribute">background-repeat</span>: no-repeat, no-repeat; </div><div class="line">&#125;</div><div class="line"><span class="selector-class">.decoratedBox1</span>&#123;</div><div class="line">	<span class="attribute">margin</span>: <span class="number">50px</span>;</div><div class="line">	<span class="attribute">padding</span>: <span class="number">50px</span>;</div><div class="line">	<span class="attribute">background-image</span>: <span class="built_in">url</span>(pen_green.gif),<span class="built_in">url</span>(pen_blue.gif),<span class="built_in">url</span>(pen_medium.gif);</div><div class="line">	<span class="attribute">background-position</span>: left top,left top,right bottom;</div><div class="line">	<span class="attribute">background-repeat</span>: no-repeat,repeat-x,no-repeat;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="盒子阴影（box-shadow属性）"><a href="#盒子阴影（box-shadow属性）" class="headerlink" title="盒子阴影（box-shadow属性）"></a>盒子阴影（box-shadow属性）</h3><figure class="highlight css"><table><tr><td class="code"><pre><div class="line">	<span class="selector-class">.shadowedBox</span>&#123;</div><div class="line">		<span class="attribute">border</span>:thin <span class="number">#336699</span> solid;</div><div class="line">		<span class="attribute">border-radius</span>: <span class="number">25px</span>;</div><div class="line">		<span class="attribute">box-shadow</span>:<span class="number">5px</span> <span class="number">5px</span> <span class="number">10px</span> <span class="number">5px</span> gray inset; </div><div class="line"><span class="comment">/*	前两个值是水平和垂直方向的偏移量 第三个是设置模糊距离（模糊程度） 第四个设置伸展范围（可选） 第五个设置阴影颜色(添加inset会在元素内部)  */</span></div><div class="line">	&#125;</div><div class="line">	<span class="selector-class">.textShadow</span>&#123;</div><div class="line">		<span class="attribute">font-size</span>: <span class="number">30px</span>;</div><div class="line">		<span class="attribute">font-weight</span>: bold;</div><div class="line">		<span class="attribute">text-shadow</span>:gray <span class="number">10px</span> <span class="number">10px</span> <span class="number">7px</span>; <span class="comment">/* 属性不同 先是颜色 然后水平垂直偏移量 最后设置模糊值*/</span></div><div class="line">	&#125;</div></pre></td></tr></table></figure>
+<h3 id="渐变盒子（gradient属性）"><a href="#渐变盒子（gradient属性）" class="headerlink" title="渐变盒子（gradient属性）"></a>渐变盒子（gradient属性）</h3><blockquote>
+<p>渐变是多种颜色混合而成的效果（本质上渐变就是两种或更多种颜色的混合）</p>
+</blockquote>
+<ol>
+<li>线性渐变 linear-gradient</li>
+<li>放射性渐变 radial-gradient<figure class="highlight css"><table><tr><td class="code"><pre><div class="line"><span class="selector-class">.colorBlendBox</span>&#123;</div><div class="line">	<span class="attribute">background</span>: <span class="built_in">-ms-linear-gradient</span>(top,red 0%,orange 20%,yellow 80%, violet 100%); <span class="comment">/*	设置渐变点	*/</span></div><div class="line">	<span class="attribute">background</span>: <span class="built_in">-moz-linear-gradient</span>(top,white,blue);   <span class="comment">/*	从上至下渐变	*/</span></div><div class="line">	<span class="attribute">background</span>: <span class="built_in">-webkit-linear-gradient</span>(top left,white,lightblue); <span class="comment">/*	从左上到右下渐变	*/</span></div><div class="line">&#125;</div><div class="line"><span class="selector-class">.colorBlendBox1</span>&#123;</div><div class="line">	<span class="attribute">background</span>: <span class="built_in">-moz-radial-gradient</span>(circle,white,lightblue); <span class="comment">/* 白色圆心逐渐过渡到圆周的蓝色 */</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+]]></content>
+      
+        <categories>
+            
+            <category> CSS </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> CSS Core </tag>
             
         </tags>
         
