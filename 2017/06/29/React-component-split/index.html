@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html lang="zh">
+    <head>
+    <!--
+        © Material Theme
+        https://github.com/viosey/hexo-theme-material
+        Version: 1.3.4 -->
+
+    <!-- Title -->
+    
+    <title>
+        
+            几种进阶React组件分解方法 | 
+        
+        逢十借一
+    </title>
+
+    <!-- Meta & Info -->
+    <meta charset="utf-8">
+
+    <!-- dns prefetch -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+    
+    
+    
+        <link rel="dns-prefetch" href="https://changyan.sohu.com"/>
+    
+    
+    
+    
+
+    <meta http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#0097A7">
+    <meta name="author" content="vino24">
+    <meta name="description" content="web前端开发, 前端开发工程师, 前端开发攻城师, 前端资源, CSS, JavaScript, HTML, Web标准">
+    <meta name="keywords" content="web前端开发, 前端开发工程师, 前端开发攻城师, 前端资源, CSS, JavaScript, HTML, Web标准,React">
+
+    <!-- Favicons -->
+    <link rel="icon shortcut" type="image/ico" href="/img/favicon.png">
+    <link rel="icon" sizes="192x192" href="/img/apple-touch-icon.png">
+    <link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
+
+    <!--iOS -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-title" content="Title">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="480">
+
+    <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="逢十借一">
+
+    <!-- The Open Graph protocol -->
+    <meta property="og:url" content="https://iminyao.com">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="几种进阶React组件分解方法 | 逢十借一">
+    <meta property="og:description" content="web前端开发, 前端开发工程师, 前端开发攻城师, 前端资源, CSS, JavaScript, HTML, Web标准">
+    <meta property="og:article:tag" content="React"> 
+
+    <!--[if lte IE 9]>
+        <link rel="stylesheet" href="/css/ie-blocker.css">
+
+        
+            <script src="/js/ie-blocker.zhCN.js"></script>
+        
+    <![endif]-->
+
+    <!-- Import CSS & jQuery -->
+    
+        <link rel="stylesheet" href="/css/material.min.css">
+        <link rel="stylesheet" href="/css/style.min.css">
+        <!-- Config CSS -->
+
+
+<!-- Other Styles -->
+<style>
+  body, html {
+    font-family: Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+  }
+
+  a {
+    color: #00838F;
+  }
+
+  .mdl-card__media,
+  #search-label,
+  #search-form-label:after,
+  #scheme-Paradox .hot_tags-count,
+  #scheme-Paradox .sidebar_archives-count,
+  #scheme-Paradox .sidebar-colored .sidebar-header,
+  #scheme-Paradox .sidebar-colored .sidebar-badge{
+    background-color: #0097A7 !important;
+  }
+
+  /* Sidebar User Drop Down Menu Text Color */
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:hover,
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:focus {
+    color: #0097A7 !important;
+  }
+
+  #post_entry-right-info,
+  .sidebar-colored .sidebar-nav li:hover > a,
+  .sidebar-colored .sidebar-nav li:hover > a i,
+  .sidebar-colored .sidebar-nav li > a:hover,
+  .sidebar-colored .sidebar-nav li > a:hover i,
+  .sidebar-colored .sidebar-nav li > a:focus i,
+  .sidebar-colored .sidebar-nav > .open > a,
+  .sidebar-colored .sidebar-nav > .open > a:hover,
+  .sidebar-colored .sidebar-nav > .open > a:focus,
+  #ds-reset #ds-ctx .ds-ctx-entry .ds-ctx-head a {
+    color: #0097A7 !important;
+  }
+
+  .toTop {
+    background: #757575 !important;
+  }
+
+  .material-layout .material-post>.material-nav,
+  .material-layout .material-index>.material-nav,
+  .material-nav a {
+    color: #757575;
+  }
+
+  #scheme-Paradox .MD-burger-layer {
+    background-color: #757575;
+  }
+
+  #scheme-Paradox #post-toc-trigger-btn {
+    color: #757575;
+  }
+
+  .post-toc a:hover {
+    color: #00838F;
+    text-decoration: underline;
+  }
+
+</style>
+
+
+<!-- Theme Background Related-->
+
+    <style>
+      body {
+        background-color: #F5F5F5;
+      }
+
+      /* blog_info bottom background */
+      #scheme-Paradox .material-layout .something-else .mdl-card__supporting-text {
+        background-color: #fff;
+      }
+    </style>
+
+
+
+
+<!-- Fade Effect -->
+
+    <style>
+      .fade {
+        transition: all 800ms linear;
+        -webkit-transform: translate3d(0,0,0);
+        -moz-transform: translate3d(0,0,0);
+        -ms-transform: translate3d(0,0,0);
+        -o-transform: translate3d(0,0,0);
+        transform: translate3d(0,0,0);
+        opacity: 1;
+      }
+
+      .fade.out{
+        opacity: 0;
+      }
+    </style>
+
+
+        <script src="/js/jquery.min.js"></script>
+        <script src="/js/queue.js"></script>
+    
+
+    <!-- UC Browser Compatible -->
+    <script>
+        var agent = navigator.userAgent.toLowerCase();
+        if(agent.indexOf('ucbrowser')>0) {
+            document.write("<link rel=\"stylesheet\" href=\"/css/uc.css\">");
+            alert('由于 UC 浏览器使用极旧的内核，而本网站使用了一些新的特性。\n为了您能更好的浏览，推荐使用 Chrome 或 Firefox 浏览器。');
+        }
+    </script>
+
+    
+
+    
+
+
+    <!-- Bing Background -->
+    
+        <script type="text/javascript">
+            queue.offer(function(){
+                $('body').attr('data-original', 'https://api.i-meto.com/bing?new');
+            });
+        </script>
+    
+
+    <!-- Custom Head -->
+    
+</head>
+
+
+    
+        <body id="scheme-Paradox" class="lazy">
+            <div class="material-layout  mdl-js-layout has-drawer is-upgraded">
+                
+
+                <!-- Main Container -->
+                <main class="material-layout__content" id="main">
+
+                    <!-- Top Anchor -->
+                    <div id="top"></div>
+
+                    
+                        <!-- Hamburger Button -->
+                        <button class="MD-burger-icon sidebar-toggle">
+                            <span class="MD-burger-layer"></span>
+                        </button>
+                    
+
+                    <!-- Post TOC -->
+
+    
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
+        </a>
+    </div>
+    -->
+
+    <!-- Left aligned menu below button -->
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-切割-render-方法"><span class="post-toc-number">1.</span> <span class="post-toc-text">1.切割 render() 方法</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-模版化组件"><span class="post-toc-number">2.</span> <span class="post-toc-text">2.模版化组件</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-高阶组件"><span class="post-toc-number">3.</span> <span class="post-toc-text">3.高阶组件</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#参考："><span class="post-toc-number">4.</span> <span class="post-toc-text">参考：</span></a></li></ol>
+
+        <!--
+        <li class="mdl-menu__item">
+            Some Action
+        </li>
+        -->
+    </ul>
+
+
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+    <!-- Paradox Post Header -->
+    
+        
+            <!-- Random Thumbnail -->
+            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
+            <script>
+    var randomNum = Math.floor(Math.random() * 5 + 1);
+
+    $('.post_thumbnail-random').attr('data-original', '/img/random/' + randomNum + '.png');
+    $('.post_thumbnail-random').addClass('lazy');
+</script>
+
+        
+    
+            <p class="article-headline-p">
+                几种进阶React组件分解方法
+            </p>
+        </div>
+
+
+
+
+
+                
+                    <!-- Paradox Post Info -->
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+    <!-- Author Avatar -->
+    <div id="author-avatar">
+        <img src="/img/avatar.png" width="44px" height="44px" alt="Author Avatar"/>
+    </div>
+    <!-- Author Name & Date -->
+    <div>
+        <strong>vino24</strong>
+        <span>6月 29, 2017</span>
+    </div>
+
+    <div class="section-spacer"></div>
+
+    <!-- Favorite -->
+    <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+
+    <!-- Qrcode -->
+    
+        <button id="article-functions-qrcode-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+            <i class="material-icons" role="presentation">devices other</i>
+            <span class="visuallyhidden">devices other</span>
+        </button>
+        <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-qrcode-button">
+            <li class="mdl-menu__item">在其它设备中阅读本文章</li>
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPYAAAD2CAAAAADAeSUUAAAC0UlEQVR42u3aQW7dMAwE0H//S6cHaKrMUG5rSM+rIDFkPS0yIKnP15XPBxsbGxsbGxsbG/uV7E/8/P7++jfr9b/ZVrDObM/Y2NjYN7B/+Ne/8fn1OuuDSPaTv4ONjY19A3sdWrMAW2/rT0ezE5DY2NjY2NESy3JiFnvY2NjY2P8ywPLj+BslCjY2Njb2Aw2aMup2YukVvTRsbGzs17PbQe8bfv4P821sbGzsV7KHFxmXgZSXK/sXfYo9Y2NjYx/KzttAyefz1n/eYEp2mzSksLGxsU9lt9duZmODfJ18V3lkYmNjY5/NzgNpduEmj582PvPmFzY2NvbZ7J1QmTWP8sHt7MpOPR7AxsbGPojdhtY6fpKI2g/R4ZUdbGxs7IPYs2b9Z/TkQ4Vkb/kRYGNjY9/AHo5ONzDrTefvD0sRbGxs7OPYbczMYHkgPYXHxsbGvoHdNvf3R7D5dZw88JKBBDY2Nvap7FmB0bbp27FBHo3FTrCxsbEPZbewNtjyw20HAPUXsbGxsY9mP3uBJikV8vXb5hc2Njb2beyd9lD7ZhKEeXFSHwQ2Njb20ew8qPJYysuP/LC2ohcbGxv7UPb+SKCNn3yEkBQnxRFjY2NjX8CeFQxtdM2KitlgGBsbG/sG9qwBlH8y+WtSeLQlCjY2NvZt7LYsmR1TO7LdL2OwsbGx72Hnm24bOm2TqI3GIiyxsbGxj2a3g94H4iQOzjYOi6YSNjY29qHs9rJjewlyv+BJhhnY2NjY97DbJ8fnRUjbtBoOGLCxsbEPZc/iqm0tJRttR8L5V7CxsbFvYOdlQzuanRUzswD74SCwsbGxL2DnodUOhtvCYxau2NjY2Ngtuy0J8rCctaWGg15sbGzsy9h526gdCc/AxfrY2NjYF7Db6zX50STFTFJUtBeMsLGxse9hz1r5+QrPHmt+9QcbGxv7BvY9DzY2NjY2NjY2NvZrnl/tI+xv1IE94AAAAABJRU5ErkJggg==">
+        </ul>
+    
+
+    <!-- Tags (bookmark) -->
+    
+    <button id="article-functions-viewtags-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons" role="presentation">bookmark</i>
+        <span class="visuallyhidden">bookmark</span>
+    </button>
+    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
+        <li class="mdl-menu__item">
+        <a class="post_tag-link" href="/tags/React/">React</a>
+    </ul>
+    
+
+    <!-- Share -->
+    <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
+
+    
+
+    <!-- Share Weibo -->
+    
+
+    <!-- Share Twitter -->
+    
+
+    <!-- Share Facebook -->
+    
+
+    <!-- Share Google+ -->
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+
+    <!-- Share Telegram -->
+    
+</ul>
+
+</div>
+
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+        <script src="/assets/js/APlayer.min.js"> </script><h3 id="1-切割-render-方法"><a href="#1-切割-render-方法" class="headerlink" title="1.切割 render() 方法"></a>1.切割 render() 方法</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="keyword">const</span> PanelHeader = <span class="function">(<span class="params">props</span>) =&gt;</span> (</div><div class="line">  <span class="comment">// ...</span></div><div class="line">);</div><div class="line"></div><div class="line"><span class="keyword">const</span> PanelBody = <span class="function">(<span class="params">props</span>) =&gt;</span> (</div><div class="line">  <span class="comment">// ...</span></div><div class="line">);</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Panel</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</div><div class="line">  render() &#123;</div><div class="line">    <span class="keyword">return</span> (</div><div class="line">      &lt;div&gt;</div><div class="line">        // Nice and explicit about which props are used</div><div class="line">        &lt;PanelHeader title=&#123;this.props.title&#125;/&gt;</div><div class="line">        &lt;PanelBody content=&#123;this.props.content&#125;/&gt;</div><div class="line">      &lt;/div&gt;</div><div class="line">    );</div><div class="line">   &#125;</div><div class="line"> &#125;</div></pre></td></tr></table></figure>
+<h3 id="2-模版化组件"><a href="#2-模版化组件" class="headerlink" title="2.模版化组件"></a>2.模版化组件</h3><blockquote>
+<p>为什么一个组件会变的臃肿而复杂呢？</p>
+</blockquote>
+<p>其一是渲染元素较多且嵌套，另外就是组件内部变化较多，或者存在多种 configurations 的情况。</p>
+<p>此时，我们便可以将组件改造为模版：父组件类似一个模版，只专注于各种 configurations。</p>
+<p>比如我们有一个 Comment 组件，这个组件存在多种行为或事件。同时组件所展现的信息根据用户的身份不同而有所变化：用户是否是此 comment 的作者，此 comment 是否被正确保存，各种权限不同等等都会引起这个组件的不同展示行为。这时候，与其把所有的逻辑混淆在一起，也许更好的做法是利用 React 可以传递 React element 的特性，我们将 React element 进行组件间传递，这样就更加像一个模版：<br><figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">CommentTemplate</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</div><div class="line">  <span class="keyword">static</span> propTypes = &#123;</div><div class="line">    <span class="comment">// Declare slots as type node</span></div><div class="line">    metadata: PropTypes.node,</div><div class="line">    <span class="attr">actions</span>: PropTypes.node,</div><div class="line">  &#125;;</div><div class="line">  </div><div class="line">  render() &#123;</div><div class="line">    <span class="keyword">return</span> (</div><div class="line">      &lt;div&gt;</div><div class="line">        &lt;CommentHeading&gt;</div><div class="line">          &lt;Avatar user=&#123;...&#125;/&gt;</div><div class="line">          </div><div class="line">          // Slot for metadata</div><div class="line">          &lt;span&gt;&#123;this.props.metadata&#125;&lt;/span&gt;</div><div class="line">          </div><div class="line">        &lt;/CommentHeading&gt;</div><div class="line">    </div><div class="line">        &lt;CommentBody/&gt;</div><div class="line">        </div><div class="line">        &lt;CommentFooter&gt;</div><div class="line">          &lt;Timestamp time=&#123;...&#125;/&gt;</div><div class="line">          </div><div class="line">          // Slot for actions</div><div class="line">          &lt;span&gt;&#123;this.props.actions&#125;&lt;/span&gt;</div><div class="line">          </div><div class="line">        &lt;/CommentFooter&gt;</div><div class="line">      &lt;/div&gt;</div><div class="line">      ...</div></pre></td></tr></table></figure></p>
+<p>此时，我们真正的 Comment 组件组织为：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Comment</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</div><div class="line">  render() &#123;</div><div class="line">    <span class="keyword">const</span> metadata = <span class="keyword">this</span>.props.publishTime ?</div><div class="line">      &lt;PublishTime time=&#123;this.props.publishTime&#125; /&gt; :</div><div class="line">      &lt;span&gt;Saving...&lt;/span&gt;;</div><div class="line">    </div><div class="line">    const actions = [];</div><div class="line">    if (this.props.isSignedIn) &#123;</div><div class="line">      actions.push(&lt;LikeAction /&gt;);</div><div class="line">      actions.push(&lt;ReplyAction /&gt;);</div><div class="line">    &#125;</div><div class="line">    if (this.props.isAuthor) &#123;</div><div class="line">      actions.push(&lt;DeleteAction /&gt;);</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    return &lt;CommentTemplate metadata=&#123;metadata&#125; actions=&#123;actions&#125; /&gt;;</div><div class="line">  &#125;</div></pre></td></tr></table></figure>
+<p>metadata 和 actions 其实就是在特定情况下需要渲染的 React element。</p>
+<p>如果 this.props.publishTime 存在，metadata 就是 <code>&lt;PublishTime time={this.props.publishTime} /&gt;；</code>反正则为 <code>&lt;span&gt;Saving...&lt;/span&gt;</code>。</p>
+<p>如果用户已经登陆，则需要渲染（即actions值为） <code>&lt;LikeAction /&gt; 和 &lt;ReplyAction /&gt;</code>，如果是作者本身，需要渲染的内容就要加入 <code>&lt;DeleteAction /&gt;</code>。</p>
+<h3 id="3-高阶组件"><a href="#3-高阶组件" class="headerlink" title="3.高阶组件"></a>3.高阶组件</h3><blockquote>
+<p>在实际开发当中，组件经常会被其他需求所污染。</p>
+</blockquote>
+<p>比如，我们想统计页面中所有链接的点击信息。在链接点击时，发送统计请求，同时包含此页面 document 的 id 值。常见的做法是在 Document 组件的生命周期函数 componentDidMount 和 componentWillUnmount 增加代码逻辑：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Document</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</div><div class="line">  componentDidMount() &#123;</div><div class="line">    ReactDOM.findDOMNode(<span class="keyword">this</span>).addEventListener(<span class="string">'click'</span>, <span class="keyword">this</span>.onClick);</div><div class="line">  &#125;</div><div class="line">  </div><div class="line">  componentWillUnmount() &#123;</div><div class="line">    ReactDOM.findDOMNode(<span class="keyword">this</span>).removeEventListener(<span class="string">'click'</span>, <span class="keyword">this</span>.onClick);</div><div class="line">  &#125;</div><div class="line">  </div><div class="line">  onClick = <span class="function">(<span class="params">e</span>) =&gt;</span> &#123;</div><div class="line">    <span class="keyword">if</span> (e.target.tagName === <span class="string">'A'</span>) &#123; <span class="comment">// Naive check for &lt;a&gt; elements</span></div><div class="line">      sendAnalytics(<span class="string">'link clicked'</span>, &#123;</div><div class="line">        <span class="attr">documentId</span>: <span class="keyword">this</span>.props.documentId <span class="comment">// Specific information to be sent</span></div><div class="line">      &#125;);</div><div class="line">    &#125;</div><div class="line">  &#125;;</div><div class="line">  </div><div class="line">  render() &#123;</div><div class="line">    <span class="comment">// ...</span></div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<p>利用高阶组件重构后的代码：<br><figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line">unction withLinkAnalytics(mapPropsToData, WrappedComponent) &#123;</div><div class="line">  <span class="class"><span class="keyword">class</span> <span class="title">LinkAnalyticsWrapper</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</div><div class="line">    componentDidMount() &#123;</div><div class="line">      ReactDOM.findDOMNode(<span class="keyword">this</span>).addEventListener(<span class="string">'click'</span>, <span class="keyword">this</span>.onClick);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    componentWillUnmount() &#123;</div><div class="line">      ReactDOM.findDOMNode(<span class="keyword">this</span>).removeEventListener(<span class="string">'click'</span>, <span class="keyword">this</span>.onClick);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    onClick = <span class="function">(<span class="params">e</span>) =&gt;</span> &#123;</div><div class="line">      <span class="keyword">if</span> (e.target.tagName === <span class="string">'A'</span>) &#123; <span class="comment">// Naive check for &lt;a&gt; elements</span></div><div class="line">        <span class="keyword">const</span> data = mapPropsToData ? mapPropsToData(<span class="keyword">this</span>.props) : &#123;&#125;;</div><div class="line">        sendAnalytics(<span class="string">'link clicked'</span>, data);</div><div class="line">      &#125;</div><div class="line">    &#125;;</div><div class="line">    </div><div class="line">    render() &#123;</div><div class="line">      <span class="comment">// Simply render the WrappedComponent with all props</span></div><div class="line">      <span class="keyword">return</span> &lt;WrappedComponent &#123;...this.props&#125; /&gt;;</div><div class="line">    &#125;</div><div class="line">  &#125;</div></pre></td></tr></table></figure></p>
+<p>withLinkAnalytics 函数并不会去改变 WrappedComponent 组件本身，更不会去改变 WrappedComponent 组件的行为。而是返回了一个被包裹的新组件。实际用法为：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Document</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</div><div class="line">  render() &#123;</div><div class="line">    <span class="comment">// ...</span></div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> withLinkAnalytics(<span class="function">(<span class="params">props</span>) =&gt;</span> (&#123;</div><div class="line">  <span class="attr">documentId</span>: props.documentId</div><div class="line">&#125;), Document);</div></pre></td></tr></table></figure>
+<p>这样一来，Document 组件仍然只需关心自己该关心的部分，而 withLinkAnalytics 赋予了复用统计逻辑的能力。</p>
+<h3 id="参考："><a href="#参考：" class="headerlink" title="参考："></a>参考：</h3><ol>
+<li><a href="https://medium.com/dailyjs/techniques-for-decomposing-react-components-e8a1081ef5da" target="_blank" rel="external">https://medium.com/dailyjs/techniques-for-decomposing-react-components-e8a1081ef5da</a></li>
+</ol>
+
+    
+
+    
+</div>
+
+
+                
+
+                <!-- Post Comments -->
+                
+                    
+
+
+    <!-- 使用 changyan -->
+    <div id="changyan-comment">
+        <!--PC和WAP自适应版-->
+<div id="SOHUCS" sid="2017/06/29/React-component-split/"  ></div>
+<script type="text/javascript">
+(function(){
+var appid = 'cysrjRKQi';
+var conf = 'c046a1f3e62c6957ed716fbff67c8ad2';
+var width = window.innerWidth || document.documentElement.clientWidth;
+if (width < 960) {
+window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("https://changyan.sohu.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})}); } })(); </script>
+
+    </div>
+    <style>
+        #changyan-comment{
+            background-color: #eee;
+            padding: 2pc;
+        }
+    </style>
+
+
+
+
+
+
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/2017/06/29/React-context/" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
+        </div>
+    </div>
+
+
+
+                    
+                        <!-- Overlay For Active Sidebar -->
+<div class="sidebar-overlay"></div>
+
+<!-- Material sidebar -->
+<aside id="sidebar" class="sidebar sidebar-colored sidebar-fixed-left" role="navigation">
+    <div id="sidebar-main">
+        <!-- Sidebar Header -->
+        <div class="sidebar-header header-cover" style="background-image: url(/img/sidebar_header.png);">
+    <!-- Top bar -->
+    <div class="top-bar"></div>
+
+    <!-- Sidebar toggle button -->
+    <button type="button" class="sidebar-toggle mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" style="display: initial;" data-upgraded=",MaterialButton,MaterialRipple">
+        <i class="material-icons">clear_all</i>
+        <span class="mdl-button__ripple-container">
+            <span class="mdl-ripple">
+            </span>
+        </span>
+    </button>
+
+    <!-- Sidebar Avatar -->
+    <div class="sidebar-image">
+        <img src="/img/avatar.png" alt="vino24's avatar">
+    </div>
+
+    <!-- Sidebar Email -->
+    <a data-toggle="dropdown" class="sidebar-brand" href="#settings-dropdown">
+        jzwmxz@hotmail.com
+        <b class="caret"></b>
+    </a>
+</div>
+
+
+        <!-- Sidebar Navigation  -->
+        <ul class="nav sidebar-nav">
+    <!-- User dropdown  -->
+    <li class="dropdown">
+        <ul id="settings-dropdown" class="dropdown-menu">
+            
+                <li>
+                    <a href="jzwmxz@hotmail.com" target="_blank" title="Email Me">
+                        
+                            <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">email</i>
+                        
+                        Email Me
+                    </a>
+                </li>
+            
+        </ul>
+    </li>
+
+    <!-- Homepage -->
+    
+        <li id="sidebar-first-li">
+            <a href="/" target="_self">
+                
+                    <i class="material-icons sidebar-material-icons">home</i>
+                
+                主页
+            </a>
+        </li>
+        
+    
+
+    <!-- Archives  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">inbox</i>
+                
+                    归档
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+            <li>
+                <a class="sidebar_archives-link" href="/archives/2017/06/">六月 2017<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/05/">五月 2017<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/02/">二月 2017<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/12/">十二月 2016<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/11/">十一月 2016<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/10/">十月 2016<span class="sidebar_archives-count">5</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/09/">九月 2016<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/08/">八月 2016<span class="sidebar_archives-count">6</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/07/">七月 2016<span class="sidebar_archives-count">9</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/05/">五月 2016<span class="sidebar_archives-count">6</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/04/">四月 2016<span class="sidebar_archives-count">7</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/03/">三月 2016<span class="sidebar_archives-count">5</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/02/">二月 2016<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/01/">一月 2016<span class="sidebar_archives-count">7</span></a></li><li><a class="sidebar_archives-link" href="/archives/2015/12/">十二月 2015<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/archives/2015/09/">九月 2015<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2015/08/">八月 2015<span class="sidebar_archives-count">5</span></a></li><li><a class="sidebar_archives-link" href="/archives/2015/07/">七月 2015<span class="sidebar_archives-count">11</span></a></li><li><a class="sidebar_archives-link" href="/archives/2015/06/">六月 2015<span class="sidebar_archives-count">6</span></a></li><li><a class="sidebar_archives-link" href="/archives/2015/05/">五月 2015<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2015/04/">四月 2015<span class="sidebar_archives-count">6</span></a></li><li><a class="sidebar_archives-link" href="/archives/2015/03/">三月 2015<span class="sidebar_archives-count">8</span></a></li><li><a class="sidebar_archives-link" href="/archives/2015/01/">一月 2015<span class="sidebar_archives-count">1</span></a>
+            </ul>
+        </li>
+        
+    
+
+    <!-- Categories  -->
+    
+
+    <!-- Pages  -->
+    
+        <li>
+            <a href="/about" title="About">
+                
+                    <i class="material-icons sidebar-material-icons">person</i>
+                
+                About
+            </a>
+        </li>
+        
+    
+        <li>
+            <a href="/tags/" title="标签云">
+                
+                    <i class="material-icons sidebar-material-icons">person</i>
+                
+                标签云
+            </a>
+        </li>
+        
+    
+        <li>
+            <a href="links/" title="友情链接">
+                
+                    <i class="material-icons sidebar-material-icons">person</i>
+                
+                友情链接
+            </a>
+        </li>
+        
+    
+
+    <!-- Article Number  -->
+    
+</ul>
+
+
+        <!-- Sidebar Footer -->
+        <!--
+I'm glad you use this theme, the development is no so easy, I hope you can keep the copyright, I will thank you so much.
+If you still want to delete the copyrights, could you still retain the first one? Which namely "Theme Material"
+It will not impact the appearance and can give developers a lot of support :)
+
+很高兴您使用并喜欢该主题，开发不易 十分谢谢与希望您可以保留一下版权声明。
+如果您仍然想删除的话 能否只保留第一项呢？即 "Theme Material"
+它不会影响美观并可以给开发者很大的支持和动力。 :)
+-->
+
+<!-- Sidebar Divider -->
+
+    <div class="sidebar-divider"></div>
+
+
+<!-- Theme Material -->
+
+    <a href="https://github.com/viosey/hexo-theme-material"  class="sidebar-footer-text-a" target="_blank">
+        <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
+            主题 - Material
+            <span class="sidebar-badge badge-circle">i</span>
+        </div>
+    </a>
+
+
+<!-- Help & Support -->
+<!--
+
+-->
+
+<!-- Feedback -->
+<!--
+
+-->
+
+<!-- About Theme -->
+<!--
+
+-->
+
+    </div>
+
+    <!-- Sidebar Image -->
+    
+
+</aside>
+
+                    
+
+                    
+                        <!-- Footer Top Button -->
+                        <div class="toTop-wrap">
+    <a href="#top" class="toTop">
+        <i class="material-icons footer_top-i">expand_less</i>
+    </a>
+</div>
+
+                    
+
+                    <!--Footer-->
+<footer class="mdl-mini-footer" id="bottom">
+    
+        <!-- Paradox Footer Left Section -->
+        <div class="mdl-mini-footer--left-section sns-list">
+    <!-- Twitter -->
+    
+
+    <!-- Facebook -->
+    
+
+    <!-- Google + -->
+    
+
+    <!-- Weibo -->
+    
+
+    <!-- Instagram -->
+    
+
+    <!-- Tumblr -->
+    
+
+    <!-- Github -->
+    
+        <a href="https://github.com/vino24/" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn" style="background-image: url(/img/footer/footer_ico-github.png);">
+                <span class="visuallyhidden">Github</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- LinkedIn -->
+    
+
+    <!-- Zhihu -->
+    
+
+    <!-- Bilibili -->
+    
+
+    <!-- Telegram -->
+    
+</div>
+
+
+        <!--Copyright-->
+        <div id="copyright">
+            Copyright&nbsp;©&nbsp;2017
+            &nbsp;逢十借一
+        </div>
+
+        <!-- Paradox Footer Right Section -->
+
+        <!--
+        I am glad you use this theme, the development is no so easy, I hope you can keep the copyright.
+        It will not impact the appearance and can give developers a lot of support :)
+
+        很高兴您使用该主题，开发不易，希望您可以保留一下版权声明。
+        它不会影响美观并可以给开发者很大的支持。 :)
+        -->
+
+        <div class="mdl-mini-footer--right-section">
+            <div>
+                <div class="footer-develop-div">Powered by <a href="https://hexo.io" target="_blank" class="footer-develop-a">Hexo</a></div>
+                <div class="footer-develop-div">Theme - <a href="https://github.com/viosey/hexo-theme-material" target="_blank" class="footer-develop-a">Material</a></div>
+            </div>
+        </div>
+    
+</footer>
+
+
+                    <!-- Import File -->
+
+    <script src="/js/lazyload.min.js"></script>
+    <script src="/js/js.min.js"></script>
+
+
+
+    <script src="/js/nprogress.js"></script>
+
+
+<script type="text/javascript">
+    NProgress.configure({
+        showSpinner: true
+    });
+    NProgress.start();
+    $('#nprogress .bar').css({
+        'background': '#FF4081'
+    });
+    $('#nprogress .peg').css({
+        'box-shadow': '0 0 10px #FF4081, 0 0 15px #FF4081'
+    });
+    $('#nprogress .spinner-icon').css({
+        'border-top-color': '#FF4081',
+        'border-left-color': '#FF4081'
+    });
+    setTimeout(function() {
+        NProgress.done();
+        $('.fade').removeClass('out');
+    }, 800);
+</script>
+
+
+
+
+
+
+
+
+
+
+    <!-- 畅言公共 js 代码 start -->
+		<script id="cy_cmt_num" src="https://changyan.sohu.com/upload/plugins/plugins.list.count.js?clientId=cysrjRKQi">
+</script>
+    <!-- 畅言公共 js 代码 end -->
+
+
+
+
+
+
+
+<!-- Window Load-->
+<script>
+    $(window).load(function() {
+        // Post_Toc parent position fixed
+        $('.post-toc-wrap').parent('.mdl-menu__container').css('position', 'fixed');
+    });
+</script>
+
+<!-- MathJax Load-->
+
+<script>
+    queue.offer(function(){
+        $('.lazy').lazyload({
+            effect : 'show'
+        });
+    });
+
+    <!-- Start Queue -->
+    $(document).ready(function(){
+        setInterval(function(){
+            queue.execNext();
+        },200);
+    });
+</script>
+
+                </main>
+            </div>
+        </body>
+    
+</html>
